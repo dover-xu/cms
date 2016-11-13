@@ -1,11 +1,11 @@
 from django import forms
 from django.contrib import admin
 from django.db import models
-from .models import Comment, Article, Column, NewUser,Author
+from .models import Comment, Article, Column, NewUser, Author
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'article_id', 'pub_date', 'content' ,'poll_num')
+    list_display = ('user_id', 'article_id', 'pub_date', 'content', 'poll_num')
 
 
 class ArticleAdmin(admin.ModelAdmin):

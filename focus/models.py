@@ -1,7 +1,5 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.db import models
-
-# Create your models here.
 from django.utils.encoding import python_2_unicode_compatible
 
 
@@ -27,6 +25,28 @@ class Column(models.Model):
         ordering = ['name']
 
 
+class ArticleManager(models.Manager):
+    def query_by_column(self, column_id):
+        query = self.get_query().filter(column_id=column_id)
+
+    def query_by_user(self, user_id):
+        user = User.objects.get(id=user_id)
+        article_list = user.article_set.all()
+        return article_list
+
+    def query_by_polls(self):
+        query = self.get_queryset().order_by('poll_num')
+        return query
+
+    def query_by_time(self):
+        query = self.get_queryset().order_by('-pub_date')
+        return query
+
+    def query_by_keyword(self, keyword):
+        query = self.get_queryset().filter(title__contains=keyword)
+        return query
+
+
 class Article(models.Model):
     column = models.ForeignKey(Column, blank=True, null=True, verbose_name='belong to')
     title = models.CharField(max_length=256)
@@ -39,6 +59,14 @@ class Article(models.Model):
     poll_num = models.IntegerField(default=0)
     comment_num = models.IntegerField(default=0)
     keep_num = models.IntegerField(default=0)
+    objects = ArticleManager()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'article'
+        verbose_name_plural = 'article'
 
 
 @python_2_unicode_compatible
@@ -65,5 +93,5 @@ class Author(models.Model):
 
 class Poll(models.Model):
     user = models.ForeignKey('NewUser', null=True)
-    article = models.ForeignKey('Article', null=True)
-    
+    article = models.ForeignKey(Article, null=True)
+    comment = models.ForeignKey(Comment, null=True)
