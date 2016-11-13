@@ -66,4 +66,4 @@ class Author(models.Model):
 class Poll(models.Model):
     user = models.ForeignKey('NewUser', null=True)
     article = models.ForeignKey('Article', null=True)
-    comment = models.ForeignKey('Comment', null=True)
+    
