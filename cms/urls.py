@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+
+from cms import settings
 from focus import urls as focus_urls
 from focus import views
 
