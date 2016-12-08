@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Django settings for cms project.
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'focus',
+    'debugtools',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cms_db',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'root',
         'HOST': '',
         'PORT': '',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
