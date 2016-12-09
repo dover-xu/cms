@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.db import models
-from .models import Comment, Article, Column, NewUser, Author
+from .models import Comment, Article, Column, NewUser, Author, Post
 
 
 class CommentAdmin(admin.ModelAdmin):
@@ -33,8 +33,13 @@ class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name', 'profile')
 
 
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('text', 'image', 'category', 'pub_date', 'comment_num', 'praise_num', 'tread_num')
+
+
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Column, ColumnAdmin)
 admin.site.register(NewUser, NewUserAdmin)
 admin.site.register(Author, AuthorAdmin)
+admin.site.register(Post, PostAdmin)

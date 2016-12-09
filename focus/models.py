@@ -95,3 +95,32 @@ class Poll(models.Model):
     user = models.ForeignKey('NewUser', null=True)
     article = models.ForeignKey(Article, null=True)
     comment = models.ForeignKey(Comment, null=True)
+
+
+##############################################
+# sex_choice = (
+#     ('f', 'female'),
+#     ('m', 'male')
+# )
+
+# class User(models.Model):
+#     name = models.CharField(max_length=128)
+#     sex = models.CharField(max_length=128, choices=sex_choice)
+#     password = models.CharField(max_length=50)
+#     register_date = models.DateTimeField(auto_now_add=True)
+cate_choice = (
+    ('Video', 'Video'),
+    ('Picture', 'Picture'),
+    ('Jape', 'Jape'),
+    ('Others', 'Others')
+)
+
+
+class Post(models.Model):
+    text = models.TextField(blank=True)
+    image = models.ImageField(blank=True)
+    category = models.CharField(max_length=20, choices=cate_choice, blank=True, null=True, verbose_name="Belong to")
+    pub_date = models.DateTimeField(auto_now_add=True, editable=True)
+    comment_num = models.IntegerField(default=0)
+    praise_num = models.IntegerField(default=0)
+    tread_num = models.IntegerField(default=0)
