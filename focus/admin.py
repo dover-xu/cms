@@ -11,11 +11,14 @@ class CommentAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': forms.Textarea(
-                           attrs={'rows': 41,
-                                  'cols': 100
-                                  })},
+                attrs={'rows': 41,
+                       'cols': 100
+                       })},
     }
-    list_display = ('title', 'pub_date', 'poll_num')
+    list_display = ('title', 'columnm', 'pub_date', 'poll_num')
+
+    def columnm(self, obj):
+        return obj.column
 
 
 class NewUserAdmin(admin.ModelAdmin):
@@ -29,9 +32,9 @@ class ColumnAdmin(admin.ModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name', 'profile')
 
+
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Column, ColumnAdmin)
 admin.site.register(NewUser, NewUserAdmin)
 admin.site.register(Author, AuthorAdmin)
-
