@@ -17,6 +17,50 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+def index_hot(request):
+    return render(request, 'index-hot.html', {})
+
+
+def index_new(request):
+    return render(request, 'index-new.html', {})
+
+
+def video(request):
+    return render(request, 'video.html', {})
+
+
+def video_hot(request):
+    return render(request, 'video-hot.html', {})
+
+
+def video_new(request):
+    return render(request, 'video-new.html', {})
+
+
+def pic(request):
+    return render(request, 'pic.html', {})
+
+
+def pic_hot(request):
+    return render(request, 'pic-hot.html', {})
+
+
+def pic_new(request):
+    return render(request, 'pic-new.html', {})
+
+
+def jape(request):
+    return render(request, 'jape.html', {})
+
+
+def jape_hot(request):
+    return render(request, 'jape-hot.html', {})
+
+
+def jape_new(request):
+    return render(request, 'jape-new.html', {})
+
+
 def log_in(request):
     if request.method == 'GET':
         form = LoginForm()

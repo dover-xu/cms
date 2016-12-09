@@ -59,7 +59,7 @@
 							<li><a href="#">Pontificate</a></li>
 							<li><a href="#">Synergize</a></li>
 						</ul>
-					</li>
+					</li>    
                 </ul>
 
 				<!-- Search -->
@@ -78,55 +78,78 @@
 
 <div class="container-fluid">
 
+		<!-- Left Column -->
+		<div class="col-sm-3">
+
+			<!-- List-Group Panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title"><span class="glyphicon glyphicon-random"></span> Completely Synergize</h1>
+				</div>
+				<div class="list-group">
+					<a href="#" class="list-group-item">Resource Taxing</a>
+					<a href="#" class="list-group-item">Premier Niche Markets</a>
+					<a href="#" class="list-group-item">Dynamically Innovate</a>
+					<a href="#" class="list-group-item">Objectively Innovate</a>
+					<a href="#" class="list-group-item">Proactively Envisioned</a>
+				</div>
+			</div>
+
+			<!-- Text Panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Dramatically Engage</h1>
+				</div>
+
+				<div class="panel-body">
+					<p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+					<p><button class="btn btn-default">Engage</button></p>
+				</div>
+			</div>
+
+			<!-- Text Panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<span class="glyphicon glyphicon-bullhorn"></span> 
+						Active Predomination
+					</h3>
+				</div>
+				<div class="panel-body">
+					<p>Proactively envisioned multimedia based expertise and cross-media growth strategies.</p>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default">Resource</button>
+						<button type="button" class="btn btn-default">Envision</button>
+						<button type="button" class="btn btn-default">Niche</button>
+					</div>
+				</div>
+			</div>	
+				
+		</div><!--/Left Column-->
+  
+  
 		<!-- Center Column -->
-        <div class="col-sm-9">
-            <!-- Article -->
+        <div class="col-sm-6">
+            <!-- Articles -->
+            {% for article in latest_article_list %}
             <div class="row">
                 <article class="col-xs-12">
-                    <h2>{{ article.title }}</h2>
-                    <p class="pull-right"><span class="label label-default">{{ article.column }}</span> <span class="label label-default">{{ article.pub_date | date:"j M" }}</span> <span class="label label-default">{{ article.author }}</span></p>
-                    <p><hr></p>
-                    <p>{{ content | safe }}</p>
-                    <p></p>
+                    <h2><a id="article_title", href="/focus/{{ article.id }}">{{ article.title }}</a></h2>
+                    <p>{{ article.content|truncatechars_html:80 | safe }}</p>
+                <!--     <p><button class="btn btn-default">Read More</button></p>  -->
+                    <p class="pull-right"><span class="label label-default">{{ article.column }}</span> <span class="label label-default">tag</span> <span class="label label-default">{{ article.author }}</span></p>
                     <ul class="list-inline">
-                        <li><a href=" "><span class="glyphicon glyphicon-comment"></span> {{ article.comment_num }} Comments</a></li>
-                        <li><a href="/focus/{{ article.id }}/keep/"><span class="glyphicon glyphicon-star-empty"></span>{{ article.keep_num }} Favorites</a></li>
-                        <li><a href="/focus/{{ article.id }}/poll/"><span class="glyphicon glyphicon-thumbs-up"></span>{{ article.poll_num }} Upvotes</a></li>
-                    </ul>
-                </article>
-            </div>
-            <hr>
-
-            <!-- Comments -->
-            <h3>Comments:</h3>
-            <hr>
-            {% for comment in comments %}
-            <div class="row">
-
-                <article class="col-xs-12">
-                    <p class="pull-right"> <span class="label label-default">tag</span> <span class="label label-default">{{ comment.user }}</span></p>
-                    <p>{{ comment.content }}</p>
-                    <ul class="list-inline">
-                        <li><a href=" ">{{ comment.pub_date | date:"j M" }}</a></li>
-                        <li><a href=" "><span class="glyphicon glyphicon-comment"></span> {{ comment.comment_num }} Comments</a></li>
-                        <li><a href=" "><span class="glyphicon glyphicon-thumbs-up"></span>{{ comment.poll_num }} Upvotes</a></li>
+                        <li><a href="#">{{ article.pub_date | date:"j M" }}</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-comment"></span> {{ article.comment_num }} Comments</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-star-empty"></span>{{ article.keep_num }} Favorites</a></li>
                     </ul>
                 </article>
             </div>
             <hr>
             {% endfor %}
-            <div class="row">
-                <article class="col-xs-12">
-                    <h4>Sharing you comment:</h4>
-                    <form action="/focus/{{ article.id }}/comment/" method="post">
-                        {% csrf_token %}
-                        {{ commentform.as_p }}
-                        <input class="btn btn-default" type="submit" value="Submit" />
-                    </form>
-                </article>
-            </div>
-            <hr>
-        </div><!--/Center Column-->
+        </div>
+            <!--/Center Column-->
+
 
 	  <!-- Right Column -->
       <div class="col-sm-3">
@@ -171,7 +194,7 @@
           <!--/Right Column -->
 
 	</div><!--/container-fluid-->
-
+	
 	<footer>
 		<div class="footer-blurb">
 			<div class="container">
@@ -192,8 +215,8 @@
 						<p><a class="btn btn-default" href="#">Complete</a></p>
 					</div>
 					<div class="col-sm-3 footer-blurb-item">
-
-						<!-- Thumbnails -->
+						
+						<!-- Thumbnails --> 
 						<h3><span class="glyphicon glyphicon-camera"></span> Phosfluorescent</h3>
 							<div class="row">
 								<div class="col-xs-6">
@@ -217,14 +240,14 @@
 									</a>
 								</div>
 							</div>
-
+							
 					</div>
 
 				</div>
-				<!-- /.row -->
+				<!-- /.row -->	
 			</div>
         </div>
-
+        
         <div class="small-print">
         	<div class="container">
         		<p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
@@ -233,16 +256,16 @@
         </div>
 	</footer>
 
-
+	
     <!-- jQuery -->
     <script src="{% static "js/jquery-1.11.3.min.js" %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "js/bootstrap.min.js" %}"></script>
-
+	
 	<!-- IE10 viewport bug workaround -->
 	<script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
-
+	
 	<!-- Placeholder Images -->
 	<script src="{% static "js/holder.min.js" %}"></script>
 
@@ -251,4 +274,3 @@
 </body>
 
 </html>
-

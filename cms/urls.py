@@ -23,5 +23,16 @@ from focus import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    url(r'^index-hot$', views.index_hot, name='index_hot'),
+    url(r'^index-new$', views.index_new, name='index_new'),
+    url(r'^video$', views.video, name='video'),
+    url(r'^video-hot$', views.video_hot, name='video_hot'),
+    url(r'^video-new$', views.video_new, name='video_new'),
+    url(r'^pic$', views.pic, name='pic'),
+    url(r'^pic-hot$', views.pic_hot, name='pic_hot'),
+    url(r'^pic-new$', views.pic_new, name='pic_new'),
+    url(r'^jape$', views.jape, name='pic'),
+    url(r'^jape-hot$', views.jape_hot, name='jape_hot'),
+    url(r'^jape-new$', views.jape_new, name='jape_new'),
     url(r'^focus/', include(focus_urls)),
 ]
