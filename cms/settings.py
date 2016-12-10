@@ -142,3 +142,7 @@ STATICFILES_DIRS = (
 AUTH_USER_MODEL = 'focus.NewUser'
 
 LOGIN_URL = "/focus/login/?next='article_id'"
+
+MEDIA_URL = '/uploads/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')

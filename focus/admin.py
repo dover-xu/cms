@@ -1,11 +1,11 @@
 from django import forms
 from django.contrib import admin
 from django.db import models
-from .models import Comment, Article, Column, NewUser, Author, Post
+from .models import Comment, Article, Column, NewUser, Author, Note, Share, Praise, Tread
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'article_id', 'pub_date', 'content', 'poll_num')
+    list_display = ('user', 'note', 'pub_date', 'text', 'praise_num', 'tread_num')
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -15,7 +15,7 @@ class ArticleAdmin(admin.ModelAdmin):
                        'cols': 100
                        })},
     }
-    list_display = ('title', 'columnm', 'pub_date', 'poll_num')
+    list_display = ('title', 'columnm', 'pub_date')
 
     def columnm(self, obj):
         return obj.column
@@ -33,8 +33,20 @@ class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name', 'profile')
 
 
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('text', 'image', 'category', 'pub_date', 'comment_num', 'praise_num', 'tread_num')
+class NoteAdmin(admin.ModelAdmin):
+    list_display = ('user', 'text', 'image', 'category', 'pub_date', 'comment_num', 'praise_num', 'tread_num')
+
+
+class ShareAdmin(admin.ModelAdmin):
+    list_display = ('user', 'note', 'text', 'to')
+
+
+class PraiseAdmin(admin.ModelAdmin):
+    list_display = ('user', 'note', 'comment')
+
+
+class TreadAdmin(admin.ModelAdmin):
+    list_display = ('user', 'note', 'comment')
 
 
 admin.site.register(Comment, CommentAdmin)
@@ -42,4 +54,7 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Column, ColumnAdmin)
 admin.site.register(NewUser, NewUserAdmin)
 admin.site.register(Author, AuthorAdmin)
-admin.site.register(Post, PostAdmin)
+admin.site.register(Note, NoteAdmin)
+admin.site.register(Share, ShareAdmin)
+admin.site.register(Praise, PraiseAdmin)
+admin.site.register(Tread, TreadAdmin)

@@ -1,48 +1,21 @@
 $(function(){
-		$(".praise-2").click(function(){
-			var praise_img = $(this).children(".praise-img");
-			//var text_box = $(".add-num-praise");
-			var praise_txt = $(this).parents(".praise-1").siblings(".praise-txt");
-			var num=parseInt(praise_txt.text());
-			if(praise_img.attr("src") == ("images/yizan.png")){
-				$(this).html("<img src='images/zan.png' class='praise-img' class='animation' />");
-				praise_txt.removeClass("hover");
-				//text_box.show().html("<em class='add-animation'>-1</em>");
-				$(".add-animation").removeClass("hover");
-				num -=1;
-				praise_txt.text(num)
-			}else{
-				$(this).html("<img src='images/yizan.png' class='praise-img' class='animation' />");
-				praise_txt.addClass("hover");
-				//text_box.show().html("<em class='add-animation'>+1</em>");
-				$(".add-animation").addClass("hover");
-				num +=1;
-				praise_txt.text(num)
-			}
-		});
-		
-		$(".tread-2").click(function(){
-			var tread_img = $(this).children(".tread-img");
-			//var text_box = $(".add-num-tread");
-			var tread_txt = $(this).parents(".tread-1").siblings(".tread-txt");
-			var num=parseInt(tread_txt.text());
-			if(tread_img.attr("src") == ("images/yicai.png")){
-				$(this).html("<img src='images/cai.png' class='tread-img' class='animation' />");
-				tread_txt.removeClass("hover");
-				//text_box.show().html("<em class='add-animation'>-1</em>");
-				$(".add-animation").removeClass("hover");
-				num -=1;
-				tread_txt.text(num)
-			}else{
-				$(this).html("<img src='images/yicai.png' class='tread-img' class='animation' />");
-				tread_txt.addClass("hover");
-				//text_box.show().html("<em class='add-animation'>+1</em>");
-				$(".add-animation").addClass("hover");
-				num +=1;
-				tread_txt.text(num)
-			}
-		});
-
+	// 百度分享
+	window._bd_share_config = {
+		"common": {
+			"bdSnsKey": {},
+			"bdText": "",
+			"bdMini": "2",
+			"bdMiniList": false,
+			"bdPic": "",
+			"bdStyle": "0",
+			"bdSize": "16"
+		},
+		"share": {},
+		"image": {"viewList": ["weixin", "tsina", "qzone", "renren"], "viewText": "分享到：", "viewSize": "16"},
+		"selectShare": {"bdContainerClass": null, "bdSelectMiniList": ["weixin", "tsina", "qzone", "renren"]}
+	};
+	with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+	// 设置分页导航页数
 		$("#Pagination").pagination("15");
 	})
 

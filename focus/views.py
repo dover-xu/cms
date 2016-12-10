@@ -7,13 +7,13 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 
 from focus.forms import LoginForm, CommentForm, RegisterForm
-from focus.models import Article, Comment, Poll, NewUser
+from focus.models import Article, Comment, Praise, NewUser, Note
 
 
 def index(request):
-    latest_article_list = Article.objects.query_by_time()
+    latest_note_list = Note.objects.query_by_time()
     loginform = LoginForm()
-    context = {'latest_article_list': latest_article_list, 'loginform': loginform}
+    context = {'latest_note_list': latest_note_list, 'loginform': loginform}
     return render(request, 'index.html', context)
 
 
@@ -135,21 +135,21 @@ def get_keep(request, article_id):
 
 
 @login_required
-def get_poll_article(request, article_id):
+def get_praise_article(request, note_id):
     logged_user = request.user
-    article = Article.objects.get(id=article_id)
-    polls = logged_user.poll_set.all()
+    article = Article.objects.get(id=note_id)
+    praises = logged_user.praise_set.all()
     articles = []
-    for poll in polls:
-        articles.append(poll.article)
+    for praise in praises:
+        articles.append(praise.article)
     if article in articles:
-        url = urllib.parse.urljoin('/focus', article_id)
+        url = urllib.parse.urljoin('/focus', note_id)
         return redirect(url)
     else:
-        article.poll_num += 1
+        article.praise_num += 1
         article.save()
-        poll = Poll(user=logged_user, article=article)
-        poll.save()
+        praise = Praise(user=logged_user, note=note_id)
+        praise.save()
         data = {}
         return redirect('/focus/')
 
