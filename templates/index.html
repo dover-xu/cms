@@ -94,11 +94,15 @@
                                     </div>
                                     <!-- 发布内容 -->
                                     <div class="content">
+                                        {% if note.text %}
                                         <div class="content-text">{{ note.text }}</div>
+                                        {% endif %}
+                                        {% if note.image %}
                                         <div class="content-img">
                                             <img src="{{ note.image.url }}" alt="图片无法显示"
                                                  class="img-responsive center-block" width="100%">
                                         </div>
+                                        {% endif %}
                                     </div>
                                     <!-- 工具条 -->
                                     <div class="tool-bar">
@@ -108,7 +112,7 @@
                                                     <img src="{{ STATIC_PREFIX }}images/zan.png" class="praise-img">
                                                 </span>
                                             </div>
-                                            <span class="praise-txt">{{ note.praise_num }}</span>
+                                            <span class="praise-txt">{{ note.praise_str }}</span>
                                             <span class="add-num-praise">
                                                 <em>+1</em>
                                             </span>
@@ -117,15 +121,7 @@
                                                     <img src="{{ STATIC_PREFIX }}images/cai.png" class="tread-img">
                                                 </span>
                                             </div>
-                                            <span class="tread-txt">
-                                                {% with n=123 %}
-                                                    {% if note.tread_num == 1 %}
-                                                        11
-                                                    {% else %}
-                                                        {{ n }}
-                                                    {% endif %}
-                                                {% endwith %}
-                                            </span>
+                                            <span class="tread-txt">{{ note.tread_str }}</span>
                                             <span class="add-num-tread">
                                                 <em>+1</em>
                                             </span>
@@ -170,7 +166,7 @@
         <script type="text/javascript" src="{{ STATIC_PREFIX }}js/js-common.js"></script>
         <script type="text/javascript" src="{{ STATIC_PREFIX }}js/jquery.pagination.js"></script>
         <script>
-            <!-- 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量 -->
+            // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
             $(".praise-2").click(function () {
                 var praise_img = $(this).children(".praise-img");
                 //var text_box = $(".add-num-praise");
@@ -213,7 +209,21 @@
                     tread_txt.text(num)
                 }
             });
-        </script>
 
+            // 分页导航配置
+            var iPageSize = 5; // 设置每页显示帖子条数
+            // When document is ready, initialize pagination
+            $(document).ready(function () {
+                var page_id = {{ page_id }};
+                var rows = {{ rows }};
+                $("#Pagination").pagination(rows, {
+                    current_page: page_id - 1,
+                    num_edge_entries: 1, //边缘页数
+                    num_display_entries: parseInt(rows / iPageSize), // 分页主体部分显示的分页条目数
+                    //callback: pageselectCallbackack,
+                    items_per_page: iPageSize //每页显示几项
+                });
+            });
+        </script>
     </body>
 </html>

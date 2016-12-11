@@ -108,9 +108,8 @@ footer {
     float: left;
     width: 20px;
     height: 20px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 2px 10px 2px;
     cursor: pointer;
-    font-size: 10px;
     text-align: center;
     position: relative;
 }
@@ -122,11 +121,12 @@ footer {
 }
 .praise-txt {
     float: left;
+    font-size: 10px;
     color: #d5d5d5;
-    width: 40px;
+    width: 50px;
     height: 20px;
     line-height: 20px;
-    margin: 13px 0px 0px -10px;
+    margin: 13px 0px 0px 0px;
 }
 .praise-1 img {
     float: left;
@@ -363,9 +363,8 @@ footer {
     float: left;
     width: 20px;
     height: 20px;
-    margin: 15px 10px 10px 10px;
+    margin: 15px 2px 10px 2px;
     cursor: pointer;
-    font-size: 10px;
     text-align: center;
     position: relative;
 }
@@ -378,10 +377,11 @@ footer {
 .tread-txt {
     float: left;
     color: #d5d5d5;
-    width: 40px;
+    font-size: 10px;
+    width: 50px;
     height: 20px;
     line-height: 20px;
-    margin: 13px 0px 0px -10px;
+    margin: 13px 0px 0px 0px;
 }
 .tread-1 img {
     float: left;

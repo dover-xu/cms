@@ -129,11 +129,9 @@
 	$.fn.pagination = function(maxentries, opts){
 		// Initialize options with default values
 
-
 		opts = $.extend({
 			items_per_page:1,
 			num_display_entries:4,
-			current_page:0,
 			num_edge_entries:1,
 			link_to:"?page=__id__",
 			prev_text:"上一页",
@@ -144,7 +142,6 @@
 			renderer:"defaultRenderer",
 			show_if_single_page:false,
 			load_first_page:false,
-			callback:pageselectCallback,
 		},opts||{});
 
 		var containers = this,
@@ -245,19 +242,5 @@
 			opts.callback(current_page, containers);
 		}
 	} // End of $.fn.pagination block
-
-	 function pageselectCallback(page) {
-		 var result = "";
-		/* $.ajax({
-			 type: "post",
-			 dataType: "json",
-			 url: "getdata.aspx", //请求的url
-			 data: { "page": parseInt(page + 1) },
-			 success: function (req) {
-				 //使用微软jQuery Templates绑定数据列表,实现了HTML与js分离,使得页面整洁
-				 $("#content-left").html($("#Template").render(req.articlelist));
-			 }
-		 });*/
-	 }
 	
 })(jQuery);

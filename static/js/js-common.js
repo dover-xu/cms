@@ -15,7 +15,5 @@ $(function(){
 		"selectShare": {"bdContainerClass": null, "bdSelectMiniList": ["weixin", "tsina", "qzone", "renren"]}
 	};
 	with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-	// 设置分页导航页数
-		$("#Pagination").pagination("15");
-	})
+})
 

@@ -7,13 +7,23 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 
 from focus.forms import LoginForm, CommentForm, RegisterForm
-from focus.models import Article, Comment, Praise, NewUser, Note
+from focus.models import Comment, Praise, NewUser, Note
 
 
 def index(request):
     latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
     loginform = LoginForm()
-    context = {'latest_note_list': latest_note_list, 'loginform': loginform}
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
     return render(request, 'index.html', context)
 
 
@@ -88,70 +98,70 @@ def log_out(request):
     return redirect(url)
 
 
-def article(request, article_id):
-    article = get_object_or_404(Article, id=article_id)
-    content = markdown2.markdown(article.content, extras=["code-friendly",
-                                                          "fenced-code-blocks", "header-ids", "toc", "metadata"])
-    commentform = CommentForm()
-    loginform = LoginForm()
-    comments = article.comment_set.all
+# def article(request, article_id):
+#     article = get_object_or_404(Article, id=article_id)
+#     content = markdown2.markdown(article.content, extras=["code-friendly",
+#                                                           "fenced-code-blocks", "header-ids", "toc", "metadata"])
+#     commentform = CommentForm()
+#     loginform = LoginForm()
+#     comments = article.comment_set.all
+#
+#     return render(request, 'article_page.html', {
+#         'article': article,
+#         'loginform': loginform,
+#         'commentform': commentform,
+#         'content': content,
+#         'comments': comments
+#     })
 
-    return render(request, 'article_page.html', {
-        'article': article,
-        'loginform': loginform,
-        'commentform': commentform,
-        'content': content,
-        'comments': comments
-    })
-
-@login_required
-def comment(request, article_id):
-    form = CommentForm(request.POST)
-    url = urllib.parse.urljoin('/focus', article_id)
-    if form.is_valid():
-        user = request.user
-        article = Article.objects.get(id=article_id)
-        new_comment = form.cleaned_data['comment']
-        C = Comment(content=new_comment, article_id=article_id)
-        C.user = user
-        C.save()
-        article.comment_num += 1
-    return redirect(url)
-
-
-@login_required
-def get_keep(request, article_id):
-    logged_user = request.user
-    article = Article.objects.get(id=article_id)
-    articles = logged_user.article_set.all()
-    if article not in articles:
-        article.user.add(logged_user)
-        article.keep_num += 1
-        article.save()
-        return redirect('/focus/')
-    else:
-        url = urllib.parse.urljoin('/focus/', article_id)
-        return redirect(url)
-
-
-@login_required
-def get_praise_article(request, note_id):
-    logged_user = request.user
-    article = Article.objects.get(id=note_id)
-    praises = logged_user.praise_set.all()
-    articles = []
-    for praise in praises:
-        articles.append(praise.article)
-    if article in articles:
-        url = urllib.parse.urljoin('/focus', note_id)
-        return redirect(url)
-    else:
-        article.praise_num += 1
-        article.save()
-        praise = Praise(user=logged_user, note=note_id)
-        praise.save()
-        data = {}
-        return redirect('/focus/')
+# @login_required
+# def comment(request, article_id):
+#     form = CommentForm(request.POST)
+#     url = urllib.parse.urljoin('/focus', article_id)
+#     if form.is_valid():
+#         user = request.user
+#         article = Article.objects.get(id=article_id)
+#         new_comment = form.cleaned_data['comment']
+#         C = Comment(content=new_comment, article_id=article_id)
+#         C.user = user
+#         C.save()
+#         article.comment_num += 1
+#     return redirect(url)
+#
+#
+# @login_required
+# def get_keep(request, article_id):
+#     logged_user = request.user
+#     article = Article.objects.get(id=article_id)
+#     articles = logged_user.article_set.all()
+#     if article not in articles:
+#         article.user.add(logged_user)
+#         article.keep_num += 1
+#         article.save()
+#         return redirect('/focus/')
+#     else:
+#         url = urllib.parse.urljoin('/focus/', article_id)
+#         return redirect(url)
+#
+#
+# @login_required
+# def get_praise_article(request, note_id):
+#     logged_user = request.user
+#     article = Article.objects.get(id=note_id)
+#     praises = logged_user.praise_set.all()
+#     articles = []
+#     for praise in praises:
+#         articles.append(praise.article)
+#     if article in articles:
+#         url = urllib.parse.urljoin('/focus', note_id)
+#         return redirect(url)
+#     else:
+#         article.praise_num += 1
+#         article.save()
+#         praise = Praise(user=logged_user, note=note_id)
+#         praise.save()
+#         data = {}
+#         return redirect('/focus/')
 
 
 def register(request):
