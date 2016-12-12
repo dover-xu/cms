@@ -6,7 +6,8 @@
         <title>尼垢了</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% load staticfiles %}
+        {% load static %}
+        {% get_static_prefix as STATIC_PREFIX %}
         <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
         <link rel="stylesheet" href="{% static "bootstrap/css/font-awesome.min.css" %}">
         <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}" >
@@ -78,91 +79,48 @@
                         </div>
                         <div>
                             <ul class="list-unstyled">
+                                {% for note in latest_note_list %}
                                 <li class="nav" style="border-bottom: 1px solid #d5d5d5;">
                                     <!-- 用户信息 -->
                                     <div class="u-bar">
                                         <span class="pull-left">
                                             <a href="#">
-                                                <img src="{% static "images/dover.png" %}" alt="头像无法显示" class="u-img">
+                                                <img src="{{ note.user.avatar.url }}" alt="头像无法显示" class="u-img">
                                             </a>
                                         </span>
-                                        <span class="pull-left u-name">胥栋</span>
-                                        <span class="pull-right pub-time">2016-11-27 11:11:11</span>
+                                        <span class="pull-left u-name">{{ note.user.username }}</span>
+                                        <span class="pull-right pub-time">{{ note.pub_date|date:"Y-m-d H:i:s" }}</span>
                                     </div>
                                     <!-- 发布内容 -->
                                     <div class="content">
-                                        <div class="content-text">hello..</div>
-                                        <!--<div class="content-img">
-                                            <img src="images\dover.png" alt="图片无法显示" class="img-responsive center-block" width="100%">
-                                        </div>-->
-                                    </div>
-                                    <!-- 工具条 -->
-                                    <div class="tool-bar">
-                                        <div style="float:left;height:100%;">
-                                            <div class="praise-1">
-                                                <span class="praise-2">
-                                                    <img src="{% static "images/zan.png" %}" class="praise-img">
-                                                </span>
-                                            </div>
-                                            <span class="praise-txt">1455</span>
-                                            <span class="add-num-praise">
-                                                <em>+1</em>
-                                            </span>
-                                            <div class="tread-1">
-                                                <span class="tread-2">
-                                                    <img src="{% static "images/cai.png" %}" class="tread-img">
-                                                </span>
-                                            </div>
-                                            <span class="tread-txt">1455</span>
-                                            <span class="add-num-tread">
-                                                <em>+1</em>
-                                            </span>
-                                        </div>
-                                        <div class="bdsharebuttonbox" style="float:right;padding:8.5px 10px">
-                                            <a href="#" class="bds_more" data-cmd="more" style="color:#d5d5d5">分享到：</a>
-                                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                                            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav" style="border-bottom: 1px solid #d5d5d5;">
-                                    <!-- 用户信息 -->
-                                    <div class="u-bar">
-                                    <span class="pull-left">
-                                    <a href="#">
-                                        <img src="{% static "images/dover.png" %}" alt="头像无法显示" class="u-img">
-                                    </a>
-                                    </span>
-                                        <span class="pull-left u-name">胥栋</span>
-                                        <span class="pull-right pub-time">2016-11-27 11:11:11</span>
-                                    </div>
-                                    <!-- 发布内容 -->
-                                    <div class="content">
-                                        <div class="content-text">content content ...</div>
+                                        {% if note.text %}
+                                            <div class="content-text">{{ note.text }}</div>
+                                        {% endif %}
+                                        {% if note.image %}
                                         <div class="content-img">
-                                            <img src="{% static "images/Lighthouse.jpg" %}" alt="图片无法显示" class="img-responsive center-block" width="100%">
+                                            <img src="{{ note.image.url }}" alt="图片无法显示"
+                                                 class="img-responsive center-block" width="100%">
                                         </div>
+                                        {% endif %}
                                     </div>
                                     <!-- 工具条 -->
                                     <div class="tool-bar">
                                         <div style="float:left;height:100%;">
                                             <div class="praise-1">
                                                 <span class="praise-2">
-                                                    <img src="{% static "images/zan.png" %}" class="praise-img">
+                                                    <img src="{{ STATIC_PREFIX }}images/zan.png" class="praise-img">
                                                 </span>
                                             </div>
-                                            <span class="praise-txt">1455</span>
+                                            <span class="praise-txt">{{ note.praise_str }}</span>
                                             <span class="add-num-praise">
                                                 <em>+1</em>
                                             </span>
                                             <div class="tread-1">
                                                 <span class="tread-2">
-                                                    <img src="{% static "images/cai.png" %}" class="tread-img">
+                                                    <img src="{{ STATIC_PREFIX }}images/cai.png" class="tread-img">
                                                 </span>
                                             </div>
-                                            <span class="tread-txt">1455</span>
+                                            <span class="tread-txt">{{ note.tread_str }}</span>
                                             <span class="add-num-tread">
                                                 <em>+1</em>
                                             </span>
@@ -176,6 +134,7 @@
                                         </div>
                                     </div>
                                 </li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="nav">
@@ -206,8 +165,64 @@
         <script type="text/javascript" src="{% static "js/js-common.js" %}"></script>
         <script type="text/javascript" src="{% static "js/jquery.pagination.js" %}"></script>
         <script>
-            window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["weixin","tsina","qzone","renren"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","qzone","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
+            // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
+            $(".praise-2").click(function () {
+                var praise_img = $(this).children(".praise-img");
+                //var text_box = $(".add-num-praise");
+                var praise_txt = $(this).parents(".praise-1").siblings(".praise-txt");
+                var num = parseInt(praise_txt.text());
+                if (praise_img.attr("src") == ("{{ STATIC_PREFIX }}images/yizan.png")) {
+                    $(this).html("<img src='{{ STATIC_PREFIX }}images/zan.png' class='praise-img' class='animation' />");
+                    praise_txt.removeClass("hover");
+                    //text_box.show().html("<em class='add-animation'>-1</em>");
+                    $(".add-animation").removeClass("hover");
+                    num -= 1;
+                    praise_txt.text(num)
+                } else {
+                    $(this).html("<img src='{{ STATIC_PREFIX }}images/yizan.png' class='praise-img' class='animation' />");
+                    praise_txt.addClass("hover");
+                    //text_box.show().html("<em class='add-animation'>+1</em>");
+                    $(".add-animation").addClass("hover");
+                    num += 1;
+                    praise_txt.text(num)
+                }
+            });
+            $(".tread-2").click(function () {
+                var tread_img = $(this).children(".tread-img");
+                //var text_box = $(".add-num-tread");
+                var tread_txt = $(this).parents(".tread-1").siblings(".tread-txt");
+                var num = parseInt(tread_txt.text());
+                if (tread_img.attr("src") == ("{{ STATIC_PREFIX }}images/yicai.png")) {
+                    $(this).html("<img src='{{ STATIC_PREFIX }}images/cai.png' class='tread-img' class='animation' />");
+                    tread_txt.removeClass("hover");
+                    //text_box.show().html("<em class='add-animation'>-1</em>");
+                    $(".add-animation").removeClass("hover");
+                    num -= 1;
+                    tread_txt.text(num)
+                } else {
+                    $(this).html("<img src='{{ STATIC_PREFIX }}images/yicai.png' class='tread-img' class='animation' />");
+                    tread_txt.addClass("hover");
+                    //text_box.show().html("<em class='add-animation'>+1</em>");
+                    $(".add-animation").addClass("hover");
+                    num += 1;
+                    tread_txt.text(num)
+                }
+            });
 
+            // 分页导航配置
+            var iPageSize = 5; // 设置每页显示帖子条数
+            // When document is ready, initialize pagination
+            $(document).ready(function () {
+                var page_id = {{ page_id }};
+                var rows = {{ rows }};
+                $("#Pagination").pagination(rows, {
+                    current_page: page_id - 1,
+                    num_edge_entries: 1, //边缘页数
+                    num_display_entries: 3,//parseInt(rows / iPageSize), // 分页主体部分显示的分页条目数
+                    //callback: pageselectCallbackack,
+                    items_per_page: iPageSize //每页显示几项
+                });
+            });
+        </script>
     </body>
 </html>

@@ -28,47 +28,190 @@ def index(request):
 
 
 def index_hot(request):
-    return render(request, 'index-hot.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'index-hot.html', context)
 
 
 def index_new(request):
-    return render(request, 'index-new.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'index-new.html', context)
 
 
 def video(request):
-    return render(request, 'video.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'video.html', context)
 
 
 def video_hot(request):
-    return render(request, 'video-hot.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'video-hot.html', context)
 
 
 def video_new(request):
-    return render(request, 'video-new.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'video-new.html', context)
 
 
 def pic(request):
-    return render(request, 'pic.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'pic.html', context)
 
 
 def pic_hot(request):
-    return render(request, 'pic-hot.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'pic-hot.html', context)
 
 
 def pic_new(request):
-    return render(request, 'pic-new.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'pic-new.html', context)
 
 
 def jape(request):
-    return render(request, 'jape.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'jape.html', context)
 
 
 def jape_hot(request):
-    return render(request, 'jape-hot.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'jape-hot.html', context)
 
 
 def jape_new(request):
-    return render(request, 'jape-new.html', {})
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    loginform = LoginForm()
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'jape-new.html', context)
 
 
 def log_in(request):

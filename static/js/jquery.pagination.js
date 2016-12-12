@@ -131,8 +131,6 @@
 
 		opts = $.extend({
 			items_per_page:1,
-			num_display_entries:4,
-			num_edge_entries:1,
 			link_to:"?page=__id__",
 			prev_text:"上一页",
 			next_text:"下一页",
