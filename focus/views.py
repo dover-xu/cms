@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 
-from focus.forms import LoginForm, CommentForm, RegisterForm
+from focus.forms import CommentForm
 from focus.models import Comment, Praise, NewUser, Note
+from manager.forms import LoginForm, RegisterForm
 
 
 def index(request):
@@ -24,7 +25,7 @@ def index(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'index.html', context)
+    return render(request, 'focus/index.html', context)
 
 
 def index_hot(request):
@@ -41,7 +42,7 @@ def index_hot(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'index-hot.html', context)
+    return render(request, 'focus/index-hot.html', context)
 
 
 def index_new(request):
@@ -58,7 +59,7 @@ def index_new(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'index-new.html', context)
+    return render(request, 'focus/index-new.html', context)
 
 
 def video(request):
@@ -75,7 +76,7 @@ def video(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'video.html', context)
+    return render(request, 'focus/video.html', context)
 
 
 def video_hot(request):
@@ -92,7 +93,7 @@ def video_hot(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'video-hot.html', context)
+    return render(request, 'focus/video-hot.html', context)
 
 
 def video_new(request):
@@ -109,7 +110,7 @@ def video_new(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'video-new.html', context)
+    return render(request, 'focus/video-new.html', context)
 
 
 def pic(request):
@@ -126,7 +127,7 @@ def pic(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'pic.html', context)
+    return render(request, 'focus/pic.html', context)
 
 
 def pic_hot(request):
@@ -143,7 +144,7 @@ def pic_hot(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'pic-hot.html', context)
+    return render(request, 'focus/pic-hot.html', context)
 
 
 def pic_new(request):
@@ -160,7 +161,7 @@ def pic_new(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'pic-new.html', context)
+    return render(request, 'focus/pic-new.html', context)
 
 
 def jape(request):
@@ -177,7 +178,7 @@ def jape(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'jape.html', context)
+    return render(request, 'focus/jape.html', context)
 
 
 def jape_hot(request):
@@ -194,7 +195,7 @@ def jape_hot(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'jape-hot.html', context)
+    return render(request, 'focus/jape-hot.html', context)
 
 
 def jape_new(request):
@@ -211,34 +212,7 @@ def jape_new(request):
                'rows': rows,
                'page_id': page_id,
                'loginform': loginform}
-    return render(request, 'jape-new.html', context)
-
-
-def log_in(request):
-    if request.method == 'GET':
-        form = LoginForm()
-        return render(request, 'login.html', {'form': form})
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['uid']
-            password = form.cleaned_data['pwd']
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                url = request.POST.get('source_url', '/focus')
-                return redirect(url)
-            else:
-                return render(request, 'login.html', {'form': form, 'error': "password or username is not ture!"})
-        else:
-            return render(request, 'login.html', {'form': form})
-
-
-@login_required
-def log_out(request):
-    url = request.POST.get('source_url', '/focus')
-    logout(request)
-    return redirect(url)
+    return render(request, 'focus/jape-new.html', context)
 
 
 # def article(request, article_id):
@@ -305,35 +279,3 @@ def log_out(request):
 #         praise.save()
 #         data = {}
 #         return redirect('/focus/')
-
-
-def register(request):
-    error1 = "this name is already exist"
-    valid = "this name is valid"
-
-    if request.method == 'GET':
-        form = RegisterForm()
-        return render(request, 'register.html', {'form': form})
-    if request.method == "POST":
-        form = RegisterForm(request.POST)
-        if request.POST.get('raw_username', 'erjgiqfv240hqp5668ej23foi') != 'erjgiqfv240hqp5668ej23foi':
-            try:
-                user = NewUser.objects.get(username=request.POST.get('raw_username', ''))
-            except ObjectDoesNotExist:
-                return render(request, 'register.html', {'form': form, 'msg': valid})
-            else:
-                return render(request, 'register.html', {'form': form, 'msg': error1})
-        else:
-            if form.is_valid():
-                username = form.cleaned_data['username']
-                email = form.cleaned_data['email']
-                password1 = form.cleaned_data['password1']
-                password2 = form.cleaned_data['password2']
-                if password1 != password2:
-                    return render(request, 'register.html', {'form': form, 'msg': "two password is not equal"})
-                else:
-                    user = NewUser(username=username, email=email, password=password1)
-                    user.save()
-                    return redirect('/focus/login')
-            else:
-                return render(request, 'register.html', {'form': form})

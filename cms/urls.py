@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 
 from cms import settings
 from focus import urls as focus_urls
+from manager import urls as manager_urls
 from focus import views
 
 urlpatterns = [
@@ -36,4 +37,5 @@ urlpatterns = [
     url(r'^jape-hot$', views.jape_hot, name='jape_hot'),
     url(r'^jape-new$', views.jape_new, name='jape_new'),
     url(r'^focus/', include(focus_urls)),
+                  url(r'^manager/', include(manager_urls)),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

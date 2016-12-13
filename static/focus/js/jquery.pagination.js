@@ -138,8 +138,6 @@
 			prev_show_always:true,
 			next_show_always:true,
 			renderer:"defaultRenderer",
-			show_if_single_page:false,
-			load_first_page:false,
 		},opts||{});
 
 		var containers = this,
