@@ -10,12 +10,12 @@ def log_in(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['uid']
-            password = form.cleaned_data['pwd']
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                url = request.POST.get('source_url', '/focus')
+                url = request.POST.get('source_url', '/')
                 return redirect(url)
             else:
                 return render(request, 'manager/login.html',

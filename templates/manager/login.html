@@ -21,6 +21,8 @@
                     登录
                 </div>
                 <form action="" method="post">
+                    {% csrf_token %}
+                    <div>{{ error }}</div>
                     {% for field in form %}
                         <div class="form_text_ipt">
                             {{ field }}
