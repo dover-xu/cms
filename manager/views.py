@@ -29,7 +29,7 @@ def log_in(request):
 
 @login_required
 def log_out(request):
-    url = request.POST.get('source_url', '/focus')
+    url = request.POST.get('source_url', '/')
     logout(request)
     return redirect(url)
 
@@ -38,18 +38,15 @@ def register(request):
     error1 = "this name is already exist"
     valid = "this name is valid"
 
-    if request.method == 'GET':
-        form = RegisterForm()
-        return render(request, 'register.html', {'form': form})
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if request.POST.get('raw_username', 'erjgiqfv240hqp5668ej23foi') != 'erjgiqfv240hqp5668ej23foi':
             try:
                 user = NewUser.objects.get(username=request.POST.get('raw_username', ''))
             except ObjectDoesNotExist:
-                return render(request, 'register.html', {'form': form, 'msg': valid})
+                return render(request, 'manager/register.html', {'form': form, 'msg': valid})
             else:
-                return render(request, 'register.html', {'form': form, 'msg': error1})
+                return render(request, 'manager/register.html', {'form': form, 'msg': error1})
         else:
             if form.is_valid():
                 username = form.cleaned_data['username']
@@ -57,10 +54,13 @@ def register(request):
                 password1 = form.cleaned_data['password1']
                 password2 = form.cleaned_data['password2']
                 if password1 != password2:
-                    return render(request, 'register.html', {'form': form, 'msg': "two password is not equal"})
+                    return render(request, 'manager/register.html', {'form': form, 'msg': "two password is not equal"})
                 else:
                     user = NewUser(username=username, email=email, password=password1)
                     user.save()
                     return redirect('/focus/login')
             else:
-                return render(request, 'register.html', {'form': form})
+                return render(request, 'manager/register.html', {'form': form})
+    else:
+        form = RegisterForm()
+        return render(request, 'manager/register.html', {'form': form})

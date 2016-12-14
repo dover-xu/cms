@@ -9,10 +9,10 @@
         {#        {% load staticfiles %}#}
         {% load static %}
         {% get_static_prefix as STATIC_PREFIX %}
-        <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/../../static/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/../../static/bootstrap/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/../../static/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/style.css">
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/common.css">
         <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/reset.css">
         <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/pagination.css">
     </head>
@@ -164,9 +164,9 @@
         </div>
 
         <script type="text/javascript"
-                src="{{ STATIC_PREFIX }}focus/../../static/bootstrap/js/jquery-1.11.3.min.js"></script>
+                src="{{ STATIC_PREFIX }}bootstrap/js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript"
-                src="{{ STATIC_PREFIX }}focus/../../static/bootstrap/js/bootstrap.min.js"></script>
+                src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-common.js"></script>
         <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/jquery.pagination.js"></script>
         <script>

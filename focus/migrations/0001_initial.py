@@ -67,7 +67,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('text', models.TextField(blank=True)),
-                ('image', models.ImageField(blank=True, upload_to='img/%Y/%m/%d')),
+                ('image', models.ImageField(blank=True, upload_to='images/%Y/%m/%d')),
                 ('category', models.CharField(
                     choices=[('Video', 'Video'), ('Picture', 'Picture'), ('Jape', 'Jape'), ('Others', 'Others')],
                     default='Video', max_length=20, verbose_name='Belong to')),

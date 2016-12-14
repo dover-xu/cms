@@ -8,10 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
         {% get_static_prefix as STATIC_PREFIX %}
-        <link rel="stylesheet" href="{% static "focus/bootstrap/css/bootstrap.min.css" %}">
-        <link rel="stylesheet" href="{% static "focus/bootstrap/css/font-awesome.min.css" %}">
-        <link rel="stylesheet" href="{% static "focus/bootstrap/css/bootstrap.css" %}">
-        <link rel="stylesheet" href="{% static "focus/css/style.css" %}">
+        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "bootstrap/css/font-awesome.min.css" %}">
+        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+        <link rel="stylesheet" href="{% static "focus/css/common.css" %}">
         <link rel="stylesheet" href="{% static "focus/css/reset.css" %}"/>
         <link rel="stylesheet" href="{% static "focus/css/pagination.css" %}"/>
     </head>
@@ -60,9 +60,8 @@
         <div class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-1 col-md-1 col-lg-1"></div>
                     <!-- 分页内容 -->
-                    <div class="col-sm-7 col-md-7 col-lg-7 main-left">
+                    <div class="col-sm-offset-1 col-sm-7 main-left">
                         <!-- 排序标签 -->
                         <div>
                             <ul class="nav nav-tabs ">
@@ -147,7 +146,7 @@
                         </div>
                     </div>
                     <!-- 右侧边栏 -->
-                    <div class="col-sm-3 col-md-3 col-lg-3 hidden-xs main-right">
+                    <div class="col-sm-3 hidden-xs main-right">
                         <img src="{% static "focus/images/test_img1.jpg" %}" alt="图片无法显示" class="img-thumbnail">
                     </div>
                 </div>
@@ -162,8 +161,8 @@
             </p>
         </div>
 
-        <script type="text/javascript" src="{% static "focus/bootstrap/js/jquery-1.11.3.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "focus/bootstrap/js/bootstrap.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "bootstrap/js/jquery-1.11.3.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
         <script type="text/javascript" src="{% static "focus/js/js-common.js" %}"></script>
         <script type="text/javascript" src="{% static "focus/js/jquery.pagination.js" %}"></script>
         <script>

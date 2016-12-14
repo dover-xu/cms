@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>注册</title>
     {% load static %}
     {% get_static_prefix as STATIC_PREFIX %}
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}manager/css/reset.css"/>
@@ -18,7 +18,7 @@
 
             <div class="login_form">
                 <div class="login_title">
-                    登录
+                    注册
                 </div>
                 <form action="" method="post">
                     {% for field in form %}
@@ -28,27 +28,27 @@
                         <div class="ececk_warning"><span>数据不能为空</span></div>
                     {% endfor %}
                     {#							<div class="form_text_ipt">#}
-                    {#								<input name="username" style="background-color: #1b6d85" type="text" placeholder="手机号/邮箱">#}
+                    {#								<input name="username" type="text" placeholder="手机号/邮箱">#}
                     {#							</div>#}
                     {#							<div class="ececk_warning"><span>数据不能为空</span></div>#}
                     {#							<div class="form_text_ipt">#}
                     {#								<input name="password" type="password" placeholder="密码">#}
                     {#							</div>#}
                     {#							<div class="ececk_warning"><span>数据不能为空</span></div>#}
-                    <div class="form_check_ipt">
-                        <div class="left check_left">
-                            <label><input name="" type="checkbox"> 下次自动登录</label>
-                        </div>
-                        <div class="right check_right">
-                            <a href="#">忘记密码</a>
-                        </div>
-                    </div>
-                    <input type="submit" class="form_btn" value="登录">
+                    {#							<div class="form_text_ipt">#}
+                    {#								<input name="repassword" type="password" placeholder="重复密码">#}
+                    {#							</div>#}
+                    {#							<div class="ececk_warning"><span>数据不能为空</span></div>#}
+                    {#							<div class="form_text_ipt">#}
+                    {#								<input name="code" type="text" placeholder="验证码">#}
+                    {#							</div>#}
+                    {#							<div class="ececk_warning"><span>数据不能为空</span></div>#}
+                    <input type="submit" class="form_btn" value="注册">
                     {#							<div class="form_btn">#}
-                    {#								<button type="button">登录</button>#}
+                    {#								<button type="button">注册</button>#}
                     {#							</div>#}
                     <div class="form_reg_btn">
-                        <span>还没有帐号？</span><a href="/manager/register">马上注册</a>
+                        <span>已有帐号？</span><a href="/manager/login">马上登录</a>
                     </div>
                 </form>
                 <div class="other_login">

@@ -47,7 +47,7 @@ cate_choice = (
 class Note(models.Model):
     user = models.ForeignKey('NewUser', default='', verbose_name='who public')
     text = models.TextField(blank=True)
-    image = models.ImageField(upload_to='img/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True)
     category = models.CharField(max_length=20, choices=cate_choice, default='Video', verbose_name="Belong to")
     pub_date = models.DateTimeField(auto_now_add=True, editable=True)
     comment_num = models.IntegerField(default=0)
