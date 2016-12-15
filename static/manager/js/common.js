@@ -22,8 +22,7 @@ $(function () {
             $(this).parent().css({
                 'border': 'solid 1px red',
             });
-            //$(this).parent().next().find('span').html('helow');
-            $(this).parent().next().show();
+            // $(this).parent().next().show();
         } else {
             $(this).css({
                 'color': '#ccc',
@@ -31,7 +30,7 @@ $(function () {
             $(this).parent().css({
                 'border': 'solid 1px #ccc',
             });
-            $(this).parent().next().hide();
+            // $(this).parent().next().hide();
         }
     });
 });

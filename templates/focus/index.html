@@ -48,10 +48,10 @@
                 <div class="collapse navbar-collapse" id="navbar-ex-collapse">
                   <ul class="nav navbar-nav navbar-right pull-right top-right">
                     <li>
-                      <a href="#"><span class="glyphicon glyphicon-user"></span> 登陆</a>
+                        <a href="/manager/login"><span class="glyphicon glyphicon-user"></span> 登陆</a>
                     </li>
                     <li>
-                      <a href="#"><span class="glyphicon glyphicon-log-in"></span> 注册</a>
+                        <a href="/manager/register"><span class="glyphicon glyphicon-log-in"></span> 注册</a>
                     </li>
                   </ul>
                 </div>
@@ -169,7 +169,7 @@
                 src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-common.js"></script>
         <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/jquery.pagination.js"></script>
-        <script>
+        <script type="text/javascript">
             // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
             $(".praise-2").click(function () {
                 var praise_img = $(this).children(".praise-img");

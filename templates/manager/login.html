@@ -22,12 +22,12 @@
                 </div>
                 <form action="" method="post">
                     {% csrf_token %}
-                    <div>{{ error }}</div>
+                    <div class="form_text_error">{{ error }}</div>
                     {% for field in form %}
                         <div class="form_text_ipt">
                             {{ field }}
                         </div>
-                        <div class="ececk_warning"><span>数据不能为空</span></div>
+                        {#                        <div class="ececk_warning"><span>数据不能为空</span></div>#}
                     {% endfor %}
                     {#							<div class="form_text_ipt">#}
                     {#								<input name="username" style="background-color: #1b6d85" type="text" placeholder="手机号/邮箱">#}
@@ -69,5 +69,6 @@
 </div>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}manager/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}manager/js/common.js"></script>
+
 </body>
 </html>

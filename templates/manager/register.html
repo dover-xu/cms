@@ -21,11 +21,13 @@
                     注册
                 </div>
                 <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form_text_error">{{ error }}</div>
                     {% for field in form %}
                         <div class="form_text_ipt">
                             {{ field }}
                         </div>
-                        <div class="ececk_warning"><span>数据不能为空</span></div>
+                        {#                        <div class="ececk_warning"><span>数据不能为空</span></div>#}
                     {% endfor %}
                     {#							<div class="form_text_ipt">#}
                     {#								<input name="username" type="text" placeholder="手机号/邮箱">#}

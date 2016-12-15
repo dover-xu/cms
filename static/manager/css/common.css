@@ -124,6 +124,12 @@ header {
     border-bottom: solid 1px #CCCCCC;
 }
 
+.form_text_error {
+    font-size: 13px;
+    color: red;
+    width: 300px;
+    margin: 0 auto;
+}
 .form_text_ipt {
     width: 300px;
     height: 40px;

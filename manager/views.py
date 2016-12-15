@@ -18,8 +18,9 @@ def log_in(request):
                 url = request.POST.get('source_url', '/')
                 return redirect(url)
             else:
+                print("error")
                 return render(request, 'manager/login.html',
-                              {'form': form, 'error': "password or username is not ture!"})
+                              {'form': form, 'error': "用户名或密码错误"})
         else:
             return render(request, 'manager/login.html', {'form': form})
     else:
@@ -50,17 +51,21 @@ def register(request):
         else:
             if form.is_valid():
                 username = form.cleaned_data['username']
-                email = form.cleaned_data['email']
+                # email = form.cleaned_data['email']
                 password1 = form.cleaned_data['password1']
                 password2 = form.cleaned_data['password2']
-                if password1 != password2:
-                    return render(request, 'manager/register.html', {'form': form, 'msg': "two password is not equal"})
-                else:
-                    user = NewUser(username=username, email=email, password=password1)
-                    user.save()
-                    return redirect('/focus/login')
+                try:
+                    NewUser.objects.get(username=username)
+                    return render(request, 'manager/register.html', {'form': form, 'error': "用户名已存在！"})
+                except ObjectDoesNotExist:
+                    if password1 != password2:
+                        return render(request, 'manager/register.html', {'form': form, 'error': "请确保两次输入密码一致！"})
+                    else:
+                        user = NewUser(username=username, password=password1)
+                        user.save()
+                        return redirect('/')
             else:
-                return render(request, 'manager/register.html', {'form': form})
+                return render(request, 'manager/register.html', {'form': form, 'error': "注册失败"})
     else:
         form = RegisterForm()
         return render(request, 'manager/register.html', {'form': form})
