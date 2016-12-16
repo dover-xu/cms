@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser, User
+from django.contrib.auth.models import AbstractUser, BaseUserManager, User
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
@@ -9,8 +9,8 @@ sec_choice = (
 
 
 @python_2_unicode_compatible
-class NewUser(AbstractUser):
-    avatar = models.ImageField(upload_to='avatar/%Y/%m/%d')
+class MyUser(AbstractUser):
+    avatar = models.ImageField(upload_to='avatar/%Y/%m/%d', blank=True)
     profile = models.CharField('profile', max_length=255, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=sec_choice, default='m')
 
@@ -45,7 +45,7 @@ cate_choice = (
 
 
 class Note(models.Model):
-    user = models.ForeignKey('NewUser', default='', verbose_name='who public')
+    user = models.ForeignKey('MyUser', default='', verbose_name='who public')
     text = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True)
     category = models.CharField(max_length=20, choices=cate_choice, default='Video', verbose_name="Belong to")
@@ -95,7 +95,7 @@ class Note(models.Model):
 
 @python_2_unicode_compatible
 class Comment(models.Model):
-    user = models.ForeignKey('NewUser', default='', verbose_name='who comment')
+    user = models.ForeignKey('MyUser', default='', verbose_name='who comment')
     note = models.ForeignKey('Note', null=True)
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True, editable=True)
@@ -115,7 +115,7 @@ class Comment(models.Model):
 
 
 class Praise(models.Model):
-    user = models.ForeignKey('NewUser', default='', verbose_name='who praise')
+    user = models.ForeignKey('MyUser', default='', verbose_name='who praise')
     note = models.ForeignKey('Note', blank=True, null=True)
     comment = models.ForeignKey('Comment', blank=True, null=True)
     praise_date = models.DateTimeField(auto_now_add=True, editable=True)
@@ -138,7 +138,7 @@ class Praise(models.Model):
 
 
 class Tread(models.Model):
-    user = models.ForeignKey('NewUser', default='', verbose_name='who tread')
+    user = models.ForeignKey('MyUser', default='', verbose_name='who tread')
     note = models.ForeignKey('Note', blank=True, null=True)
     comment = models.ForeignKey('Comment', blank=True, null=True)
     tread_date = models.DateTimeField(auto_now_add=True, editable=True)
@@ -161,7 +161,7 @@ class Tread(models.Model):
 
 
 class Share(models.Model):
-    user = models.ForeignKey('NewUser', default='', verbose_name='who share')
+    user = models.ForeignKey('MyUser', default='', verbose_name='who share')
     note = models.ForeignKey('Note')
     text = models.CharField(max_length=200, blank=True, null=True)
     to = models.CharField(max_length=256)

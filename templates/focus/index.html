@@ -46,14 +46,19 @@
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                  <ul class="nav navbar-nav navbar-right pull-right top-right">
-                    <li>
-                        <a href="/manager/login"><span class="glyphicon glyphicon-user"></span> 登陆</a>
-                    </li>
-                    <li>
-                        <a href="/manager/register"><span class="glyphicon glyphicon-log-in"></span> 注册</a>
-                    </li>
-                  </ul>
+                    <ul class="nav navbar-nav navbar-right pull-right top-right">
+                        {% if request.user.is_authenticated %}
+                            <script>alert("a");</script>
+                        {% else %}
+                            <script>alert("b");</script>
+                        {% endif %}
+                        <li>
+                            <a href="/manager/login"><span class="glyphicon glyphicon-user"></span> 登陆</a>
+                        </li>
+                        <li>
+                            <a href="/manager/register"><span class="glyphicon glyphicon-log-in"></span> 注册</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

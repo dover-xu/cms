@@ -7,7 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 
 from focus.forms import CommentForm
-from focus.models import Comment, Praise, NewUser, Note
+from focus.models import Comment, Praise, MyUser, Note
 from manager.forms import LoginForm, RegisterForm
 
 
