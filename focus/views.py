@@ -215,6 +215,65 @@ def jape_new(request):
     return render(request, 'focus/jape-new.html', context)
 
 
+def user_publish(request):
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id}
+    return render(request, 'focus/u-publish.html', context)
+
+
+def user_share(request):
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id}
+    return render(request, 'focus/u-share.html', context)
+
+
+def user_comment(request):
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id}
+    return render(request, 'focus/u-comment.html', context)
+
+
+def publish(request):
+    latest_note_list = Note.objects.query_by_time()
+    rows = latest_note_list.count()  # 帖子总条数
+    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+
+    page_id = int(request.GET.get('page', '1'))
+    if page_num > 1:
+        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+
+    context = {'latest_note_list': latest_note_list,
+               'rows': rows,
+               'page_id': page_id}
+    return render(request, 'focus/publish.html', context)
+
 # def article(request, article_id):
 #     article = get_object_or_404(Article, id=article_id)
 #     content = markdown2.markdown(article.content, extras=["code-friendly",

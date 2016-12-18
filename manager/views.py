@@ -12,15 +12,12 @@ def log_in(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            print(username, password)
             user = authenticate(username=username, password=password)
-            print(user)
             if user is not None:
                 login(request, user)
                 url = request.POST.get('source_url', '/')
                 return redirect(url)
             else:
-                print("error")
                 return render(request, 'manager/login.html',
                               {'form': form, 'error': "*用户名或密码错误"})
         else:

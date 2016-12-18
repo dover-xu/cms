@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="幽默，搞笑，知识，内涵，段子">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>尼垢了</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#        {% load staticfiles %}#}
+    {% load static %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/common.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/reset.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/pagination.css">
+</head>
+<body>
+<!-- 顶部 -->
+<div class="navbar navbar-default navbar-static-top top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand top-title" href="../"><span>尼垢了</span></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div>
+            <ul class="nav navbar-nav top-left">
+                <li style="float:left">
+                    <a href="/">全部</a>
+                </li>
+                <li style="float:left">
+                    <a href="/video">视频</a>
+                </li>
+                <li style="float:left">
+                    <a href="/pic">图片</a>
+                </li>
+                <li style="float:left">
+                    <a href="/jape">段子</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav navbar-right pull-right top-right">
+                {% if request.user.is_authenticated %}
+                    <li>
+                        <a href=""><span class="glyphicon glyphicon-user"></span> {{ request.user }}</a>
+                    </li>
+                    <li>
+                        <a href="/manager/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="/manager/login"><span class="glyphicon glyphicon-log-in"></span> 登陆</a>
+                    </li>
+                    <li>
+                        <a href="/manager/register"><span class="glyphicon glyphicon-user"></span> 注册</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 中间 -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            {#                    <div class="col-sm-1 col-md-1 col-lg-1"></div>#}
+            <!-- 分页内容 -->
+            <div class="col-sm-offset-1 col-sm-7 main-left">
+                <!-- 排序标签 -->
+                <div>
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="/user/focus/publish">发表的帖子</a>
+                        </li>
+                        <li>
+                            <a href="/user/focus/share">分享的帖子</a>
+                        </li>
+                        <li>
+                            <a href="/user/focus/comment">评论的帖子</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="list-unstyled">
+                        {% for note in latest_note_list %}
+                            <li class="nav" style="border-bottom: 1px solid #d5d5d5;">
+                                <!-- 用户信息 -->
+                                <div class="u-bar">
+                                        <span class="pull-left">
+                                            <a href="#">
+                                                <img src="{{ note.user.avatar.url }}" alt="头像无法显示" class="u-img">
+                                            </a>
+                                        </span>
+                                    <span class="pull-left u-name">{{ note.user.username }}</span>
+                                    <span class="pull-right pub-time">{{ note.pub_date|date:"Y-m-d H:i:s" }}</span>
+                                </div>
+                                <!-- 发布内容 -->
+                                <div class="cont">
+                                    {% if note.text %}
+                                        <div class="c-text">{{ note.text }}</div>
+                                    {% endif %}
+                                    {% if note.image %}
+                                        <div class="content-img">
+                                            <img src="{{ note.image.url }}" alt="图片无法显示"
+                                                 class="img-responsive center-block" width="100%">
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <!-- 工具条 -->
+                                <div class="tool-bar">
+                                    <div style="float:left;height:100%;">
+                                        <div class="praise-1">
+                                                <span class="praise-2">
+                                                    <img src="{{ STATIC_PREFIX }}focus/images/zan.png"
+                                                         class="praise-img">
+                                                </span>
+                                        </div>
+                                        <span class="praise-txt">{{ note.praise_str }}</span>
+                                            <span class="add-num-praise">
+                                                <em>+1</em>
+                                            </span>
+                                        <div class="tread-1">
+                                                <span class="tread-2">
+                                                    <img src="{{ STATIC_PREFIX }}focus/images/cai.png"
+                                                         class="tread-img">
+                                                </span>
+                                        </div>
+                                        <span class="tread-txt">{{ note.tread_str }}</span>
+                                            <span class="add-num-tread">
+                                                <em>+1</em>
+                                            </span>
+                                    </div>
+                                    <div class="bdsharebuttonbox" style="float:right;padding:8.5px 10px">
+                                        <a href="#" class="bds_more" data-cmd="more" style="color:#d5d5d5">分享到：</a>
+                                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                        <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="nav">
+                    <!-- 分页导航 -->
+                    <div class="pages">
+                        <div id="Pagination"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧边栏 -->
+            <div class="col-sm-3 hidden-xs main-right">
+                <img src="{{ STATIC_PREFIX }}focus/images/test_img1.jpg" alt="图片无法显示" class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div class="footer hidden-xs">
+    <p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
+    <p>Copyright &copy; Example.com 2016 </p>
+</div>
+
+<script type="text/javascript"
+        src="{{ STATIC_PREFIX }}bootstrap/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+        src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-common.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/jquery.pagination.js"></script>
+<script type="text/javascript">
+    // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
+    $(".praise-2").click(function () {
+        var praise_img = $(this).children(".praise-img");
+        //var text_box = $(".add-num-praise");
+        var praise_txt = $(this).parents(".praise-1").siblings(".praise-txt");
+        var num = parseInt(praise_txt.text());
+        if (praise_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/yizan.png")) {
+            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/zan.png' class='praise-img' class='animation' />");
+            praise_txt.removeClass("hover");
+            //text_box.show().html("<em class='add-animation'>-1</em>");
+            $(".add-animation").removeClass("hover");
+            num -= 1;
+            praise_txt.text(num)
+        } else {
+            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yizan.png' class='praise-img' class='animation' />");
+            praise_txt.addClass("hover");
+            //text_box.show().html("<em class='add-animation'>+1</em>");
+            $(".add-animation").addClass("hover");
+            num += 1;
+            praise_txt.text(num)
+        }
+    });
+    $(".tread-2").click(function () {
+        var tread_img = $(this).children(".tread-img");
+        //var text_box = $(".add-num-tread");
+        var tread_txt = $(this).parents(".tread-1").siblings(".tread-txt");
+        var num = parseInt(tread_txt.text());
+        if (tread_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/yicai.png")) {
+            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/cai.png' class='tread-img' class='animation' />");
+            tread_txt.removeClass("hover");
+            //text_box.show().html("<em class='add-animation'>-1</em>");
+            $(".add-animation").removeClass("hover");
+            num -= 1;
+            tread_txt.text(num)
+        } else {
+            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yicai.png' class='tread-img' class='animation' />");
+            tread_txt.addClass("hover");
+            //text_box.show().html("<em class='add-animation'>+1</em>");
+            $(".add-animation").addClass("hover");
+            num += 1;
+            tread_txt.text(num)
+        }
+    });
+
+    // 分页导航配置
+    var iPageSize = 5; // 设置每页显示帖子条数
+    // When document is ready, initialize pagination
+    $(document).ready(function () {
+        var page_id = {{ page_id }};
+        var rows = {{ rows }};
+        $("#Pagination").pagination(rows, {
+            current_page: page_id - 1,
+            num_edge_entries: 1, //边缘页数
+            num_display_entries: 3,//parseInt(rows / iPageSize), // 分页主体部分显示的分页条目数
+            //callback: pageselectCallbackack,
+            items_per_page: iPageSize, //每页显示几项
+            show_if_single_page: true,
+            load_first_page: true
+        });
+    });
+</script>
+</body>
+</html>

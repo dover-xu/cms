@@ -36,6 +36,10 @@ urlpatterns = [
                   url(r'^jape$', views.jape, name='pic'),
                   url(r'^jape-hot$', views.jape_hot, name='jape_hot'),
                   url(r'^jape-new$', views.jape_new, name='jape_new'),
+                  url(r'^user/focus/publish$', views.user_publish, name='user_publish'),
+                  url(r'^user/focus/share$', views.user_share, name='user_share'),
+                  url(r'^user/focus/comment$', views.user_comment, name='user_comment'),
+                  url(r'^user/publish$', views.publish, name='publish'),
                   url(r'^focus/', include(focus_urls)),
                   url(r'^manager/', include(manager_urls)),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

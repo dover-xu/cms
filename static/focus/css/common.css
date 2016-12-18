@@ -16,6 +16,7 @@ body {
 }
 .top-left {
     font-size: 15px;
+    padding-left: 15px;
 }
 .top-right {
     font-size: 10px;
@@ -28,6 +29,16 @@ li:visited {
 /* 顶部固定栏结束 */
 /* 中间主体布局开始 */
 .section {
+}
+
+.pub-topic a {
+    color: #555;
+    font-size: 10px;
+}
+
+.pub-topic a.active {
+    border-bottom: 1px solid #d43f3a;
+    color: #d43f3a;
 }
 .main-left {
     background-color: #fff;
@@ -79,11 +90,11 @@ a {
 }
 /* 用户信息栏结束 */
 /* 用户发布内容布局开始 */
-.content {
+.cont {
     margin: 0;
 }
 
-.content-text {
+.c-text {
     line-height: 25px;
     font-size: 15px;
     margin: 0 10px;
@@ -97,6 +108,25 @@ a {
 .tool-bar {
     float:left;
     width: 100%;
+}
+
+div.publish {
+    background: #fff;
+    margin-bottom: 10px;
+    border: 1px solid #e8e8e8;
+    padding: 4px;
+    overflow: hidden;
+}
+
+div.publish a {
+    background: #d43f3a;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    text-align: center;
+    font-size: 26px;
+    color: #FFFFFF;
 }
 footer {
     border-top: 1px solid #cccccc;
