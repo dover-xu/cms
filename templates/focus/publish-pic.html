@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/common.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/reset.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/pagination.css">
+
 </head>
 <body>
 <!-- 顶部 -->
@@ -96,7 +97,9 @@
                         </a>
                     </li>
                 </ul>
-                <input id="input-id" type="file" class="file" data-preview-file-type="text" showUpload="false">
+                {#                <input id="input-id" type="file" class="file" data-preview-file-type="text">#}
+                <input type="file" name="txt_file" id="txt_file" multiple class="file-loading"/>
+
             </div>
             <!-- 右侧边栏 -->
             <div class="col-sm-3 hidden-xs main-right">
