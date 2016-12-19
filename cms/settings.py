@@ -142,7 +142,7 @@ STATICFILES_DIRS = (
 
 AUTH_USER_MODEL = 'focus.MyUser'
 
-LOGIN_URL = "/focus/login/?next='article_id'"
+LOGIN_URL = "/focus/login"
 
 MEDIA_URL = '/uploads/'
 

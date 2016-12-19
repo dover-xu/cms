@@ -39,7 +39,9 @@ urlpatterns = [
                   url(r'^user/focus/publish$', views.user_publish, name='user_publish'),
                   url(r'^user/focus/share$', views.user_share, name='user_share'),
                   url(r'^user/focus/comment$', views.user_comment, name='user_comment'),
-                  url(r'^user/publish$', views.publish, name='publish'),
+                  url(r'^user/publish/video$', views.publish_video, name='publish_video'),
+                  url(r'^user/publish/pic$', views.publish_pic, name='publish_pic'),
+                  url(r'^user/publish/jape$', views.publish_jape, name='publish_jape'),
                   url(r'^focus/', include(focus_urls)),
                   url(r'^manager/', include(manager_urls)),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
