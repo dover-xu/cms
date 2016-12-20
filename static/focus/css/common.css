@@ -139,6 +139,16 @@ footer {
     padding: 20px;
 }
 
+.show_pic {
+    margin: 20px 20px 0px 20px;
+    border: 1px solid #ddd;
+    /*text-align: left;*/
+}
+
+.select_pic {
+    margin: 20px;
+}
+
 /*动态点赞开始*/
 .praise-1 {
     float: left;

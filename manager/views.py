@@ -35,36 +35,25 @@ def log_out(request):
 
 
 def register(request):
-    error1 = "this name is already exist"
-    valid = "this name is valid"
-
     if request.method == "POST":
         form = RegisterForm(request.POST)
-        if request.POST.get('raw_username', 'erjgiqfv240hqp5668ej23foi') != 'erjgiqfv240hqp5668ej23foi':
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            # email = form.cleaned_data['email']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
             try:
-                user = MyUser.objects.get(username=request.POST.get('raw_username', ''))
+                MyUser.objects.get(username=username)
+                return render(request, 'manager/register.html', {'form': form, 'error': "*用户名已存在！"})
             except ObjectDoesNotExist:
-                return render(request, 'manager/register.html', {'form': form, 'msg': valid})
-            else:
-                return render(request, 'manager/register.html', {'form': form, 'msg': error1})
+                if password1 != password2:
+                    return render(request, 'manager/register.html', {'form': form, 'error': "*请确保两次输入密码一致！"})
+                else:
+                    user = MyUser.objects.create_user(username=username, password=password1)
+                    user.save()
+                    return redirect('/manager/login')
         else:
-            if form.is_valid():
-                username = form.cleaned_data['username']
-                # email = form.cleaned_data['email']
-                password1 = form.cleaned_data['password1']
-                password2 = form.cleaned_data['password2']
-                try:
-                    MyUser.objects.get(username=username)
-                    return render(request, 'manager/register.html', {'form': form, 'error': "*用户名已存在！"})
-                except ObjectDoesNotExist:
-                    if password1 != password2:
-                        return render(request, 'manager/register.html', {'form': form, 'error': "*请确保两次输入密码一致！"})
-                    else:
-                        user = MyUser.objects.create_user(username=username, password=password1)
-                        user.save()
-                        return redirect('/')
-            else:
-                return render(request, 'manager/register.html', {'form': form, 'error': "*注册失败"})
+            return render(request, 'manager/register.html', {'form': form, 'error': "*注册失败"})
     else:
         form = RegisterForm()
         return render(request, 'manager/register.html', {'form': form})

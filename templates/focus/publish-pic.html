@@ -98,7 +98,10 @@
                     </li>
                 </ul>
                 {#                <input id="input-id" type="file" class="file" data-preview-file-type="text">#}
-                <input type="file" name="txt_file" id="txt_file" multiple class="file-loading"/>
+                {#                <div class="show_pic">#}
+                {#                    <img src="/static/focus/images/cai.png" alt="..." class="img-responsive center-block" width="50%">#}
+                {#                </div>#}
+                <div class="select_pic"><input type="file" name="txt_file" id="txt_file" class="file-loading"/></div>
 
             </div>
             <!-- 右侧边栏 -->
@@ -117,10 +120,12 @@
 
 <script type="text/javascript" src="{{ STATIC_PREFIX }}bootstrap/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/fileinput.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/locales/zh.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-common.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-fileinput.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/jquery.pagination.js"></script>
 <script type="text/javascript">
+
     // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
     $(".praise-2").click(function () {
         var praise_img = $(this).children(".praise-img");

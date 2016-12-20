@@ -235,7 +235,7 @@
 		}
 		// call callback function
 		if(opts.load_first_page) {
-			opts.callback(current_page, containers);
+			// opts.callback(current_page, containers);
 		}
 	} // End of $.fn.pagination block
 	
