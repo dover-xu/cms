@@ -9,6 +9,7 @@ redirect_url = ''
 
 
 def log_in(request):
+    global redirect_url
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -27,7 +28,6 @@ def log_in(request):
         else:
             return render(request, 'manager/login.html', {'form': form})
     else:
-        global redirect_url
         redirect_url = request.GET.get('url', '/')
         form = LoginForm()
         return render(request, 'manager/login.html', {'form': form})
