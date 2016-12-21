@@ -4,6 +4,7 @@ import markdown2 as markdown2
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from focus.forms import CommentForm
@@ -303,6 +304,16 @@ def publish_jape(request):
                'rows': rows,
                'page_id': page_id}
     return render(request, 'focus/publish-jape.html', context)
+
+
+def auth_name(request):
+    username = request.GET.get('username', 'asdgkg234hsd~jsgasdg')
+    try:
+        MyUser.objects.get(username=username)
+        return HttpResponse("*用户名已存在！")
+    except ObjectDoesNotExist:
+        return HttpResponse("")
+
 
 # def article(request, article_id):
 #     article = get_object_or_404(Article, id=article_id)

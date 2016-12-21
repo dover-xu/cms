@@ -51,4 +51,5 @@ $(function(){
 			$(this).parent().next().hide();
 		}
 	});
+
 });

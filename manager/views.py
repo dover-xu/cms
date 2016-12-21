@@ -5,6 +5,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from focus.models import MyUser
 
+redirect_url = ''
+
 
 def log_in(request):
     if request.method == 'POST':
@@ -15,21 +17,25 @@ def log_in(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                url = request.POST.get('source_url', '/')
-                return redirect(url)
+                if redirect_url:
+                    return redirect(redirect_url)
+                else:
+                    return redirect('/')
             else:
                 return render(request, 'manager/login.html',
                               {'form': form, 'error': "*用户名或密码错误"})
         else:
             return render(request, 'manager/login.html', {'form': form})
     else:
+        global redirect_url
+        redirect_url = request.GET.get('url', '/')
         form = LoginForm()
         return render(request, 'manager/login.html', {'form': form})
 
 
 @login_required
 def log_out(request):
-    url = request.POST.get('source_url', '/')
+    url = request.GET.get('url', '/')
     logout(request)
     return redirect(url)
 

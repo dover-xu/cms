@@ -34,3 +34,14 @@ $(function () {
         }
     });
 });
+
+// 注册页面用户名项失去焦点会调用次函数
+function authentication() {
+    var v = $('.form_text_ipt #username').val();
+    $.get('/api/auth/uname/', {'username': v}, function (msg) {
+        if (msg) {
+            $('.form_text_error').html(msg);
+        }
+    });
+
+}

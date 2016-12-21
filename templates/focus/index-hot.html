@@ -56,7 +56,8 @@
                             </li>
                         {% else %}
                             <li>
-                                <a href="/manager/login"><span class="glyphicon glyphicon-log-in"></span> 登陆</a>
+                                <a href="/manager/login?url=/index-hot"><span class="glyphicon glyphicon-log-in"></span>
+                                    登陆</a>
                             </li>
                             <li>
                                 <a href="/manager/register"><span class="glyphicon glyphicon-user"></span> 注册</a>
@@ -244,7 +245,7 @@
             // 发帖登录验证
             $(".publish a").click(function () {
                 {% if not user.is_authenticated %}
-                    $(this).attr('href', '/manager/login');
+                    $(this).attr('href', '/manager/login?url=/user/publish/video');
                 {% endif %}
             });
         </script>
