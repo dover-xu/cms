@@ -101,8 +101,14 @@
                 {#                <div class="show_pic">#}
                 {#                    <img src="/static/focus/images/cai.png" alt="..." class="img-responsive center-block" width="50%">#}
                 {#                </div>#}
-                <div class="select_pic"><input type="file" name="txt_file" id="txt_file" class="file-loading"/></div>
-
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="select-pic"><input type="file" name="txt_file" id="txt_file" class="file-loading"/>
+                    </div>
+                    <div class="add-text"><textarea class="text-area" placeholder="说点什么..." name="text_area"
+                                                    rows="5"></textarea></div>
+                    <input type="submit" class="pub-trig" value="发布">
+                </form>
             </div>
             <!-- 右侧边栏 -->
             <div class="col-sm-3 hidden-xs main-right">
@@ -187,12 +193,6 @@
         });
     });
 
-    // 发帖登录验证
-    $(".publish a").click(function () {
-        {% if not user.is_authenticated %}
-            $(this).attr('href', '/manager/login?url=/user/publish/video');
-        {% endif %}
-    });
 </script>
 </body>
 </html>

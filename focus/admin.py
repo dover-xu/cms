@@ -62,7 +62,7 @@ class CustomUserAdmin(UserAdmin):
                         extra_context=None):  # 这个方法在源码的admin/options.py文件的ModelAdmin这个类中定义，我们要重新定义它，以达到不同权限的用户，返回的表单内容不同
         if not request.user.is_superuser:  # 非super用户不能设定编辑是否为super用户
             self.fieldsets = ((_('Basic info'), {'fields': ('username', 'password',)}),
-                              (_('Personal info'), {'fields': ('avatar', 'email')}),
+                              (_('Personal info'), {'fields': ('avatar', 'email', 'profile')}),
                               # _ 将('')里的内容国际化,这样可以让admin里的文字自动随着LANGUAGE_CODE切换中英文
                               (_('Permissions'), {'fields': ('is_active', 'is_staff', 'groups')}),
                               (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
@@ -74,7 +74,7 @@ class CustomUserAdmin(UserAdmin):
                                   )  # 此字段定义UserCreationForm表单中的具体显示内容
         else:  # super账户可以做任何事
             self.fieldsets = ((_('Basic info'), {'fields': ('username', 'password',)}),
-                              (_('Personal info'), {'fields': ('avatar', 'email')}),
+                              (_('Personal info'), {'fields': ('avatar', 'email', 'profile')}),
                               (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups')}),
                               (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
                               )

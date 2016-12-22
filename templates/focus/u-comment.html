@@ -244,6 +244,13 @@
             load_first_page: true
         });
     });
+
+    // 发帖登录验证
+    $(".publish a").click(function () {
+        {% if not user.is_authenticated %}
+            $(this).attr('href', '/manager/login?url=/user/publish/video');
+        {% endif %}
+    });
 </script>
 </body>
 </html>

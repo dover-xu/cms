@@ -176,18 +176,18 @@ input.form_btn:focus {
     border: none;
     font-size: 14px;
     cursor: pointer;
-    box-shadow: 0 0 0px 1000px red inset
+    box-shadow: 0 0 0px 1000px #EB4F38 inset
 }
 
-.form_btn button {
-    width: 100%;
-    height: 100%;
-    border: none;
-    color: #FFFFFF;
-    font-size: 14px;
-    background: red;
-    cursor: pointer;
-}
+/*.form_btn button {*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*border: none;*/
+/*color: #FFFFFF;*/
+/*font-size: 14px;*/
+/*background: red;*/
+/*cursor: pointer;*/
+/*}*/
 
 .form_reg_btn {
     width: 300px;

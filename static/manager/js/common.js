@@ -39,9 +39,7 @@ $(function () {
 function authentication() {
     var v = $('.form_text_ipt #username').val();
     $.get('/api/auth/uname/', {'username': v}, function (msg) {
-        if (msg) {
-            $('.form_text_error').html(msg);
-        }
+        $('.form_text_error').html(msg);
     });
 
 }

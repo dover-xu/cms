@@ -1,3 +1,5 @@
+import random
+
 from manager.forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -55,7 +57,9 @@ def register(request):
                 if password1 != password2:
                     return render(request, 'manager/register.html', {'form': form, 'error': "*请确保两次输入密码一致！"})
                 else:
-                    user = MyUser.objects.create_user(username=username, password=password1)
+                    pic = '/avatar/default/%d.jpg' % random.randint(1, 4)
+                    user = MyUser.objects.create_user(username=username, password=password1,
+                                                      avatar=pic)
                     user.save()
                     return redirect('/manager/login')
         else:

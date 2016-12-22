@@ -46,6 +46,22 @@ i.topic-icon {
     border-bottom: 1px solid #d43f3a;
     color: #d43f3a;
 }
+
+input.pub-trig:focus {
+    box-shadow: 0 0 0px 1000px #c0392b inset;
+}
+
+.pub-trig {
+    display: block;
+    width: 300px;
+    height: 40px;
+    margin: 10px auto;
+    color: #FFFFFF;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 0px 1000px #d43f3a inset
+}
 .main-left {
     background-color: #fff;
     padding-left: 0;
@@ -145,8 +161,20 @@ footer {
     /*text-align: left;*/
 }
 
-.select_pic {
-    margin: 20px;
+.select-pic {
+    margin: 20px 20px 0px 20px;
+}
+
+.add-text {
+    padding: 20px;
+}
+
+.text-area {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
 }
 
 /*动态点赞开始*/
