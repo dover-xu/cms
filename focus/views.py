@@ -286,18 +286,7 @@ def publish_pic(request):
             note.save()
         return render(request, 'focus/publish-pic.html')
     else:
-        latest_note_list = Note.objects.query_by_time()
-        rows = latest_note_list.count()  # 帖子总条数
-        page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
-
-        page_id = int(request.GET.get('page', '1'))
-        if page_num > 1:
-            latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
-
-        context = {'latest_note_list': latest_note_list,
-                   'rows': rows,
-                   'page_id': page_id}
-        return render(request, 'focus/publish-pic.html', context)
+        return render(request, 'focus/publish-pic.html', {})
 
 
 def publish_jape(request):

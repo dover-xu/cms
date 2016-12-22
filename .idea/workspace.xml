@@ -2,34 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9510ef11-31a6-47d5-8ecf-86c089adbc40" name="Default" comment="Inprove picture input function.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/avatar/default/1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/avatar/default/2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/avatar/default/3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/avatar/default/4.jpg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/img/2016/12/10/954539_074015064381_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/img/2016/12/10/dog2009_4_1366x768_ct6u.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/img/2016/12/11/20101028121527807.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/img/2016/12/12/460.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/img/2016/12/13/Hydrangeas.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cms.iml" afterPath="$PROJECT_DIR$/.idea/cms.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/urls.py" afterPath="$PROJECT_DIR$/cms/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/admin.py" afterPath="$PROJECT_DIR$/focus/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/urls.py" afterPath="$PROJECT_DIR$/focus/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/models.py" afterPath="$PROJECT_DIR$/focus/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/views.py" afterPath="$PROJECT_DIR$/focus/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/forms.py" afterPath="$PROJECT_DIR$/manager/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/urls.py" afterPath="$PROJECT_DIR$/manager/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager/views.py" afterPath="$PROJECT_DIR$/manager/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/focus/css/common.css" afterPath="$PROJECT_DIR$/static/focus/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/manager/css/common.css" afterPath="$PROJECT_DIR$/static/manager/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/manager/js/common.js" afterPath="$PROJECT_DIR$/static/manager/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/focus/js/js-fileinput.js" afterPath="$PROJECT_DIR$/static/focus/js/js-fileinput.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/focus/publish-jape.html" afterPath="$PROJECT_DIR$/templates/focus/publish-jape.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/focus/publish-pic.html" afterPath="$PROJECT_DIR$/templates/focus/publish-pic.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/focus/publish-video.html" afterPath="$PROJECT_DIR$/templates/focus/publish-video.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/focus/u-comment.html" afterPath="$PROJECT_DIR$/templates/focus/u-comment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/manager/register.html" afterPath="$PROJECT_DIR$/templates/manager/register.html" />
     </list>
     <ignored path="cms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,22 +39,88 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/focus/views.py">
+        <entry file="file://$PROJECT_DIR$/manager/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="283" column="60" selection-start-line="283" selection-start-column="60" selection-end-line="283" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="publish-pic.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/focus/publish-pic.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.4705882">
+              <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="publish-jape.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/focus/publish-jape.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.38080496">
+              <caret line="98" column="36" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/manager/views.py">
+      <file leaf-file-name="publish-video.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/focus/publish-video.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="59" column="73" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
+            <state vertical-scroll-proportion="-4.352941">
+              <caret line="128" column="35" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/focus/css/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.1470587">
+              <caret line="163" column="1" selection-start-line="163" selection-start-column="1" selection-end-line="163" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reset.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/focus/css/reset.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/focus/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.4117646">
+              <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="js-fileinput.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/focus/js/js-fileinput.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -80,38 +129,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cms/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
+            <state vertical-scroll-proportion="0.0">
               <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python35/Lib/site-packages/django/db/models/fields/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="1687" column="8" selection-start-line="1687" selection-start-column="8" selection-end-line="1687" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fields.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python35/Lib/site-packages/django/forms/fields.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="554" column="36" selection-start-line="554" selection-start-column="36" selection-end-line="554" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/-1313743207/builtins.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="339" column="11" selection-start-line="339" selection-start-column="11" selection-end-line="339" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -120,28 +139,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/focus/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="files.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python35/Lib/site-packages/django/db/models/fields/files.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="388" column="8" selection-start-line="388" selection-start-column="8" selection-end-line="388" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/manager/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -188,7 +187,6 @@
         <option value="$PROJECT_DIR$/templates/video-new.html" />
         <option value="$PROJECT_DIR$/focus/forms.py" />
         <option value="$PROJECT_DIR$/cms/settings.py" />
-        <option value="$PROJECT_DIR$/focus/models.py" />
         <option value="$PROJECT_DIR$/focus/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/templates/focus/u-center.html" />
         <option value="$PROJECT_DIR$/templates/focus/u-public.html" />
@@ -196,7 +194,6 @@
         <option value="$PROJECT_DIR$/templates/focus/u-share.html" />
         <option value="$PROJECT_DIR$/templates/focus/publish.html" />
         <option value="$PROJECT_DIR$/static/focus/js/jquery.pagination.js" />
-        <option value="$PROJECT_DIR$/static/focus/js/js-fileinput.js" />
         <option value="$PROJECT_DIR$/templates/manager/login.html" />
         <option value="$PROJECT_DIR$/static/focus/js/js-common.js" />
         <option value="$PROJECT_DIR$/templates/focus/index-hot.html" />
@@ -210,9 +207,6 @@
         <option value="$PROJECT_DIR$/templates/focus/video.html" />
         <option value="$PROJECT_DIR$/templates/focus/video-hot.html" />
         <option value="$PROJECT_DIR$/templates/focus/video-new.html" />
-        <option value="$PROJECT_DIR$/templates/focus/index.html" />
-        <option value="$PROJECT_DIR$/templates/focus/publish-jape.html" />
-        <option value="$PROJECT_DIR$/templates/focus/publish-video.html" />
         <option value="$PROJECT_DIR$/templates/focus/u-comment.html" />
         <option value="$PROJECT_DIR$/cms/urls.py" />
         <option value="$PROJECT_DIR$/focus/urls.py" />
@@ -222,24 +216,28 @@
         <option value="$PROJECT_DIR$/manager/forms.py" />
         <option value="$PROJECT_DIR$/manager/urls.py" />
         <option value="$PROJECT_DIR$/static/focus/css/common.css" />
-        <option value="$PROJECT_DIR$/templates/focus/publish-pic.html" />
         <option value="$PROJECT_DIR$/focus/admin.py" />
+        <option value="$PROJECT_DIR$/focus/models.py" />
         <option value="$PROJECT_DIR$/focus/views.py" />
         <option value="$PROJECT_DIR$/manager/views.py" />
+        <option value="$PROJECT_DIR$/templates/focus/index.html" />
+        <option value="$PROJECT_DIR$/templates/focus/publish-video.html" />
+        <option value="$PROJECT_DIR$/static/focus/js/js-fileinput.js" />
+        <option value="$PROJECT_DIR$/templates/focus/publish-pic.html" />
+        <option value="$PROJECT_DIR$/templates/focus/publish-jape.html" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="419" />
-    <option name="y" value="47" />
-    <option name="width" value="1355" />
-    <option name="height" value="867" />
+    <option name="x" value="43" />
+    <option name="y" value="20" />
+    <option name="width" value="1262" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -266,6 +264,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -295,7 +294,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -309,87 +308,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="avatar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="avatar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="focus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="focus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -437,7 +360,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -571,21 +493,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <module name="cms" />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -596,7 +504,6 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
-      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -714,10 +621,10 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="DJANGO_SETTINGS_MODULE" value="cms.settings" />
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="cms.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\Python35\python.exe" />
+      <option name="SDK_HOME" value="D:\Program Files\python35\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -744,9 +651,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -755,104 +660,89 @@
       <changelist id="9510ef11-31a6-47d5-8ecf-86c089adbc40" name="Default" comment="" />
       <created>1479105334420</created>
       <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
       <updated>1479105334420</updated>
     </task>
     <task id="LOCAL-00001" summary="Basically completed.">
       <created>1479123240199</created>
       <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1479123240199</updated>
     </task>
     <task id="LOCAL-00002" summary="Use mysql replace sqlite.">
       <created>1479726420561</created>
       <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1479726420561</updated>
     </task>
     <task id="LOCAL-00003" summary="Change to new template.">
       <created>1481193857129</created>
       <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1481193857129</updated>
     </task>
     <task id="LOCAL-00004" summary="Change to new template.">
       <created>1481249256586</created>
       <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1481249256586</updated>
     </task>
     <task id="LOCAL-00005" summary="Use mysql replace sqlite.">
       <created>1481249971814</created>
       <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1481249971814</updated>
     </task>
     <task id="LOCAL-00006" summary="Change to new template.">
       <created>1481250175907</created>
       <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1481250175907</updated>
     </task>
     <task id="LOCAL-00007" summary="Change to new template.">
       <created>1481379907141</created>
       <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1481379907142</updated>
     </task>
     <task id="LOCAL-00008" summary="Add models and show post on web.">
       <created>1481380015731</created>
       <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1481380015732</updated>
     </task>
     <task id="LOCAL-00009" summary="Adust admin display and pagination function.">
       <created>1481467253675</created>
       <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1481467253675</updated>
     </task>
     <task id="LOCAL-00010" summary="Add register function.">
       <created>1481799360282</created>
       <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1481799360282</updated>
     </task>
     <task id="LOCAL-00011" summary="Add user center and publish html.">
       <created>1482072507880</created>
       <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
       <updated>1482072507880</updated>
     </task>
     <task id="LOCAL-00012" summary="Add picture input tag.">
       <created>1482158407073</created>
       <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1482158407073</updated>
     </task>
     <task id="LOCAL-00013" summary="Add picture input tag.">
       <created>1482158731372</created>
       <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
       <updated>1482158731372</updated>
     </task>
     <task id="LOCAL-00014" summary="Inprove picture input function.">
       <created>1482230422047</created>
       <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1482230422047</updated>
     </task>
@@ -869,17 +759,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="419" y="47" width="1355" height="867" extended-state="0" />
+    <frame x="43" y="20" width="1262" height="712" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26100385" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26955074" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32405892" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28554502" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33469388" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33448276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2496063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31748468" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -890,6 +779,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -922,39 +812,88 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/manager/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/focus/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="283" column="60" selection-start-line="283" selection-start-column="60" selection-end-line="283" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manager/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/focus/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manager/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/manager/login2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/manager/css/reset.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="80" column="1" selection-start-line="80" selection-start-column="1" selection-end-line="80" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manager/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/index2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="181" column="31" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/bootstrap/css/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,7 +904,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/focus/js/jquery.pagination.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="187" column="12" selection-start-line="187" selection-start-column="12" selection-end-line="187" selection-end-column="12" />
           <folding />
         </state>
@@ -973,40 +912,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/focus/js/fileinput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3134" column="4" selection-start-line="3134" selection-start-column="4" selection-end-line="3134" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/focus/js/js-fileinput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/focus/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/focus/js/js-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/index-hot.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
           <folding />
         </state>
@@ -1014,7 +941,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/index-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
           <folding />
         </state>
@@ -1022,7 +949,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/jape.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="66" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
           <folding />
         </state>
@@ -1030,7 +957,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/jape-hot.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
           <folding />
         </state>
@@ -1038,7 +965,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/jape-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="70" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
           <folding />
         </state>
@@ -1046,7 +973,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/pic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
           <folding />
         </state>
@@ -1054,7 +981,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/video-hot.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
           <folding />
         </state>
@@ -1062,23 +989,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/video-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/focus/publish-jape.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/pic-hot.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="69" selection-start-line="54" selection-start-column="69" selection-end-line="54" selection-end-column="69" />
           <folding />
         </state>
@@ -1086,7 +1005,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/pic-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
+        <state vertical-scroll-proportion="0.0">
           <caret line="251" column="17" selection-start-line="251" selection-start-column="17" selection-end-line="251" selection-end-column="17" />
           <folding />
         </state>
@@ -1094,7 +1013,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/video.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="67" selection-start-line="54" selection-start-column="67" selection-end-line="54" selection-end-column="67" />
           <folding />
         </state>
@@ -1102,7 +1021,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/u-publish.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
+        <state vertical-scroll-proportion="0.0">
           <caret line="249" column="11" selection-start-line="249" selection-start-column="11" selection-end-line="249" selection-end-column="11" />
           <folding />
         </state>
@@ -1110,7 +1029,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/u-share.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
+        <state vertical-scroll-proportion="0.0">
           <caret line="242" column="0" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
           <folding />
         </state>
@@ -1118,59 +1037,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/u-comment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state vertical-scroll-proportion="0.0">
           <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/focus/publish-video.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/manager/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state vertical-scroll-proportion="0.0">
           <caret line="166" column="45" selection-start-line="166" selection-start-column="45" selection-end-line="166" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/manager/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state vertical-scroll-proportion="0.0">
           <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manager/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state vertical-scroll-proportion="0.0">
           <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding>
-            <marker date="1482378846258" expanded="true" signature="69:320" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/focus/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="165" column="11" selection-start-line="165" selection-start-column="11" selection-end-line="165" selection-end-column="11" />
-          <folding>
-            <marker date="1482386201242" expanded="true" signature="2582:2685" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state vertical-scroll-proportion="0.0">
           <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
           <folding />
         </state>
@@ -1178,76 +1075,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/focus/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/focus/publish-pic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="106" column="100" selection-start-line="106" selection-start-column="100" selection-end-line="106" selection-end-column="100" />
-          <folding>
-            <marker date="1482387878135" expanded="true" signature="21:8968" ph="..." />
-            <marker date="1482387878135" expanded="true" signature="1024:8960" ph="..." />
-            <marker date="1482387878135" expanded="true" signature="3112:5338" ph="..." />
-            <marker date="1482387878135" expanded="true" signature="3140:5331" ph="..." />
-            <marker date="1482387878135" expanded="true" signature="3166:5320" ph="..." />
-            <marker date="1482387878135" expanded="true" signature="3336:5095" ph="..." />
-            <marker date="1482387878135" expanded="true" signature="6141:8952" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manager/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/focus/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/images/2016/12/20/Desert.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manager/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/focus/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state vertical-scroll-proportion="0.0">
           <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/manager/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
           <folding />
         </state>
@@ -1255,80 +1112,105 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/manager/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state vertical-scroll-proportion="0.0">
           <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/django/db/models/fields/files.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="388" column="8" selection-start-line="388" selection-start-column="8" selection-end-line="388" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/img/2016/12/10/954539_074015064381_2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/focus/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="283" column="60" selection-start-line="283" selection-start-column="60" selection-end-line="283" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/focus/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/-1313743207/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="339" column="11" selection-start-line="339" selection-start-column="11" selection-end-line="339" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/django/forms/fields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="554" column="36" selection-start-line="554" selection-start-column="36" selection-end-line="554" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/django/db/models/fields/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="1687" column="8" selection-start-line="1687" selection-start-column="8" selection-end-line="1687" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="286" column="55" selection-start-line="286" selection-start-column="55" selection-end-line="286" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
+        <state vertical-scroll-proportion="0.0">
           <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/focus/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manager/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="59" column="73" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/focus/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4117646">
+          <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/focus/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/focus/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1470587">
+          <caret line="163" column="1" selection-start-line="163" selection-start-column="1" selection-end-line="163" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/focus/js/js-fileinput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/focus/publish-video.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.352941">
+          <caret line="128" column="35" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/focus/publish-pic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4705882">
+          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/focus/publish-jape.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38080496">
+          <caret line="98" column="36" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

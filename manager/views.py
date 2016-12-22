@@ -7,11 +7,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from focus.models import MyUser
 
-redirect_url = ''
-
 
 def log_in(request):
-    global redirect_url
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -20,17 +17,19 @@ def log_in(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                if redirect_url:
-                    return redirect(redirect_url)
-                else:
-                    return redirect('/')
+                r_url = request.session.get('redirect_url', default='/')
+                try:
+                    del request.session['redirect_url']
+                except KeyError:
+                    pass
+                return redirect(r_url)
             else:
                 return render(request, 'manager/login.html',
                               {'form': form, 'error': "*用户名或密码错误"})
         else:
             return render(request, 'manager/login.html', {'form': form})
     else:
-        redirect_url = request.GET.get('url', '/')
+        request.session['redirect_url'] = request.GET.get('url', '/')
         form = LoginForm()
         return render(request, 'manager/login.html', {'form': form})
 

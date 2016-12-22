@@ -6,14 +6,14 @@ var FileInput = function () {
     var oFile = new Object();
 
     //初始化fileinput控件（第一次初始化）
-    oFile.Initfile = function (ctrlName, uploadUrl) {
+    oFile.Initfile = function (ctrlName, uploadUrl, type_list, btn_str) {
         var control = $('#' + ctrlName);
 
         //初始化上传控件的样式
         control.fileinput({
             language: 'zh', //设置语言
-            uploadUrl: uploadUrl, //上传的地址
-            allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+            //uploadUrl: uploadUrl, //上传的地址
+            allowedFileExtensions: type_list,//接收的文件后缀
             showUpload: false, //是否显示上传按钮
             // showRemove: false,
             showCancel: false,
@@ -34,8 +34,11 @@ var FileInput = function () {
             // indicatorErrorTitle: 'Upload Error',
             // indicatorLoadingTitle: 'Uploading ...'
             // },
+            layoutTemplates: {
+                btnBrowse: '<div tabindex="500" class="{css}"{status}>{icon} [0]...</div>'.replace('[0]', btn_str)
+            },
             browseClass: "btn btn-default", //按钮样式
-            dropZoneEnabled: true,//是否显示拖拽区域
+            dropZoneEnabled: false,//是否显示拖拽区域
             //minImageWidth: 50, //图片的最小宽度
             //minImageHeight: 50,//图片的最小高度
             //maxImageWidth: 1000,//图片的最大宽度
@@ -67,8 +70,3 @@ var FileInput = function () {
     };
     return oFile;
 };
-$(function () {
-    //0.初始化fileinput
-    var oFileInput = new FileInput();
-    oFileInput.Initfile("txt_file", "/api/OrderApi/ImportOrder");
-});

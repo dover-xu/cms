@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/common.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/reset.css">
-    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/pagination.css">
-
 </head>
 <body>
 <!-- 顶部 -->
@@ -78,29 +76,25 @@
             <!-- 分页内容 -->
             <div class="col-sm-offset-1 col-sm-7 main-left">
                 <ul class="nav nav-justified pub-topic">
-                    <li style="border-right: 1px solid #eee">
+                    <li style="border-bottom: 1px solid #eee;border-right: 1px solid #eee">
                         <a href="/user/publish/video">
                             <i class="fa fa-camera-retro topic-icon"></i>
                             <span>视频</span>
                         </a>
                     </li>
-                    <li style="border-right: 1px solid #eee">
+                    <li style="border-bottom: 1px solid #eee;border-right: 1px solid #eee;">
                         <a class="active" href="/user/publish/pic">
                             <i class="fa fa-picture-o topic-icon"></i>
                             <span>图片</span>
                         </a>
                     </li>
-                    <li>
+                    <li style="border-bottom: 1px solid #eee">
                         <a href="/user/publish/jape">
                             <i class="fa fa-file-text-o topic-icon"></i>
                             <span>段子</span>
                         </a>
                     </li>
                 </ul>
-                {#                <input id="input-id" type="file" class="file" data-preview-file-type="text">#}
-                {#                <div class="show_pic">#}
-                {#                    <img src="/static/focus/images/cai.png" alt="..." class="img-responsive center-block" width="50%">#}
-                {#                </div>#}
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="select-pic"><input type="file" name="txt_file" id="txt_file" class="file-loading"/>
@@ -129,70 +123,12 @@
 <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/locales/zh.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-fileinput.js"></script>
-<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/jquery.pagination.js"></script>
 <script type="text/javascript">
-
-    // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
-    $(".praise-2").click(function () {
-        var praise_img = $(this).children(".praise-img");
-        //var text_box = $(".add-num-praise");
-        var praise_txt = $(this).parents(".praise-1").siblings(".praise-txt");
-        var num = parseInt(praise_txt.text());
-        if (praise_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/yizan.png")) {
-            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/zan.png' class='praise-img' class='animation' />");
-            praise_txt.removeClass("hover");
-            //text_box.show().html("<em class='add-animation'>-1</em>");
-            $(".add-animation").removeClass("hover");
-            num -= 1;
-            praise_txt.text(num)
-        } else {
-            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yizan.png' class='praise-img' class='animation' />");
-            praise_txt.addClass("hover");
-            //text_box.show().html("<em class='add-animation'>+1</em>");
-            $(".add-animation").addClass("hover");
-            num += 1;
-            praise_txt.text(num)
-        }
+    $(function () {
+        //0.初始化fileinput
+        var oFileInput = new FileInput();
+        oFileInput.Initfile("txt_file", "/api/OrderApi/ImportOrder", ['jpg', 'gif', 'png'], "添加图片");
     });
-    $(".tread-2").click(function () {
-        var tread_img = $(this).children(".tread-img");
-        //var text_box = $(".add-num-tread");
-        var tread_txt = $(this).parents(".tread-1").siblings(".tread-txt");
-        var num = parseInt(tread_txt.text());
-        if (tread_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/yicai.png")) {
-            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/cai.png' class='tread-img' class='animation' />");
-            tread_txt.removeClass("hover");
-            //text_box.show().html("<em class='add-animation'>-1</em>");
-            $(".add-animation").removeClass("hover");
-            num -= 1;
-            tread_txt.text(num)
-        } else {
-            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yicai.png' class='tread-img' class='animation' />");
-            tread_txt.addClass("hover");
-            //text_box.show().html("<em class='add-animation'>+1</em>");
-            $(".add-animation").addClass("hover");
-            num += 1;
-            tread_txt.text(num)
-        }
-    });
-
-    // 分页导航配置
-    var iPageSize = 5; // 设置每页显示帖子条数
-    // When document is ready, initialize pagination
-    $(document).ready(function () {
-        var page_id = {{ page_id }};
-        var rows = {{ rows }};
-        $("#Pagination").pagination(rows, {
-            current_page: page_id - 1,
-            num_edge_entries: 1, //边缘页数
-            num_display_entries: 3,//parseInt(rows / iPageSize), // 分页主体部分显示的分页条目数
-            //callback: pageselectCallbackack,
-            items_per_page: iPageSize, //每页显示几项
-            show_if_single_page: true,
-            load_first_page: true
-        });
-    });
-
 </script>
 </body>
 </html>
