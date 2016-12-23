@@ -21,8 +21,8 @@ article, aside, figure, footer, header, nav, section, details, summary {
 html, body {
     height: 100%;
     color: #333;
-    font-size: 12px;
-    font-family: "微软雅黑", MicrosoftYaHei;
+    font-size: 14px;
+    font-family: "Microsoft YaHei", "微软雅黑", Tahoma, Geneva, sans-serif
 }
 
 a {
@@ -43,7 +43,7 @@ input {
     outline: medium none;
     font-family: "微软雅黑", MicrosoftYaHei;
     font-size: 14px;
-    -webkit-box-shadow: 0 0 0px 1000px white inset
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 button {

@@ -25,7 +25,7 @@ $(function () {
             // $(this).parent().next().show();
         } else {
             $(this).css({
-                'color': '#ccc',
+                'color': '#333333'
             });
             $(this).parent().css({
                 'border': 'solid 1px #ccc',
@@ -35,7 +35,7 @@ $(function () {
     });
 });
 
-// 注册页面用户名项失去焦点会调用次函数
+// 注册页面用户名失去焦点会调用该函数
 function authentication() {
     var v = $('.form_text_ipt #username').val();
     $.get('/api/auth/uname/', {'username': v}, function (msg) {

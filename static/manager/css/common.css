@@ -151,7 +151,7 @@ header {
     border: none;
     font-family: "微软雅黑";
     font-size: 15px;
-    color: #666;
+    color: #333;
 }
 
 .check_left label {
@@ -171,7 +171,7 @@ input.form_btn:focus {
     display: block;
     width: 300px;
     height: 40px;
-    margin: 10px auto;
+    margin: 20px auto 10px;
     color: #FFFFFF;
     border: none;
     font-size: 14px;

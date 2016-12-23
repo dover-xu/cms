@@ -26,6 +26,7 @@
                     {% for field in form %}
                         <div class="form_text_ipt">
                             {{ field }}
+                            <div style="color: red">{{ field.errors }}</div>
                         </div>
                         {#                        <div class="ececk_warning"><span>数据不能为空</span></div>#}
                     {% endfor %}

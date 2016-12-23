@@ -13,6 +13,7 @@ class MyUser(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d')
     profile = models.CharField('profile', max_length=255, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=sec_choice, default='m')
+    is_active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username

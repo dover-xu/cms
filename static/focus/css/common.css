@@ -1,9 +1,11 @@
 @charset "utf-8";
-/* 顶部固定栏开始 */
+
 body {
     font-family: STHeiti, "Microsoft yahei", "微软雅黑", sans, tahoma;
     background: #eee;
 }
+
+/* 顶部固定栏开始 */
 .top {
     background:#d43f3a;
 }
@@ -24,6 +26,15 @@ body {
 li:visited {
     color:yellow;
     background:blue;
+}
+
+.login-name {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 70px;
+    padding-right: 0px !important;
 }
 
 /* 顶部固定栏结束 */
