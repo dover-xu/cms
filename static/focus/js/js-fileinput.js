@@ -70,3 +70,17 @@ var FileInput = function () {
     };
     return oFile;
 };
+
+function aaaa() {
+    if ($('#txt_file').val() == '') {
+        $('.pub-trig').css({'outline': 'none', 'box-shadow': '0 0 0 1000px #d43f3a inset'});
+        $("#pic-null").fadeIn(1000);
+        $("#pic-null").fadeOut(2000);
+        return false;
+    } else {
+        $('.pub-trig').css({'outline': '1px solid #777777', 'box-shadow': '0 0 0 1000px #a94442 inset'});
+        return true;
+    }
+}
+
+

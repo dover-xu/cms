@@ -1,15 +1,6 @@
-import urllib
-
-import markdown2 as markdown2
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-
-from focus.forms import CommentForm
 from focus.models import Comment, Praise, MyUser, Note
-from manager.forms import LoginForm, RegisterForm
+from manager.forms import LoginForm
 
 
 def index(request):
@@ -284,7 +275,9 @@ def publish_pic(request):
                         image=request.FILES.get('txt_file'),
                         category='Picture')
             note.save()
-        return render(request, 'focus/publish-pic.html')
+            return redirect('/user/focus/publish')
+        else:
+            return render(request, 'focus/publish-pic.html', {})
     else:
         return render(request, 'focus/publish-pic.html', {})
 
@@ -302,15 +295,6 @@ def publish_jape(request):
                'rows': rows,
                'page_id': page_id}
     return render(request, 'focus/publish-jape.html', context)
-
-
-def auth_name(request):
-    username = request.GET.get('username', 'asdgkg234hsd~jsgasdg')
-    try:
-        MyUser.objects.get(username=username)
-        return HttpResponse("*用户名已存在！")
-    except ObjectDoesNotExist:
-        return HttpResponse("")
 
 
 # def article(request, article_id):

@@ -4,7 +4,7 @@
     <meta name="keywords" content="幽默，搞笑，知识，内涵，段子">
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>发布视频-欢笑江湖</title>
+    <title>{{ title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {#        {% load staticfiles %}#}
@@ -17,11 +17,11 @@
     <link rel="shortcut icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
           mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/fileinput.min.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/common.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/reset.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}manager/css/common.css"/>
 </head>
 <body>
 <!-- 顶部 -->
@@ -38,8 +38,8 @@
         </div>
         <div>
             <ul class="nav navbar-nav top-left">
-                <li style="float:left">
-                    <a href="/">全部</a>
+                <li class="active" style="float:left">
+                    <a href="/" style="background:#ac2925">全部</a>
                 </li>
                 <li style="float:left">
                     <a href="/video">视频</a>
@@ -54,10 +54,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right pull-right top-right">
-                {% if request.user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <li>
-                        <a href="/user/focus/publish"><span class="glyphicon glyphicon-user"></span> {{ request.user }}
-                        </a>
+                        <a class="login-name" href="/user/focus/publish"><span
+                                class="glyphicon glyphicon-user"></span> {{ request.user }}</a>
                     </li>
                     <li>
                         <a href="/manager/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a>
@@ -75,49 +75,11 @@
     </div>
 </div>
 <!-- 中间 -->
-<div class="section">
-    <div class="container">
-        <div class="row">
-            {#                    <div class="col-sm-1 col-md-1 col-lg-1"></div>#}
-            <!-- 分页内容 -->
-            <div class="col-sm-offset-1 col-sm-7 main-left">
-                <ul class="nav nav-justified pub-topic">
-                    <li style="border-bottom: 1px solid #eee;border-right: 1px solid #eee">
-                        <a class="active" href="/user/publish/video">
-                            <i class="fa fa-camera-retro topic-icon"></i>
-                            <span>视频</span>
-                        </a>
-                    </li>
-                    <li style="border-bottom: 1px solid #eee;border-right: 1px solid #eee">
-                        <a href="/user/publish/pic">
-                            <i class="fa fa-picture-o topic-icon"></i>
-                            <span>图片</span>
-                        </a>
-                    </li>
-                    <li style="border-bottom: 1px solid #eee;">
-                        <a href="/user/publish/jape">
-                            <i class="fa fa-file-text-o topic-icon"></i>
-                            <span>段子</span>
-                        </a>
-                    </li>
-                </ul>
-                <form action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="select-pic"><input type="file" name="txt_file" id="txt_file" class="file-loading"/>
-                    </div>
-                    <div class="add-text"><textarea class="text-area" placeholder="说点什么..." name="text_area"
-                                                    rows="5"></textarea></div>
-                    <input type="submit" class="pub-trig" value="发布">
-                </form>
-            </div>
-            <!-- 右侧边栏 -->
-            <div class="col-sm-3 hidden-xs main-right">
-                <img src="{{ STATIC_PREFIX }}focus/images/test_img1.jpg" alt="图片无法显示" class="img-thumbnail">
-            </div>
-        </div>
+<div class="container">
+    <div class="col-xs-6 col-md-offset-3 a-msg">
+        <p>{{ message|safe }}</p>
     </div>
 </div>
-
 <!-- 底部 -->
 <div class="footer hidden-xs">
     <p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
@@ -125,16 +87,8 @@
 </div>
 
 <script type="text/javascript" src="{{ STATIC_PREFIX }}bootstrap/js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/fileinput.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-common.js"></script>
-<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-fileinput.js"></script>
-<script type="text/javascript">
-    $(function () {
-        //0.初始化fileinput
-        var oFileInput = new FileInput();
-        oFileInput.Initfile("txt_file", "/api/OrderApi/ImportOrder", ['vob', 'mpg', 'avi', 'mp4', 'mkv', 'mov'], "添加视频");
-    });
-</script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}manager/js/common.js"></script>
 </body>
 </html>

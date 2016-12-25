@@ -38,7 +38,7 @@ $(function () {
 // 注册页面用户名失去焦点会调用该函数
 function authentication() {
     var v = $('.form_text_ipt #username').val();
-    $.get('/api/auth/uname/', {'username': v}, function (msg) {
+    $.get('/manager/api/auth/uname/', {'username': v}, function (msg) {
         $('.form_text_error').html(msg);
     });
 

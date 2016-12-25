@@ -23,6 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '5n9k!mytzs139*$&lj1z2_t9bhyxuy1&zinrvg2h^(a!z@#!m-'
 
+DOMAIN = 'localhost:8000'
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = '1012874012@qq.com'
+EMAIL_HOST_PASSWORD = 'kkzuxgyyutjobfjh'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

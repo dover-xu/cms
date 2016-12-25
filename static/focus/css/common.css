@@ -39,40 +39,6 @@ li:visited {
 
 /* 顶部固定栏结束 */
 /* 中间主体布局开始 */
-.section {
-}
-
-.pub-topic {
-    color: #555;
-    font-size: 10px;
-}
-
-i.topic-icon {
-    font-size: 25px;
-    display: block;
-    text-align: center
-}
-
-.pub-topic a.active {
-    border-bottom: 1px solid #d43f3a;
-    color: #d43f3a;
-}
-
-input.pub-trig:focus {
-    box-shadow: 0 0 0px 1000px #c0392b inset;
-}
-
-.pub-trig {
-    display: block;
-    width: 300px;
-    height: 40px;
-    margin: 10px auto;
-    color: #FFFFFF;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 0 0 0px 1000px #d43f3a inset
-}
 .main-left {
     background-color: #fff;
     padding-left: 0;
@@ -138,11 +104,57 @@ a {
     margin: 0 10px;
 }
 /* 用户发布内容布局结束 */
+
 .tool-bar {
     float:left;
     width: 100%;
 }
 
+footer {
+    border-top: 1px solid #cccccc;
+    padding: 20px;
+}
+
+.pub-topic {
+    color: #555;
+    font-size: 10px;
+}
+
+i.topic-icon {
+    font-size: 25px;
+    display: block;
+    text-align: center
+}
+
+.pub-topic a.active {
+    border-bottom: 1px solid #d43f3a;
+    color: #d43f3a;
+}
+
+#pic-null {
+    display: none;
+    position: absolute;
+    color: #d43f3a;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+input.pub-trig:focus {
+    box-shadow: 0 0 0 1000px #a94442 inset;
+    outline: 1px solid #777777;
+}
+
+.pub-trig {
+    display: block;
+    width: 300px;
+    height: 40px;
+    margin: 10px auto;
+    color: #FFFFFF;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 0 1000px #d43f3a inset;
+}
 div.publish {
     background: #fff;
     margin-bottom: 10px;
@@ -161,10 +173,6 @@ div.publish a {
     font-size: 26px;
     color: #FFFFFF;
 }
-footer {
-    border-top: 1px solid #cccccc;
-    padding: 20px;
-}
 
 .show_pic {
     margin: 20px 20px 0px 20px;
@@ -177,7 +185,7 @@ footer {
 }
 
 .add-text {
-    padding: 20px;
+    margin: 25px 20px;
 }
 
 .text-area {

@@ -2,9 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>注册</title>
+    <title>注册-欢笑江湖</title>
     {% load static %}
     {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="bookmark" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}manager/css/reset.css"/>
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}manager/css/common.css"/>
 </head>
@@ -26,7 +32,7 @@
                     {% for field in form %}
                         <div class="form_text_ipt">
                             {{ field }}
-                            <div style="color: red">{{ field.errors }}</div>
+                            <div style="color: red;font-size: 12px;">{{ field.errors }}</div>
                         </div>
                         {#                        <div class="ececk_warning"><span>数据不能为空</span></div>#}
                     {% endfor %}

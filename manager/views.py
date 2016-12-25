@@ -1,5 +1,11 @@
+import base64
+
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.http import HttpResponse
+from itsdangerous import URLSafeTimedSerializer as utsr
 import random
 
+from cms import settings
 from manager.forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -8,10 +14,34 @@ from django.shortcuts import render, redirect
 from focus.models import MyUser
 
 
+class Token:
+    def __init__(self, security_key):
+        self.security_key = security_key
+        self.salt = base64.encodebytes(security_key.encode(encoding='utf-8'))
+
+    def generate_validate_token(self, username):
+        serializer = utsr(self.security_key)
+        return serializer.dumps(username, self.salt)
+
+    def confirm_validate_token(self, token, expiration=3600):
+        serializer = utsr(self.security_key)
+        return serializer.loads(token, salt=self.salt, max_age=expiration)
+
+    def remove_validate_token(self, token):
+        serializer = utsr(self.security_key)
+        print(serializer.loads(token, salt=self.salt))
+        return serializer.loads(token, salt=self.salt)
+
+
+token_confirm = Token(settings.SECRET_KEY)  # 定义为全局变量
+
+
 def log_in(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
+            if request.user.is_authenticated:
+                return render(request, 'manager/signin.html', {'form': form, 'error': "*已登录"})
             username, password = form.cleaned_data['username'], form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user is not None:
@@ -23,14 +53,19 @@ def log_in(request):
                     pass
                 return redirect(r_url)
             else:
-                return render(request, 'manager/login.html',
-                              {'form': form, 'error': "*用户名或密码错误"})
+                try:
+                    user = MyUser.objects.get(username=username)
+                    if not user.is_active:
+                        return render(request, 'manager/signin.html', {'form': form, 'error': "*请先完成邮箱验证"})
+                except ObjectDoesNotExist:
+                    return render(request, 'manager/signin.html', {'form': form, 'error': "*用户名不存在"})
+                return render(request, 'manager/signin.html', {'form': form, 'error': "*密码错误"})
         else:
-            return render(request, 'manager/login.html', {'form': form, 'error': "*登录失败"})
+            return render(request, 'manager/signin.html', {'form': form, 'error': "*登录失败"})
     else:
         request.session['redirect_url'] = request.GET.get('url', '/')
         form = LoginForm()
-        return render(request, 'manager/login.html', {'form': form})
+        return render(request, 'manager/signin.html', {'form': form})
 
 
 @login_required
@@ -38,6 +73,15 @@ def log_out(request):
     url = request.GET.get('url', '/')
     logout(request)
     return redirect(url)
+
+
+def auth_name(request):
+    username = request.GET.get('username', 'asdgkg234hsd~jsgasdg')
+    try:
+        MyUser.objects.get(username=username)
+        return HttpResponse("*用户名已存在！")
+    except ObjectDoesNotExist:
+        return HttpResponse("")
 
 
 def register(request):
@@ -48,24 +92,74 @@ def register(request):
                                                     form.cleaned_data['password1'], form.cleaned_data['password2']
             try:
                 MyUser.objects.get(username=username)
-                return render(request, 'manager/register.html', {'form': form, 'error': "*用户名已存在！"})
+                return render(request, 'manager/signup.html', {'form': form, 'error': "*用户名已存在！"})
             except ObjectDoesNotExist:
                 if len(password1) < 8:
                     form.add_error('password1', '至少包含8位字符')
-                    return render(request, 'manager/register.html', {'form': form})
-                elif password1.isdigit():
+                    return render(request, 'manager/signup.html', {'form': form})
+                if password1.isdigit():
                     form.add_error('password1', '不能全为数字')
-                    return render(request, 'manager/register.html', {'form': form})
-                elif password1 != password2:
+                    return render(request, 'manager/signup.html', {'form': form})
+                if password1 != password2:
                     form.add_error('password2', '两次密码不一致')
-                    return render(request, 'manager/register.html', {'form': form})
-                else:
-                    pic = '/avatar/default/%d.jpg' % random.randint(1, 4)  # 随机选择默认头像
-                    user = MyUser.objects.create_user(username=username, email=email, password=password1, avatar=pic)
-                    user.save()
-                    return redirect('/manager/login')
+                    return render(request, 'manager/signup.html', {'form': form})
+                pic = '/avatar/default/%d.jpg' % random.randint(1, 4)  # 随机选择默认头像
+                user = MyUser.objects.create_user(username=username, email=email, password=password1, avatar=pic)
+                user.is_active = False
+                user.save()
+                token = token_confirm.generate_validate_token(username)
+                message = "\n".join(['{0}，欢迎加入我们<br>'.format(username),
+                                     '请访问该链接，完成邮箱验证:',
+                                     r'<a href={0}>{1}</a>'.format(
+                                             '/'.join([settings.DOMAIN, 'manager/api/activate', token]),
+                                             '/'.join([settings.DOMAIN, 'manager/api/activate', token]))
+                                     ])
+                subject, from_email, to = '注册用户验证信息', '1012874012@qq.com', [email]
+                msg = EmailMultiAlternatives(subject, message, from_email, to)
+                msg.attach_alternative(message, "text/html")
+                msg.send()
+                # send_mail('注册用户验证信息', message, '1012874012@qq.com', [email], fail_silently=False)
+                return render(request, 'manager/activate-msg.html', {'title': '邮箱验证-欢笑江湖',
+                                                                     'message': '<div class="alert alert-success">'
+                                                                                '请登录到注册邮箱以完成验证，有效期为1个小时'
+                                                                                '</div>'})
         else:
-            return render(request, 'manager/register.html', {'form': form})
+            return render(request, 'manager/signup.html', {'form': form})
     else:
         form = RegisterForm()
-        return render(request, 'manager/register.html', {'form': form})
+        return render(request, 'manager/signup.html', {'form': form})
+
+
+def activate_user(request, token):
+    try:
+        username = token_confirm.confirm_validate_token(token)
+    except:
+        username = token_confirm.remove_validate_token(token)
+        users = MyUser.objects.filter(username=username)
+        for user in users:
+            user.delete()
+        return render(request, 'manager/activate-msg.html',
+                      {'title': '邮箱验证-欢笑江湖',
+                       'message': '<div class="alert alert-danger">'
+                                  '<h4>非常抱歉!</h4>'
+                                  '<br>'
+                                  r'验证链接已经过期，请重新<a href="/manager/register"><B>注册</B></a>'
+                                  '</div>'})
+    try:
+        user = MyUser.objects.get(username=username)
+    except MyUser.DoesNotExist:
+        return render(request, 'manager/activate-msg.html',
+                      {'title': '邮箱验证-欢笑江湖',
+                       'message': '<div class="alert alert-danger">'
+                                  '<h4>非常抱歉!</h4>'
+                                  '<br>'
+                                  '您所验证的用户(' + username + ')不存在，请重新注册'
+                                                          '</div>'})
+    user.is_active = True
+    user.save()
+    message = '<div class="alert alert-success">' \
+              '<h4>验证成功</h4>' \
+              '<br>' \
+              r'您现在可以<a href="/manager/login"><B>登录</B></a>' \
+              '</div>'
+    return render(request, 'manager/activate-msg.html', {'title': '邮箱验证-欢笑江湖', 'message': message})

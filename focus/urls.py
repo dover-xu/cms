@@ -21,5 +21,4 @@ urlpatterns = [
     url(r'^user/publish/video$', views.publish_video, name='publish_video'),
     url(r'^user/publish/pic$', views.publish_pic, name='publish_pic'),
     url(r'^user/publish/jape$', views.publish_jape, name='publish_jape'),
-    url(r'^api/auth/uname/$', views.auth_name, name='auth_name'),
 ]

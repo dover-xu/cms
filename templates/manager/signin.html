@@ -2,20 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>登录-欢笑江湖</title>
     {% load static %}
     {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="bookmark" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}manager/css/reset.css"/>
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}manager/css/common.css"/>
 </head>
 <body>
 <div class="wrap login_wrap">
     <div class="cont">
-
         <div class="logo"></div>
-
         <div class="login_box">
-
             <div class="login_form">
                 <div class="login_title">
                     登录
@@ -39,7 +42,7 @@
                     {#							<div class="ececk_warning"><span>数据不能为空</span></div>#}
                     <div class="form_check_ipt">
                         <div class="left check_left">
-                            <label><input name="" type="checkbox"> 下次自动登录</label>
+                            <label><input name="" style="box-shadow: none" type="checkbox"> 下次自动登录</label>
                         </div>
                         <div class="right check_right">
                             <a href="#">忘记密码</a>

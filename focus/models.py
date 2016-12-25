@@ -13,7 +13,6 @@ class MyUser(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d')
     profile = models.CharField('profile', max_length=255, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=sec_choice, default='m')
-    is_active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
@@ -24,7 +23,7 @@ class NoteManager(models.Manager):
         query = self.get_query().filter(column_id=column_id)
 
     def query_by_user(self, user_id):
-        user = User.objects.get(id=user_id)
+        user = MyUser.objects.get(id=user_id)
         note_list = user.note_set.all()
         return note_list
 
