@@ -134,6 +134,8 @@ i.topic-icon {
 #pic-null {
     display: none;
     position: absolute;
+    left: 190px;
+    bottom: 55px;
     color: #d43f3a;
     font-size: 12px;
     line-height: 20px;
