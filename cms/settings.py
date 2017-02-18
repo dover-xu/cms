@@ -13,6 +13,19 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+# import djcelery
+#
+# djcelery.setup_loader()
+# BROKER_URL = 'amqp://guest@localhost//'
+# CELERY_RESULT_BACKEND = 'amqp://guest@localhost//'
+# CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'  # 定时任务
+# # CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+# # # CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+# # CELERY_ACCEPT_CONTENT = ['application/json']
+# # CELERY_TASK_SERIALIZER = 'json'
+# # CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'Asia/Shanghai'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,18 +36,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '5n9k!mytzs139*$&lj1z2_t9bhyxuy1&zinrvg2h^(a!z@#!m-'
 
-DOMAIN = 'localhost:8000'
+DOMAIN = 'http://www.hahajh.com'
 
-EMAIL_HOST = 'smtp.qq.com'
-EMAIL_HOST_USER = '1012874012@qq.com'
-EMAIL_HOST_PASSWORD = 'kkzuxgyyutjobfjh'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_HOST_USER = 'xudong@hahajh.com'
+EMAIL_HOST_PASSWORD = '7222992Dong'
+EMAIL_PORT = 25
 EMAIL_USE_TLS = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', '123.206.66.230']
 
 
 # Application definition
@@ -46,9 +59,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'focus',
+    # 'focus',
+    'focus.apps.FocusConfig',
     'manager',
     'debugtools',
+    'rest_framework',
+    'rest_framework_swagger',
+    # 'djcelery',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -123,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -140,7 +157,7 @@ STATIC_URL = '/static/'
 # 当运行 python manage.py collectstatic 的时候
 # STATIC_ROOT 文件夹 是用来将所有STATICFILES_DIRS中所有文件夹中的文件，以及各app中static中的文件都复制过来
 # 把这些文件放到一起是为了用apache等部署的时候更方便
-STATIC_ROOT = os.path.join(BASE_DIR, 'focus/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_collect')
 
 # 其它 存放静态文件的文件夹，可以用来存放项目中公用的静态文件，里面不能包含 STATIC_ROOT
 # 如果不想用 STATICFILES_DIRS 可以不用，都放在 app 里的 static 中也可以
@@ -150,8 +167,28 @@ STATICFILES_DIRS = (
 
 AUTH_USER_MODEL = 'focus.MyUser'
 
-LOGIN_URL = "/focus/login"
+# LOGIN_URL = "/manager/login/"
+LOGIN_URL = 'rest_framework:login'
+LOGOUT_URL = 'rest_framework:logout'
 
 MEDIA_URL = '/uploads/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    # 'PAGINATE_BY': 10,
+    'PAGE_SIZE': 10,
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    )
+}
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    }
+}
