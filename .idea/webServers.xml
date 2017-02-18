@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="aec326c1-afbf-42db-b714-b859ce6eec27" name="tencent_ubuntu" url="http://123.206.66.230">
+        <fileTransfer host="123.206.66.230" port="22" accessType="SFTP" username="ubuntu">
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
