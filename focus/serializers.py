@@ -47,7 +47,7 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Comment
         fields = (
-            'text', 'user', 'note', 'pub_date'
+            'text', 'id', 'user', 'note', 'pub_date'
         )
 
 
@@ -58,27 +58,25 @@ class PraiseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Praise
         fields = (
-            'user', 'note', 'praise_date'
+            'user', 'id', 'note', 'praise_date'
         )
 
 
 class TreadSerializer(serializers.HyperlinkedModelSerializer):
-    # note = serializers.ReadOnlyField(source='note.id')
     user = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
         model = Tread
         fields = (
-            'user', 'note', 'tread_date'
+            'user', 'id', 'note', 'tread_date'
         )
 
 
 class ShareSerializer(serializers.HyperlinkedModelSerializer):
-    note = serializers.ReadOnlyField(source='note.id')
     user = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
         model = Share
         fields = (
-            'user', 'note', 'share_date'
+            'user', 'id', 'note', 'share_date'
         )

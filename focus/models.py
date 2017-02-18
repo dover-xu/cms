@@ -202,7 +202,7 @@ class Tread(models.Model):
 
 class Share(models.Model):
     user = models.ForeignKey('MyUser', default='', related_name='shares', verbose_name='who share')
-    note = models.ForeignKey('Note')
+    note = models.ForeignKey('Note', blank=True, null=True)
     text = models.CharField(max_length=200, default='', blank=True, null=True)
     to = models.CharField(max_length=256)
     share_date = models.DateTimeField(auto_now_add=True, editable=True)
