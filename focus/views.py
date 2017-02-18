@@ -13,7 +13,7 @@ from focus.serializers import MyUserSerializer, NoteSerializer, CommentSerialize
     ShareSerializer
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 from rest_framework import viewsets
-from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
 from rest_framework import response, schemas
 from rest_framework import permissions
 
@@ -51,8 +51,16 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    @list_route(methods=['post', 'delete'])
+    def list_handler(self, request):
+        pass
+
+    @detail_route(methods=['get'])
+    def detail_handler(self, request, pk=None):
+        pass
+
+        # def perform_create(self, serializer):
+        #     serializer.save(user=self.request.user)
 
 
 class CommentViewSet(viewsets.ModelViewSet):

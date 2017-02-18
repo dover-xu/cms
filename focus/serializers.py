@@ -18,9 +18,26 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Note
         fields = (
-            'url', 'id', 'text_frag', 'hot', 'click_num', 'recommend', 'user', 'category', 'comments', 'comment_num',
-            'praise_num',
-            'tread_num', 'share_num', 'pub_date')
+            'url', 'id', 'text', 'hot', 'click_num', 'recommend', 'user', 'category', 'comments', 'comment_num',
+            'praise_num', 'tread_num', 'share_num', 'pub_date')
+
+    def create(self, validated_data):
+        """响应 POST 请求
+        :param validated_data:
+        """
+        # 自动为用户提交的 model 添加 owner
+        validated_data['user'] = self.context['request'].user
+        return Note.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        """响应 PUT 请求
+        :param instance:
+        :param validated_data:
+        """
+        instance.text = validated_data.get('text', instance.text)
+        instance.category = validated_data.get('category', instance.category)
+        instance.save()
+        return instance
 
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
