@@ -128,7 +128,7 @@ def index(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -156,7 +156,7 @@ def index_hot(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -183,7 +183,7 @@ def index_new(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -210,7 +210,7 @@ def video(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -237,7 +237,7 @@ def video_hot(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -264,7 +264,7 @@ def video_new(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -291,7 +291,7 @@ def pic(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -318,7 +318,7 @@ def pic_hot(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -345,7 +345,7 @@ def pic_new(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -372,7 +372,7 @@ def jape(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -399,7 +399,7 @@ def jape_hot(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -426,7 +426,7 @@ def jape_new(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
     if request.user.is_authenticated:
         for n in note_list:
             if Praise.objects.filter(user=request.user, note=n):
@@ -452,7 +452,7 @@ def user_publish(request):
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        notes = notes[(page_id - 1) * page_size:(page_id - 1) * page_size + page_size]
+        notes = notes[(page_id - 1) * page_size:page_id * page_size]
 
     context = {'latest_note_list': notes,
                'rows': rows,
@@ -464,11 +464,12 @@ def user_share(request):
     # latest_note_list = Note.objects.query_by_time()
     share_list = Share.objects.filter(user=request.user).order_by('-share_date')
     rows = share_list.count()  # 帖子总条数
-    page_num = (rows - 1) // 5 + 1  # 总页数
+    page_size = 5  # 每页显示帖子数
+    page_num = (rows - 1) // page_size + 1  # 总页数
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        share_list = share_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+        share_list = share_list[(page_id - 1) * page_size:page_id * page_size]
 
     context = {'share_list': share_list,
                'rows': rows,
@@ -485,11 +486,12 @@ def user_comment(request):
             notes.append(comment.note)
             filter_list.append(comment)
     rows = len(filter_list)  # 帖子总条数
-    page_num = (rows - 1) // 5 + 1  # 总页数
+    page_size = 5  # 每页显示帖子数
+    page_num = (rows - 1) // page_size + 1  # 总页数
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        filter_list = filter_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+        filter_list = filter_list[(page_id - 1) * page_size:page_id * page_size]
 
     context = {'comment_list': filter_list,
                'rows': rows,
@@ -501,11 +503,12 @@ def user_comment(request):
 def publish_video(request):
     latest_note_list = Note.objects.query_by_time()
     rows = latest_note_list.count()  # 帖子总条数
-    page_num = (latest_note_list.count() - 1) // 5 + 1  # 总页数
+    page_size = 5  # 每页显示帖子数
+    page_num = (latest_note_list.count() - 1) // page_size + 1  # 总页数
 
     page_id = int(request.GET.get('page', '1'))
     if page_num > 1:
-        latest_note_list = latest_note_list[(page_id - 1) * 5:(page_id - 1) * 5 + 5]
+        latest_note_list = latest_note_list[(page_id - 1) * page_size:page_id * page_size]
 
     context = {'latest_note_list': latest_note_list,
                'rows': rows,
