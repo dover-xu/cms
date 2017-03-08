@@ -2,9 +2,11 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="aec326c1-afbf-42db-b714-b859ce6eec27" name="tencent_ubuntu" url="http://123.206.66.230">
-        <fileTransfer host="123.206.66.230" port="22" accessType="SFTP" username="ubuntu">
-          <option name="port" value="22" />
+      <webServer id="5fa267b5-f0e2-4c24-b6f2-3afe7a4d0dcf" name="tencent_ubuntu" url="http://123.206.66.230">
+        <fileTransfer host="123.206.66.230" port="22" rootFolder="/home/ubuntu" accessType="SFTP" password="dfd2dfdfdfcedfc5dfc4dfcddf98df9adf9bdf9c" username="ubuntu">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
         </fileTransfer>
       </webServer>
     </option>

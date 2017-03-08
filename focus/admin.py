@@ -12,12 +12,14 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'text_frag', 'user', 'category', 'comment_num', 'praise_num', 'tread_num', 'pub_date')
-    list_display_links = ('id', 'text_frag', 'user')
+    list_display = (
+        'id', 'text_frag', 'hot', 'click_num', 'recommend', 'user', 'category', 'comment_num', 'praise_num',
+        'tread_num', 'share_num', 'pub_date')
+    list_display_links = ('id', 'text_frag', 'hot')
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('text', 'user', 'note_num', 'praise_num', 'tread_num', 'pub_date',)
+    list_display = ('text', 'user', 'note_num', 'praise_num', 'tread_num', 'pub_date')
 
 
 class ShareAdmin(admin.ModelAdmin):

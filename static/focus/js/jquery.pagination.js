@@ -137,7 +137,7 @@
 			ellipse_text:"...",
 			prev_show_always:true,
 			next_show_always:true,
-			renderer:"defaultRenderer",
+			renderer: "defaultRenderer"
 		},opts||{});
 
 		var containers = this,

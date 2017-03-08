@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta name="keywords" content="幽默，搞笑，知识，内涵，段子">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>欢笑江湖</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#        {% load staticfiles %}#}
+    {% load static %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="bookmark" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
+          mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/common.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/reset.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/pagination.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/comment.css">
+</head>
+<body>
+<!-- 顶部 -->
+<div class="navbar navbar-default navbar-static-top top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand top-title" href="/"><span>欢笑江湖</span></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div>
+            <ul class="nav navbar-nav top-left">
+                <li class="active" style="float:left">
+                    <a href="/" style="background:#ac2925">全部</a>
+                </li>
+                <li style="float:left">
+                    <a href="/video">视频</a>
+                </li>
+                <li style="float:left">
+                    <a href="/pic">图片</a>
+                </li>
+                <li style="float:left">
+                    <a href="/jape">段子</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav navbar-right pull-right top-right">
+                {% if user.is_authenticated %}
+                    <li>
+                        <a class="login-name" href="/user/focus/publish"><span
+                                class="glyphicon glyphicon-user"></span> {{ request.user }}</a>
+                    </li>
+                    <li>
+                        <a href="/manager/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="/manager/login"><span class="glyphicon glyphicon-log-in"></span> 登陆</a>
+                    </li>
+                    <li>
+                        <a href="/manager/register"><span class="glyphicon glyphicon-user"></span> 注册</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 中间 -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <!-- 分页内容 -->
+            <div class="col-sm-offset-1 col-sm-7 main-left">
+                <div class="note">
+                    <ul class="list-unstyled">
+                        <li class="nav" style="border-bottom: 1px solid #d5d5d5;">
+                            <!-- 用户信息 -->
+                            <div class="u-bar">
+                                        <span class="pull-left">
+                                            <a href="#">
+                                                <img src="{{ note.user.avatar.url }}" alt="头像无法显示" class="u-img">
+                                            </a>
+                                        </span>
+                                <span class="pull-left u-name">{{ note.user.username }}</span>
+                                <span class="pull-right pub-time">{{ note.pub_date|date:"Y-m-d H:i:s" }}</span>
+                            </div>
+                            <!-- 发布内容 -->
+                            <div class="cont">
+                                {% if note.text %}
+                                    <div class="c-text">{{ note.text }}</div>
+                                {% endif %}
+                                {% if note.image %}
+                                    <div class="content-img">
+                                        <img src="{{ note.image.url }}" alt="图片无法显示"
+                                             class="img-responsive center-block" width="100%">
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <!-- 工具条 -->
+                            <div class="tool-bar" data-id="{{ note.id }}">
+                                <div style="float:left;height:100%;">
+                                    <div class="praise-1">
+                                                <span class="praise-2">
+                                                    {% if note.P %}
+                                                        <img src="{{ STATIC_PREFIX }}focus/images/yizan.png"
+                                                             class="praise-img">
+                                                    {% else %}
+                                                        <img src="{{ STATIC_PREFIX }}focus/images/zan.png"
+                                                             class="praise-img">
+                                                    {% endif %}
+                                                </span>
+                                    </div>
+                                    <span class="praise-txt">{{ note.praise_str }}</span>
+                                            <span class="add-num-praise">
+                                                <em>+1</em>
+                                            </span>
+                                    <div class="tread-1">
+                                                <span class="tread-2">
+                                                    {% if note.T %}
+                                                        <img src="{{ STATIC_PREFIX }}focus/images/yicai.png"
+                                                             class="tread-img">
+                                                    {% else %}
+                                                        <img src="{{ STATIC_PREFIX }}focus/images/cai.png"
+                                                             class="tread-img">
+                                                    {% endif %}
+                                                </span>
+                                    </div>
+                                    <span class="tread-txt">{{ note.tread_str }}</span>
+                                            <span class="add-num-tread">
+                                                <em>+1</em>
+                                            </span>
+                                </div>
+                                        <span>
+                                            <span class="glyphicon glyphicon-comment comment-img"></span>
+                                            <span class="comment-txt">{{ note.comment_str }}</span>
+                                        </span>
+                                <div class="bdsharebuttonbox" style="float:right;padding:8.5px 10px">
+                                    <a href="#" class="bds_more" data-cmd="more" style="color:#d5d5d5"></a>
+                                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="qq">
+                    <p>评论({{ note.comment_str }})</p>
+                    <div class="message" contentEditable='true'></div>
+
+                    <div class="But">
+                        <img src="{{ STATIC_PREFIX }}focus/images/comment/bba_thumb.gif" class='bq'/>
+                        <span class='submit'>发表</span>
+                        <!--face begin-->
+                        <div class="face">
+                            <ul>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/zz2_thumb.gif" title="[织]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/horse2_thumb.gif" title="神马]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/fuyun_thumb.gif" title="[浮云]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/geili_thumb.gif" title="[给力]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/wg_thumb.gif" title="[围观]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/vw_thumb.gif" title="[威武]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/panda_thumb.gif" title="[熊猫]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/rabbit_thumb.gif" title="兔子]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/otm_thumb.gif" title="[奥特曼]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/j_thumb.gif" title="[囧]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/hufen_thumb.gif" title="[互粉]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/liwu_thumb.gif" title="[礼物]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/smilea_thumb.gif" title="呵呵]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/tootha_thumb.gif" title="嘻嘻]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/laugh.gif" title="[哈哈]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/tza_thumb.gif" title="[可爱]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/kl_thumb.gif" title="[可怜]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/kbsa_thumb.gif" title="[挖鼻屎]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/cj_thumb.gif" title="[吃惊]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/shamea_thumb.gif" title="[害羞]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/zy_thumb.gif" title="[挤眼]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/bz_thumb.gif" title="[闭嘴]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/bs2_thumb.gif" title="[鄙视]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/lovea_thumb.gif" title="[爱你]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sada_thumb.gif" title="[泪]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/heia_thumb.gif" title="[偷笑]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/qq_thumb.gif" title="[亲亲]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sb_thumb.gif" title="[生病]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/mb_thumb.gif" title="[太开心]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/ldln_thumb.gif" title="[懒得理你]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/yhh_thumb.gif" title="[右哼哼]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/zhh_thumb.gif" title="[左哼哼]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/x_thumb.gif" title="[嘘]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/cry.gif" title="[衰]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/wq_thumb.gif" title="[委屈]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/t_thumb.gif" title="[吐]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/k_thumb.gif" title="[打哈气]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/bba_thumb.gif" title="[抱抱]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/angrya_thumb.gif" title="[怒]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/yw_thumb.gif" title="[疑问]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/cza_thumb.gif" title="[馋嘴]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/88_thumb.gif" title="[拜拜]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sk_thumb.gif" title="[思考]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sweata_thumb.gif" title="[汗]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sleepya_thumb.gif" title="[困]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sleepa_thumb.gif" title="[睡觉]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/money_thumb.gif" title="[钱]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sw_thumb.gif" title="[失望]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/cool_thumb.gif" title="[酷]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/hsa_thumb.gif" title="[花心]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/hatea_thumb.gif" title="[哼]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/gza_thumb.gif" title="[鼓掌]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/dizzya_thumb.gif" title="[晕]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/bs_thumb.gif" title="[悲伤]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/crazya_thumb.gif" title="[抓狂]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/h_thumb.gif" title="[黑线]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/yx_thumb.gif" title="[阴险]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/nm_thumb.gif" title="[怒骂]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/hearta_thumb.gif" title="[心]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/unheart.gif" title="[伤心]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/pig.gif" title="[猪头]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/ok_thumb.gif" title="[ok]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/ye_thumb.gif" title="[耶]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/good_thumb.gif" title="[good]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/no_thumb.gif" title="[不要]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/z2_thumb.gif" title="[赞]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/come_thumb.gif" title="[来]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/sad_thumb.gif" title="[弱]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/lazu_thumb.gif" title="[蜡烛]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/clock_thumb.gif" title="[钟]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/cake.gif" title="[蛋糕]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/m_thumb.gif" title="[话筒]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/weijin_thumb.gif" title="[围脖]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/lxhzhuanfa_thumb.gif"
+                                         title="[转发]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/lxhluguo_thumb.gif"
+                                         title="[路过这儿]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/bofubianlian_thumb.gif"
+                                         title="[bofu变脸]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/gbzkun_thumb.gif" title="[gbz困]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/boboshengmenqi_thumb.gif"
+                                         title="[生闷气]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/chn_buyaoya_thumb.gif"
+                                         title="[不要啊]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/daxiongleibenxiong_thumb.gif"
+                                         title="[dx泪奔]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/cat_yunqizhong_thumb.gif"
+                                         title="[运气中]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/youqian_thumb.gif" title="[有钱]">
+                                </li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/cf_thumb.gif" title="[冲锋]"></li>
+                                <li><img src="{{ STATIC_PREFIX }}focus/images/comment/camera_thumb.gif" title="[照相机]">
+                                </li>
+                            </ul>
+                        </div>
+                        <!--face end-->
+                    </div>
+                </div>
+                <!--qq end-->
+                <div id="time1"></div>
+                <!--msgCon begin-->
+                <div class="msgCon">
+                    {% for comment in comments %}
+                        <div class='msgBox'>
+                            <dl>
+                                <dt>
+                                    <img src='{{ comment.user.avatar.url }}' alt='头像无法显示' width='50' height='50'/>
+                                </dt>
+                                <dd>{{ comment.user.username }}</dd>
+                            </dl>
+                            <div class='msgTxt'>{{ comment.text|safe }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {#                        <div class="nav">#}
+                {#                            <!-- 分页导航 -->#}
+                {#                            <div class="pages">#}
+                {#                                <div id="Pagination"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+            </div>
+            <!-- 右侧边栏 -->
+            <div class="col-sm-3 hidden-xs main-right">
+                <div class="publish">
+                    <a href="/user/publish/video">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        <span style="position: relative;bottom: 3px">发帖</span>
+                    </a>
+                </div>
+                <img src="{{ STATIC_PREFIX }}focus/images/test_img1.jpg" alt="图片无法显示" class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div class="footer hidden-xs">
+    <p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
+    <p>Copyright &copy; Example.com 2016 </p>
+</div>
+
+<script type="text/javascript"
+        src="{{ STATIC_PREFIX }}bootstrap/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+        src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-common.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-comment.js"></script>
+<script type="text/javascript">
+    // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
+    $(".praise-2").click(function () {
+        var praise_img = $(this).children(".praise-img");
+        var text_box = $(this).parent().siblings(".add-num-praise");
+        var praise_txt = $(this).parent().siblings(".praise-txt");
+        var note_id = $(this).parents(".tool-bar").attr('data-id');
+        if (praise_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/zan.png")
+                && $(this).parent().siblings(".tread-1").find(".tread-img").attr("src")
+                == ("{{ STATIC_PREFIX }}focus/images/cai.png")) {
+            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yizan.png' class='praise-img' class='animation' />");
+            praise_txt.addClass("hover");
+            text_box.show().html("<em class='add-animation'>+1</em>");
+            $(".add-animation").addClass("hover");
+            //praise_txt.text(num);
+            $.get('/api/a-p-t/', {'note_id': note_id, 'action': 'praise'}, function (num) {
+                if (num != -1) {
+                    var i = parseInt(num / 10000);
+                    var r = num % 10000;
+                    if (i == 0) {
+                        praise_txt.text(r);
+                    } else {
+                        praise_txt.text(i + '万+');
+                    }
+                    {% if not user.is_authenticated %}
+                        if (window.localStorage) {
+                            window.localStorage[note_id] = 'P';
+                        }
+                    {% endif %}
+                    alert(num);
+                }
+            });
+        }
+    });
+    $(".tread-2").click(function () {
+        var tread_img = $(this).children(".tread-img");
+        //var text_box = $(this).parent().siblings(".add-num-tread");
+        var tread_txt = $(this).parent().siblings(".tread-txt");
+        var note_id = $(this).parents(".tool-bar").attr('data-id');
+        if (tread_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/cai.png")
+                && $(this).parent().siblings(".praise-1").find(".praise-img").attr("src")
+                == ("{{ STATIC_PREFIX }}focus/images/zan.png")) {
+            $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yicai.png' class='tread-img' class='animation' />");
+            tread_txt.addClass("hover");
+            //text_box.show().html("<em class='add-animation'>+1</em>");
+            //$(".add-animation").addClass("hover");
+            //tread_txt.text(num);
+            $.get('/api/a-p-t/', {'note_id': note_id, 'action': 'tread'}, function (num) {
+                if (num != -1) {
+                    var i = parseInt(num / 10000);
+                    var r = num % 10000;
+                    if (i == 0) {
+                        tread_txt.text(r);
+                    } else {
+                        tread_txt.text(i + '万+');
+                    }
+                    {% if not user.is_authenticated %}
+                        if (window.localStorage) {
+                            window.localStorage[note_id] = 'T';
+                        }
+                    {% endif %}
+                    alert(num);
+                }
+            });
+        }
+    });
+
+    $(function () {
+        $(".praise-2 img").each(function (i) {
+            var note_id = $(this).parents(".tool-bar").attr('data-id');
+            var tread_img = $(this).parents(".praise-1").siblings(".tread-1").find("img");
+            var storage = window.localStorage;
+            {% if not user.is_authenticated %}
+                if (storage[note_id]) {
+                    if (storage[note_id] == 'P') {
+                        $(this).attr('src', "{{ STATIC_PREFIX }}focus/images/yizan.png");
+                    } else if (storage[note_id] == 'T') {
+                        tread_img.attr('src', "{{ STATIC_PREFIX }}focus/images/yicai.png");
+                    }
+                }
+            {% endif %}
+        });
+    });
+
+    {#            // 分页导航配置#}
+    {#            var iPageSize = 5; // 设置每页显示帖子条数#}
+    {#            // When document is ready, initialize pagination#}
+    {#            $(document).ready(function () {#}
+    {#                var page_id = {{ page_id }};#}
+    {#                var rows = {{ rows }};#}
+    {#                $("#Pagination").pagination(rows, {#}
+    {#                    current_page: page_id - 1,#}
+    {#                    num_edge_entries: 1, //边缘页数#}
+    {#                    num_display_entries: 3,//parseInt(rows / iPageSize), // 分页主体部分显示的分页条目数#}
+    {#                    //callback: pageselectCallbackack,#}
+    {#                    items_per_page: iPageSize, //每页显示几项#}
+    {#                    show_if_single_page: true,#}
+    {#                    load_first_page: true#}
+    {#                });#}
+    {#            });#}
+
+    // 发帖登录验证
+    $(".publish a").click(function () {
+        {% if not user.is_authenticated %}
+            $(this).attr('href', '/manager/login?url=/user/publish/video');
+        {% endif %}
+    });
+
+    //点击发表按扭，发表内容
+    $("span.submit").click(function () {
+        var note_id = $(this).parents("#qq").siblings(".note").find(".tool-bar").attr('data-id');
+        {% if user.is_authenticated %}
+            var txt = $(".message").html();
+            if (txt == "") {
+                $('.message').focus();//自动获取焦点
+                return;
+            }
+            $(".msgCon").prepend(
+                    "<div class='msgBox'>" +
+                    "<dl>" +
+                    "<dt>" +
+                    "<img src='{{ note.user.avatar.url }}' alt='头像无法显示' width='50' height='50'/>" +
+                    "</dt>" +
+                    "<dd>{{ note.user.username }}</dd>" +
+                    "</dl>" +
+                    "<div class='msgTxt'>" + txt + "</div>" +
+                    "</div>");
+
+            $.post("/api/a-c/", {
+                'note_id': note_id,
+                txt: txt,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            }, function (data) {
+                $("#qq p").html("评论(" + data + ")");
+                $(".comment-txt").html(data);
+            });
+        {% else %}
+            location.href = "/manager/login/?url=/detail_" + note_id;
+        {% endif %}
+    });
+</script>
+</body>
+</html>

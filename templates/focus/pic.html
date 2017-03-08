@@ -1,260 +1,357 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="keywords" content="幽默，搞笑，知识，内涵，段子">
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <title>搞笑图片-欢笑江湖</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% load static %}
-        {% get_static_prefix as STATIC_PREFIX %}
-        <link rel="bookmark" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
-              mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
-        <link rel="icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
-              mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
-        <link rel="shortcut icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
-              mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>
-        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
-        <link rel="stylesheet" href="{% static "bootstrap/css/font-awesome.min.css" %}">
-        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
-        <link rel="stylesheet" href="{% static "focus/css/common.css" %}">
-        <link rel="stylesheet" href="{% static "focus/css/reset.css" %}"/>
-        <link rel="stylesheet" href="{% static "focus/css/pagination.css" %}"/>
-    </head>
-    <body>
-        <!-- 顶部 -->
-        <div class="navbar navbar-default navbar-static-top top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand top-title" href="/"><span>欢笑江湖</span></a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav top-left">
-                        <li style="float:left">
-                            <a href="/">全部</a>
-                        </li>
-                        <li style="float:left">
-                            <a href="/video">视频</a>
-                        </li>
-                        <li class="active" style="float:left">
-                            <a href="/pic" style="background:#ac2925">图片</a>
-                        </li>
-                        <li style="float:left">
-                            <a href="/jape">段子</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                    <ul class="nav navbar-nav navbar-right pull-right top-right">
-                        {% if request.user.is_authenticated %}
-                            <li>
-                                <a href="/user/focus/publish"><span
-                                        class="glyphicon glyphicon-user"></span> {{ request.user }}</a>
-                            </li>
-                            <li>
-                                <a href="/manager/logout?url=/pic"><span class="glyphicon glyphicon-log-out"></span> 退出</a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <a href="/manager/login?url=/pic"><span class="glyphicon glyphicon-log-in"></span>
-                                    登陆</a>
-                            </li>
-                            <li>
-                                <a href="/manager/register"><span class="glyphicon glyphicon-user"></span> 注册</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- 中间 -->
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <!-- 分页内容 -->
-                    <div class="col-sm-offset-1 col-sm-7 main-left">
-                        <!-- 排序标签 -->
-                        <div>
-                            <ul class="nav nav-tabs ">
-                                <li class="active">
-                                    <a href="/pic">默认</a>
-                                </li>
-                                <li>
-                                    <a href="/pic-new">最新</a>
-                                </li>
-                                <li>
-                                    <a href="/pic-hot">最热</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="list-unstyled">
-                                {% for note in latest_note_list %}
-                                <li class="nav" style="border-bottom: 1px solid #d5d5d5;">
-                                    <!-- 用户信息 -->
-                                    <div class="u-bar">
-                                        <span class="pull-left">
-                                            <a href="#">
-                                                <img src="{{ note.user.avatar.url }}" alt="头像无法显示" class="u-img">
-                                            </a>
-                                        </span>
-                                        <span class="pull-left u-name">{{ note.user.username }}</span>
-                                        <span class="pull-right pub-time">{{ note.pub_date|date:"Y-m-d H:i:s" }}</span>
-                                    </div>
-                                    <!-- 发布内容 -->
-                                    <div class="cont">
-                                        {% if note.text %}
-                                            <div class="c-text">{{ note.text }}</div>
-                                        {% endif %}
-                                        {% if note.image %}
-                                        <div class="content-img">
-                                            <img src="{{ note.image.url }}" alt="图片无法显示"
-                                                 class="img-responsive center-block" width="100%">
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    <!-- 工具条 -->
-                                    <div class="tool-bar">
-                                        <div style="float:left;height:100%;">
-                                            <div class="praise-1">
-                                                <span class="praise-2">
-                                                    <img src="{{ STATIC_PREFIX }}focus/images/zan.png"
-                                                         class="praise-img">
-                                                </span>
-                                            </div>
-                                            <span class="praise-txt">{{ note.praise_str }}</span>
-                                            <span class="add-num-praise">
-                                                <em>+1</em>
-                                            </span>
-                                            <div class="tread-1">
-                                                <span class="tread-2">
-                                                    <img src="{{ STATIC_PREFIX }}focus/images/cai.png"
-                                                         class="tread-img">
-                                                </span>
-                                            </div>
-                                            <span class="tread-txt">{{ note.tread_str }}</span>
-                                            <span class="add-num-tread">
-                                                <em>+1</em>
-                                            </span>
-                                        </div>
-                                        <div class="bdsharebuttonbox" style="float:right;padding:8.5px 10px">
-                                            <a href="#" class="bds_more" data-cmd="more" style="color:#d5d5d5">分享到：</a>
-                                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                                            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="nav">
-                            <!-- 分页导航 -->
-                            <div class="pages">
-                                <div id="Pagination"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 右侧边栏 -->
-                    <div class="col-sm-3 hidden-xs main-right">
-                        <div class="publish">
-                            <a href="/user/publish/video">
-                                <span class="glyphicon glyphicon-edit"></span>
-                                <span style="position: relative;bottom: 3px">发帖</span>
-                            </a>
-                        </div>
-                        <img src="{% static "focus/images/test_img1.jpg" %}" alt="图片无法显示" class="img-thumbnail">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 底部 -->
-        <div class="footer hidden-xs">
-            <p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
-            <p>Copyright &copy; Example.com 2016 </p>
-        </div>
-
-        <script type="text/javascript" src="{% static "bootstrap/js/jquery-1.11.3.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "focus/js/js-common.js" %}"></script>
-        <script type="text/javascript" src="{% static "focus/js/jquery.pagination.js" %}"></script>
-        <script>
-            // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量
-            $(".praise-2").click(function () {
-                var praise_img = $(this).children(".praise-img");
-                //var text_box = $(".add-num-praise");
-                var praise_txt = $(this).parents(".praise-1").siblings(".praise-txt");
-                var num = parseInt(praise_txt.text());
-                if (praise_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/yizan.png")) {
-                    $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/zan.png' class='praise-img' class='animation' />");
-                    praise_txt.removeClass("hover");
-                    //text_box.show().html("<em class='add-animation'>-1</em>");
-                    $(".add-animation").removeClass("hover");
-                    num -= 1;
-                    praise_txt.text(num)
-                } else {
-                    $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yizan.png' class='praise-img' class='animation' />");
-                    praise_txt.addClass("hover");
-                    //text_box.show().html("<em class='add-animation'>+1</em>");
-                    $(".add-animation").addClass("hover");
-                    num += 1;
-                    praise_txt.text(num)
-                }
-            });
-            $(".tread-2").click(function () {
-                var tread_img = $(this).children(".tread-img");
-                //var text_box = $(".add-num-tread");
-                var tread_txt = $(this).parents(".tread-1").siblings(".tread-txt");
-                var num = parseInt(tread_txt.text());
-                if (tread_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/yicai.png")) {
-                    $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/cai.png' class='tread-img' class='animation' />");
-                    tread_txt.removeClass("hover");
-                    //text_box.show().html("<em class='add-animation'>-1</em>");
-                    $(".add-animation").removeClass("hover");
-                    num -= 1;
-                    tread_txt.text(num)
-                } else {
-                    $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yicai.png' class='tread-img' class='animation' />");
-                    tread_txt.addClass("hover");
-                    //text_box.show().html("<em class='add-animation'>+1</em>");
-                    $(".add-animation").addClass("hover");
-                    num += 1;
-                    tread_txt.text(num)
-                }
-            });
-
-            // 分页导航配置
-            var iPageSize = 5; // 设置每页显示帖子条数
-            // When document is ready, initialize pagination
-            $(document).ready(function () {
-                var page_id = {{ page_id }};
-                var rows = {{ rows }};
-                $("#Pagination").pagination(rows, {
-                    current_page: page_id - 1,
-                    num_edge_entries: 1, //边缘页数
-                    num_display_entries: 3,//parseInt(rows / iPageSize), // 分页主体部分显示的分页条目数
-                    //callback: pageselectCallbackack,
-                    items_per_page: iPageSize, //每页显示几项
-                    show_if_single_page: true,
-                    load_first_page: true
-                });
-            });
-
-            // 发帖登录验证
-            $(".publish a").click(function () {
-                {% if not user.is_authenticated %}
-                    $(this).attr('href', '/manager/login?url=/user/publish/video');
-                {% endif %}
-            });
-        </script>
-
-    </body>
-</html>
+{% extends 'focus/base.html' %}
+{% block title %}搞笑图片-欢笑江湖{% endblock %}
+{% block top-left %}
+    <li style="float:left">
+        <a href="/">全部</a>
+    </li>
+    {#    <li style="float:left">#}
+    {#        <a href="/video">视频</a>#}
+    {#    </li>#}
+    <li class="active" style="float:left">
+        <a href="/pic" style="background:#ac2925">图片</a>
+    </li>
+    <li style="float:left">
+        <a href="/jape">段子</a>
+    </li>
+{% endblock %}
+{% block logout %}
+    <a href="/manager/logout?url=/pic">
+        <span class="glyphicon glyphicon-log-out"></span> 退出
+    </a>
+{% endblock %}
+{% block login %}
+    <a href="/manager/login?url=/pic">
+        <span class="glyphicon glyphicon-log-in"></span> 登陆
+    </a>
+{% endblock %}
+{% block nav-tabs %}
+    <li class="active">
+        <a href="/pic">推荐</a>
+    </li>
+    <li>
+        <a href="/pic-new">最新</a>
+    </li>
+    <li>
+        <a href="/pic-hot">最热</a>
+    </li>
+{% endblock %}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#    <head>#}
+{#        <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">#}
+{#        <meta name="keywords" content="幽默，搞笑，知识，内涵，段子">#}
+{#        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />#}
+{#        <title>搞笑图片-欢笑江湖</title>#}
+{#        <meta charset="utf-8">#}
+{#        <meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#        {% load static %}#}
+{#        {% get_static_prefix as STATIC_PREFIX %}#}
+{#        <link rel="bookmark" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"#}
+{#              mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>#}
+{#        <link rel="icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"#}
+{#              mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>#}
+{#        <link rel="shortcut icon" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"#}
+{#              mce_href="{{ STATIC_PREFIX }}focus/images/favicon.ico" type="image/x-icon"/>#}
+{#        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">#}
+{#        <link rel="stylesheet" href="{% static "bootstrap/css/font-awesome.min.css" %}">#}
+{#        <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">#}
+{#        <link rel="stylesheet" href="{% static "focus/css/common.css" %}">#}
+{#        <link rel="stylesheet" href="{% static "focus/css/reset.css" %}"/>#}
+{#        <link rel="stylesheet" href="{% static "focus/css/pagination.css" %}"/>#}
+{#    </head>#}
+{#    <body>#}
+{#        <!-- 顶部 -->#}
+{#        <div class="navbar navbar-default navbar-static-top top">#}
+{#            <div class="container">#}
+{#                <div class="navbar-header">#}
+{#                    <a class="navbar-brand top-title" href="/"><span>欢笑江湖</span></a>#}
+{#                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">#}
+{#                        <span class="sr-only">Toggle navigation</span>#}
+{#                        <span class="icon-bar"></span>#}
+{#                        <span class="icon-bar"></span>#}
+{#                        <span class="icon-bar"></span>#}
+{#                    </button>#}
+{#                </div>#}
+{#                <div>#}
+{#                    <ul class="nav navbar-nav top-left">#}
+{#                        <li style="float:left">#}
+{#                            <a href="/">全部</a>#}
+{#                        </li>#}
+{#                        <li style="float:left">#}
+{#                            <a href="/video">视频</a>#}
+{#                        </li>#}
+{#                        <li class="active" style="float:left">#}
+{#                            <a href="/pic" style="background:#ac2925">图片</a>#}
+{#                        </li>#}
+{#                        <li style="float:left">#}
+{#                            <a href="/jape">段子</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#                <div class="collapse navbar-collapse" id="navbar-ex-collapse">#}
+{#                    <ul class="nav navbar-nav navbar-right pull-right top-right">#}
+{#                        {% if request.user.is_authenticated %}#}
+{#                            <li>#}
+{#                                <a class="login-name" href="/user/focus/publish"><span#}
+{#                                        class="glyphicon glyphicon-user"></span> {{ request.user }}</a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a href="/manager/logout?url=/pic"><span class="glyphicon glyphicon-log-out"></span> 退出</a>#}
+{#                            </li>#}
+{#                        {% else %}#}
+{#                            <li>#}
+{#                                <a href="/manager/login?url=/pic"><span class="glyphicon glyphicon-log-in"></span>#}
+{#                                    登陆</a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a href="/manager/register"><span class="glyphicon glyphicon-user"></span> 注册</a>#}
+{#                            </li>#}
+{#                        {% endif %}#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- 中间 -->#}
+{#        <div class="section">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <!-- 分页内容 -->#}
+{#                    <div class="col-sm-offset-1 col-sm-7 main-left">#}
+{#                        <!-- 排序标签 -->#}
+{#                        <div>#}
+{#                            <ul class="nav nav-tabs ">#}
+{#                                <li class="active">#}
+{#                                    <a href="/pic">默认</a>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <a href="/pic-new">最新</a>#}
+{#                                </li>#}
+{#                                <li>#}
+{#                                    <a href="/pic-hot">最热</a>#}
+{#                                </li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                        <div>#}
+{#                            <ul class="list-unstyled">#}
+{#                                {% for note in latest_note_list %}#}
+{#                                <li class="nav" style="border-bottom: 1px solid #d5d5d5;">#}
+{#                                    <!-- 用户信息 -->#}
+{#                                    <div class="u-bar">#}
+{#                                        <span class="pull-left">#}
+{#                                            <a href="#">#}
+{#                                                <img src="{{ note.user.avatar.url }}" alt="头像无法显示" class="u-img">#}
+{#                                            </a>#}
+{#                                        </span>#}
+{#                                        <span class="pull-left u-name">{{ note.user.username }}</span>#}
+{#                                        <span class="pull-right pub-time">{{ note.pub_date|date:"Y-m-d H:i:s" }}</span>#}
+{#                                    </div>#}
+{#                                    <!-- 发布内容 -->#}
+{#                                    <div class="cont">#}
+{#                                        {% if note.text %}#}
+{#                                            <div class="c-text">{{ note.text }}</div>#}
+{#                                        {% endif %}#}
+{#                                        {% if note.image %}#}
+{#                                        <div class="content-img">#}
+{#                                            <img src="{{ note.image.url }}" alt="图片无法显示"#}
+{#                                                 class="img-responsive center-block" width="100%">#}
+{#                                        </div>#}
+{#                                        {% endif %}#}
+{#                                    </div>#}
+{#                                    <!-- 工具条 -->#}
+{#                                    <div class="tool-bar" data-id="{{ note.id }}">#}
+{#                                        <div style="float:left;height:100%;">#}
+{#                                            <div class="praise-1">#}
+{#                                                <span class="praise-2">#}
+{#                                                    {% if note.P %}#}
+{#                                                        <img src="{{ STATIC_PREFIX }}focus/images/yizan.png"#}
+{#                                                         class="praise-img">#}
+{#                                                    {% else %}#}
+{#                                                        <img src="{{ STATIC_PREFIX }}focus/images/zan.png"#}
+{#                                                         class="praise-img">#}
+{#                                                    {% endif %}#}
+{#                                                </span>#}
+{#                                            </div>#}
+{#                                            <span class="praise-txt">{{ note.praise_str }}</span>#}
+{#                                            <span class="add-num-praise">#}
+{#                                                <em>+1</em>#}
+{#                                            </span>#}
+{#                                            <div class="tread-1">#}
+{#                                                <span class="tread-2">#}
+{#                                                    {% if note.T %}#}
+{#                                                        <img src="{{ STATIC_PREFIX }}focus/images/yicai.png"#}
+{#                                                         class="tread-img">#}
+{#                                                    {% else %}#}
+{#                                                        <img src="{{ STATIC_PREFIX }}focus/images/cai.png"#}
+{#                                                         class="tread-img">#}
+{#                                                    {% endif %}#}
+{#                                                </span>#}
+{#                                            </div>#}
+{#                                            <span class="tread-txt">{{ note.tread_str }}</span>#}
+{#                                            <span class="add-num-tread">#}
+{#                                                <em>+1</em>#}
+{#                                            </span>#}
+{#                                        </div>#}
+{#                                        <span>#}
+{#                                            {% if user.is_authenticated %}#}
+{#                                                <a href="/detail-{{ note.id }}">#}
+{#                                            {% else %}#}
+{#                                                <a href="/manager/login?url=/detail-{{ note.id }}">#}
+{#                                            {% endif %}#}
+{#                                                <span class="glyphicon glyphicon-comment comment-img"></span>#}
+{#                                            </a>#}
+{#                                            <span class="comment-txt">{{ note.comment_str }}</span>#}
+{#                                        </span>#}
+{#                                        <div class="bdsharebuttonbox" style="float:right;padding:8.5px 10px">#}
+{#                                            <a href="#" class="bds_more" data-cmd="more" style="color:#d5d5d5"></a>#}
+{#                                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>#}
+{#                                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>#}
+{#                                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>#}
+{#                                            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </li>#}
+{#                                {% endfor %}#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                        <div class="nav">#}
+{#                            <!-- 分页导航 -->#}
+{#                            <div class="pages">#}
+{#                                <div id="Pagination"></div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- 右侧边栏 -->#}
+{#                    <div class="col-sm-3 hidden-xs main-right">#}
+{#                        <div class="publish">#}
+{#                            <a href="/user/publish/video">#}
+{#                                <span class="glyphicon glyphicon-edit"></span>#}
+{#                                <span style="position: relative;bottom: 3px">发帖</span>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <img src="{% static "focus/images/test_img1.jpg" %}" alt="图片无法显示" class="img-thumbnail">#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <!-- 底部 -->#}
+{#        <div class="footer hidden-xs">#}
+{#            <p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>#}
+{#            <p>Copyright &copy; Example.com 2016 </p>#}
+{#        </div>#}
+{##}
+{#        <script type="text/javascript" src="{% static "bootstrap/js/jquery-1.11.3.min.js" %}"></script>#}
+{#        <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>#}
+{#        <script type="text/javascript" src="{% static "focus/js/js-common.js" %}"></script>#}
+{#        <script type="text/javascript" src="{% static "focus/js/jquery.pagination.js" %}"></script>#}
+{#        <script>#}
+{#            // 点赞踩动画在这里执行,因为要用到{{ STATIC_PREFIX }}标签变量#}
+{#            $(".praise-2").click(function () {#}
+{#                var praise_img = $(this).children(".praise-img");#}
+{#                var text_box = $(this).parent().siblings(".add-num-praise");#}
+{#                var praise_txt = $(this).parent().siblings(".praise-txt");#}
+{#                var note_id = $(this).parents(".tool-bar").attr('data-id');#}
+{#                if (praise_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/zan.png")#}
+{#                        && $(this).parent().siblings(".tread-1").find(".tread-img").attr("src")#}
+{#                        == ("{{ STATIC_PREFIX }}focus/images/cai.png")) {#}
+{#                    $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yizan.png' class='praise-img' class='animation' />");#}
+{#                    praise_txt.addClass("hover");#}
+{#                    text_box.show().html("<em class='add-animation'>+1</em>");#}
+{#                    $(".add-animation").addClass("hover");#}
+{#                    //praise_txt.text(num);#}
+{#                    $.get('/api/a-p-t/', {'note_id': note_id, 'action': 'praise'}, function (num) {#}
+{#                        if (num != -1) {#}
+{#                            var i = parseInt(num / 10000);#}
+{#                            var r = num % 10000;#}
+{#                            if (i == 0) {#}
+{#                                praise_txt.text(r);#}
+{#                            } else {#}
+{#                                praise_txt.text(i+'万+');#}
+{#                            }#}
+{#                            {% if not user.is_authenticated %}#}
+{#                                if (window.localStorage) {#}
+{#                                    window.localStorage[note_id] = 'P';#}
+{#                                }#}
+{#                            {% endif %}#}
+{#                            alert(num);#}
+{#                        }#}
+{#                    });#}
+{#                }#}
+{#            });#}
+{#            $(".tread-2").click(function () {#}
+{#                var tread_img = $(this).children(".tread-img");#}
+{#                //var text_box = $(this).parent().siblings(".add-num-tread");#}
+{#                var tread_txt = $(this).parent().siblings(".tread-txt");#}
+{#                var note_id = $(this).parents(".tool-bar").attr('data-id');#}
+{#                if (tread_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/cai.png")#}
+{#                        && $(this).parent().siblings(".praise-1").find(".praise-img").attr("src")#}
+{#                        == ("{{ STATIC_PREFIX }}focus/images/zan.png") ){#}
+{#                    $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yicai.png' class='tread-img' class='animation' />");#}
+{#                    tread_txt.addClass("hover");#}
+{#                    //text_box.show().html("<em class='add-animation'>+1</em>");#}
+{#                    //$(".add-animation").addClass("hover");#}
+{#                    //tread_txt.text(num);#}
+{#                    $.get('/api/a-p-t/', {'note_id': note_id, 'action': 'tread'}, function (num) {#}
+{#                        if (num != -1) {#}
+{#                            var i = parseInt(num / 10000);#}
+{#                            var r = num % 10000;#}
+{#                            if (i == 0) {#}
+{#                                tread_txt.text(r);#}
+{#                            } else {#}
+{#                                tread_txt.text(i + '万+');#}
+{#                            }#}
+{#                            {% if not user.is_authenticated %}#}
+{#                                if (window.localStorage) {#}
+{#                                    window.localStorage[note_id] = 'T';#}
+{#                                }#}
+{#                            {% endif %}#}
+{#                            alert(num);#}
+{#                        }#}
+{#                    });#}
+{#                }#}
+{#            });#}
+{##}
+{#            $(function(){#}
+{#                $(".praise-2 img").each(function(i){#}
+{#                    var note_id = $(this).parents(".tool-bar").attr('data-id');#}
+{#                    var tread_img = $(this).parents(".praise-1").siblings(".tread-1").find("img");#}
+{#                    var storage = window.localStorage;#}
+{#                    {% if not user.is_authenticated %}#}
+{#                        if (storage[note_id]) {#}
+{#                            if (storage[note_id] == 'P') {#}
+{#                                $(this).attr('src', "{{ STATIC_PREFIX }}focus/images/yizan.png");#}
+{#                            } else if (storage[note_id] == 'T') {#}
+{#                                tread_img.attr('src', "{{ STATIC_PREFIX }}focus/images/yicai.png");#}
+{#                            }#}
+{#                        }#}
+{#                    {% endif %}#}
+{#                });#}
+{#            });#}
+{##}
+{#            // 分页导航配置#}
+{#            var iPageSize = 5; // 设置每页显示帖子条数#}
+{#            // When document is ready, initialize pagination#}
+{#            $(document).ready(function () {#}
+{#                var page_id = {{ page_id }};#}
+{#                var rows = {{ rows }};#}
+{#                $("#Pagination").pagination(rows, {#}
+{#                    current_page: page_id - 1,#}
+{#                    num_edge_entries: 1, //边缘页数#}
+{#                    num_display_entries: 3,//parseInt(rows / iPageSize), // 分页主体部分显示的分页条目数#}
+{#                    //callback: pageselectCallbackack,#}
+{#                    items_per_page: iPageSize, //每页显示几项#}
+{#                    show_if_single_page: true,#}
+{#                    load_first_page: true#}
+{#                });#}
+{#            });#}
+{##}
+{#            // 发帖登录验证#}
+{#            $(".publish a").click(function () {#}
+{#                {% if not user.is_authenticated %}#}
+{#                    $(this).attr('href', '/manager/login?url=/user/publish/video');#}
+{#                {% endif %}#}
+{#            });#}
+{#        </script>#}
+{##}
+{#    </body>#}
+{#</html>#}

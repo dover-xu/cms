@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="baidu-site-verification" content="8jc700Jc3K"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta name="keywords" content="幽默，搞笑，知识，内涵，段子">
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>发布段子-欢笑江湖</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {#        {% load staticfiles %}#}
     {% load static %}
     {% get_static_prefix as STATIC_PREFIX %}
     <link rel="bookmark" href="{{ STATIC_PREFIX }}focus/images/favicon.ico"
@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/common.css">
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/reset.css">
-    <link rel="stylesheet" href="{{ STATIC_PREFIX }}focus/css/pagination.css">
 </head>
 <body>
 <!-- 顶部 -->
@@ -29,7 +28,8 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand top-title" href="/"><span>欢笑江湖</span></a>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <button type="button" class="navbar-toggle user-btn" data-toggle="collapse"
+                    data-target="#navbar-ex-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -41,9 +41,9 @@
                 <li style="float:left">
                     <a href="/">全部</a>
                 </li>
-                <li style="float:left">
-                    <a href="/video">视频</a>
-                </li>
+                {#                <li style="float:left">#}
+                {#                    <a href="/video">视频</a>#}
+                {#                </li>#}
                 <li style="float:left">
                     <a href="/pic">图片</a>
                 </li>
@@ -54,9 +54,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right pull-right top-right">
-                {% if request.user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <li>
-                        <a href="/user/focus/publish"><span class="glyphicon glyphicon-user"></span> {{ request.user }}
+                        <a class="login-name" href="/user/focus/publish">
+                            <span class="glyphicon glyphicon-user"></span> {{ request.user }}
                         </a>
                     </li>
                     <li>
@@ -78,24 +79,31 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            {#                    <div class="col-sm-1 col-md-1 col-lg-1"></div>#}
             <!-- 分页内容 -->
             <div class="col-sm-offset-1 col-sm-7 main-left">
-                <ul class="nav nav-justified pub-topic">
-                    <li style="border-bottom: 1px solid #eee;border-right: 1px solid #eee">
-                        <a href="/user/publish/video">
-                            <i class="fa fa-camera-retro topic-icon"></i>
-                            <span>视频</span>
-                        </a>
-                    </li>
-                    <li style="border-bottom: 1px solid #eee;border-right: 1px solid #eee">
+                <ul class="nav nav-justified pub-topic hidden-xs">
+                    <li style="border-bottom: 1px solid #eee;border-right: 1px solid #eee;">
                         <a href="/user/publish/pic">
                             <i class="fa fa-picture-o topic-icon"></i>
                             <span>图片</span>
                         </a>
                     </li>
-                    <li style="border-bottom: 1px solid #eee;">
+                    <li style="border-bottom: 1px solid #eee">
                         <a class="active" href="/user/publish/jape">
+                            <i class="fa fa-file-text-o topic-icon"></i>
+                            <span>段子</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav pub-topic hidden-sm hidden-md hidden-lg" style="margin-left:20px">
+                    <li>
+                        <a href="/user/publish/pic" style="float: left">
+                            <i class="fa fa-picture-o topic-icon"></i>
+                            <span>图片</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" href="/user/publish/jape" style="float: left">
                             <i class="fa fa-file-text-o topic-icon"></i>
                             <span>段子</span>
                         </a>
@@ -124,7 +132,6 @@
 
 <script type="text/javascript" src="{{ STATIC_PREFIX }}bootstrap/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_PREFIX }}bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/js-common.js"></script>
-
+<script type="text/javascript" src="{{ STATIC_PREFIX }}focus/js/locales/zh.js"></script>
 </body>
 </html>

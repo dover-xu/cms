@@ -3,6 +3,7 @@ import time
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 from focus.models import Comment, Praise, MyUser, Note, Tread, Share
@@ -53,11 +54,17 @@ class NoteViewSet(viewsets.ModelViewSet):
 
     @list_route(methods=['post', 'delete'])
     def list_handler(self, request):
-        pass
+        context = {
+            'p': 0
+        }
+        return Response(context)
 
     @detail_route(methods=['get'])
     def detail_handler(self, request, pk=None):
-        pass
+        context = {
+            'p': 0
+        }
+        return Response(context)
 
         # def perform_create(self, serializer):
         #     serializer.save(user=self.request.user)

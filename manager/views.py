@@ -1,12 +1,16 @@
 import base64
+import os
 
+import time
+from PIL import Image
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.http import HttpResponse
 from itsdangerous import URLSafeTimedSerializer as utsr
 import random
 
 from cms import settings
-from manager.forms import LoginForm, RegisterForm
+from cms.settings import EMAIL_HOST_USER
+from manager.forms import LoginForm, RegisterForm, SettingForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
@@ -79,7 +83,7 @@ def auth_name(request):
     username = request.GET.get('username', 'asdgkg234hsd~jsgasdg')
     try:
         MyUser.objects.get(username=username)
-        return HttpResponse("*用户名已存在！")
+        return HttpResponse("用户名已存在")
     except ObjectDoesNotExist:
         return HttpResponse("")
 
@@ -88,8 +92,8 @@ def register(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            username, email, password1, password2 = form.cleaned_data['username'], form.cleaned_data['email'], \
-                                                    form.cleaned_data['password1'], form.cleaned_data['password2']
+            username, password1, password2 = form.cleaned_data['username'], \
+                                             form.cleaned_data['password1'], form.cleaned_data['password2']
             try:
                 MyUser.objects.get(username=username)
                 return render(request, 'manager/signup.html', {'form': form, 'error': "*用户名已存在！"})
@@ -104,30 +108,104 @@ def register(request):
                     form.add_error('password2', '两次密码不一致')
                     return render(request, 'manager/signup.html', {'form': form})
                 pic = '/avatar/default/%d.jpg' % random.randint(1, 4)  # 随机选择默认头像
-                user = MyUser.objects.create_user(username=username, email=email, password=password1, avatar=pic)
-                user.is_active = False
+                user = MyUser.objects.create_user(username=username, password=password1, avatar=pic)
+                user.is_active = True
                 user.save()
-                token = token_confirm.generate_validate_token(username)
-                message = "\n".join(['{0}，欢迎加入我们<br>'.format(username),
-                                     '请访问该链接，完成邮箱验证:',
-                                     r'<a href={0}>{1}</a>'.format(
-                                             '/'.join([settings.DOMAIN, 'manager/api/activate', token]),
-                                             '/'.join([settings.DOMAIN, 'manager/api/activate', token]))
-                                     ])
-                subject, from_email, to = '注册用户验证信息', '1012874012@qq.com', [email]
-                msg = EmailMultiAlternatives(subject, message, from_email, to)
-                msg.attach_alternative(message, "text/html")
-                msg.send()
-                # send_mail('注册用户验证信息', message, '1012874012@qq.com', [email], fail_silently=False)
-                return render(request, 'manager/activate-msg.html', {'title': '邮箱验证-欢笑江湖',
+                # token = token_confirm.generate_validate_token(username)
+                # message = "\n".join(['{0}，欢迎加入我们<br>'.format(username),
+                #                      '请访问该链接，完成邮箱验证:',
+                #                      r'<a href={0}>点我激活</a>'.format(
+                #                          '/'.join([settings.DOMAIN, 'manager/api/activate', token]))
+                #                      ])
+                # subject, from_email, to = '欢笑江湖-注册用户验证信息', EMAIL_HOST_USER, [email]
+                # msg = EmailMultiAlternatives(subject, message, from_email, to)
+                # msg.attach_alternative(message, "text/html")
+                # msg.send()
+                return render(request, 'manager/activate-msg.html', {'title': '注册-欢笑江湖',
                                                                      'message': '<div class="alert alert-success">'
-                                                                                '请登录到注册邮箱以完成验证，有效期为1个小时'
+                                                                                '注册成功！'
+                                                                                '<a href="/manager/login/">'
+                                                                                '<b>点此登陆</b>'
+                                                                                '</a>'
                                                                                 '</div>'})
         else:
             return render(request, 'manager/signup.html', {'form': form})
     else:
         form = RegisterForm()
         return render(request, 'manager/signup.html', {'form': form})
+
+
+def mkdir(path):
+    # 去除首位空格
+    path = path.strip()
+    # 去除尾部 \ 符号
+    path = path.rstrip("\\")
+
+    # 判断路径是否存在
+    # 存在     True
+    # 不存在   False
+    isExists = os.path.exists(path)
+
+    # 判断结果
+    if not isExists:
+        # 如果不存在则创建目录
+        # print(path + ' 创建成功')
+        # 创建目录操作函数
+        os.makedirs(path)
+        return True
+    else:
+        # 如果目录存在则不创建，并提示目录已存在
+        # print(path + ' 目录已存在')
+        return False
+
+
+def setting(request):
+    if request.method == "POST":
+        form = SettingForm(request.POST)
+        if form.is_valid():
+            username, sex, profile = form.cleaned_data['username'], form.cleaned_data['sex'], form.cleaned_data[
+                'profile']
+            if 0 == len(username):
+                username = str(request.user)
+            user = MyUser.objects.filter(username=username)
+            if user and user[0].username != str(request.user):
+                form.add_error('username', '用户名已存在')
+                u = MyUser.objects.get(username=request.user)
+                context = {'username': u.username,
+                           'profile': u.profile,
+                           'form': form}
+                return render(request, 'manager/setting.html', context)
+            else:
+                old_user = MyUser.objects.filter(username=request.user)
+                if 0 == len(profile):
+                    profile = old_user[0].profile
+                if 'pic_file' in request.FILES:
+                    photo = request.FILES.get('pic_file')
+                    img = Image.open(photo)
+                    img.thumbnail((120, 120))
+                    imgdir = 'avatar/%s/' % time.strftime("%Y/%m/%d", time.localtime())
+                    mkdir('uploads/' + imgdir)
+                    imgname = '%s_%s.%s' % (
+                        time.strftime("%H_%M_%S", time.localtime()), str(request.user), str(photo).split('.')[-1])
+                    img.save('uploads/' + imgdir + imgname)
+                    old_user.update(avatar=imgdir + imgname, username=username,
+                                    sex=sex, profile=profile)
+                else:
+                    old_user.update(username=username, sex=sex, profile=profile)
+                return redirect('/manager/setting/')
+        else:
+            u = MyUser.objects.get(username=request.user)
+            context = {'username': u.username,
+                       'profile': u.profile,
+                       'form': form}
+            return render(request, 'manager/setting.html', context)
+    else:
+        u = MyUser.objects.get(username=request.user)
+        form = SettingForm()
+        context = {'username': u.username,
+                   'profile': u.profile,
+                   'form': form}
+    return render(request, 'manager/setting.html', context)
 
 
 def activate_user(request, token):
@@ -163,3 +241,32 @@ def activate_user(request, token):
               r'您现在可以<a href="/manager/login"><B>登录</B></a>' \
               '</div>'
     return render(request, 'manager/activate-msg.html', {'title': '邮箱验证-欢笑江湖', 'message': message})
+
+
+def get_email_addr(email):
+    addr = email[email.rindex('@') + 1:email.rindex('.')]
+    print(email, addr)
+    if addr == '163':
+        return 'http://mail.163.com/'
+    elif addr == '126':
+        return 'http://mail.126.com/'
+    elif addr == 'sina':
+        return 'http://mail.sina.com.cn/'
+    elif addr == 'yahoo':
+        return 'http://mail.cn.yahoo.com/'
+    elif addr == 'sohu':
+        return 'http://mail.sohu.com/'
+    elif addr == 'yeah':
+        return 'http://www.yeah.net/'
+    elif addr == 'gmail':
+        return 'http://gmail.google.com/'
+    elif addr == 'hotmail':
+        return 'http://www.hotmail.com/'
+    elif addr == 'live':
+        return 'http://www.hotmail.com/'
+    elif addr == 'qq':
+        return 'https://mail.qq.com/'
+    elif addr == '139':
+        return 'http://mail.10086.cn/'
+    else:
+        return 'http://www.hao123.com/mail/'

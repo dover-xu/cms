@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta charset="utf-8">
     <title>注册-欢笑江湖</title>
     {% load static %}
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="{{ STATIC_PREFIX }}manager/css/common.css"/>
 </head>
 <body>
+<div class="top"><span class="top-text">欢笑江湖</span></div>
 <div class="wrap login_wrap">
     <div class="cont">
 
@@ -32,14 +34,11 @@
                     {% for field in form %}
                         <div class="form_text_ipt">
                             {{ field }}
-                            <div style="color: red;font-size: 12px;">{{ field.errors }}</div>
+                            <div class="field_error" style="color: red;font-size: 12px;">{{ field.errors }}</div>
                         </div>
                         {#                        <div class="ececk_warning"><span>数据不能为空</span></div>#}
                     {% endfor %}
                     <input type="submit" class="form_btn" value="注册">
-                    {#							<div class="form_btn">#}
-                    {#								<button type="button">注册</button>#}
-                    {#							</div>#}
                     <div class="form_reg_btn">
                         <span>已有帐号？</span><a href="/manager/login">马上登录</a>
                     </div>

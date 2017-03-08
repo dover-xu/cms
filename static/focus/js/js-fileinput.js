@@ -18,32 +18,33 @@ var FileInput = function () {
             // showRemove: false,
             showCancel: false,
             showCaption: false,//是否显示标题
-            // fileActionSettings: {
-            // removeIcon: '<i class="glyphicon glyphicon-trash text-danger"></i>',
-            // removeClass: 'btn btn-xs btn-default',
-            // removeTitle: 'Remove file',
-            // uploadIcon: '<i class="glyphicon glyphicon-upload text-info"></i>',
-            // uploadClass: 'btn btn-xs btn-default',
-            // uploadTitle: 'Upload file',
-            // indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
-            // indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign file-icon-large text-success"></i>',
-            // indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
-            // indicatorLoading: '<i class="glyphicon glyphicon-hand-up text-muted"></i>',
-            // indicatorNewTitle: 'Not uploaded yet',
-            // indicatorSuccessTitle: 'Uploaded',
-            // indicatorErrorTitle: 'Upload Error',
-            // indicatorLoadingTitle: 'Uploading ...'
-            // },
+            //fileActionSettings: {
+            //removeIcon: '<i class="glyphicon glyphicon-trash text-danger"></i>',
+            //removeClass: 'btn btn-xs btn-default',
+            //removeTitle: 'Remove file',
+            //uploadIcon: '<i class="glyphicon glyphicon-upload text-info"></i>',
+            //uploadClass: 'btn btn-xs btn-default',
+            //uploadTitle: 'Upload file',
+            //indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
+            //indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign file-icon-large text-success"></i>',
+            //indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
+            //indicatorLoading: '<i class="glyphicon glyphicon-hand-up text-muted"></i>',
+            //indicatorNewTitle: 'Not uploaded yet',
+            //indicatorSuccessTitle: 'Uploaded',
+            //indicatorErrorTitle: 'Upload Error',
+            //indicatorLoadingTitle: 'Uploading ...'
+            //},
+
             layoutTemplates: {
-                btnBrowse: '<div tabindex="500" class="{css}"{status}>{icon} [0]...</div>'.replace('[0]', btn_str)
+                btnBrowse: '<div tabindex="500" class="{css}"{status}>[0]</div>'.replace('[0]', btn_str)
             },
             browseClass: "btn btn-default", //按钮样式
             dropZoneEnabled: false,//是否显示拖拽区域
-            //minImageWidth: 50, //图片的最小宽度
-            //minImageHeight: 50,//图片的最小高度
-            //maxImageWidth: 1000,//图片的最大宽度
-            //maxImageHeight: 1000,//图片的最大高度
-            //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+            minImageWidth: 80, //图片的最小宽度
+            minImageHeight: 80,//图片的最小高度
+            maxImageWidth: 4000,//图片的最大宽度
+            maxImageHeight: 8000,//图片的最大高度
+            maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
             //minFileCount: 0,
             width: '100px',
             maxFileCount: 1, //表示允许同时上传的最大文件个数
@@ -71,7 +72,7 @@ var FileInput = function () {
     return oFile;
 };
 
-function aaaa() {
+function empty_check() {
     if ($('#txt_file').val() == '') {
         $('.pub-trig').css({'outline': 'none', 'box-shadow': '0 0 0 1000px #d43f3a inset'});
         $('#pic-null').stop().fadeIn(200).fadeOut(2000);

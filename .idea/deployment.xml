@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="tencent_ubuntu">
+  <component name="PublishConfigData" serverName="tencent_ubuntu" showNewOnSourceInSync="false">
     <serverData>
       <paths name="tencent_ubuntu">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/ubuntu/projects/cms" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/projects/cms" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/manager/migrations" />
+            <excludedPath local="true" path="$PROJECT_DIR$/focus/migrations" />
+            <excludedPath local="true" path="$PROJECT_DIR$/uploads" />
+            <excludedPath local="true" path="$PROJECT_DIR$/static_collect" />
+            <excludedPath path="/projects/cms/manager/migrations" />
+            <excludedPath path="/projects/cms/focus/migrations" />
+            <excludedPath path="/projects/cms/static_collect" />
+            <excludedPath path="/projects/cms/uploads" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
   </component>
 </project>
