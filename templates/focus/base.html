@@ -231,26 +231,30 @@
                     {#                                    {% endif %}#}
                     {#                                </a>#}
                     {#                            {% endfor %}#}
-                    <div class="row">
-                        <div class="col-md-6">
-                            1
-                            <a><img src="{{ note_jx.0.image.url }}" class="img-responsive"></a>
-                        </div>
-                        <div class="col-md-6">
-                            2
-                            <a><img src="{{ note_jx.1.image.url }}" class="img-responsive"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            3
-                            <a><img src="{{ note_jx.2.image.url }}" class="img-responsive"></a>
-                        </div>
-                        <div class="col-md-6">
-                            4
-                            <a><img src="{{ note_jx.3.image.url }}" class="img-responsive"></a>
-                        </div>
-                    </div>
+                    {% with note_jx_len=note_jx|length %}
+                        {% if note_jx_len > 3 %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    1
+                                    <a><img src="{{ note_jx.0.image.url }}" class="img-responsive"></a>
+                                </div>
+                                <div class="col-md-6">
+                                    2
+                                    <a><img src="{{ note_jx.1.image.url }}" class="img-responsive"></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    3
+                                    <a><img src="{{ note_jx.2.image.url }}" class="img-responsive"></a>
+                                </div>
+                                <div class="col-md-6">
+                                    4
+                                    <a><img src="{{ note_jx.3.image.url }}" class="img-responsive"></a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
                     {#                                <div class="row">#}
                     {#                                    <div class="col-md-6">#}
                     {#                                        5#}
