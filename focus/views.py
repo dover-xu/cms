@@ -1,9 +1,11 @@
 import os
 import time
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.core import serializers
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework.response import Response
+from rest_framework import status
 from rest_framework.reverse import reverse
 
 from focus.models import Comment, Praise, MyUser, Note, Tread, Share
@@ -17,6 +19,9 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
 from rest_framework import response, schemas
 from rest_framework import permissions
+import logging
+
+logger = logging.getLogger('scripts')
 
 
 @api_view()
@@ -52,7 +57,7 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
-    @list_route(methods=['post', 'delete'])
+    @list_route(methods=['get', 'post', 'delete'])
     def list_handler(self, request):
         context = {
             'p': 0
@@ -167,11 +172,20 @@ def index_hot(request):
                 n.T = True
             else:
                 n.T = False
-    context = {'note_list': note_list,
+    user = MyUser.objects.get(id=note_list[0].user.id)
+    note_dict = serializers.serialize("json", note_list)
+
+    avatar_url = user.avatar
+    username = user.username
+    note_dict[0].user = {'avatar': {'url': avatar_url}, 'username': username}
+    # context = {'note_list': note_dict}
+    context = {'note_list': note_dict,
                'rows': rows,
-               'page_id': page_id,
-               'loginform': loginform}
-    return render(request, 'focus/index-hot.html', context)
+               'page_id': page_id}
+    # 'loginform': loginform}
+
+    return JsonResponse(context)
+    # return render(request, 'focus/index-hot.html', context)
 
 
 def index_new(request):
