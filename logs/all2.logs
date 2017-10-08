@@ -1,0 +1,13 @@
+2017-10-08 21:36:21,064 [Thread-2:9920] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 180, in index_hot
+    note_dict[0].user = {'avatar': {'url': avatar_url}, 'username': username}
+AttributeError: 'str' object has no attribute 'user'

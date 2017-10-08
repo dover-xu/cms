@@ -146,7 +146,7 @@
 		//goto
     $(".page-btn").one("click",function(){
     	var allPage = $(".allPage").text();
-    	//console.log(allPage);
+        //console.logs(allPage);
       var goPage = $(".page-go input").val() - 1; //跳转页数
       if(goPage > -1 && goPage < allPage){
 				opts.current_page = goPage;

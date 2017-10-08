@@ -11,6 +11,7 @@ router.register(r'Comments', views.CommentViewSet)
 router.register(r'Praises', views.PraiseViewSet)
 router.register(r'Treads', views.TreadViewSet)
 router.register(r'Shares', views.ShareViewSet)
+# router.register(r'Share', views.ShareViewSet)
 schema_view = get_schema_view(title='Example API')
 
 urlpatterns = [

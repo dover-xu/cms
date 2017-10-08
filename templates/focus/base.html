@@ -291,9 +291,9 @@
         var text_box = $(this).parent().siblings(".add-num-praise");
         var praise_txt = $(this).parent().siblings(".praise-txt");
         var note_id = $(this).parents(".tool-bar").attr('data-id');
-        if (praise_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/zan.png")
+        if (praise_img.attr("src") === ("{{ STATIC_PREFIX }}focus/images/zan.png")
                 && $(this).parent().siblings(".tread-1").find(".tread-img").attr("src")
-                == ("{{ STATIC_PREFIX }}focus/images/cai.png")) {
+            === ("{{ STATIC_PREFIX }}focus/images/cai.png")) {
             $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yizan.png' class='praise-img' class='animation' />");
             praise_txt.addClass("hover");
             text_box.show().html("<em class='add-animation'>+1</em>");
@@ -301,10 +301,10 @@
             //praise_txt.text(num);
             {% if user.is_authenticated %}
                 $.get('/api/a-p-t-s/', {'note_id': note_id, 'action': 'praise'}, function (num) {
-                    if (num != -1) {
+                    if (num !== -1) {
                         var i = parseInt(num / 10000);
                         var f = num / 10000.0;
-                        if (i == 0) {
+                        if (i === 0) {
                             praise_txt.text(num);
                         } else {
                             praise_txt.text(f.toFixed(1) + '万');
@@ -325,9 +325,9 @@
         //var text_box = $(this).parent().siblings(".add-num-tread");
         var tread_txt = $(this).parent().siblings(".tread-txt");
         var note_id = $(this).parents(".tool-bar").attr('data-id');
-        if (tread_img.attr("src") == ("{{ STATIC_PREFIX }}focus/images/cai.png")
+        if (tread_img.attr("src") === ("{{ STATIC_PREFIX }}focus/images/cai.png")
                 && $(this).parent().siblings(".praise-1").find(".praise-img").attr("src")
-                == ("{{ STATIC_PREFIX }}focus/images/zan.png")) {
+            === ("{{ STATIC_PREFIX }}focus/images/zan.png")) {
             $(this).html("<img src='{{ STATIC_PREFIX }}focus/images/yicai.png' class='tread-img' class='animation' />");
             tread_txt.addClass("hover");
             //text_box.show().html("<em class='add-animation'>+1</em>");
@@ -335,10 +335,10 @@
             //tread_txt.text(num);
             {% if user.is_authenticated %}
                 $.get('/api/a-p-t-s/', {'note_id': note_id, 'action': 'tread'}, function (num) {
-                    if (num != -1) {
+                    if (num !== -1) {
                         var i = parseInt(num / 10000);
                         var f = num / 10000.0;
-                        if (i == 0) {
+                        if (i === 0) {
                             tread_txt.text(num);
                         } else {
                             tread_txt.text(f.toFixed(1) + '万');

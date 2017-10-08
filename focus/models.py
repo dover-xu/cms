@@ -57,7 +57,7 @@ class NoteManager(models.Manager):
 
     def query_by_user(self, user):
         # user = MyUser.objects.get(id=user_id)
-        note_list = user.note_set.all().order_by('-pub_date')
+        note_list = user.notes.all().order_by('-pub_date')
         return note_list
 
     def query_by_keyword(self, keyword):
