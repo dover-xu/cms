@@ -12,14 +12,16 @@ class MyUserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    # user = serializers.ReadOnlyField(source='user.username')
+    user = MyUserSerializer(read_only=True)
     comments = serializers.HyperlinkedRelatedField(many=True, view_name='comment-detail', read_only=True)
 
     class Meta:
         model = Note
         fields = (
-            'url', 'id', 'text', 'hot', 'click_num', 'recommend', 'user', 'category', 'comments', 'comment_num',
-            'praise_num', 'tread_num', 'share_num', 'pub_date')
+            'url', 'id', 'text', 'image', 'hot', 'click_num', 'recommend', 'user', 'category', 'comments',
+            'comment_str',
+            'praise_str', 'tread_str', 'share_str', 'pub_date')
 
     def create(self, validated_data):
         """响应 POST 请求

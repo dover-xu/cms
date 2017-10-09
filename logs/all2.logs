@@ -1,13 +1,462 @@
-2017-10-08 21:36:21,064 [Thread-2:9920] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+2017-10-09 16:06:32,051 [Thread-67:20584] [django.request:152] [WARNING]- Not Found: /Notes/
+2017-10-09 16:42:53,190 [Thread-4:23052] [django.request:152] [WARNING]- Not Found: /Notes/
+2017-10-09 16:54:03,407 [Thread-3:17280] [django.request:135] [ERROR]- Internal Server Error: /index-hot
 Traceback (most recent call last):
-  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
     response = get_response(request)
-  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
     response = self._get_response(request)
-  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 217, in _get_response
     response = self.process_exception_by_middleware(e, request)
-  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 215, in _get_response
+    response = response.render()
+  File "C:\Python36-32\lib\site-packages\django\template\response.py", line 107, in render
+    self.content = self.rendered_content
+  File "C:\Python36-32\lib\site-packages\rest_framework\response.py", line 57, in rendered_content
+    assert renderer, ".accepted_renderer not set on Response"
+AssertionError: .accepted_renderer not set on Response
+2017-10-09 16:56:53,324 [Thread-2:2788] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 217, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 215, in _get_response
+    response = response.render()
+  File "C:\Python36-32\lib\site-packages\django\template\response.py", line 107, in render
+    self.content = self.rendered_content
+  File "C:\Python36-32\lib\site-packages\rest_framework\response.py", line 57, in rendered_content
+    assert renderer, ".accepted_renderer not set on Response"
+AssertionError: .accepted_renderer not set on Response
+2017-10-09 17:21:12,282 [Thread-2:10680] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "D:\Code\PycharmProjects\cms\focus\views.py", line 180, in index_hot
-    note_dict[0].user = {'avatar': {'url': avatar_url}, 'username': username}
-AttributeError: 'str' object has no attribute 'user'
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 201, in index_hot
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'NoteSerializer' is not JSON serializable
+2017-10-09 17:24:38,019 [Thread-2:5484] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 358, in to_representation
+    "the serializer." % self.__class__.__name__
+AssertionError: `HyperlinkedIdentityField` requires the request in the serializer context. Add `context={'request': request}` when instantiating the serializer.
+2017-10-09 17:26:57,151 [Thread-3:6292] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 358, in to_representation
+    "the serializer." % self.__class__.__name__
+AssertionError: `HyperlinkedIdentityField` requires the request in the serializer context. Add `context={'request': request}` when instantiating the serializer.
+2017-10-09 17:28:41,490 [Thread-4:26216] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 358, in to_representation
+    "the serializer." % self.__class__.__name__
+AssertionError: `HyperlinkedIdentityField` requires the request in the serializer context. Add `context={'request': request}` when instantiating the serializer.
+2017-10-09 17:29:56,780 [Thread-5:15960] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 358, in to_representation
+    "the serializer." % self.__class__.__name__
+AssertionError: `HyperlinkedIdentityField` requires the request in the serializer context. Add `context={'request': request}` when instantiating the serializer.
+2017-10-09 17:34:18,564 [Thread-2:21832] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 361, in to_representation
+    request = self.context['request']
+TypeError: 'set' object is not subscriptable
+2017-10-09 17:34:58,989 [Thread-2:7864] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 378, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 314, in get_url
+    lookup_value = getattr(obj, self.lookup_field)
+AttributeError: 'QuerySet' object has no attribute 'pk'
+2017-10-09 17:36:29,537 [Thread-2:8436] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 378, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 314, in get_url
+    lookup_value = getattr(obj, self.lookup_field)
+AttributeError: 'QuerySet' object has no attribute 'pk'
+2017-10-09 17:38:50,280 [Thread-2:12736] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': ns.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 378, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 314, in get_url
+    lookup_value = getattr(obj, self.lookup_field)
+AttributeError: 'QuerySet' object has no attribute 'pk'
+2017-10-09 17:50:51,284 [Thread-2:8420] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': note_dict,
+NameError: name 'note_dic' is not defined
+2017-10-09 17:52:26,029 [Thread-2:18968] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 197, in index_hot
+    context = {'note_list': note_dict,
+NameError: name 'note_dic' is not defined
+2017-10-09 17:54:38,878 [Thread-2:15192] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 202, in index_hot
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'WSGIRequest' is not JSON serializable
+2017-10-09 17:55:11,831 [Thread-2:21056] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 194, in index_hot
+    logger.info(ns.data)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 378, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 314, in get_url
+    lookup_value = getattr(obj, self.lookup_field)
+AttributeError: 'QuerySet' object has no attribute 'pk'
+2017-10-09 17:58:02,684 [Thread-2:22876] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 194, in index_hot
+    logger.info(ns.data)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 259, in data
+    raise AssertionError(msg)
+AssertionError: When a serializer is passed a `data` keyword argument you must call `.is_valid()` before attempting to access the serialized `.data` representation.
+You should either call `.is_valid()` first, or access `.initial_data` instead.
+2017-10-09 18:00:26,632 [Thread-2:6384] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 194, in index_hot
+    logger.info(ns.data)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 358, in to_representation
+    "the serializer." % self.__class__.__name__
+AssertionError: `HyperlinkedIdentityField` requires the request in the serializer context. Add `context={'request': request}` when instantiating the serializer.
+2017-10-09 18:01:27,076 [Thread-2:15092] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 194, in index_hot
+    logger.info(ns.data)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 501, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 378, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "C:\Python36-32\lib\site-packages\rest_framework\relations.py", line 314, in get_url
+    lookup_value = getattr(obj, self.lookup_field)
+AttributeError: 'QuerySet' object has no attribute 'pk'
+2017-10-09 18:36:35,442 [Thread-2:11168] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 192, in index_hot
+    query = list(Note.objects.all()) + list(MyUser.objects.all)
+TypeError: 'method' object is not iterable
+2017-10-09 18:37:42,783 [Thread-2:4716] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 192, in index_hot
+    query = list(Note.objects.all()) + list(MyUser.objects.all)
+TypeError: 'method' object is not iterable
+2017-10-09 18:55:57,075 [Thread-2:14784] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 192, in index_hot
+    query = list(Note.objects.all()) + list(MyUser.objects.all)
+TypeError: 'method' object is not iterable
+2017-10-09 18:58:00,257 [Thread-2:9876] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 193, in index_hot
+    se = serializers.serialize('json', query, use_natural_freign_keys=True, fields=('text', 'user', 'image', 'pub_date', 'P', 'T', 'praise_str', 'tread_str', 'comment_str'))
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\__init__.py", line 129, in serialize
+    s.serialize(queryset, **options)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\base.py", line 97, in serialize
+    self.end_object(obj)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 64, in end_object
+    json.dump(self.get_dump_object(obj), self.stream, **self.json_kwargs)
+  File "C:\Python36-32\lib\json\__init__.py", line 176, in dump
+    default=default, sort_keys=sort_keys, **kw).iterencode(obj)
+TypeError: __init__() got an unexpected keyword argument 'use_natural_freign_keys'
+2017-10-09 19:04:19,240 [Thread-2:9728] [django.request:135] [ERROR]- Internal Server Error: /index-hot
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 193, in index_hot
+    se = serializers.serialize('json', query, use_natural_foreign_keys=True, fields=('text', 'user', 'image', 'pub_date', 'P', 'T', 'praise_str', 'tread_str', 'comment_str'))
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\__init__.py", line 129, in serialize
+    s.serialize(queryset, **options)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\base.py", line 97, in serialize
+    self.end_object(obj)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 64, in end_object
+    json.dump(self.get_dump_object(obj), self.stream, **self.json_kwargs)
+  File "C:\Python36-32\lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Python36-32\lib\json\encoder.py", line 430, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Python36-32\lib\json\encoder.py", line 404, in _iterencode_dict
+    yield from chunks
+  File "C:\Python36-32\lib\json\encoder.py", line 404, in _iterencode_dict
+    yield from chunks
+  File "C:\Python36-32\lib\json\encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "C:\Python36-32\lib\json\encoder.py", line 437, in _iterencode
+    o = _default(o)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'ImageFieldFile' is not JSON serializable

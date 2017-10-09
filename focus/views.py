@@ -21,7 +21,7 @@ from rest_framework import response, schemas
 from rest_framework import permissions
 import logging
 
-logger = logging.getLogger('scripts')
+logger = logging.getLogger('django')
 
 
 @api_view()
@@ -53,7 +53,7 @@ class NoteViewSet(viewsets.ModelViewSet):
     """
     允许查看和编辑note的API endpoint
     """
-    queryset = Note.objects.all()
+    queryset = Note.objects.query_by_hot()
     serializer_class = NoteSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
@@ -172,13 +172,30 @@ def index_hot(request):
                 n.T = True
             else:
                 n.T = False
-    user = MyUser.objects.get(id=note_list[0].user.id)
-    note_dict = serializers.serialize("json", note_list)
 
-    avatar_url = user.avatar
-    username = user.username
-    note_dict[0].user = {'avatar': {'url': avatar_url}, 'username': username}
+    user = MyUser.objects.get(id=note_list[0].user.id)
+    u = {'avatar': {'url': user.avatar.url}, 'username': user.username}
+
+    note = note_list[0]
+    note_dict = {
+        'id': note.id,
+        'test': note.text,
+        'user': u,
+        'image': note.image.url,
+        'pub_date': note.pub_date,
+        'P': False,
+        'T': False,
+        'praise_str': note.praise_str,
+        'tread_str': note.tread_str,
+        'comment_str': note.comment_str
+    }
+    query = Note.objects.all()
+    se = serializers.serialize('json', query, use_natural_foreign_keys=True, fields=(
+        'text', 'user', 'image', 'pub_date', 'P', 'T', 'praise_str', 'tread_str', 'comment_str'))
+    logger.info(se)
+    # note_dict = serializers.serialize("json", note_list)
     # context = {'note_list': note_dict}
+
     context = {'note_list': note_dict,
                'rows': rows,
                'page_id': page_id}

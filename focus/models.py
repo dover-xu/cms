@@ -4,6 +4,13 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager, User
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
+
+class MyUserManager(models.Manager):
+    # 反序列化到表
+    def get_by_natural_key(self, username):
+        return self.get(username=username)
+
+
 sex_choice = (
     ('m', 'male'),
     ('f', 'female')
@@ -15,12 +22,20 @@ class MyUser(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d')
     profile = models.CharField('profile', max_length=255, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=sex_choice, default='m')
+    objects = MyUserManager()
+
+    # 序列化时代替主键
+    def natural_key(self):
+        return self.username, self.sex
 
     def __str__(self):
         return self.username
 
 
 class NoteManager(models.Manager):
+    # def get_by_natural_key(self, text):
+    #     return self.get(text=text)
+
     def query_by_recommend(self):
         query = self.get_queryset().order_by('-pub_date')
         return query
@@ -93,6 +108,10 @@ class Note(models.Model):
     recommend = models.IntegerField(default=0)
     objects = NoteManager()
 
+    # def natural_key(self):
+    #     return self.text, self.user.natural_key(), self.image
+    # natural_key.dependencies = ['MyUser']
+
     def text_frag(self):
         if len(self.text) > 20:
             return self.text[:20] + '...'
@@ -131,6 +150,7 @@ class Note(models.Model):
         verbose_name = 'note'
         verbose_name_plural = 'notes'
         ordering = ['id']
+        unique_together = (('text', 'user'),)
 
 
 @python_2_unicode_compatible
