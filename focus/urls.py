@@ -17,7 +17,7 @@ schema_view = get_schema_view(title='Example API')
 urlpatterns = [
     # url(r'^(?P<article_id>[0-9]+)/praise/$', views.get_praise_article, name='praise'),
     url(r'^$', views.index, name='index'),
-    url(r'^index-hot$', views.index_hot, name='index_hot'),
+    url(r'^index-hot$', views.index_hot.as_view(), name='index_hot'),
     url(r'^index-new$', views.index_new, name='index_new'),
     url(r'^video$', views.video, name='video'),
     url(r'^video-hot$', views.video_hot, name='video_hot'),

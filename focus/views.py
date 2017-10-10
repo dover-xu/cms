@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.reverse import reverse
+from rest_framework.views import APIView
 
 from focus.models import Comment, Praise, MyUser, Note, Tread, Share
 from focus.permissions import IsOwnerOrReadOnly
@@ -152,7 +153,38 @@ def index(request):
     return render(request, 'focus/index.html', context)
 
 
-def index_hot(request):
+class index_hot(APIView):
+    def get(self, request):
+        query_set = Note.objects.query_by_hot()
+        rows = query_set.count()  # 帖子总数
+        page_size = 5  # 每页显示帖子数
+        page_num = (rows - 1) // page_size + 1  # 总页数
+
+        page_id = int(request.GET.get('page', '1'))
+        if page_num > 1:
+            query_set = query_set[(page_id - 1) * page_size:page_id * page_size]
+
+        ser = NoteSerializer(query_set, many=True, context={'request': request})
+        logger.info(ser.data)
+
+        context = {'note_list': ser.data,
+                   'rows': rows,
+                   'page_id': page_id}
+        return Response(context)
+
+
+@api_view(['GET'])
+def index_hot2(request):
+    if request.method == 'GET':
+        query = Note.objects.all()
+        se = NoteSerializer(query, many=True, context={'request': request})
+        logger.info(se.data)
+        return Response(se.data)
+    else:
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+def index_hot1(request):
     note_list = Note.objects.query_by_hot()
     rows = note_list.count()  # 帖子总条数
     page_size = 5  # 每页显示帖子数
@@ -189,19 +221,21 @@ def index_hot(request):
         'tread_str': note.tread_str,
         'comment_str': note.comment_str
     }
-    query = Note.objects.all()
-    se = serializers.serialize('json', query, use_natural_foreign_keys=True, fields=(
-        'text', 'user', 'image', 'pub_date', 'P', 'T', 'praise_str', 'tread_str', 'comment_str'))
-    logger.info(se)
+
+    query = MyUser.objects.all()
+    # se = serializers.serialize('json', query, use_natural_foreign_keys=True, fields=(
+    #     'text', 'user', 'image', 'pub_date', 'P', 'T', 'praise_str', 'tread_str', 'comment_str'))
+    # logger.info(se)
     # note_dict = serializers.serialize("json", note_list)
     # context = {'note_list': note_dict}
 
-    context = {'note_list': note_dict,
-               'rows': rows,
-               'page_id': page_id}
+    # context = {'note_list': note_dict,
+    #            'rows': rows,
+    #            'page_id': page_id}
     # 'loginform': loginform}
 
-    return JsonResponse(context)
+    se = MyUserSerializer(query, context={'request': request})
+    return JsonResponse(se.data)
     # return render(request, 'focus/index-hot.html', context)
 
 

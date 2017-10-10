@@ -8,7 +8,7 @@ class MyUserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = MyUser
-        fields = ('url', 'id', 'username', 'email', 'notes')
+        fields = ('id', 'username', 'email', 'notes', 'avatar')
 
 
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
@@ -19,9 +19,8 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Note
         fields = (
-            'url', 'id', 'text', 'image', 'hot', 'click_num', 'recommend', 'user', 'category', 'comments',
-            'comment_str',
-            'praise_str', 'tread_str', 'share_str', 'pub_date')
+            'id', 'text', 'image', 'hot', 'click_num', 'recommend', 'user', 'category', 'comments',
+            'comment_str', 'praise_str', 'tread_str', 'share_str', 'pub_date')
 
     def create(self, validated_data):
         """响应 POST 请求

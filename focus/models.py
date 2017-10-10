@@ -26,7 +26,7 @@ class MyUser(AbstractUser):
 
     # 序列化时代替主键
     def natural_key(self):
-        return self.username, self.sex
+        return self.username, "http://127.0.0.1:8008" + self.avatar.url
 
     def __str__(self):
         return self.username
@@ -108,9 +108,12 @@ class Note(models.Model):
     recommend = models.IntegerField(default=0)
     objects = NoteManager()
 
-    # def natural_key(self):
-    #     return self.text, self.user.natural_key(), self.image
-    # natural_key.dependencies = ['MyUser']
+    def natural_key(self):
+        return {
+            'text': self.text,
+        }
+
+    natural_key.dependencies = ['MyUser']
 
     def text_frag(self):
         if len(self.text) > 20:

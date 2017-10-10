@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9510ef11-31a6-47d5-8ecf-86c089adbc40" name="Default" comment="backup.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/avatar/2017/10/09/u33031032551189126877fm23gp0.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/images/2017/10/09/u3323249715914891285fm23gp0.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cms.iml" afterPath="$PROJECT_DIR$/.idea/cms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="9510ef11-31a6-47d5-8ecf-86c089adbc40" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/settings.py" afterPath="$PROJECT_DIR$/cms/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/models.py" afterPath="$PROJECT_DIR$/focus/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/serializers.py" afterPath="$PROJECT_DIR$/focus/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/urls.py" afterPath="$PROJECT_DIR$/focus/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/views.py" afterPath="$PROJECT_DIR$/focus/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/all1.logs" afterPath="$PROJECT_DIR$/logs/all1.logs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/all2.logs" afterPath="$PROJECT_DIR$/logs/all2.logs" />
     </list>
     <ignored path="cms.iws" />
@@ -55,8 +50,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/focus/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="191" column="13" lean-forward="true" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="13" />
+            <state relative-caret-position="345">
+              <caret line="165" column="21" lean-forward="false" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -64,11 +59,41 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/focus/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="290" column="68" lean-forward="true" selection-start-line="290" selection-start-column="68" selection-end-line="290" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagination.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/focus/css/pagination.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python36-32/Lib/site-packages/rest_framework/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="368" column="6" lean-forward="true" selection-start-line="368" selection-start-column="6" selection-end-line="368" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/focus/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+            <state relative-caret-position="253">
+              <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -76,21 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/manager/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="110" column="29" lean-forward="false" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/focus/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+            <state relative-caret-position="253">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -98,51 +113,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all1.logs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/all1.logs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="all2.logs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logs/all2.logs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1794">
-              <caret line="361" column="62" lean-forward="true" selection-start-line="361" selection-start-column="62" selection-end-line="361" selection-end-column="62" />
+            <state relative-caret-position="506">
+              <caret line="389" column="94" lean-forward="true" selection-start-line="389" selection-start-column="94" selection-end-line="389" selection-end-column="94" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all3.logs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/all3.logs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cms/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="202" column="25" lean-forward="false" selection-start-line="202" selection-start-column="25" selection-end-line="202" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/focus/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state relative-caret-position="214">
+              <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -164,8 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>11111</find>
-      <find>note_list</find>
       <find>note_jx</find>
       <find>LoginForm</find>
       <find>praise-2</find>
@@ -194,6 +177,8 @@
       <find>favicon</find>
       <find>getLogger</find>
       <find>page_id</find>
+      <find>8008</find>
+      <find>Pagination</find>
     </findStrings>
     <dirStrings>
       <dir>D:\ProgramData\Python36-32\Lib\site-packages\rest_framework_swagger</dir>
@@ -202,6 +187,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="dover-xu &lt;xudong_bj@sina.cn&gt;" />
         <option value="xudong" />
       </list>
     </option>
@@ -259,14 +245,14 @@
         <option value="$PROJECT_DIR$/templates/focus/base.html" />
         <option value="$PROJECT_DIR$/static/focus/css/common.css" />
         <option value="/PythonRegExp Fragment (urls.py:634).regexp" />
-        <option value="$PROJECT_DIR$/focus/urls.py" />
         <option value="$PROJECT_DIR$/logs/all3.logs" />
         <option value="$PROJECT_DIR$/cms/settings.py" />
         <option value="$PROJECT_DIR$/logs/all1.logs" />
+        <option value="$PROJECT_DIR$/focus/models.py" />
+        <option value="$PROJECT_DIR$/logs/all2.logs" />
+        <option value="$PROJECT_DIR$/focus/urls.py" />
         <option value="$PROJECT_DIR$/focus/serializers.py" />
         <option value="$PROJECT_DIR$/focus/views.py" />
-        <option value="$PROJECT_DIR$/logs/all2.logs" />
-        <option value="$PROJECT_DIR$/focus/models.py" />
       </list>
     </option>
   </component>
@@ -354,48 +340,38 @@
             <path>
               <item name="cms" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="focus" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="focus" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="focus" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cms" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cms" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="focus" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cms" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms" type="462c0819:PsiDirectoryNode" />
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="avatar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="avatar" type="462c0819:PsiDirectoryNode" />
-              <item name="2017" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="avatar" type="462c0819:PsiDirectoryNode" />
-              <item name="2017" type="462c0819:PsiDirectoryNode" />
-              <item name="09" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="avatar" type="462c0819:PsiDirectoryNode" />
-              <item name="2017" type="462c0819:PsiDirectoryNode" />
-              <item name="09" type="462c0819:PsiDirectoryNode" />
-              <item name="17" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -407,7 +383,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -869,7 +845,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507470451676</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="backup.">
+      <created>1507547887433</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1507547887433</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -954,58 +937,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Program Files/python35/Lib/site-packages/django/contrib/auth/models.py" />
-    <entry file="file://D:/Program Files/python35/Lib/site-packages/rest_framework/permissions.py" />
-    <entry file="file://$PROJECT_DIR$/static/manager/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="82" column="34" lean-forward="false" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/focus/js/js-common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="68" column="45" lean-forward="false" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/focus/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/focus/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/focus/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manager/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manager/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1164,14 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/focus/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="175" column="46" lean-forward="false" selection-start-line="175" selection-start-column="46" selection-end-line="175" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/focus/index-hot.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1196,21 +1119,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/focus/urls.py">
+    <entry file="file://C:/Python36-32/Lib/site-packages/django/http/response.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="368">
+          <caret line="519" column="8" lean-forward="false" selection-start-line="519" selection-start-column="8" selection-end-line="519" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/all3.logs">
+    <entry file="file://C:/Python36-32/Lib/site-packages/django/db/models/fields/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="23">
+          <caret line="100" column="6" lean-forward="false" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python36-32/Lib/site-packages/django/db/models/fields/files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="392" column="8" lean-forward="false" selection-start-line="392" selection-start-column="8" selection-end-line="392" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python36-32/Lib/site-packages/rest_framework/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python36-32/Lib/site-packages/rest_framework/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="1534" column="43" lean-forward="true" selection-start-line="1534" selection-start-column="43" selection-end-line="1534" selection-end-column="43" />
+          <folding>
+            <element signature="e#31054#31747#1" expanded="false" />
+            <element signature="e#31779#32813#0" expanded="false" />
+            <element signature="e#33222#33290#0" expanded="false" />
+            <element signature="e#33725#36276#0" expanded="false" />
+            <element signature="e#33725#34605#1" expanded="false" />
+            <element signature="e#34723#34779#0" expanded="false" />
+            <element signature="e#35078#35212#0" expanded="false" />
+            <element signature="e#35332#36039#0" expanded="false" />
+            <element signature="e#35396#35804#0" expanded="false" />
+            <element signature="e#35845#35974#0" expanded="false" />
+            <element signature="e#36151#36251#0" expanded="false" />
+            <element signature="e#36334#37028#0" expanded="false" />
+            <element signature="e#36456#36518#0" expanded="false" />
+            <element signature="e#36807#36979#0" expanded="false" />
+            <element signature="e#37104#39802#0" expanded="false" />
+            <element signature="e#37104#37258#1" expanded="false" />
+            <element signature="e#37830#37928#0" expanded="false" />
+            <element signature="e#38127#38246#0" expanded="false" />
+            <element signature="e#38448#38508#0" expanded="false" />
+            <element signature="e#38880#39705#0" expanded="false" />
+            <element signature="e#39008#39081#0" expanded="false" />
+            <element signature="e#39934#43295#0" expanded="false" />
+            <element signature="e#39934#40227#1" expanded="false" />
+            <element signature="e#40433#40590#0" expanded="false" />
+            <element signature="e#40466#40552#0" expanded="false" />
+            <element signature="e#40667#40810#0" expanded="false" />
+            <element signature="e#40867#40964#0" expanded="false" />
+            <element signature="e#41126#41393#0" expanded="false" />
+            <element signature="e#41126#41473#0" expanded="false" />
+            <element signature="e#41588#42530#0" expanded="false" />
+            <element signature="e#41588#41652#0" expanded="false" />
+            <element signature="e#42124#42504#0" expanded="false" />
+            <element signature="e#42175#42344#0" expanded="false" />
+            <element signature="e#42726#43272#0" expanded="false" />
+            <element signature="e#42840#43272#0" expanded="false" />
+            <element signature="e#42891#43070#0" expanded="false" />
+            <element signature="e#43373#43711#0" expanded="false" />
+            <element signature="e#43373#43507#1" expanded="false" />
+            <element signature="e#43846#44725#0" expanded="false" />
+            <element signature="e#43846#43939#1" expanded="false" />
+            <element signature="e#43997#44111#0" expanded="false" />
+            <element signature="e#44168#44427#0" expanded="false" />
+            <element signature="e#44796#47213#0" expanded="false" />
+            <element signature="e#44796#44848#1" expanded="false" />
+            <element signature="e#45189#45305#0" expanded="false" />
+            <element signature="e#45357#46195#0" expanded="false" />
+            <element signature="e#45357#45409#0" expanded="false" />
+            <element signature="e#45535#45599#0" expanded="false" />
+            <element signature="e#45808#46044#0" expanded="false" />
+            <element signature="e#46126#46195#0" expanded="false" />
+            <element signature="e#46261#46475#0" expanded="false" />
+            <element signature="e#46261#46315#0" expanded="false" />
+            <element signature="e#46585#46684#0" expanded="false" />
+            <element signature="e#46782#47171#0" expanded="false" />
+            <element signature="e#46782#46848#0" expanded="false" />
+            <element signature="e#47288#47998#0" expanded="false" />
+            <element signature="e#47288#47364#1" expanded="false" />
+            <element signature="e#47679#47775#0" expanded="false" />
+            <element signature="e#48083#48514#0" expanded="false" />
+            <element signature="e#48083#48166#1" expanded="false" />
+            <element signature="e#48228#48367#0" expanded="false" />
+            <element signature="e#48256#48367#0" expanded="false" />
+            <element signature="e#48585#48771#0" expanded="false" />
+            <element signature="e#48585#48667#1" expanded="false" />
+            <element signature="e#48837#49051#0" expanded="false" />
+            <element signature="e#48837#48910#1" expanded="false" />
+            <element signature="e#49121#49336#0" expanded="false" />
+            <element signature="e#49121#49182#1" expanded="false" />
+            <element signature="e#49404#50231#0" expanded="false" />
+            <element signature="e#49404#49565#1" expanded="false" />
+            <element signature="e#49627#49873#0" expanded="false" />
+            <element signature="e#49639#49833#0" expanded="false" />
+            <element signature="e#50345#51573#0" expanded="false" />
+            <element signature="e#50345#50465#1" expanded="false" />
+            <element signature="e#50669#51112#0" expanded="false" />
+            <element signature="e#50737#50913#0" expanded="false" />
+            <element signature="e#50774#50861#0" expanded="false" />
+            <element signature="e#50978#51112#0" expanded="false" />
+            <element signature="e#51140#51544#0" expanded="false" />
+            <element signature="e#51140#51204#0" expanded="false" />
+            <element signature="e#51332#51459#0" expanded="false" />
+            <element signature="e#51670#55054#0" expanded="false" />
+            <element signature="e#51670#51928#1" expanded="false" />
+            <element signature="e#52196#52264#0" expanded="false" />
+            <element signature="e#52497#52714#0" expanded="false" />
+            <element signature="e#52586#52714#0" expanded="false" />
+            <element signature="e#52767#52819#0" expanded="false" />
+            <element signature="e#52977#53198#0" expanded="false" />
+            <element signature="e#53057#53198#0" expanded="false" />
+            <element signature="e#53198#53264#0" expanded="false" />
+            <element signature="e#53566#54784#0" expanded="false" />
+            <element signature="e#54168#54461#0" expanded="false" />
+            <element signature="e#54517#54774#0" expanded="false" />
+            <element signature="e#54517#54564#0" expanded="false" />
+            <element signature="e#54901#55010#0" expanded="false" />
+            <element signature="e#55141#56353#0" expanded="false" />
+            <element signature="e#55141#55387#1" expanded="false" />
+            <element signature="e#55510#56324#0" expanded="false" />
+            <element signature="e#55560#55708#0" expanded="false" />
+            <element signature="e#55743#55884#0" expanded="false" />
+            <element signature="e#55949#56088#0" expanded="false" />
+            <element signature="e#55949#56005#0" expanded="false" />
+            <element signature="e#56123#56265#0" expanded="false" />
+            <element signature="e#56437#56934#0" expanded="false" />
+            <element signature="e#56437#56530#1" expanded="false" />
+            <element signature="e#56990#58248#0" expanded="false" />
+            <element signature="e#56990#57088#1" expanded="false" />
+            <element signature="e#57236#57299#0" expanded="false" />
+            <element signature="e#57494#57632#0" expanded="false" />
+            <element signature="e#57642#57705#0" expanded="false" />
+            <element signature="e#57860#58222#0" expanded="false" />
+            <element signature="e#57935#58222#0" expanded="false" />
+            <element signature="e#58004#58222#0" expanded="false" />
+            <element signature="e#58304#59743#0" expanded="false" />
+            <element signature="e#58304#58476#1" expanded="false" />
+            <element signature="e#58764#59716#0" expanded="false" />
+            <element signature="e#58836#59071#0" expanded="false" />
+            <element signature="e#59158#59395#0" expanded="false" />
+            <element signature="e#59481#59716#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1222,49 +1287,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python36-32/Lib/site-packages/rest_framework/serializers.py">
+    <entry file="file://$PROJECT_DIR$/logs/all3.logs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="111" column="58" lean-forward="false" selection-start-line="111" selection-start-column="52" selection-end-line="111" selection-end-column="58" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/focus/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logs/all2.logs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1794">
-          <caret line="361" column="62" lean-forward="true" selection-start-line="361" selection-start-column="62" selection-end-line="361" selection-end-column="62" />
+        <state relative-caret-position="506">
+          <caret line="389" column="94" lean-forward="true" selection-start-line="389" selection-start-column="94" selection-end-line="389" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/focus/views.py">
+    <entry file="file://C:/Python36-32/Lib/site-packages/rest_framework/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="191" column="13" lean-forward="true" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="13" />
+        <state relative-caret-position="598">
+          <caret line="368" column="6" lean-forward="true" selection-start-line="368" selection-start-column="6" selection-end-line="368" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/focus/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/focus/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="214">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/focus/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/focus/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="165" column="21" lean-forward="false" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python36-32/Lib/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="9827" column="8" lean-forward="false" selection-start-line="9827" selection-start-column="8" selection-end-line="9827" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/focus/js/csrf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/focus/js/jquery.pagination.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-545">
+          <caret line="128" column="4" lean-forward="false" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/focus/css/pagination.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/focus/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="290" column="68" lean-forward="true" selection-start-line="290" selection-start-column="68" selection-end-line="290" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>
