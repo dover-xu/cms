@@ -153,19 +153,22 @@ def index(request):
     return render(request, 'focus/index.html', context)
 
 
-class index_hot(APIView):
+class contents(APIView):
     def get(self, request):
+        type = request.GET.get('type', 'all')
+        sort = request.GET.get('sort', 'push')
+        page_id = int(request.GET.get('page', '1'))
+
         query_set = Note.objects.query_by_hot()
         rows = query_set.count()  # 帖子总数
         page_size = 5  # 每页显示帖子数
         page_num = (rows - 1) // page_size + 1  # 总页数
 
-        page_id = int(request.GET.get('page', '1'))
+        # logger.info(page_id)
         if page_num > 1:
             query_set = query_set[(page_id - 1) * page_size:page_id * page_size]
 
         ser = NoteSerializer(query_set, many=True, context={'request': request})
-        logger.info(ser.data)
 
         context = {'note_list': ser.data,
                    'rows': rows,
