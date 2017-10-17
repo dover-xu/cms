@@ -145,7 +145,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cms_db',
         'USER': 'root',
-        'PASSWORD': '7222992dong',
+        'PASSWORD': 'root',
         'HOST': '',
         'PORT': '',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
