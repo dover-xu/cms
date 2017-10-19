@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9510ef11-31a6-47d5-8ecf-86c089adbc40" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cms.iml" afterPath="$PROJECT_DIR$/.idea/cms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cms/settings.py" afterPath="$PROJECT_DIR$/cms/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/models.py" afterPath="$PROJECT_DIR$/focus/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/focus/views.py" afterPath="$PROJECT_DIR$/focus/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/all2.logs" afterPath="$PROJECT_DIR$/logs/all2.logs" />
-    </list>
+    <list default="true" id="9510ef11-31a6-47d5-8ecf-86c089adbc40" name="Default" comment="" />
     <ignored path="cms.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
