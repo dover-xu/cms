@@ -197,6 +197,7 @@ class contents(APIView):
         return Response(context)
 
     def post(self, request):
+        print('222222')
         return Response()
 
 
