@@ -22,8 +22,7 @@ class MyUser(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d')
     profile = models.CharField('profile', max_length=255, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=sex_choice, default='m')
-
-    # objects = MyUserManager()
+    objects = MyUserManager()
 
     # 序列化时代替主键
     def natural_key(self):
@@ -41,11 +40,11 @@ class NoteManager(models.Manager):
         query = self.get_queryset().order_by('-pub_date')
         return query
 
-    def query_all_by_time(self):
+    def query_by_time(self):
         query = self.get_queryset().order_by('-pub_date')
         return query
 
-    def query_all_by_hot(self):
+    def query_by_hot(self):
         query = self.get_queryset().order_by('-hot')
         return query
 

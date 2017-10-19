@@ -587,5 +587,3 @@ ValueError: invalid literal for int() with base 10: '%d'
 2017-10-12 17:49:49,848 [Thread-169:5484] [django.request:152] [WARNING]- Not Found: /index-hot
 2017-10-12 17:50:34,042 [Thread-170:4940] [django.request:152] [WARNING]- Not Found: /index-hot
 2017-10-12 17:51:19,665 [Thread-172:3040] [django.request:152] [WARNING]- Not Found: /index-hot
-2017-10-12 21:43:36,030 [Thread-55:8100] [django.request:152] [WARNING]- Not Found: /favicon.ico
-2017-10-17 20:51:26,678 [Thread-51:4024] [django.request:152] [WARNING]- Not Found: /favicon.ico
