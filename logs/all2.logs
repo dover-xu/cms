@@ -589,3 +589,780 @@ ValueError: invalid literal for int() with base 10: '%d'
 2017-10-12 17:51:19,665 [Thread-172:3040] [django.request:152] [WARNING]- Not Found: /index-hot
 2017-10-12 21:43:36,030 [Thread-55:8100] [django.request:152] [WARNING]- Not Found: /favicon.ico
 2017-10-17 20:51:26,678 [Thread-51:4024] [django.request:152] [WARNING]- Not Found: /favicon.ico
+2017-10-21 19:00:56,312 [Thread-129:5928] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 160, in get
+    current = int(request.GET.get('page', '1'))
+ValueError: invalid literal for int() with base 10: 'undefined'
+2017-10-21 19:02:31,899 [Thread-131:6000] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 160, in get
+    current = int(request.GET.get('page', '1'))
+ValueError: invalid literal for int() with base 10: 'undefined'
+2017-10-22 12:45:20,930 [Thread-3:12232] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 184, in get
+    total = query_set.count()  # 帖子总数
+UnboundLocalError: local variable 'query_set' referenced before assignment
+2017-10-22 14:17:19,880 [Thread-2:9396] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 187, in get
+    total = query_set.count()  # 帖子总数
+AttributeError: 'NoneType' object has no attribute 'count'
+2017-10-22 14:17:47,405 [Thread-2:8652] [django.request:152] [WARNING]- Not Found: /contents
+2017-10-22 20:33:34,362 [Thread-9:9756] [django.request:135] [ERROR]- Internal Server Error: /user/focus/publish
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 556, in user_publish
+    return render(request, 'focus/u-publish.html', context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 1040, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 708, in resolve
+    obj = self.var.resolve(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 849, in resolve
+    value = self._resolve_lookup(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\fields\files.py", line 46, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'avatar' attribute has no file associated with it.
+2017-10-22 20:33:48,469 [Thread-15:13192] [django.request:135] [ERROR]- Internal Server Error: /user/focus/publish
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 556, in user_publish
+    return render(request, 'focus/u-publish.html', context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 1040, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 708, in resolve
+    obj = self.var.resolve(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 849, in resolve
+    value = self._resolve_lookup(context)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\fields\files.py", line 46, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'avatar' attribute has no file associated with it.
+2017-10-22 20:34:17,819 [Thread-28:2652] [django.request:152] [WARNING]- Not Found: /index-hot
+2017-10-22 20:34:46,820 [Thread-38:9808] [django.request:152] [WARNING]- Not Found: /index-hot
+2017-10-22 21:23:39,034 [Thread-6:13180] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 21:36:05,305 [Thread-8:9624] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 21:36:07,114 [Thread-9:7296] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 21:36:09,492 [Thread-10:4300] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 21:36:47,806 [Thread-12:6824] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 21:55:10,548 [Thread-14:12836] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:08:13,315 [Thread-16:7592] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:08:29,585 [Thread-18:3824] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:10:44,204 [Thread-20:732] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:10:55,839 [Thread-22:3996] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:12:33,151 [Thread-24:3560] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 193, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:13:43,505 [Thread-2:652] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 194, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:14:35,195 [Thread-2:1480] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 194, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:15:35,715 [Thread-2:7120] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 196, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:15:59,542 [Thread-2:1140] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 196, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:19:50,707 [Thread-2:6908] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 195, in get
+    if (total - 1) // page_size + 1 > 1:
+TypeError: unsupported operand type(s) for //: 'int' and 'str'
+2017-10-22 22:20:16,378 [Thread-2:2588] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 195, in get
+    if (total - 1) // page_size + 1 > 1:
+TypeError: unsupported operand type(s) for //: 'int' and 'str'
+2017-10-22 22:22:39,270 [Thread-2:10268] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 195, in get
+    if total / page_size > 1:
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+2017-10-22 22:22:54,966 [Thread-2:8204] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 197, in get
+    query_set = query_set[(current - 1) * page_size:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:26:32,202 [Thread-2:12040] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 197, in get
+    query_set = query_set[(current - 1) * page_size:]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 267, in __getitem__
+    (isinstance(k, slice) and (k.start is None or k.start >= 0) and
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:26:47,071 [Thread-2:3012] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 197, in get
+    query_set = query_set[:current * page_size]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 268, in __getitem__
+    (k.stop is None or k.stop >= 0))), \
+TypeError: '>=' not supported between instances of 'str' and 'int'
+2017-10-22 22:31:23,203 [Thread-2:12684] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 197, in get
+    a=int((1 - 1)*page_size)
+ValueError: invalid literal for int() with base 10: ''
+2017-10-22 22:33:28,875 [Thread-2:1148] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 194, in get
+    if total / page_size > 1:
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+2017-10-22 22:34:49,725 [Thread-2:10200] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\focus\views.py", line 195, in get
+    query_set = query_set[start:end]
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\db\models\query.py", line 269, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.

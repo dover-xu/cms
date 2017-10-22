@@ -155,44 +155,47 @@ def index(request):
 
 class contents(APIView):
     def get(self, request):
-        type = request.GET.get('type', 'all')
-        sort = request.GET.get('sort', 'push')
+        tp = request.GET.get('type', '0')
+        sort = request.GET.get('sort', '0')
         current = int(request.GET.get('page', '1'))
+        page_size = int(request.GET.get('display', '5'))  # 每页显示帖子数
 
-        if type == 'all':
-            if sort == 'push':
+        query_set = None
+        if tp == '0':
+            if sort == '0':
                 query_set = Note.objects.query_all_by_time()
-            elif sort == 'new':
+            elif sort == '1':
                 query_set = Note.objects.query_all_by_time()
-            else:
+            elif sort == '2':
                 query_set = Note.objects.query_all_by_hot()
-        elif type == 'pic':
-            if sort == 'push':
+        elif tp == '1':
+            if sort == '0':
                 query_set = Note.objects.query_pic_by_time()
-            elif sort == 'new':
+            elif sort == '1':
                 query_set = Note.objects.query_pic_by_time()
-            else:
+            elif sort == '2':
                 query_set = Note.objects.query_pic_by_hot()
-        else:
-            if sort == 'push':
+        elif tp == '2':
+            if sort == '0':
                 query_set = Note.objects.query_jape_by_time()
-            elif sort == 'new':
+            elif sort == '1':
                 query_set = Note.objects.query_jape_by_time()
-            else:
+            elif sort == '2':
                 query_set = Note.objects.query_jape_by_hot()
+        if query_set is None:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
         # query_set = Note.objects.query_jape_by_hot()
-        total = query_set.count()  # 帖子总数
-        page_size = 5  # 每页显示帖子数
-        page_num = (total - 1) // page_size + 1  # 总页数
+        total = query_set.count()
+        # total = (query_set.count() - 1) // page_size + 1  # 总页数
 
-        # logger.info(page_id)
-        if page_num > 1:
-            query_set = query_set[(current - 1) * page_size:current * page_size]
-
+        if total / page_size > 1:
+            start = (current - 1) * page_size
+            end = current * page_size
+            query_set = query_set[start:end]
         ser = NoteSerializer(query_set, many=True, context={'request': request})
-
         context = {'note_list': ser.data,
                    'total': total,
+                   'display': page_size,
                    'current': current}
         return Response(context)
 
