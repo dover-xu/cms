@@ -155,31 +155,62 @@ def index(request):
 
 class contents(APIView):
     def get(self, request):
-        type = request.GET.get('type', 'all')
-        sort = request.GET.get('sort', 'push')
-        page_id = int(request.GET.get('page', '1'))
+        tp = request.GET.get('type', '0')
+        sort = request.GET.get('sort', '0')
+        current = int(request.GET.get('page', '1'))
+        page_size = int(request.GET.get('display', '5'))  # 每页显示帖子数
 
+<<<<<<< HEAD
         query_set = Note.objects.query_by_hot()
-        rows = query_set.count()  # 帖子总数
+        total = query_set.count()  # 帖子总数
         page_size = 5  # 每页显示帖子数
-        page_num = (rows - 1) // page_size + 1  # 总页数
+        page_num = (total - 1) // page_size + 1  # 总页数
 
         # logger.info(page_id)
         if page_num > 1:
-            query_set = query_set[(page_id - 1) * page_size:page_id * page_size]
-
-        ser = NoteSerializer(query_set, many=True, context={'request': request})
-
-        context = {'note_list': ser.data,
-                   'rows': rows,
-                   'page_id': page_id}
-        return Response(context)
-    def post(self, request):
-<<<<<<< HEAD
-        print('111111')
+            query_set = query_set[(current - 1) * page_size:current * page_size]
 =======
-        print('222222')
+        query_set = None
+        if tp == '0':
+            if sort == '0':
+                query_set = Note.objects.query_all_by_time()
+            elif sort == '1':
+                query_set = Note.objects.query_all_by_time()
+            elif sort == '2':
+                query_set = Note.objects.query_all_by_hot()
+        elif tp == '1':
+            if sort == '0':
+                query_set = Note.objects.query_pic_by_time()
+            elif sort == '1':
+                query_set = Note.objects.query_pic_by_time()
+            elif sort == '2':
+                query_set = Note.objects.query_pic_by_hot()
+        elif tp == '2':
+            if sort == '0':
+                query_set = Note.objects.query_jape_by_time()
+            elif sort == '1':
+                query_set = Note.objects.query_jape_by_time()
+            elif sort == '2':
+                query_set = Note.objects.query_jape_by_hot()
+        if query_set is None:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        # query_set = Note.objects.query_jape_by_hot()
+        total = query_set.count()
+        # total = (query_set.count() - 1) // page_size + 1  # 总页数
 >>>>>>> tmp
+
+        if total / page_size > 1:
+            start = (current - 1) * page_size
+            end = current * page_size
+            query_set = query_set[start:end]
+        ser = NoteSerializer(query_set, many=True, context={'request': request})
+        context = {'note_list': ser.data,
+                   'total': total,
+                   'display': page_size,
+                   'current': current}
+        return Response(context)
+
+    def post(self, request):
         return Response()
 
 

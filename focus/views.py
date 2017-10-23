@@ -54,7 +54,7 @@ class NoteViewSet(viewsets.ModelViewSet):
     """
     允许查看和编辑note的API endpoint
     """
-    queryset = Note.objects.query_by_hot()
+    queryset = Note.objects.query_all_by_hot()
     serializer_class = NoteSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
 
@@ -126,7 +126,7 @@ class ShareViewSet(viewsets.ModelViewSet):
 
 def index(request):
     note_jx = Note.objects.query_pic_by_hot()[:4]
-    note_list = Note.objects.query_by_time()
+    note_list = Note.objects.query_all_by_time()
     rows = note_list.count()  # 帖子总数
     page_size = 5  # 每页显示帖子数
     page_num = (rows - 1) // page_size + 1  # 总页数
@@ -155,23 +155,47 @@ def index(request):
 
 class contents(APIView):
     def get(self, request):
-        type = request.GET.get('type', 'all')
-        sort = request.GET.get('sort', 'push')
+        tp = request.GET.get('type', '0')
+        sort = request.GET.get('sort', '0')
         current = int(request.GET.get('page', '1'))
+        page_size = int(request.GET.get('display', '5'))  # 每页显示帖子数
 
-        query_set = Note.objects.query_by_hot()
-        total = query_set.count()  # 帖子总数
-        page_size = 5  # 每页显示帖子数
-        page_num = (total - 1) // page_size + 1  # 总页数
+        query_set = None
+        if type == 'all':
+            if sort == 'push':
+                query_set = Note.objects.query_all_by_time()
+            elif sort == '1':
+                query_set = Note.objects.query_all_by_time()
+            elif sort == '2':
+                query_set = Note.objects.query_all_by_hot()
+        elif tp == '1':
+            if sort == '0':
+                query_set = Note.objects.query_pic_by_time()
+            elif sort == '1':
+                query_set = Note.objects.query_pic_by_time()
+            elif sort == '2':
+                query_set = Note.objects.query_pic_by_hot()
+        elif tp == '2':
+            if sort == '0':
+                query_set = Note.objects.query_jape_by_time()
+            elif sort == '1':
+                query_set = Note.objects.query_jape_by_time()
+            elif sort == '2':
+                query_set = Note.objects.query_jape_by_hot()
+        if query_set is None:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        # query_set = Note.objects.query_jape_by_hot()
+        total = query_set.count()
+        # total = (query_set.count() - 1) // page_size + 1  # 总页数
 
-        # logger.info(page_id)
-        if page_num > 1:
-            query_set = query_set[(current - 1) * page_size:current * page_size]
-
+        if total / page_size > 1:
+            start = (current - 1) * page_size
+            end = current * page_size
+            query_set = query_set[start:end]
         ser = NoteSerializer(query_set, many=True, context={'request': request})
-
         context = {'note_list': ser.data,
                    'total': total,
+                   'display': page_size,
                    'current': current}
         return Response(context)
 
@@ -191,7 +215,7 @@ def index_hot2(request):
 
 
 def index_hot1(request):
-    note_list = Note.objects.query_by_hot()
+    note_list = Note.objects.query_all_by_hot()
     rows = note_list.count()  # 帖子总条数
     page_size = 5  # 每页显示帖子数
     page_num = (rows - 1) // page_size + 1  # 总页数
@@ -246,7 +270,7 @@ def index_hot1(request):
 
 
 def index_new(request):
-    note_list = Note.objects.query_by_time()
+    note_list = Note.objects.query_all_by_time()
     rows = note_list.count()  # 帖子总条数
     page_size = 5  # 每页显示帖子数
     page_num = (rows - 1) // page_size + 1  # 总页数
@@ -273,7 +297,7 @@ def index_new(request):
 
 
 def video(request):
-    note_list = Note.objects.query_by_time()
+    note_list = Note.objects.query_all_by_time()
     rows = note_list.count()  # 帖子总条数
     page_size = 5  # 每页显示帖子数
     page_num = (rows - 1) // page_size + 1  # 总页数
@@ -300,7 +324,7 @@ def video(request):
 
 
 def video_hot(request):
-    note_list = Note.objects.query_by_time()
+    note_list = Note.objects.query_all_by_time()
     rows = note_list.count()  # 帖子总条数
     page_size = 5  # 每页显示帖子数
     page_num = (rows - 1) // page_size + 1  # 总页数
@@ -532,7 +556,7 @@ def user_publish(request):
 
 
 def user_share(request):
-    # latest_note_list = Note.objects.query_by_time()
+    # latest_note_list = Note.objects.query_all_by_time()
     share_list = Share.objects.filter(user=request.user).order_by('-share_date')
     rows = share_list.count()  # 帖子总条数
     page_size = 5  # 每页显示帖子数
@@ -572,7 +596,7 @@ def user_comment(request):
 
 # 暂未用，保留
 def publish_video(request):
-    latest_note_list = Note.objects.query_by_time()
+    latest_note_list = Note.objects.query_all_by_time()
     rows = latest_note_list.count()  # 帖子总条数
     page_size = 5  # 每页显示帖子数
     page_num = (latest_note_list.count() - 1) // page_size + 1  # 总页数
