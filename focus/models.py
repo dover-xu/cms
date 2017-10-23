@@ -22,7 +22,7 @@ class MyUser(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d')
     profile = models.CharField('profile', max_length=255, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=sex_choice, default='m')
-    objects = MyUserManager()
+    # objects = MyUserManager()
 
     # 序列化时代替主键
     def natural_key(self):
@@ -90,7 +90,7 @@ cate_choice = (
 
 class Note(models.Model):
     user = models.ForeignKey('MyUser', default='', related_name='notes', verbose_name='who public')
-    text = models.TextField(blank=True)
+    text = models.TextField(null=False, blank=True, default='')
     image = models.ImageField(upload_to='images/%Y/%m/%d', null=True, blank=True)
     category = models.CharField(max_length=20, choices=cate_choice, default='Picture', verbose_name="Belong to")
     pub_date = models.DateTimeField(auto_now_add=True, editable=True)
@@ -153,14 +153,14 @@ class Note(models.Model):
         verbose_name = 'note'
         verbose_name_plural = 'notes'
         ordering = ['id']
-        unique_together = (('text', 'user'),)
+        # unique_together = (('text', 'user'),)
 
 
 @python_2_unicode_compatible
 class Comment(models.Model):
     user = models.ForeignKey('MyUser', default='', related_name='comments', verbose_name='who comment')
     note = models.ForeignKey('Note', related_name='comments', null=True)
-    text = models.TextField()
+    text = models.TextField(null=False, blank=False, default='')
     pub_date = models.DateTimeField(auto_now_add=True, editable=True)
     praise_num = models.IntegerField(default=0)
     tread_num = models.IntegerField(default=0)

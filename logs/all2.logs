@@ -587,3 +587,138 @@ ValueError: invalid literal for int() with base 10: '%d'
 2017-10-12 17:49:49,848 [Thread-169:5484] [django.request:152] [WARNING]- Not Found: /index-hot
 2017-10-12 17:50:34,042 [Thread-170:4940] [django.request:152] [WARNING]- Not Found: /index-hot
 2017-10-12 17:51:19,665 [Thread-172:3040] [django.request:152] [WARNING]- Not Found: /index-hot
+2017-10-20 16:11:37,153 [Thread-2:2992] [django.request:135] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\mysql\base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 166, in execute
+    result = self._query(query)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1057, in _read_query_result
+    result.read()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Python36-32\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'cms_db.focus_note' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 130, in index
+    rows = note_list.count()  # Ìû×Ó×ÜÊý
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 364, in count
+    return self.query.get_count(using=self.db)
+  File "C:\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 499, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "C:\Python36-32\lib\site-packages\django\db\models\sql\query.py", line 480, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Python36-32\lib\site-packages\django\db\models\sql\compiler.py", line 894, in execute_sql
+    raise original_exception
+  File "C:\Python36-32\lib\site-packages\django\db\models\sql\compiler.py", line 884, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Python36-32\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\mysql\base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 166, in execute
+    result = self._query(query)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1057, in _read_query_result
+    result.read()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Python36-32\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.ProgrammingError: (1146, "Table 'cms_db.focus_note' doesn't exist")
+2017-10-20 18:10:03,164 [Thread-10:6168] [django.request:152] [WARNING]- Not Found: /index-hot
+2017-10-20 18:11:18,265 [Thread-49:3124] [django.request:135] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 153, in index
+    return render(request, 'focus/index.html', context)
+  File "C:\Python36-32\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Python36-32\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Python36-32\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\loader_tags.py", line 177, in render
+    return compiled_parent._render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\defaulttags.py", line 216, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 1040, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 708, in resolve
+    obj = self.var.resolve(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 849, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+  File "C:\Python36-32\lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Python36-32\lib\site-packages\django\db\models\fields\files.py", line 46, in _require_file
+    raise ValueError("The '%s' attribute has no file associated with it." % self.field.name)
+ValueError: The 'avatar' attribute has no file associated with it.

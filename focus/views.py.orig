@@ -157,25 +157,29 @@ class contents(APIView):
     def get(self, request):
         type = request.GET.get('type', 'all')
         sort = request.GET.get('sort', 'push')
-        current = int(request.GET.get('page', '1'))
+        page_id = int(request.GET.get('page', '1'))
 
         query_set = Note.objects.query_by_hot()
-        total = query_set.count()  # 帖子总数
+        rows = query_set.count()  # 帖子总数
         page_size = 5  # 每页显示帖子数
-        page_num = (total - 1) // page_size + 1  # 总页数
+        page_num = (rows - 1) // page_size + 1  # 总页数
 
         # logger.info(page_id)
         if page_num > 1:
-            query_set = query_set[(current - 1) * page_size:current * page_size]
+            query_set = query_set[(page_id - 1) * page_size:page_id * page_size]
 
         ser = NoteSerializer(query_set, many=True, context={'request': request})
 
         context = {'note_list': ser.data,
-                   'total': total,
-                   'current': current}
+                   'rows': rows,
+                   'page_id': page_id}
         return Response(context)
-
     def post(self, request):
+<<<<<<< HEAD
+        print('111111')
+=======
+        print('222222')
+>>>>>>> tmp
         return Response()
 
 
