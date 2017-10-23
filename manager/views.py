@@ -16,7 +16,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from focus.models import MyUser
+import logging
 
+logger = logging.getLogger('django')
 
 class Token:
     def __init__(self, security_key):

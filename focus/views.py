@@ -161,8 +161,8 @@ class contents(APIView):
         page_size = int(request.GET.get('display', '5'))  # 每页显示帖子数
 
         query_set = None
-        if type == 'all':
-            if sort == 'push':
+        if tp == '0':
+            if sort == '0':
                 query_set = Note.objects.query_all_by_time()
             elif sort == '1':
                 query_set = Note.objects.query_all_by_time()
