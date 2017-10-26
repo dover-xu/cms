@@ -18,7 +18,7 @@ from focus.serializers import MyUserSerializer, NoteSerializer, CommentSerialize
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 from rest_framework import viewsets
 from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
-from rest_framework import response, schemas
+from rest_framework import schemas
 from rest_framework import permissions
 import logging
 
@@ -29,7 +29,7 @@ logger = logging.getLogger('django')
 @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
 def schema_view(request):
     generator = schemas.SchemaGenerator(title='Core API')
-    return response.Response(generator.get_schema(request=request))
+    return Response(generator.get_schema(request=request))
 
 
 # @api_view(['GET'])
@@ -208,7 +208,7 @@ def index_hot2(request):
     if request.method == 'GET':
         query = Note.objects.all()
         se = NoteSerializer(query, many=True, context={'request': request})
-        logger.info(se.data)
+        logger.debug(se.data)
         return Response(se.data)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)

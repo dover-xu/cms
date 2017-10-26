@@ -1,13 +1,13 @@
 import base64
 import os
-
 import time
 from PIL import Image
 from django.core.mail import send_mail, EmailMultiAlternatives
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.http.request import QueryDict
 from itsdangerous import URLSafeTimedSerializer as utsr
 import random
-
+import json
 from cms import settings
 from cms.settings import EMAIL_HOST_USER
 from manager.forms import LoginForm, RegisterForm, SettingForm
@@ -19,6 +19,7 @@ from focus.models import MyUser
 import logging
 
 logger = logging.getLogger('django')
+
 
 class Token:
     def __init__(self, security_key):
@@ -42,7 +43,62 @@ class Token:
 token_confirm = Token(settings.SECRET_KEY)  # 定义为全局变量
 
 
+def support_form_para(fun):
+    def wrapped(request):
+        if hasattr(request, 'method') and request.method == 'POST' and hasattr(request, 'body'):
+            d = dict(json.loads(request.body))
+            s = ''
+            for k, v in d.items():
+                if s:
+                    s += str('&')
+                s += str(k) + '=' + str(v)
+            request.form_para = QueryDict(s)
+        return fun(request)
+    return wrapped
+
+
+@support_form_para
 def log_in(request):
+    if request.method == 'POST':
+        form = LoginForm(request.form_para)
+        if form.is_valid():
+            if request.user.is_authenticated:
+                return render(request, 'manager/signin.html', {'form': form, 'error': "*已登录"})
+            username, password = form.cleaned_data['username'], form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                # r_url = request.session.get('redirect_url', default='/')
+                # try:
+                #     del request.session['redirect_url']
+                # except KeyError:
+                #     pass
+                context = {
+                    'redirect_url': '/',
+                }
+                return JsonResponse(context)
+            else:
+                context = {
+                    'error': '密码错误',
+                }
+                try:
+                    user = MyUser.objects.get(username=username)
+                    if not user.is_active:
+                        context['error'] = '请先完成邮箱验证'
+                except ObjectDoesNotExist:
+                    context['error'] = '*用户名不存在'
+                return JsonResponse(context)
+        else:
+            # return HttpResponse()
+            return render(request, 'manager/signin.html', {'form': form, 'error': "*登录失败"})
+    else:
+        # request.session['redirect_url'] = request.GET.get('url', '/')
+        # form = LoginForm()
+        return HttpResponse()
+        # return render(request, 'manager/signin.html', {'form': form})
+
+
+def log_in2(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -67,18 +123,24 @@ def log_in(request):
                     return render(request, 'manager/signin.html', {'form': form, 'error': "*用户名不存在"})
                 return render(request, 'manager/signin.html', {'form': form, 'error': "*密码错误"})
         else:
+            # return HttpResponse()
             return render(request, 'manager/signin.html', {'form': form, 'error': "*登录失败"})
     else:
         request.session['redirect_url'] = request.GET.get('url', '/')
         form = LoginForm()
+        # return HttpResponse()
         return render(request, 'manager/signin.html', {'form': form})
 
 
 @login_required
 def log_out(request):
-    url = request.GET.get('url', '/')
+    # url = request.GET.get('url', '/')
     logout(request)
-    return redirect(url)
+    # return redirect(url)
+    context = {
+        'redirect_url': '/',
+    }
+    return JsonResponse(context)
 
 
 def auth_name(request):

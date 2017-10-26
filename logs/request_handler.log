@@ -1,0 +1,437 @@
+2017-10-26 14:32:20,337 [Thread-1:1536] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 191, in get
+    if total / 0 > 1:
+ZeroDivisionError: division by zero
+2017-10-26 15:13:53,534 [Thread-4:1768] [django.request:152] [WARNING]- Not Found: /manager/login
+2017-10-26 15:14:05,436 [Thread-21:2184] [django.request:152] [WARNING]- Not Found: /manager/login
+2017-10-26 15:14:09,379 [Thread-22:15416] [django.request:152] [WARNING]- Not Found: /manager/login
+2017-10-26 15:16:11,155 [Thread-18:12184] [django.request:152] [WARNING]- Not Found: /manager/login
+2017-10-26 15:17:40,341 [Thread-1:9696] [django.request:152] [WARNING]- Not Found: /manager/login
+2017-10-26 15:38:37,920 [Thread-1:14268] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'username'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in log_in
+    logger.debug(request.POST['username'])
+  File "C:\Python36-32\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'username'"
+2017-10-26 15:46:29,331 [Thread-6:17896] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: '{"username":"123","password":"123"}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 50, in log_in
+    logger.debug(request.POST['{"username":"123","password":"123"}'])
+  File "C:\Python36-32\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: '\'{"username":"123","password":"123"}\''
+2017-10-26 16:48:37,605 [Thread-1:15880] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 48, in log_in
+    d = json.loads(request.body)
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 16:51:18,430 [Thread-1:8744] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 50, in log_in
+    logger.debug(d.items()[0])
+TypeError: 'dict_items' object does not support indexing
+2017-10-26 16:51:50,262 [Thread-1:14104] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 50, in log_in
+    logger.debug(d.items().keys())
+AttributeError: 'dict_items' object has no attribute 'keys'
+2017-10-26 16:52:43,598 [Thread-1:15496] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 50, in log_in
+    logger.debug(d.items()[0])
+TypeError: 'dict_items' object does not support indexing
+2017-10-26 16:57:28,655 [Thread-1:11484] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in log_in
+    # d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 16:58:16,853 [Thread-9:2724] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in log_in
+    # d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 16:59:10,162 [Thread-1:9828] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 64, in log_in
+    username, password = form.cleaned_data['username'], form.cleaned_data['password']
+KeyError: 'username'
+2017-10-26 16:59:21,834 [Thread-4:8752] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 64, in log_in
+    username, password = form.cleaned_data['username'], form.cleaned_data['password']
+KeyError: 'username'
+2017-10-26 17:00:10,349 [Thread-1:10116] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 60, in log_in
+    if form.is_valid():
+  File "C:\Python36-32\lib\site-packages\django\forms\forms.py", line 183, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Python36-32\lib\site-packages\django\forms\forms.py", line 175, in errors
+    self.full_clean()
+  File "C:\Python36-32\lib\site-packages\django\forms\forms.py", line 384, in full_clean
+    self._clean_fields()
+  File "C:\Python36-32\lib\site-packages\django\forms\forms.py", line 396, in _clean_fields
+    value = field.widget.value_from_datadict(self.data, self.files, self.add_prefix(name))
+  File "C:\Python36-32\lib\site-packages\django\forms\widgets.py", line 240, in value_from_datadict
+    return data.get(name)
+AttributeError: 'str' object has no attribute 'get'
+2017-10-26 17:07:26,824 [Thread-1:8580] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 53, in log_in
+    d = QueryDict(d)
+  File "C:\Python36-32\lib\site-packages\django\http\request.py", line 394, in __init__
+    for key, value in limited_parse_qsl(query_string, **parse_qsl_kwargs):
+  File "C:\Python36-32\lib\site-packages\django\utils\http.py", line 439, in limited_parse_qsl
+    pairs = FIELDS_MATCH.split(qs, fields_limit)
+TypeError: expected string or bytes-like object
+2017-10-26 17:10:51,962 [Thread-4:15088] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 50, in log_in
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 17:41:09,210 [Thread-1:18552] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 55, in wrapped
+    request.body = QueryDict(s)
+AttributeError: can't set attribute
+2017-10-26 18:13:59,339 [Thread-4:16592] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 18:14:15,771 [Thread-6:17932] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 18:15:00,304 [Thread-3:9748] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 18:21:56,769 [Thread-4:15196] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 18:22:07,917 [Thread-6:15540] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 18:36:05,433 [Thread-10:15208] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 18:38:26,204 [Thread-14:19088] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 19:01:56,817 [Thread-1:15832] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-10-26 19:02:02,741 [Thread-3:17284] [django.request:135] [ERROR]- Internal Server Error: /v1/login/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 49, in wrapped
+    d = dict(json.loads(request.body))
+  File "C:\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)

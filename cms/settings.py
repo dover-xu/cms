@@ -75,21 +75,20 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
 ]
 
 # 跨域增加忽略
-CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    '*'
+    '127.0.0.1:8080',
 )
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_METHODS = (
     'DELETE',
@@ -171,7 +170,7 @@ LOGGING = {
         'default': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/', 'all1.logs'),  # 或者直接写路径：'c:\logs\all.logs',
+            'filename': os.path.join(BASE_DIR, 'logs/', 'default.log'),  # 或者直接写路径：'c:\logs\all.logs',
             'maxBytes': 1024 * 1024 * 5,  # 5 MB
             'backupCount': 5,
             'formatter': 'standard',
@@ -184,15 +183,15 @@ LOGGING = {
         'request_handler': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/', 'all2.logs'),  # 或者直接写路径：'filename':'c:\logs\request.logs''
+            'filename': os.path.join(BASE_DIR, 'logs/', 'request_handler.log'),  # 或者直接写路径：'filename':'c:\logs\request.logs''
             'maxBytes': 1024 * 1024 * 5,  # 5 MB
             'backupCount': 5,
             'formatter': 'standard',
         },
-        'scprits_handler': {
+        'db': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/', 'all3.logs'),  # 或者直接写路径：'filename':'c:\logs\script.logs'
+            'filename': os.path.join(BASE_DIR, 'logs/', 'db.log'),
             'maxBytes': 1024 * 1024 * 5,  # 5 MB
             'backupCount': 5,
             'formatter': 'standard',
@@ -200,7 +199,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handlers': ['console', 'default'],
             'level': 'DEBUG',
             'propagate': False
         },
@@ -210,13 +209,13 @@ LOGGING = {
         #     'propagate': True
         # },
         'django.request': {
-            'handlers': ['request_handler'],
-            'level': 'DEBUG',
+            'handlers': ['console', 'request_handler'],
+            'level': 'WARNING',
             'propagate': False
         },
-        'scripts': {  # 脚本专用日志
-            'handlers': ['scprits_handler'],
-            'level': 'INFO',
+        'django.db': {  # 脚本专用日志
+            'handlers': ['db'],
+            'level': 'WARNING',
             'propagate': False
         },
     }
