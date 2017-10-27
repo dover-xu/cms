@@ -2395,3 +2395,1270 @@ django.template.base.VariableDoesNotExist: Failed lookup for key [error] in "[{'
 2017-10-26 19:03:27,396 [Thread-1:11900] [django.server:124] [INFO]- "GET /v1/login/ HTTP/1.1" 200 2
 2017-10-26 19:04:45,290 [Thread-1:10836] [django:100] [DEBUG]- 3333333
 2017-10-26 19:04:45,290 [Thread-1:10836] [django.server:124] [INFO]- "GET /v1/login/ HTTP/1.1" 200 0
+2017-10-27 10:47:21,464 [Thread-1:9540] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 10:47:23,644 [Thread-4:4152] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2956
+2017-10-27 10:49:47,327 [Thread-5:10604] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 10:49:57,599 [Thread-6:9052] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 3464
+2017-10-27 10:51:07,881 [Thread-7:14760] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 50
+2017-10-27 10:53:37,670 [Thread-1:8540] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 10:53:52,545 [Thread-4:10052] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 50
+2017-10-27 11:01:52,381 [Thread-6:15956] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 11:02:08,785 [Thread-8:17352] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'v1/login/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-10-27 11:02:08,944 [Thread-8:17352] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'v1/login/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'manager.urls' from 'D:\\\\code\\\\PycharmProjects\\\\cms\\\\manager\\\\urls.py'> (None:None) ^manager/>"
+2017-10-27 11:02:08,947 [Thread-8:17352] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'v1/login/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'rest_framework.urls' from 'C:\\\\Python36-32\\\\lib\\\\site-packages\\\\rest_framework\\\\urls.py'> (rest_framework:rest_framework) ^api-auth/>"
+2017-10-27 11:02:08,959 [Thread-8:17352] [django.server:124] [WARNING]- "POST /v1/login/ HTTP/1.1" 404 11169
+2017-10-27 11:05:09,113 [Thread-1:18268] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'v1/login/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-10-27 11:05:09,118 [Thread-1:18268] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'v1/login/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'manager.urls' from 'D:\\\\code\\\\PycharmProjects\\\\cms\\\\manager\\\\urls.py'> (None:None) ^manager/>"
+2017-10-27 11:05:09,125 [Thread-1:18268] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'v1/login/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'rest_framework.urls' from 'C:\\\\Python36-32\\\\lib\\\\site-packages\\\\rest_framework\\\\urls.py'> (rest_framework:rest_framework) ^api-auth/>"
+2017-10-27 11:05:09,135 [Thread-1:18268] [django.server:124] [WARNING]- "GET /v1/login/ HTTP/1.1" 404 11168
+2017-10-27 11:05:14,477 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 6666666666'
+2017-10-27 11:05:14,478 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 6666666666'
+2017-10-27 11:05:14,481 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 5555555555'
+2017-10-27 11:05:14,481 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 5555555555'
+2017-10-27 11:05:14,484 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 444444444444'
+2017-10-27 11:05:14,485 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 444444444444'
+2017-10-27 11:05:14,489 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 3333333333'
+2017-10-27 11:05:14,490 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 3333333333'
+2017-10-27 11:05:14,493 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 2222222222'
+2017-10-27 11:05:14,494 [Thread-3:3472] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 2222222222'
+2017-10-27 11:05:14,499 [Thread-3:3472] [django.server:124] [INFO]- "GET / HTTP/1.1" 200 29953
+2017-10-27 11:05:14,693 [Thread-4:12264] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-27 11:05:14,715 [Thread-7:16428] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-27 11:05:14,726 [Thread-5:15224] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-27 11:05:14,733 [Thread-11:10676] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-27 11:05:14,738 [Thread-10:11432] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-27 11:05:14,739 [Thread-9:12320] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-27 11:05:14,743 [Thread-8:17508] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-27 11:05:14,779 [Thread-12:8452] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 11:05:14,782 [Thread-6:13492] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-27 11:05:14,836 [Thread-13:8120] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-27 11:05:14,872 [Thread-15:18256] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-27 11:05:14,875 [Thread-16:3132] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-27 11:05:14,901 [Thread-17:17580] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-27 11:05:14,934 [Thread-14:13836] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-27 11:05:15,014 [Thread-18:5664] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-27 11:05:28,670 [Thread-19:15876] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 21
+2017-10-27 11:05:28,850 [Thread-20:9360] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2956
+2017-10-27 11:05:29,028 [Thread-21:13524] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 11:17:32,516 [Thread-1:8776] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2956
+2017-10-27 11:17:44,336 [Thread-4:2468] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2956
+2017-10-27 11:18:06,756 [Thread-6:15196] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2956
+2017-10-27 11:18:28,124 [Thread-8:18492] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2956
+2017-10-27 11:22:59,010 [Thread-10:14752] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2956
+2017-10-27 11:27:29,549 [Thread-1:9288] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2969
+2017-10-27 11:28:06,609 [Thread-4:13428] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2969
+2017-10-27 13:07:30,567 [Thread-1:2468] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:09:47,909 [Thread-4:11488] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:11:43,427 [Thread-6:11796] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:16:25,871 [Thread-8:17364] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:17:34,472 [Thread-10:10632] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 13:17:42,633 [Thread-11:4812] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 13:17:43,018 [Thread-12:12720] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:20:54,773 [Thread-14:13864] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:21:01,099 [Thread-16:15516] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 13:21:10,004 [Thread-17:8152] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 13:21:10,368 [Thread-18:3228] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:21:50,823 [Thread-20:3224] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:21:55,507 [Thread-22:14224] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 13:22:01,999 [Thread-23:13900] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 13:22:02,372 [Thread-24:16180] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:23:01,877 [Thread-26:15516] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 13:23:14,075 [Thread-28:14516] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 13:23:14,232 [Thread-29:10044] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:23:22,862 [Thread-30:8276] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 13:23:28,243 [Thread-31:9900] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 13:23:45,143 [Thread-33:13460] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 13:23:45,351 [Thread-34:18680] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:23:45,478 [Thread-35:7480] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 13:24:13,203 [Thread-37:14880] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:24:49,466 [Thread-39:13624] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:24:49,679 [Thread-40:11728] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 13:35:30,774 [Thread-42:17436] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2972
+2017-10-27 13:35:30,963 [Thread-43:19204] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 13:35:48,688 [Thread-45:3008] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2973
+2017-10-27 13:35:48,904 [Thread-46:14888] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:03:08,178 [Thread-1:7248] [django:201] [DEBUG]- [OrderedDict([('id', 6), ('text', '6666666666'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://localhost:8008/Notes/1/', 'http://localhost:8008/Notes/2/', 'http://localhost:8008/Notes/3/', 'http://localhost:8008/Notes/4/', 'http://localhost:8008/Notes/5/', 'http://localhost:8008/Notes/6/']), ('avatar', 'http://localhost:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:28.685568Z')]), OrderedDict([('id', 5), ('text', '5555555555'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://localhost:8008/Notes/1/', 'http://localhost:8008/Notes/2/', 'http://localhost:8008/Notes/3/', 'http://localhost:8008/Notes/4/', 'http://localhost:8008/Notes/5/', 'http://localhost:8008/Notes/6/']), ('avatar', 'http://localhost:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:24.925215Z')]), OrderedDict([('id', 4), ('text', '444444444444'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://localhost:8008/Notes/1/', 'http://localhost:8008/Notes/2/', 'http://localhost:8008/Notes/3/', 'http://localhost:8008/Notes/4/', 'http://localhost:8008/Notes/5/', 'http://localhost:8008/Notes/6/']), ('avatar', 'http://localhost:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:20.315041Z')]), OrderedDict([('id', 3), ('text', '3333333333'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://localhost:8008/Notes/1/', 'http://localhost:8008/Notes/2/', 'http://localhost:8008/Notes/3/', 'http://localhost:8008/Notes/4/', 'http://localhost:8008/Notes/5/', 'http://localhost:8008/Notes/6/']), ('avatar', 'http://localhost:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:14.628558Z')]), OrderedDict([('id', 2), ('text', '2222222222'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://localhost:8008/Notes/1/', 'http://localhost:8008/Notes/2/', 'http://localhost:8008/Notes/3/', 'http://localhost:8008/Notes/4/', 'http://localhost:8008/Notes/5/', 'http://localhost:8008/Notes/6/']), ('avatar', 'http://localhost:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:11:11.151787Z')])]
+2017-10-27 14:03:08,179 [Thread-1:7248] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2973
+2017-10-27 14:03:08,304 [Thread-3:8564] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:04:23,662 [Thread-5:18932] [django.server:124] [INFO]- "GET /docs HTTP/1.1" 301 0
+2017-10-27 14:04:23,789 [Thread-6:12488] [django.server:124] [INFO]- "GET /docs/ HTTP/1.1" 200 4006
+2017-10-27 14:04:23,850 [Thread-7:17548] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/css/typography.css HTTP/1.1" 200 452
+2017-10-27 14:04:23,998 [Thread-12:17372] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/jquery.slideto.min.js HTTP/1.1" 200 369
+2017-10-27 14:04:24,010 [Thread-8:18604] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/css/reset.css HTTP/1.1" 200 1066
+2017-10-27 14:04:24,032 [Thread-10:14380] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/object-assign-pollyfill.js HTTP/1.1" 200 692
+2017-10-27 14:04:24,034 [Thread-13:18612] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/jquery.wiggle.min.js HTTP/1.1" 200 762
+2017-10-27 14:04:24,036 [Thread-9:15496] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/css/screen.css HTTP/1.1" 200 48986
+2017-10-27 14:04:24,054 [Thread-14:19012] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/jquery.ba-bbq.min.js HTTP/1.1" 200 4119
+2017-10-27 14:04:24,149 [Thread-18:376] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/backbone-min.js HTTP/1.1" 200 20390
+2017-10-27 14:04:24,214 [Thread-16:11952] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/js-yaml.min.js HTTP/1.1" 200 43621
+2017-10-27 14:04:24,240 [Thread-11:19380] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/jquery-1.8.0.min.js HTTP/1.1" 200 92555
+2017-10-27 14:04:24,269 [Thread-21:6568] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/highlight.9.1.0.pack_extended.js HTTP/1.1" 200 1025
+2017-10-27 14:04:24,291 [Thread-17:19368] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/lodash.min.js HTTP/1.1" 200 52646
+2017-10-27 14:04:24,291 [Thread-15:16212] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/handlebars-2.0.0.js HTTP/1.1" 200 48517
+2017-10-27 14:04:24,295 [Thread-20:13388] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/highlight.9.1.0.pack.js HTTP/1.1" 200 11037
+2017-10-27 14:04:24,327 [Thread-23:16016] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/marked.js HTTP/1.1" 200 28156
+2017-10-27 14:04:24,329 [Thread-24:16680] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/swagger-oauth.js HTTP/1.1" 200 11615
+2017-10-27 14:04:24,360 [Thread-22:15244] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/lib/jsoneditor.min.js HTTP/1.1" 200 130042
+2017-10-27 14:04:24,403 [Thread-25:13272] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/init.js HTTP/1.1" 200 1434
+2017-10-27 14:04:24,423 [Thread-26:19124] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/images/logo_small.png HTTP/1.1" 200 770
+2017-10-27 14:04:24,451 [Thread-19:9816] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/swagger-ui.min.js HTTP/1.1" 200 289384
+2017-10-27 14:04:24,454 [Thread-27:12756] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/css/print.css HTTP/1.1" 200 46473
+2017-10-27 14:04:24,666 [Thread-28:16656] [django.server:124] [INFO]- "GET /docs/?format=openapi HTTP/1.1" 200 5726
+2017-10-27 14:04:24,926 [Thread-29:9668] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/images/favicon-32x32.png HTTP/1.1" 200 1654
+2017-10-27 14:04:24,934 [Thread-30:18352] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/images/favicon-16x16.png HTTP/1.1" 200 645
+2017-10-27 14:04:28,134 [Thread-31:9484] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/images/throbber.gif HTTP/1.1" 200 9257
+2017-10-27 14:04:33,007 [Thread-32:11768] [django:201] [DEBUG]- [OrderedDict([('id', 6), ('text', '6666666666'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://127.0.0.1:8008/Notes/1/', 'http://127.0.0.1:8008/Notes/2/', 'http://127.0.0.1:8008/Notes/3/', 'http://127.0.0.1:8008/Notes/4/', 'http://127.0.0.1:8008/Notes/5/', 'http://127.0.0.1:8008/Notes/6/']), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:28.685568Z')]), OrderedDict([('id', 5), ('text', '5555555555'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://127.0.0.1:8008/Notes/1/', 'http://127.0.0.1:8008/Notes/2/', 'http://127.0.0.1:8008/Notes/3/', 'http://127.0.0.1:8008/Notes/4/', 'http://127.0.0.1:8008/Notes/5/', 'http://127.0.0.1:8008/Notes/6/']), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:24.925215Z')]), OrderedDict([('id', 4), ('text', '444444444444'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://127.0.0.1:8008/Notes/1/', 'http://127.0.0.1:8008/Notes/2/', 'http://127.0.0.1:8008/Notes/3/', 'http://127.0.0.1:8008/Notes/4/', 'http://127.0.0.1:8008/Notes/5/', 'http://127.0.0.1:8008/Notes/6/']), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:20.315041Z')]), OrderedDict([('id', 3), ('text', '3333333333'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://127.0.0.1:8008/Notes/1/', 'http://127.0.0.1:8008/Notes/2/', 'http://127.0.0.1:8008/Notes/3/', 'http://127.0.0.1:8008/Notes/4/', 'http://127.0.0.1:8008/Notes/5/', 'http://127.0.0.1:8008/Notes/6/']), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:14.628558Z')]), OrderedDict([('id', 2), ('text', '2222222222'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('notes', ['http://127.0.0.1:8008/Notes/1/', 'http://127.0.0.1:8008/Notes/2/', 'http://127.0.0.1:8008/Notes/3/', 'http://127.0.0.1:8008/Notes/4/', 'http://127.0.0.1:8008/Notes/5/', 'http://127.0.0.1:8008/Notes/6/']), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:11:11.151787Z')])]
+2017-10-27 14:04:33,008 [Thread-32:11768] [django.server:124] [INFO]- "GET /contents HTTP/1.1" 200 2973
+2017-10-27 14:07:53,659 [Thread-33:9648] [django.server:124] [INFO]- "GET /Notes/1/ HTTP/1.1" 200 6961
+2017-10-27 14:07:53,705 [Thread-36:4988] [django.server:124] [INFO]- "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+2017-10-27 14:07:53,705 [Thread-35:10340] [django.server:124] [INFO]- "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+2017-10-27 14:07:53,705 [Thread-37:5992] [django.server:124] [INFO]- "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1132
+2017-10-27 14:07:53,749 [Thread-39:1044] [django.server:124] [INFO]- "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+2017-10-27 14:07:53,753 [Thread-40:19412] [django.server:124] [INFO]- "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1735
+2017-10-27 14:07:53,766 [Thread-42:11080] [django.server:124] [INFO]- "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+2017-10-27 14:07:53,843 [Thread-34:5680] [django.server:124] [INFO]- "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121200
+2017-10-27 14:07:53,885 [Thread-41:18660] [django.server:124] [INFO]- "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 37045
+2017-10-27 14:07:53,942 [Thread-38:17992] [django.server:124] [INFO]- "GET /static/rest_framework/js/jquery-1.12.4.min.js HTTP/1.1" 200 97163
+2017-10-27 14:07:53,961 [Thread-43:12848] [django.server:124] [INFO]- "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1262
+2017-10-27 14:07:54,369 [Thread-44:19044] [django.server:124] [INFO]- "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+2017-10-27 14:08:44,642 [Thread-1:17952] [django.server:124] [INFO]- "GET /Notes/1/ HTTP/1.1" 200 6226
+2017-10-27 14:09:18,209 [Thread-8:10868] [django:201] [DEBUG]- [OrderedDict([('id', 6), ('text', '6666666666'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:28.685568Z')]), OrderedDict([('id', 5), ('text', '5555555555'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:24.925215Z')]), OrderedDict([('id', 4), ('text', '444444444444'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:20.315041Z')]), OrderedDict([('id', 3), ('text', '3333333333'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:12:14.628558Z')]), OrderedDict([('id', 2), ('text', '2222222222'), ('image', None), ('hot', 0), ('click_num', 0), ('recommend', 0), ('user', OrderedDict([('id', 1), ('username', 'xudong'), ('email', 'xudong_bj@sina.cn'), ('avatar', 'http://127.0.0.1:8008/uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg')])), ('category', 'Jape'), ('comments', []), ('comment_str', '0'), ('praise_str', '0'), ('tread_str', '0'), ('share_str', '0'), ('pub_date', '2017-10-20T10:11:11.151787Z')])]
+2017-10-27 14:09:18,210 [Thread-8:10868] [django.server:124] [INFO]- "GET /contents HTTP/1.1" 200 1933
+2017-10-27 14:13:32,847 [Thread-1:19368] [django:202] [DEBUG]- MyUserSerializer(<django.contrib.auth.models.AnonymousUser object>):
+    id = IntegerField(label='ID', read_only=True)
+    username = CharField(help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=150, validators=[<django.contrib.auth.validators.UnicodeUsernameValidator object>, <UniqueValidator(queryset=MyUser.objects.all())>])
+    email = EmailField(allow_blank=True, label='Email address', max_length=254, required=False)
+    avatar = ImageField(max_length=100)
+2017-10-27 14:13:32,871 [Thread-1:19368] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1933
+2017-10-27 14:13:33,094 [Thread-3:18748] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:13:59,573 [Thread-1:17952] [django.server:124] [ERROR]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 500 20974
+2017-10-27 14:15:47,016 [Thread-1:9736] [django:202] [DEBUG]- {'id': None, 'username': ''}
+2017-10-27 14:15:47,037 [Thread-1:9736] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1933
+2017-10-27 14:15:47,261 [Thread-3:10692] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:18:53,990 [Thread-1:15528] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:19:39,382 [Thread-4:18604] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:20:28,961 [Thread-6:7908] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:23:31,797 [Thread-8:16604] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:23:45,176 [Thread-10:16656] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 14:23:45,353 [Thread-11:15244] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:24:02,957 [Thread-13:6564] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:24:03,192 [Thread-14:17644] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:31:13,036 [Thread-16:19260] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:31:13,265 [Thread-17:7884] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:33:21,176 [Thread-19:732] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:33:21,235 [Thread-20:7192] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:33:28,940 [Thread-21:17696] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 21
+2017-10-27 14:33:29,051 [Thread-21:17696] [django.server:124] [ERROR]- "GET /manager/logout/ HTTP/1.1" 500 59
+2017-10-27 14:33:29,685 [Thread-22:12712] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:33:29,896 [Thread-23:15496] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:33:55,402 [Thread-25:18620] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:33:55,631 [Thread-26:1628] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:34:16,426 [Thread-28:13272] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:34:21,885 [Thread-29:8416] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 14:34:22,230 [Thread-30:17788] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:34:28,161 [Thread-31:17992] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 21
+2017-10-27 14:34:44,168 [Thread-32:1952] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:34:44,401 [Thread-33:19368] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:34:53,019 [Thread-34:17832] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:34:59,225 [Thread-35:15444] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 14:34:59,384 [Thread-36:3280] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:36:55,238 [Thread-38:14152] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:37:00,910 [Thread-39:12176] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 50
+2017-10-27 14:37:10,271 [Thread-40:6672] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:37:10,340 [Thread-41:19296] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:37:19,698 [Thread-42:3044] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 21
+2017-10-27 14:37:39,552 [Thread-1:12856] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:37:39,777 [Thread-3:18780] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:37:40,559 [Thread-4:6088] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:37:49,557 [Thread-5:15864] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 14:37:49,756 [Thread-6:19380] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:37:53,509 [Thread-7:19256] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 14:41:49,698 [Thread-8:7728] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:41:55,731 [Thread-9:14052] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 14:41:56,093 [Thread-10:8992] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:42:03,238 [Thread-11:18800] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:42:03,616 [Thread-12:8044] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:42:21,223 [Thread-14:7560] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 14:43:29,860 [Thread-16:14412] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 14:43:30,089 [Thread-17:6568] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 14:43:30,495 [Thread-18:14152] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:44:26,497 [Thread-19:14460] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 14:44:26,595 [Thread-20:18780] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:44:31,032 [Thread-21:13272] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 14:44:37,321 [Thread-22:14912] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 14:44:43,747 [Thread-23:8776] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 14:44:44,104 [Thread-24:17988] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 14:44:48,498 [Thread-25:16656] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:07:44,905 [Thread-26:18424] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 15:07:51,911 [Thread-27:16588] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 15:09:28,745 [Thread-28:10108] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:09:37,300 [Thread-29:19424] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:09:37,661 [Thread-30:18212] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:10:01,574 [Thread-32:11372] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:10:01,805 [Thread-33:18284] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:10:21,458 [Thread-35:15272] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:10:21,683 [Thread-36:18268] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:10:26,741 [Thread-37:7876] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:10:29,927 [Thread-38:16572] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 15:10:30,161 [Thread-39:16248] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:10:30,943 [Thread-40:17812] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:10:41,687 [Thread-41:16056] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:10:41,889 [Thread-42:18508] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:10:45,140 [Thread-43:1360] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:10:46,816 [Thread-44:12748] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:10:54,878 [Thread-45:17496] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:10:55,244 [Thread-46:14852] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:11:55,896 [Thread-48:16792] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:12:50,243 [Thread-50:18192] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:12:53,984 [Thread-51:19452] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:13:07,178 [Thread-52:9264] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:13:07,303 [Thread-53:17576] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:13:52,877 [Thread-55:9280] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:13:53,102 [Thread-56:18712] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:13:57,673 [Thread-57:13888] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:14:00,999 [Thread-58:108] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:14:07,035 [Thread-59:5836] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:14:07,386 [Thread-60:20256] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:14:15,149 [Thread-61:20268] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:14:16,665 [Thread-62:20388] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:14:21,817 [Thread-63:20392] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:14:22,170 [Thread-64:20428] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:14:30,144 [Thread-65:20432] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:14:34,262 [Thread-66:19848] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:14:42,463 [Thread-67:19820] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:14:42,820 [Thread-68:9496] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:17:02,400 [Thread-70:20416] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:17:02,577 [Thread-71:12764] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:17:09,061 [Thread-72:20408] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:17:48,897 [Thread-73:14476] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 15:17:49,127 [Thread-74:8212] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:17:51,469 [Thread-75:10728] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:17:57,653 [Thread-76:19676] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:17:57,747 [Thread-77:12780] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:18:00,120 [Thread-78:18828] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:18:08,619 [Thread-79:14792] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 15:18:08,845 [Thread-80:18660] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:18:09,423 [Thread-81:12264] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 15:18:15,060 [Thread-82:14412] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 39
+2017-10-27 15:18:15,220 [Thread-83:5316] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:19:51,740 [Thread-85:20304] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 2066
+2017-10-27 15:19:51,960 [Thread-86:15808] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 15:19:56,135 [Thread-87:20320] [django.server:124] [INFO]- "GET /manager/logout/ HTTP/1.1" 200 40
+2017-10-27 15:20:31,759 [Thread-88:7008] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 15:20:33,016 [Thread-89:20016] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:15:54,975 [Thread-1:10504] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:17:35,863 [Thread-4:9792] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:18:14,714 [Thread-6:19780] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:19:46,699 [Thread-8:17352] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:20:20,549 [Thread-10:17788] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:22:39,292 [Thread-12:212] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:22:46,510 [Thread-13:8504] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:22:55,076 [Thread-14:5740] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:23:00,550 [Thread-15:16496] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 69
+2017-10-27 16:23:27,624 [Thread-1:12404] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 69
+2017-10-27 16:23:32,697 [Thread-3:19152] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 69
+2017-10-27 16:23:39,462 [Thread-4:19536] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 69
+2017-10-27 16:23:52,346 [Thread-1:17024] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 69
+2017-10-27 16:23:58,497 [Thread-3:7748] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 69
+2017-10-27 16:24:27,945 [Thread-1:19932] [django.server:124] [INFO]- "POST /manager/login/ HTTP/1.1" 200 68
+2017-10-27 16:25:10,549 [Thread-4:11084] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:30:12,966 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 6666666666'
+2017-10-27 16:30:12,996 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 6666666666'
+2017-10-27 16:30:12,999 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 5555555555'
+2017-10-27 16:30:12,999 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 5555555555'
+2017-10-27 16:30:13,002 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 444444444444'
+2017-10-27 16:30:13,003 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 444444444444'
+2017-10-27 16:30:13,006 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 3333333333'
+2017-10-27 16:30:13,007 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 3333333333'
+2017-10-27 16:30:13,009 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 2222222222'
+2017-10-27 16:30:13,010 [Thread-10:18716] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 2222222222'
+2017-10-27 16:30:13,013 [Thread-10:18716] [django.server:124] [INFO]- "GET / HTTP/1.1" 200 29953
+2017-10-27 16:30:15,680 [Thread-11:15132] [django.server:124] [INFO]- "GET /manager/register HTTP/1.1" 301 0
+2017-10-27 16:30:15,683 [Thread-12:4180] [django.server:124] [INFO]- "GET /manager/register/ HTTP/1.1" 200 0
+2017-10-27 16:30:26,730 [Thread-16:15588] [django.server:124] [INFO]- "GET /manager/register/ HTTP/1.1" 200 0
+2017-10-27 16:30:48,701 [Thread-1:16764] [django.template:925] [DEBUG]- Exception while resolving variable 'error' in template 'manager/signup.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'error'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'error'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'error'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [error] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: '1rhqt6N9M37DiN4pGkwX1i847MOtw4voizxH0wLBSoJdV3OwuDp1fQ8qyJRmz8l1'>, 'request': <WSGIRequest: GET '/manager/register/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x04BFC2B8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x05977810>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x04970B70>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <RegisterForm bound=False, valid=Unknown, fields=(username;password1;password2)>, 'STATIC_PREFIX': '/static/'}]"
+2017-10-27 16:30:48,786 [Thread-1:16764] [django.server:124] [INFO]- "GET /manager/register/ HTTP/1.1" 200 3369
+2017-10-27 16:33:28,589 [Thread-8:19880] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:34:24,334 [Thread-10:1780] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 16:37:28,830 [Thread-12:18492] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern register ^register/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern login ^login/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern setting ^setting/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern auth_name ^api/auth/uname/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern active_user ^api/activate/(?P<token>\w+.[-_\w]*\w+.[-_\w]*\w+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'manager/signup/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-10-27 16:37:28,888 [Thread-12:18492] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern register ^register/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern login ^login/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern setting ^setting/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern auth_name ^api/auth/uname/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern active_user ^api/activate/(?P<token>\w+.[-_\w]*\w+.[-_\w]*\w+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'manager/signup/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'rest_framework.urls' from 'C:\\\\Python36-32\\\\lib\\\\site-packages\\\\rest_framework\\\\urls.py'> (rest_framework:rest_framework) ^api-auth/>"
+2017-10-27 16:37:28,922 [Thread-12:18492] [django.server:124] [WARNING]- "GET /manager/signup/ HTTP/1.1" 404 12226
+2017-10-27 16:37:55,139 [Thread-14:17248] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern register ^register/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern login ^login/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern setting ^setting/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern auth_name ^api/auth/uname/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern active_user ^api/activate/(?P<token>\w+.[-_\w]*\w+.[-_\w]*\w+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'manager/signup/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-10-27 16:37:55,143 [Thread-14:17248] [django.template:925] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern register ^register/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern login ^login/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern logout ^logout/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern setting ^setting/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern auth_name ^api/auth/uname/$>], [<RegexURLResolver <module 'manager.urls' from 'D:\\code\\PycharmProjects\\cms\\manager\\urls.py'> (None:None) ^manager/>, <RegexURLPattern active_user ^api/activate/(?P<token>\w+.[-_\w]*\w+.[-_\w]*\w+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern contents ^contents$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern detail ^detail_(?P<note_id>[0-9]+)$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_publish ^user/focus/publish$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_share ^user/focus/share$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern user_comment ^user/focus/comment$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_video ^user/publish/video$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_pic ^user/publish/pic$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern publish_jape ^user/publish/jape$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_praise_tread_share ^api/a-p-t-s/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern add_comment ^api/a-c/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern del_note ^api/del$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern None ^docs/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLResolver <module 'rest_framework.urls' from 'C:\\Python36-32\\lib\\site-packages\\rest_framework\\urls.py'> (rest_framework:rest_framework) ^api-auth/>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^api/\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-list ^Users\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern myuser-detail ^Users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list ^Notes\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-list-handler ^Notes/list_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail ^Notes/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern note-detail-handler ^Notes/(?P<pk>[^/.]+)/detail_handler\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-list ^Comments\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern comment-detail ^Comments/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-list ^Praises\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern praise-detail ^Praises/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-list ^Treads\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern tread-detail ^Treads/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-list ^Shares\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)/$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern share-detail ^Shares/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^$>], [<RegexURLResolver <module 'focus.urls' from 'D:\\code\\PycharmProjects\\cms\\focus\\urls.py'> (None:None) >, <RegexURLPattern api-root ^\.(?P<format>[a-z0-9]+)/?$>], [<RegexURLPattern None ^uploads\/(?P<path>.*)$>]], 'path': 'manager/signup/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'rest_framework.urls' from 'C:\\\\Python36-32\\\\lib\\\\site-packages\\\\rest_framework\\\\urls.py'> (rest_framework:rest_framework) ^api-auth/>"
+2017-10-27 16:37:55,152 [Thread-14:17248] [django.server:124] [WARNING]- "GET /manager/signup/ HTTP/1.1" 404 12226
+2017-10-27 16:39:12,565 [Thread-1:12464] [django.template:925] [DEBUG]- Exception while resolving variable 'error' in template 'manager/signup.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'error'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'error'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'error'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [error] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'AKuXyNXpqSF4PnjQidSckF1rvmNswOEUcvGqJZtw1MTspk15kxn2iHcaMTaGDApW'>, 'request': <WSGIRequest: GET '/manager/signup/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x052BD198>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x055411F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x048EF4F0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <RegisterForm bound=False, valid=Unknown, fields=(username;password1;password2)>, 'STATIC_PREFIX': '/static/'}]"
+2017-10-27 16:39:12,578 [Thread-1:12464] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 3369
+2017-10-27 16:39:50,756 [Thread-1:14008] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:00:13,727 [Thread-1:20348] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:10:01,005 [Thread-4:19284] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:10:44,179 [Thread-6:19508] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:13:44,480 [Thread-8:20476] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:13:53,394 [Thread-9:17172] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:14:14,736 [Thread-14:15684] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 33
+2017-10-27 17:25:44,680 [Thread-1:6656] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 17:25:44,805 [Thread-3:18168] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 17:25:46,249 [Thread-4:19256] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:26:09,301 [Thread-8:7112] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 17:29:52,842 [Thread-10:19824] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 17:29:53,001 [Thread-11:19904] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 17:29:54,320 [Thread-12:20312] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 17:30:06,070 [Thread-15:7728] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 18:43:06,472 [Thread-17:104] [django.server:124] [INFO]- "GET /contents?type=0&sort=0&page=1&display=5 HTTP/1.1" 200 1966
+2017-10-27 18:43:06,760 [Thread-18:4036] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-27 18:43:07,867 [Thread-19:4696] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 18:43:27,420 [Thread-21:12828] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 18:44:17,861 [Thread-23:6328] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 18:44:29,841 [Thread-25:8848] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 18:52:38,199 [Thread-27:7360] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 18:52:49,238 [Thread-29:18832] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 18:56:34,519 [Thread-31:3580] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 18:56:49,268 [Thread-33:14860] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 19:02:48,115 [Thread-35:18832] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 19:02:59,540 [Thread-37:14360] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 19:10:27,139 [Thread-39:18684] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 19:11:20,421 [Thread-41:18224] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 19:11:32,683 [Thread-43:18268] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 19:13:57,627 [Thread-45:21432] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 19:14:07,932 [Thread-46:21024] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65
+2017-10-27 19:19:57,259 [Thread-47:7376] [django.server:124] [INFO]- "GET /manager/login/ HTTP/1.1" 200 0
+2017-10-27 19:21:11,498 [Thread-49:11484] [django.server:124] [INFO]- "GET /manager/signup HTTP/1.1" 301 0
+2017-10-27 19:21:11,747 [Thread-50:20684] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 19:21:34,768 [Thread-52:21280] [django.server:124] [ERROR]- "POST /manager/signup HTTP/1.1" 500 72732
+2017-10-27 19:22:21,390 [Thread-54:20744] [django.server:124] [ERROR]- "POST /manager/signup HTTP/1.1" 500 72633
+2017-10-27 19:23:39,312 [Thread-56:4696] [django.server:124] [INFO]- "GET /manager/signup HTTP/1.1" 301 0
+2017-10-27 19:23:39,561 [Thread-57:14436] [django.server:124] [INFO]- "GET /manager/signup/ HTTP/1.1" 200 0
+2017-10-27 19:23:52,049 [Thread-59:20560] [django.server:124] [INFO]- "POST /manager/signup/ HTTP/1.1" 200 65

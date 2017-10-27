@@ -154,7 +154,13 @@ def index(request):
 
 
 class contents(APIView):
+
     def get(self, request):
+        if request.user.is_authenticated:
+            is_login = True
+        else:
+            is_login = False
+        user = MyUserSerializer(request.user)
         tp = request.GET.get('type', '0')
         sort = request.GET.get('sort', '0')
         current = int(request.GET.get('page', '1'))
@@ -192,11 +198,15 @@ class contents(APIView):
             start = (current - 1) * page_size
             end = current * page_size
             query_set = query_set[start:end]
-        ser = NoteSerializer(query_set, many=True, context={'request': request})
-        context = {'note_list': ser.data,
-                   'total': total,
-                   'display': page_size,
-                   'current': current}
+        notes = NoteSerializer(query_set, many=True, context={'request': request})
+
+        context = {
+            'is_login': is_login,
+            'user': user.data,
+            'note_list': notes.data,
+            'total': total,
+            'display': page_size,
+            'current': current}
         return Response(context)
 
     def post(self, request):
