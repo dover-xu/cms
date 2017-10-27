@@ -503,3 +503,7 @@ Traceback (most recent call last):
   File "C:\Python36-32\lib\site-packages\django\middleware\common.py", line 101, in get_full_path_with_slash
     'url': request.get_host() + new_path,
 RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8008/manager/signup/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2017-10-27 22:07:26,641 [Thread-5:7760] [django.request:152] [WARNING]- Not Found: /manager/login/
+2017-10-27 22:08:32,831 [Thread-9:7724] [django.request:152] [WARNING]- Not Found: /manager/login/
+2017-10-27 22:09:38,764 [Thread-11:6256] [django.request:152] [WARNING]- Not Found: /manager/login/
+2017-10-27 22:10:48,612 [Thread-13:11288] [django.request:152] [WARNING]- Not Found: /manager/login/
