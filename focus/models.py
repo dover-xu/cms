@@ -19,7 +19,7 @@ sex_choice = (
 
 @python_2_unicode_compatible
 class MyUser(AbstractUser):
-    avatar = models.ImageField(upload_to='avatar/%Y/%m/%d')
+    avatar = models.ImageField(upload_to='avatar/%Y/%m/%d', null=True)
     profile = models.CharField('profile', max_length=255, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=sex_choice, default='m')
     # objects = MyUserManager()

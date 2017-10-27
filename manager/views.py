@@ -63,36 +63,41 @@ def log_in(request):
         form = LoginForm(request.form_para)
         if form.is_valid():
             if request.user.is_authenticated:
-                return render(request, 'manager/signin.html', {'form': form, 'error': "*已登录"})
+                context = {
+                    'is_login': False,
+                    'message': '已登录',
+                }
+                return JsonResponse(context)
             username, password = form.cleaned_data['username'], form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                # r_url = request.session.get('redirect_url', default='/')
-                # try:
-                #     del request.session['redirect_url']
-                # except KeyError:
-                #     pass
                 context = {
+                    'is_login': True,
+                    'message': '',
                     'redirect_url': '/',
                 }
                 return JsonResponse(context)
             else:
                 context = {
-                    'error': '密码错误',
+                    'is_login': False,
+                    'message': '密码错误',
                 }
                 try:
                     user = MyUser.objects.get(username=username)
                     if not user.is_active:
-                        context['error'] = '请先完成邮箱验证'
+                        context['message'] = '请先完成邮箱验证'
                 except ObjectDoesNotExist:
-                    context['error'] = '*用户名不存在'
+                    context['message'] = '用户名不存在'
                 return JsonResponse(context)
         else:
-            # return HttpResponse()
-            return render(request, 'manager/signin.html', {'form': form, 'error': "*登录失败"})
+            context = {
+                'is_login': False,
+                'message': '登录失败',
+            }
+            return JsonResponse(context)
+            # return render(request, 'manager/signin.html', {'form': form, 'message': "*登录失败"})
     else:
-        # request.session['redirect_url'] = request.GET.get('url', '/')
         # form = LoginForm()
         return HttpResponse()
         # return render(request, 'manager/signin.html', {'form': form})
@@ -103,7 +108,7 @@ def log_in2(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             if request.user.is_authenticated:
-                return render(request, 'manager/signin.html', {'form': form, 'error': "*已登录"})
+                return render(request, 'manager/signin.html', {'form': form, 'message': "已登录"})
             username, password = form.cleaned_data['username'], form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user is not None:
@@ -118,13 +123,13 @@ def log_in2(request):
                 try:
                     user = MyUser.objects.get(username=username)
                     if not user.is_active:
-                        return render(request, 'manager/signin.html', {'form': form, 'error': "*请先完成邮箱验证"})
+                        return render(request, 'manager/signin.html', {'form': form, 'message': "请先完成邮箱验证"})
                 except ObjectDoesNotExist:
-                    return render(request, 'manager/signin.html', {'form': form, 'error': "*用户名不存在"})
-                return render(request, 'manager/signin.html', {'form': form, 'error': "*密码错误"})
+                    return render(request, 'manager/signin.html', {'form': form, 'message': "用户名不存在"})
+                return render(request, 'manager/signin.html', {'form': form, 'message': "密码错误"})
         else:
             # return HttpResponse()
-            return render(request, 'manager/signin.html', {'form': form, 'error': "*登录失败"})
+            return render(request, 'manager/signin.html', {'form': form, 'message': "登录失败"})
     else:
         request.session['redirect_url'] = request.GET.get('url', '/')
         form = LoginForm()
@@ -138,6 +143,7 @@ def log_out(request):
     logout(request)
     # return redirect(url)
     context = {
+        'is_login': False,
         'redirect_url': '/',
     }
     return JsonResponse(context)
@@ -152,25 +158,46 @@ def auth_name(request):
         return HttpResponse("")
 
 
-def register(request):
+@support_form_para
+def signup(request):
     if request.method == "POST":
-        form = RegisterForm(request.POST)
+        form = RegisterForm(request.form_para)
         if form.is_valid():
             username, password1, password2 = form.cleaned_data['username'], \
                                              form.cleaned_data['password1'], form.cleaned_data['password2']
             try:
                 MyUser.objects.get(username=username)
-                return render(request, 'manager/signup.html', {'form': form, 'error': "*用户名已存在！"})
+                context = {
+                    'is_success': False,
+                    'message': '用户名已存在'
+                }
+                return JsonResponse(context)
+                # return render(request, 'manager/signup.html', {'form': form, 'message': "用户名已存在"})
             except ObjectDoesNotExist:
                 if len(password1) < 8:
-                    form.add_error('password1', '至少包含8位字符')
-                    return render(request, 'manager/signup.html', {'form': form})
+                    context = {
+                        'is_success': False,
+                        'message': '至少包含8位字符'
+                    }
+                    return JsonResponse(context)
+                    # form.add_error('password1', '至少包含8位字符')
+                    # return render(request, 'manager/signup.html', {'form': form})
                 if password1.isdigit():
-                    form.add_error('password1', '不能全为数字')
-                    return render(request, 'manager/signup.html', {'form': form})
+                    context = {
+                        'is_success': False,
+                        'message': '不能全为数字'
+                    }
+                    return JsonResponse(context)
+                    # form.add_error('password1', '不能全为数字')
+                    # return render(request, 'manager/signup.html', {'form': form})
                 if password1 != password2:
-                    form.add_error('password2', '两次密码不一致')
-                    return render(request, 'manager/signup.html', {'form': form})
+                    context = {
+                        'is_success': False,
+                        'message': '两次密码不一致'
+                    }
+                    return JsonResponse(context)
+                    # form.add_error('password2', '两次密码不一致')
+                    # return render(request, 'manager/signup.html', {'form': form})
                 pic = '/avatar/default/%d.jpg' % random.randint(1, 4)  # 随机选择默认头像
                 user = MyUser.objects.create_user(username=username, password=password1, avatar=pic)
                 user.is_active = True
@@ -185,18 +212,30 @@ def register(request):
                 # msg = EmailMultiAlternatives(subject, message, from_email, to)
                 # msg.attach_alternative(message, "text/html")
                 # msg.send()
-                return render(request, 'manager/activate-msg.html', {'title': '注册-欢笑江湖',
-                                                                     'message': '<div class="alert alert-success">'
-                                                                                '注册成功！'
-                                                                                '<a href="/manager/login/">'
-                                                                                '<b>点此登陆</b>'
-                                                                                '</a>'
-                                                                                '</div>'})
+
+                context = {
+                    'is_success': True,
+                    'message': '注冊成功！',
+                }
+                return JsonResponse(context)
+                # return render(request, 'manager/activate-msg.html', {'title': '注册-欢笑江湖',
+                #                                                      'message': '<div class="alert alert-success">'
+                #                                                                 '注册成功！'
+                #                                                                 '<a href="/manager/login/">'
+                #                                                                 '<b>点此登陆</b>'
+                #                                                                 '</a>'
+                #                                                                 '</div>'})
         else:
-            return render(request, 'manager/signup.html', {'form': form})
+            context = {
+                'is_success': False,
+                'message': '无效表单',
+            }
+            return JsonResponse(context)
+            # return render(request, 'manager/signup.html', {'form': form})
     else:
-        form = RegisterForm()
-        return render(request, 'manager/signup.html', {'form': form})
+        return HttpResponse()
+        # form = RegisterForm()
+        # return render(request, 'manager/signup.html', {'form': form})
 
 
 def mkdir(path):

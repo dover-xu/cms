@@ -22,6 +22,6 @@ from cms import settings
 
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
-                  url(r'^v1/', include('manager.urls')),
+                  url(r'^manager/', include('manager.urls')),
                   url(r'', include('focus.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
