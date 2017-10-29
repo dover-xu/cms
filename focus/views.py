@@ -1,3 +1,4 @@
+import json
 import os
 import time
 from django.contrib.auth.decorators import login_required
@@ -5,7 +6,7 @@ from django.core import serializers
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, authentication
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 
@@ -153,40 +154,67 @@ def index(request):
     return render(request, 'focus/index.html', context)
 
 
+class ucenter(APIView):
+    def post(self, request):
+        if request.user.is_authenticated:
+            is_login = True
+        else:
+            is_login = False
+        post_data = json.loads(request.body)
+        page_size = post_data.get('display', 5)  # 每页显示帖子数
+        current = post_data.get('current', 1)
+        query_set = Note.objects.query_by_user(request.user)
+        total = query_set.count()  # 帖子总条数
+        # page_size = 5  # 每页显示帖子数
+
+        if total / page_size > 1:
+            start = (current - 1) * page_size
+            end = current * page_size
+            query_set = query_set[start:end]
+        notes = NoteSerializer(query_set, many=True, context={'request': request})
+        context = {
+            'is_login': is_login,
+            'note_list': notes.data,
+            'total': total,
+            'current': current}
+        return Response(context)
+        # return render(request, 'focus/u-publish.html', context)
+
+
 class contents(APIView):
 
-    def get(self, request):
+    def post(self, request):
         if request.user.is_authenticated:
             is_login = True
         else:
             is_login = False
         user = MyUserSerializer(request.user)
-        tp = request.GET.get('type', '0')
-        sort = request.GET.get('sort', '0')
-        current = int(request.GET.get('page', '1'))
-        page_size = int(request.GET.get('display', '5'))  # 每页显示帖子数
-
+        post_data = json.loads(request.body)
+        tp = post_data.get('type', 0)
+        sort = post_data.get('sort', 0)
+        current = post_data.get('current', 1)
+        page_size = post_data.get('display', 5)  # 每页显示帖子数
         query_set = None
-        if tp == '0':
-            if sort == '0':
+        if tp == 0:
+            if sort == 0:
                 query_set = Note.objects.query_all_by_time()
-            elif sort == '1':
+            elif sort == 1:
                 query_set = Note.objects.query_all_by_time()
-            elif sort == '2':
+            elif sort == 2:
                 query_set = Note.objects.query_all_by_hot()
-        elif tp == '1':
-            if sort == '0':
+        elif tp == 1:
+            if sort == 0:
                 query_set = Note.objects.query_pic_by_time()
-            elif sort == '1':
+            elif sort == 1:
                 query_set = Note.objects.query_pic_by_time()
-            elif sort == '2':
+            elif sort == 2:
                 query_set = Note.objects.query_pic_by_hot()
-        elif tp == '2':
-            if sort == '0':
+        elif tp == 2:
+            if sort == 0:
                 query_set = Note.objects.query_jape_by_time()
-            elif sort == '1':
+            elif sort == 1:
                 query_set = Note.objects.query_jape_by_time()
-            elif sort == '2':
+            elif sort == 2:
                 query_set = Note.objects.query_jape_by_hot()
         if query_set is None:
             return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -208,9 +236,6 @@ class contents(APIView):
             'display': page_size,
             'current': current}
         return Response(context)
-
-    def post(self, request):
-        return Response()
 
 
 @api_view(['GET'])

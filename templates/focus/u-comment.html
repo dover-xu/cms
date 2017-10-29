@@ -181,12 +181,11 @@
                                         </div>
                                         <span>
                                             {% if user.is_authenticated %}
-                                                <a href="/detail_{{ comment.note.id }}">
+                                                <a href="/detail_{{ comment.note.id }}"></a>
                                             {% else %}
-                                                <a href="/manager/login?url=/detail_{{ comment.note.id }}">
+                                                <a href="/manager/login?url=/detail_{{ comment.note.id }}"></a>
                                             {% endif %}
                                             <span class="glyphicon glyphicon-comment comment-img"></span>
-                                            </a>
                                             <span class="comment-txt">{{ comment.note.comment_str }}</span>
                                         </span>
                                     </div>

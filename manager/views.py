@@ -8,6 +8,10 @@ from django.http.request import QueryDict
 from itsdangerous import URLSafeTimedSerializer as utsr
 import random
 import json
+
+from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 from cms import settings
 from cms.settings import EMAIL_HOST_USER
 from manager.forms import LoginForm, RegisterForm, SettingForm
@@ -44,7 +48,7 @@ token_confirm = Token(settings.SECRET_KEY)  # 定义为全局变量
 
 
 def support_form_para(fun):
-    def wrapped(request):
+    def wrapped(self, request):
         if hasattr(request, 'method') and request.method == 'POST' and hasattr(request, 'body'):
             d = dict(json.loads(request.body))
             s = ''
@@ -53,13 +57,14 @@ def support_form_para(fun):
                     s += str('&')
                 s += str(k) + '=' + str(v)
             request.form_para = QueryDict(s)
-        return fun(request)
+        return fun(self, request)
     return wrapped
 
 
-@support_form_para
-def log_in(request):
-    if request.method == 'POST':
+class log_in(APIView):
+
+    @support_form_para
+    def post(self, request):
         form = LoginForm(request.form_para)
         if form.is_valid():
             if request.user.is_authenticated:
@@ -97,7 +102,8 @@ def log_in(request):
             }
             return JsonResponse(context)
             # return render(request, 'manager/signin.html', {'form': form, 'message': "*登录失败"})
-    else:
+
+    def get(self, request):
         # form = LoginForm()
         return HttpResponse()
         # return render(request, 'manager/signin.html', {'form': form})
@@ -138,6 +144,7 @@ def log_in2(request):
 
 
 @login_required
+@api_view(['GET'])
 def log_out(request):
     # url = request.GET.get('url', '/')
     logout(request)
@@ -158,9 +165,11 @@ def auth_name(request):
         return HttpResponse("")
 
 
-@support_form_para
-def signup(request):
-    if request.method == "POST":
+class signup(APIView):
+
+    @support_form_para
+    def post(self, request):
+    # if request.method == "POST":
         form = RegisterForm(request.form_para)
         if form.is_valid():
             username, password1, password2 = form.cleaned_data['username'], \
@@ -232,7 +241,9 @@ def signup(request):
             }
             return JsonResponse(context)
             # return render(request, 'manager/signup.html', {'form': form})
-    else:
+    # else:
+
+    def get(self, request):
         return HttpResponse()
         # form = RegisterForm()
         # return render(request, 'manager/signup.html', {'form': form})
