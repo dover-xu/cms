@@ -160,6 +160,7 @@ class ucenter(APIView):
             is_login = True
         else:
             is_login = False
+        user = MyUserSerializer(request.user, context={'request': request})
         post_data = json.loads(request.body)
         page_size = post_data.get('display', 5)  # 每页显示帖子数
         current = post_data.get('current', 1)
@@ -174,6 +175,7 @@ class ucenter(APIView):
         notes = NoteSerializer(query_set, many=True, context={'request': request})
         context = {
             'is_login': is_login,
+            'user': user.data,
             'note_list': notes.data,
             'total': total,
             'current': current}
@@ -188,7 +190,7 @@ class contents(APIView):
             is_login = True
         else:
             is_login = False
-        user = MyUserSerializer(request.user)
+        user = MyUserSerializer(request.user, context={'request': request})
         post_data = json.loads(request.body)
         tp = post_data.get('type', 0)
         sort = post_data.get('sort', 0)

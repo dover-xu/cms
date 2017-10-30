@@ -5,6 +5,7 @@ from focus.views import MyUser
 
 class MyUserSerializer(serializers.HyperlinkedModelSerializer):
     # notes = serializers.HyperlinkedRelatedField(many=True, view_name='note-detail', read_only=True)
+    avatar = serializers.ImageField()
 
     class Meta:
         model = MyUser
@@ -15,6 +16,7 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
     # user = serializers.ReadOnlyField(source='user.username')
     user = MyUserSerializer(read_only=True)
     comments = serializers.HyperlinkedRelatedField(many=True, view_name='comment-detail', read_only=True)
+    pub_date = serializers.DateTimeField(format="%Y-%m-%d %H:%M")
 
     class Meta:
         model = Note

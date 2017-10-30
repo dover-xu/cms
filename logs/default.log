@@ -7714,3 +7714,1472 @@ django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<Reg
 2017-10-29 21:34:11,828 [Thread-3:14096] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 414
 2017-10-29 21:34:39,046 [Thread-4:1432] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 414
 2017-10-29 21:35:51,994 [Thread-5:11076] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 414
+2017-10-30 11:25:19,526 [Thread-3:11928] [django.server:124] [INFO]- "GET /docs/ HTTP/1.1" 200 4006
+2017-10-30 11:25:21,704 [Thread-4:19048] [django.server:124] [INFO]- "GET /docs/?format=openapi HTTP/1.1" 200 6453
+2017-10-30 11:25:26,996 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 6666666666'
+2017-10-30 11:25:27,026 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 6666666666'
+2017-10-30 11:25:27,029 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 5555555555'
+2017-10-30 11:25:27,030 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 5555555555'
+2017-10-30 11:25:27,047 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 444444444444'
+2017-10-30 11:25:27,048 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 444444444444'
+2017-10-30 11:25:27,051 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 3333333333'
+2017-10-30 11:25:27,051 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 3333333333'
+2017-10-30 11:25:27,054 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'P' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'P'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [P] in 'Content: 2222222222'
+2017-10-30 11:25:27,055 [Thread-1:16476] [django.template:925] [DEBUG]- Exception while resolving variable 'T' in template 'focus/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Note' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Note' object has no attribute 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'T'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [T] in 'Content: 2222222222'
+2017-10-30 11:25:27,076 [Thread-1:16476] [django.server:124] [INFO]- "GET / HTTP/1.1" 200 29953
+2017-10-30 11:25:27,127 [Thread-1:16476] [django.server:124] [ERROR]- "GET / HTTP/1.1" 500 59
+2017-10-30 11:26:39,966 [Thread-8:19352] [django.server:124] [WARNING]- "POST /contents HTTP/1.1" 403 58
+2017-10-30 11:28:33,519 [Thread-1:19276] [django.server:124] [INFO]- "GET /docs/ HTTP/1.1" 200 4006
+2017-10-30 11:28:33,732 [Thread-3:6880] [django.server:124] [INFO]- "GET /docs/?format=openapi HTTP/1.1" 200 6453
+2017-10-30 11:28:33,907 [Thread-4:21088] [django.server:124] [INFO]- "GET /static/rest_framework_swagger/images/favicon-32x32.png HTTP/1.1" 200 1654
+2017-10-30 11:28:39,124 [Thread-5:18152] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 1966
+2017-10-30 11:28:39,372 [Thread-6:10320] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 12:50:36,387 [Thread-7:12200] [django.server:124] [INFO]- "GET /manager/login HTTP/1.1" 200 0
+2017-10-30 12:50:43,724 [Thread-8:7564] [django.server:124] [INFO]- "POST /manager/login HTTP/1.1" 200 54
+2017-10-30 12:50:43,755 [Thread-9:17316] [django.server:124] [WARNING]- "POST /contents HTTP/1.1" 403 46
+2017-10-30 13:01:48,443 [Thread-1:1780] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:01:48,699 [Thread-3:8540] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:03:02,211 [Thread-1:15836] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:03:02,387 [Thread-3:9676] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:03:24,728 [Thread-4:20184] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:10:55,790 [Thread-5:20156] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:12:17,026 [Thread-6:20272] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:15:11,517 [Thread-7:19572] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:15:32,303 [Thread-8:6164] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 425
+2017-10-30 13:15:39,239 [Thread-9:16308] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:15:41,717 [Thread-10:20572] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 425
+2017-10-30 13:15:45,102 [Thread-11:7832] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:15:47,262 [Thread-12:8196] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 425
+2017-10-30 13:15:59,278 [Thread-13:17444] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:24,018 [Thread-14:6412] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:24,823 [Thread-19:9576] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:24,862 [Thread-20:12168] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:24,889 [Thread-21:2972] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:30,420 [Thread-22:14628] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:35,245 [Thread-23:12548] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 425
+2017-10-30 13:16:36,873 [Thread-24:11060] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:46,518 [Thread-25:12676] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 425
+2017-10-30 13:16:49,330 [Thread-26:15004] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:16:54,677 [Thread-27:11352] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:16:54,738 [Thread-28:2976] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:16:57,411 [Thread-29:19044] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:19:44,113 [Thread-30:18644] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:19:55,501 [Thread-31:10200] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:21:43,372 [Thread-32:13528] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:28:39,698 [Thread-33:8664] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:28:43,532 [Thread-34:7000] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:28:43,591 [Thread-35:20740] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:28:45,441 [Thread-36:19204] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:29:00,044 [Thread-37:17416] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1920
+2017-10-30 13:31:26,729 [Thread-1:13492] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2054
+2017-10-30 13:31:37,927 [Thread-3:7744] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2054
+2017-10-30 13:31:40,790 [Thread-4:14972] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:31:40,843 [Thread-5:12448] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:31:43,461 [Thread-6:13192] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2054
+2017-10-30 13:31:48,656 [Thread-7:20948] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 559
+2017-10-30 13:31:50,935 [Thread-8:19448] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2054
+2017-10-30 13:32:38,900 [Thread-9:1940] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:32:38,954 [Thread-10:21404] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:34:40,821 [Thread-11:15348] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:34:42,164 [Thread-12:17652] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:34:43,486 [Thread-13:13220] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:34:45,038 [Thread-14:17484] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:34:53,496 [Thread-15:21088] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:34:54,141 [Thread-16:21236] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:34:55,568 [Thread-17:16568] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:34:55,621 [Thread-18:15316] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:34:56,641 [Thread-19:20372] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:34:58,225 [Thread-20:10308] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:34:58,282 [Thread-21:11320] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:35:31,388 [Thread-22:13816] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:35:33,428 [Thread-23:14316] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:35:33,484 [Thread-24:4728] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:35:34,921 [Thread-25:21012] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:36,318 [Thread-26:17572] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:35:37,722 [Thread-27:732] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:39,158 [Thread-28:19068] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:35:40,414 [Thread-29:18532] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:41,775 [Thread-30:21120] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:35:44,128 [Thread-31:19280] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:35:44,292 [Thread-32:14256] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:35:44,920 [Thread-33:20732] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:47,027 [Thread-34:19392] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:48,260 [Thread-35:17012] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:49,027 [Thread-36:13656] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:50,026 [Thread-37:11996] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:35:51,171 [Thread-38:14304] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:35:51,997 [Thread-39:17116] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:35:53,206 [Thread-40:19128] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:35:54,881 [Thread-41:17584] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:36:02,365 [Thread-42:15652] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:36:03,016 [Thread-43:8304] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:03,617 [Thread-44:9576] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:36:04,423 [Thread-45:17924] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:05,108 [Thread-46:17160] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:05,613 [Thread-47:18484] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:05,971 [Thread-48:12368] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:36:09,961 [Thread-51:18360] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:10,015 [Thread-52:13628] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:36:10,838 [Thread-53:220] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:11,508 [Thread-54:17436] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:12,133 [Thread-55:19580] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:12,597 [Thread-56:20588] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:13,195 [Thread-57:17668] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:13,876 [Thread-58:18224] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:14,495 [Thread-59:20076] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:15,054 [Thread-60:11292] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:21,772 [Thread-61:10324] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:23,283 [Thread-62:11396] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:24,118 [Thread-63:3580] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:24,120 [Thread-64:14972] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:24,762 [Thread-65:17700] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:24,785 [Thread-66:17976] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:25,508 [Thread-67:10108] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:25,533 [Thread-68:17376] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:36:26,580 [Thread-70:13192] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:26,580 [Thread-69:12316] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:27,276 [Thread-71:12588] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:27,860 [Thread-72:7908] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:28,539 [Thread-73:21464] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:29,054 [Thread-74:11952] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:36:29,499 [Thread-75:104] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:39:25,416 [Thread-76:9836] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:39:30,803 [Thread-77:21088] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:39:30,929 [Thread-78:21236] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:39:33,929 [Thread-79:7840] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:39:35,992 [Thread-80:14908] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:39:37,387 [Thread-81:3592] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:39:38,366 [Thread-82:9560] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:39:40,330 [Thread-83:16556] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:39:40,379 [Thread-84:17204] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:39:46,004 [Thread-85:14784] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2054
+2017-10-30 13:39:50,258 [Thread-86:15692] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:39:50,310 [Thread-87:10260] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:39:51,512 [Thread-88:20328] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:39:52,549 [Thread-89:9524] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:39:53,935 [Thread-90:3536] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 200
+2017-10-30 13:39:55,024 [Thread-91:18352] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2065
+2017-10-30 13:45:06,604 [Thread-92:3252] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:46:22,883 [Thread-93:4148] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:46:23,011 [Thread-94:20688] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:46:29,233 [Thread-95:14496] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2054
+2017-10-30 13:46:45,905 [Thread-96:2236] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:46:46,032 [Thread-97:14672] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:47:50,930 [Thread-98:20464] [django.server:124] [INFO]- "GET / HTTP/1.1" 200 30984
+2017-10-30 13:47:51,129 [Thread-99:11600] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 304 0
+2017-10-30 13:47:51,149 [Thread-100:104] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0
+2017-10-30 13:47:51,149 [Thread-101:19108] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 304 0
+2017-10-30 13:47:51,150 [Thread-102:368] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 304 0
+2017-10-30 13:47:51,151 [Thread-103:11952] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 304 0
+2017-10-30 13:47:51,154 [Thread-104:11944] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 304 0
+2017-10-30 13:47:51,263 [Thread-105:812] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 304 0
+2017-10-30 13:47:51,284 [Thread-106:18252] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+2017-10-30 13:47:51,320 [Thread-108:7368] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 304 0
+2017-10-30 13:47:51,320 [Thread-107:1568] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 304 0
+2017-10-30 13:47:51,356 [Thread-109:9052] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 304 0
+2017-10-30 13:47:51,358 [Thread-110:21056] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 304 0
+2017-10-30 13:47:51,452 [Thread-111:19908] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+2017-10-30 13:47:54,415 [Thread-112:8960] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 13:49:33,070 [Thread-113:11212] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 13:49:33,119 [Thread-114:21260] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:49:35,334 [Thread-115:13516] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2054
+2017-10-30 13:49:40,197 [Thread-116:19276] [django.server:124] [INFO]- "GET /user/focus/publish HTTP/1.1" 200 24958
+2017-10-30 13:49:40,297 [Thread-118:20232] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 13:49:40,303 [Thread-121:3924] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 13:49:40,312 [Thread-120:21204] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 13:49:40,312 [Thread-123:1684] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 13:49:40,362 [Thread-117:3936] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 13:49:40,376 [Thread-122:2624] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 13:49:40,425 [Thread-119:21140] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 13:49:40,458 [Thread-124:13796] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 13:49:40,507 [Thread-127:19020] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 13:49:40,509 [Thread-125:16852] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 13:49:40,519 [Thread-126:9440] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 13:49:40,527 [Thread-129:20576] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 13:49:40,532 [Thread-132:17824] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 13:49:40,548 [Thread-128:9760] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 13:49:40,555 [Thread-131:15180] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 13:49:40,626 [Thread-130:19984] [django.server:124] [INFO]- "GET /static/focus/images/test_img1.jpg HTTP/1.1" 200 1057393
+2017-10-30 14:02:43,085 [Thread-133:13868] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2066
+2017-10-30 14:02:43,221 [Thread-134:12368] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:13:16,478 [Thread-1:16476] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2026
+2017-10-30 14:13:16,611 [Thread-3:9312] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:14:12,874 [Thread-1:15664] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2026
+2017-10-30 14:14:13,010 [Thread-3:21016] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:14:33,963 [Thread-1:11816] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 14:14:34,073 [Thread-3:3968] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:15:10,099 [Thread-4:8140] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 560
+2017-10-30 14:15:11,641 [Thread-5:15884] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 14:15:15,429 [Thread-6:11280] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 14:25:40,084 [Thread-7:12024] [django.server:124] [INFO]- "GET /user/focus/publish HTTP/1.1" 200 24958
+2017-10-30 14:25:40,234 [Thread-13:17824] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 14:25:40,235 [Thread-12:1800] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 14:25:40,239 [Thread-14:9820] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:25:40,245 [Thread-9:5468] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 14:25:40,246 [Thread-11:17968] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 14:25:40,246 [Thread-8:19908] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 14:25:40,264 [Thread-10:6308] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 14:25:40,323 [Thread-15:17816] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 14:25:40,363 [Thread-19:21364] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 14:25:40,363 [Thread-18:420] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 14:25:40,364 [Thread-20:21304] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 14:25:40,375 [Thread-16:11848] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 14:25:40,392 [Thread-17:11600] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 14:25:40,407 [Thread-22:21296] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 14:25:40,546 [Thread-23:4044] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 14:25:40,549 [Thread-21:5744] [django.server:124] [INFO]- "GET /static/focus/images/test_img1.jpg HTTP/1.1" 200 1057393
+2017-10-30 14:25:43,352 [Thread-24:10964] [django.server:124] [INFO]- "GET /static/focus/images/favicon.ico HTTP/1.1" 200 4286
+2017-10-30 14:25:43,358 [Thread-25:1608] [django.server:124] [INFO]- "GET /static/focus/images/favicon.ico HTTP/1.1" 200 4286
+2017-10-30 14:25:48,521 [Thread-26:15460] [django.server:124] [INFO]- "GET /user/focus/publish HTTP/1.1" 200 24958
+2017-10-30 14:25:48,551 [Thread-27:10472] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 14:25:48,552 [Thread-28:20448] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 14:25:48,564 [Thread-30:17136] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 14:25:48,566 [Thread-29:21136] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 14:25:48,580 [Thread-31:21152] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 14:25:48,580 [Thread-32:19388] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 14:25:48,614 [Thread-33:13964] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 14:25:48,623 [Thread-34:16152] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 14:25:48,631 [Thread-35:19224] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 14:25:48,636 [Thread-36:16076] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 14:25:48,638 [Thread-37:17564] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:25:48,642 [Thread-38:20976] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 14:25:48,647 [Thread-39:20124] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 14:25:48,655 [Thread-40:20688] [django.server:124] [INFO]- "GET /static/focus/images/test_img1.jpg HTTP/1.1" 200 1057393
+2017-10-30 14:25:48,700 [Thread-41:10444] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 14:25:48,823 [Thread-42:19392] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 14:29:10,509 [Thread-43:14652] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 14:53:16,913 [Thread-44:6880] [django.server:124] [INFO]- "GET /admin HTTP/1.1" 301 0
+2017-10-30 14:53:17,087 [Thread-45:13244] [django.template:925] [DEBUG]- Exception while resolving variable 'is_popup' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [is_popup] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x04E44DF8>>, 'request': <WSGIRequest: GET '/admin/'>, 'user': <SimpleLazyObject: <MyUser: xudong>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x05551310>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x03153C70>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'site_title': 'Django site admin', 'site_header': 'Django administration', 'site_url': '/', 'has_permission': True, 'available_apps': [{'name': 'Authentication and Authorization', 'app_label': 'auth', 'app_url': '/admin/auth/', 'has_module_perms': True, 'models': [{'name': 'Groups', 'object_name': 'Group', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/auth/group/', 'add_url': '/admin/auth/group/add/'}]}, {'name': 'Focus', 'app_label': 'focus', 'app_url': '/admin/focus/', 'has_module_perms': True, 'models': [{'name': 'Comments', 'object_name': 'Comment', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/comment/', 'add_url': '/admin/focus/comment/add/'}, {'name': 'Notes', 'object_name': 'Note', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/note/', 'add_url': '/admin/focus/note/add/'}, {'name': 'Praises', 'object_name': 'Praise', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/praise/', 'add_url': '/admin/focus/praise/add/'}, {'name': 'Shares', 'object_name': 'Share', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/share/', 'add_url': '/admin/focus/share/add/'}, {'name': 'Treads', 'object_name': 'Tread', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/tread/', 'add_url': '/admin/focus/tread/add/'}, {'name': 'Users', 'object_name': 'MyUser', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/myuser/', 'add_url': '/admin/focus/myuser/add/'}]}], 'title': 'Site administration', 'app_list': [{'name': 'Authentication and Authorization', 'app_label': 'auth', 'app_url': '/admin/auth/', 'has_module_perms': True, 'models': [{'name': 'Groups', 'object_name': 'Group', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/auth/group/', 'add_url': '/admin/auth/group/add/'}]}, {'name': 'Focus', 'app_label': 'focus', 'app_url': '/admin/focus/', 'has_module_perms': True, 'models': [{'name': 'Comments', 'object_name': 'Comment', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/comment/', 'add_url': '/admin/focus/comment/add/'}, {'name': 'Notes', 'object_name': 'Note', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/note/', 'add_url': '/admin/focus/note/add/'}, {'name': 'Praises', 'object_name': 'Praise', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/praise/', 'add_url': '/admin/focus/praise/add/'}, {'name': 'Shares', 'object_name': 'Share', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/share/', 'add_url': '/admin/focus/share/add/'}, {'name': 'Treads', 'object_name': 'Tread', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/tread/', 'add_url': '/admin/focus/tread/add/'}, {'name': 'Users', 'object_name': 'MyUser', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/myuser/', 'add_url': '/admin/focus/myuser/add/'}]}], 'LANGUAGE_CODE': 'en-us', 'LANGUAGE_BIDI': False}]"
+2017-10-30 14:53:17,159 [Thread-45:13244] [django.template:925] [DEBUG]- Exception while resolving variable 'is_popup' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [is_popup] in "[{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x04E44DF8>>, 'request': <WSGIRequest: GET '/admin/'>, 'user': <SimpleLazyObject: <MyUser: xudong>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x05551310>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x03153C70>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'site_title': 'Django site admin', 'site_header': 'Django administration', 'site_url': '/', 'has_permission': True, 'available_apps': [{'name': 'Authentication and Authorization', 'app_label': 'auth', 'app_url': '/admin/auth/', 'has_module_perms': True, 'models': [{'name': 'Groups', 'object_name': 'Group', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/auth/group/', 'add_url': '/admin/auth/group/add/'}]}, {'name': 'Focus', 'app_label': 'focus', 'app_url': '/admin/focus/', 'has_module_perms': True, 'models': [{'name': 'Comments', 'object_name': 'Comment', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/comment/', 'add_url': '/admin/focus/comment/add/'}, {'name': 'Notes', 'object_name': 'Note', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/note/', 'add_url': '/admin/focus/note/add/'}, {'name': 'Praises', 'object_name': 'Praise', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/praise/', 'add_url': '/admin/focus/praise/add/'}, {'name': 'Shares', 'object_name': 'Share', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/share/', 'add_url': '/admin/focus/share/add/'}, {'name': 'Treads', 'object_name': 'Tread', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/tread/', 'add_url': '/admin/focus/tread/add/'}, {'name': 'Users', 'object_name': 'MyUser', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/myuser/', 'add_url': '/admin/focus/myuser/add/'}]}], 'title': 'Site administration', 'app_list': [{'name': 'Authentication and Authorization', 'app_label': 'auth', 'app_url': '/admin/auth/', 'has_module_perms': True, 'models': [{'name': 'Groups', 'object_name': 'Group', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/auth/group/', 'add_url': '/admin/auth/group/add/'}]}, {'name': 'Focus', 'app_label': 'focus', 'app_url': '/admin/focus/', 'has_module_perms': True, 'models': [{'name': 'Comments', 'object_name': 'Comment', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/comment/', 'add_url': '/admin/focus/comment/add/'}, {'name': 'Notes', 'object_name': 'Note', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/note/', 'add_url': '/admin/focus/note/add/'}, {'name': 'Praises', 'object_name': 'Praise', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/praise/', 'add_url': '/admin/focus/praise/add/'}, {'name': 'Shares', 'object_name': 'Share', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/share/', 'add_url': '/admin/focus/share/add/'}, {'name': 'Treads', 'object_name': 'Tread', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/tread/', 'add_url': '/admin/focus/tread/add/'}, {'name': 'Users', 'object_name': 'MyUser', 'perms': {'add': True, 'change': True, 'delete': True}, 'admin_url': '/admin/focus/myuser/', 'add_url': '/admin/focus/myuser/add/'}]}], 'LANGUAGE_CODE': 'en-us', 'LANGUAGE_BIDI': False}]"
+2017-10-30 14:53:17,255 [Thread-45:13244] [django.server:124] [INFO]- "GET /admin/ HTTP/1.1" 200 5898
+2017-10-30 14:53:17,301 [Thread-47:9900] [django.server:124] [INFO]- "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+2017-10-30 14:53:17,306 [Thread-46:12136] [django.server:124] [INFO]- "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+2017-10-30 14:53:17,456 [Thread-48:16108] [django.server:124] [INFO]- "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2017-10-30 14:53:17,517 [Thread-49:1684] [django.server:124] [INFO]- "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2017-10-30 14:53:17,517 [Thread-52:14856] [django.server:124] [INFO]- "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+2017-10-30 14:53:17,606 [Thread-51:9440] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+2017-10-30 14:53:17,606 [Thread-50:900] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+2017-10-30 14:53:17,607 [Thread-53:19992] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+2017-10-30 14:53:20,469 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [errors] in 'None'
+2017-10-30 14:53:20,490 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'show' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [show] in "[{'True': True, 'False': False, 'None': None, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x04E44DF8>>}]"
+2017-10-30 14:53:20,498 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'is_multipart' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'is_multipart'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'is_multipart'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [is_multipart] in 'None'
+2017-10-30 14:53:20,603 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,603 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,604 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,605 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,606 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,606 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,607 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,608 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,608 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,609 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,610 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,611 [Thread-54:16712] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:20,618 [Thread-54:16712] [django.server:124] [INFO]- "GET /admin/focus/myuser/ HTTP/1.1" 200 12328
+2017-10-30 14:53:20,661 [Thread-55:12028] [django.server:124] [INFO]- "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+2017-10-30 14:53:20,684 [Thread-57:17992] [django.server:124] [INFO]- "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-10-30 14:53:20,696 [Thread-56:15116] [django.server:124] [INFO]- "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+2017-10-30 14:53:20,702 [Thread-60:10600] [django.server:124] [INFO]- "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+2017-10-30 14:53:20,731 [Thread-61:6568] [django.server:124] [INFO]- "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+2017-10-30 14:53:20,745 [Thread-58:15256] [django.server:124] [INFO]- "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+2017-10-30 14:53:20,748 [Thread-64:18480] [django.server:124] [INFO]- "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2017-10-30 14:53:20,779 [Thread-62:19372] [django.server:124] [INFO]- "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+2017-10-30 14:53:20,790 [Thread-65:19468] [django.server:124] [INFO]- "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+2017-10-30 14:53:20,797 [Thread-63:13568] [django.server:124] [INFO]- "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+2017-10-30 14:53:20,912 [Thread-66:18524] [django.server:124] [INFO]- "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+2017-10-30 14:53:20,927 [Thread-67:20508] [django.server:124] [INFO]- "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+2017-10-30 14:53:20,937 [Thread-68:20728] [django.server:124] [INFO]- "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2017-10-30 14:53:20,949 [Thread-69:9544] [django.server:124] [INFO]- "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+2017-10-30 14:53:20,969 [Thread-59:14116] [django.server:124] [INFO]- "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+2017-10-30 14:53:21,040 [Thread-70:13516] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+2017-10-30 14:53:21,040 [Thread-71:15856] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+2017-10-30 14:53:21,042 [Thread-72:7840] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+2017-10-30 14:53:21,051 [Thread-73:10364] [django.server:124] [INFO]- "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+2017-10-30 14:53:21,060 [Thread-74:20884] [django.server:124] [INFO]- "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+2017-10-30 14:53:51,507 [Thread-75:4648] [django.template:925] [DEBUG]- Exception while resolving variable 'is_popup' in template 'admin/delete_selected_confirmation.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [is_popup] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x010BD588>>, \'request\': <WSGIRequest: POST \'/admin/focus/myuser/\'>, \'user\': <SimpleLazyObject: <MyUser: xudong>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0083CE30>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x055488F0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'site_title\': \'Django site admin\', \'site_header\': \'Django administration\', \'site_url\': \'/\', \'has_permission\': True, \'available_apps\': [{\'name\': \'Authentication and Authorization\', \'app_label\': \'auth\', \'app_url\': \'/admin/auth/\', \'has_module_perms\': True, \'models\': [{\'name\': \'Groups\', \'object_name\': \'Group\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/auth/group/\', \'add_url\': \'/admin/auth/group/add/\'}]}, {\'name\': \'Focus\', \'app_label\': \'focus\', \'app_url\': \'/admin/focus/\', \'has_module_perms\': True, \'models\': [{\'name\': \'Comments\', \'object_name\': \'Comment\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/comment/\', \'add_url\': \'/admin/focus/comment/add/\'}, {\'name\': \'Notes\', \'object_name\': \'Note\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/note/\', \'add_url\': \'/admin/focus/note/add/\'}, {\'name\': \'Praises\', \'object_name\': \'Praise\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/praise/\', \'add_url\': \'/admin/focus/praise/add/\'}, {\'name\': \'Shares\', \'object_name\': \'Share\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/share/\', \'add_url\': \'/admin/focus/share/add/\'}, {\'name\': \'Treads\', \'object_name\': \'Tread\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/tread/\', \'add_url\': \'/admin/focus/tread/add/\'}, {\'name\': \'Users\', \'object_name\': \'MyUser\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/myuser/\', \'add_url\': \'/admin/focus/myuser/add/\'}]}], \'title\': \'Are you sure?\', \'objects_name\': \'users\', \'deletable_objects\': [[\'User: <a href="/admin/focus/myuser/2/change/">aaaaaaaa</a>\', \'User: <a href="/admin/focus/myuser/3/change/">bbbbbbbb</a>\', \'User: <a href="/admin/focus/myuser/4/change/">cccccccc</a>\', \'User: <a href="/admin/focus/myuser/5/change/">dddddddd</a>\', \'User: <a href="/admin/focus/myuser/6/change/">eeeeeeee</a>\', \'User: <a href="/admin/focus/myuser/7/change/">ffffffff</a>\', \'User: <a href="/admin/focus/myuser/8/change/">gggggggg</a>\', \'User: <a href="/admin/focus/myuser/9/change/">hhhhhhhh</a>\', \'User: <a href="/admin/focus/myuser/10/change/">iiiiiiii</a>\', \'User: <a href="/admin/focus/myuser/11/change/">jjjjjjjj</a>\', \'User: <a href="/admin/focus/myuser/12/change/">llllllll</a>\']], \'model_count\': dict_items([(\'users\', 11)]), \'queryset\': <QuerySet [<MyUser: aaaaaaaa>, <MyUser: bbbbbbbb>, <MyUser: cccccccc>, <MyUser: dddddddd>, <MyUser: eeeeeeee>, <MyUser: ffffffff>, <MyUser: gggggggg>, <MyUser: hhhhhhhh>, <MyUser: iiiiiiii>, <MyUser: jjjjjjjj>, <MyUser: llllllll>]>, \'perms_lacking\': set(), \'protected\': [], \'opts\': <Options for MyUser>, \'action_checkbox_name\': \'_selected_action\', \'media\': <django.forms.widgets.Media object at 0x05530CD0>, \'LANGUAGE_CODE\': \'en-us\', \'LANGUAGE_BIDI\': False}]'
+2017-10-30 14:53:51,512 [Thread-75:4648] [django.template:925] [DEBUG]- Exception while resolving variable 'is_popup' in template 'admin/delete_selected_confirmation.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'is_popup'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [is_popup] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x010BD588>>, \'request\': <WSGIRequest: POST \'/admin/focus/myuser/\'>, \'user\': <SimpleLazyObject: <MyUser: xudong>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x0083CE30>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x055488F0>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'SUCCESS\': 25, \'WARNING\': 30, \'ERROR\': 40}}, {}, {\'site_title\': \'Django site admin\', \'site_header\': \'Django administration\', \'site_url\': \'/\', \'has_permission\': True, \'available_apps\': [{\'name\': \'Authentication and Authorization\', \'app_label\': \'auth\', \'app_url\': \'/admin/auth/\', \'has_module_perms\': True, \'models\': [{\'name\': \'Groups\', \'object_name\': \'Group\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/auth/group/\', \'add_url\': \'/admin/auth/group/add/\'}]}, {\'name\': \'Focus\', \'app_label\': \'focus\', \'app_url\': \'/admin/focus/\', \'has_module_perms\': True, \'models\': [{\'name\': \'Comments\', \'object_name\': \'Comment\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/comment/\', \'add_url\': \'/admin/focus/comment/add/\'}, {\'name\': \'Notes\', \'object_name\': \'Note\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/note/\', \'add_url\': \'/admin/focus/note/add/\'}, {\'name\': \'Praises\', \'object_name\': \'Praise\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/praise/\', \'add_url\': \'/admin/focus/praise/add/\'}, {\'name\': \'Shares\', \'object_name\': \'Share\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/share/\', \'add_url\': \'/admin/focus/share/add/\'}, {\'name\': \'Treads\', \'object_name\': \'Tread\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/tread/\', \'add_url\': \'/admin/focus/tread/add/\'}, {\'name\': \'Users\', \'object_name\': \'MyUser\', \'perms\': {\'add\': True, \'change\': True, \'delete\': True}, \'admin_url\': \'/admin/focus/myuser/\', \'add_url\': \'/admin/focus/myuser/add/\'}]}], \'title\': \'Are you sure?\', \'objects_name\': \'users\', \'deletable_objects\': [[\'User: <a href="/admin/focus/myuser/2/change/">aaaaaaaa</a>\', \'User: <a href="/admin/focus/myuser/3/change/">bbbbbbbb</a>\', \'User: <a href="/admin/focus/myuser/4/change/">cccccccc</a>\', \'User: <a href="/admin/focus/myuser/5/change/">dddddddd</a>\', \'User: <a href="/admin/focus/myuser/6/change/">eeeeeeee</a>\', \'User: <a href="/admin/focus/myuser/7/change/">ffffffff</a>\', \'User: <a href="/admin/focus/myuser/8/change/">gggggggg</a>\', \'User: <a href="/admin/focus/myuser/9/change/">hhhhhhhh</a>\', \'User: <a href="/admin/focus/myuser/10/change/">iiiiiiii</a>\', \'User: <a href="/admin/focus/myuser/11/change/">jjjjjjjj</a>\', \'User: <a href="/admin/focus/myuser/12/change/">llllllll</a>\']], \'model_count\': dict_items([(\'users\', 11)]), \'queryset\': <QuerySet [<MyUser: aaaaaaaa>, <MyUser: bbbbbbbb>, <MyUser: cccccccc>, <MyUser: dddddddd>, <MyUser: eeeeeeee>, <MyUser: ffffffff>, <MyUser: gggggggg>, <MyUser: hhhhhhhh>, <MyUser: iiiiiiii>, <MyUser: jjjjjjjj>, <MyUser: llllllll>]>, \'perms_lacking\': set(), \'protected\': [], \'opts\': <Options for MyUser>, \'action_checkbox_name\': \'_selected_action\', \'media\': <django.forms.widgets.Media object at 0x05530CD0>, \'LANGUAGE_CODE\': \'en-us\', \'LANGUAGE_BIDI\': False}]'
+2017-10-30 14:53:51,522 [Thread-75:4648] [django.server:124] [INFO]- "POST /admin/focus/myuser/ HTTP/1.1" 200 4505
+2017-10-30 14:53:51,542 [Thread-76:19908] [django.server:124] [INFO]- "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+2017-10-30 14:53:51,549 [Thread-77:15844] [django.server:124] [INFO]- "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+2017-10-30 14:53:51,555 [Thread-78:6248] [django.server:124] [INFO]- "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+2017-10-30 14:53:51,564 [Thread-79:18256] [django.server:124] [INFO]- "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+2017-10-30 14:53:51,568 [Thread-80:15216] [django.server:124] [INFO]- "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+2017-10-30 14:53:51,573 [Thread-81:12072] [django.server:124] [INFO]- "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+2017-10-30 14:53:51,574 [Thread-82:21040] [django.server:124] [INFO]- "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+2017-10-30 14:53:51,577 [Thread-83:368] [django.server:124] [INFO]- "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+2017-10-30 14:53:51,578 [Thread-84:15812] [django.server:124] [INFO]- "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+2017-10-30 14:53:51,590 [Thread-85:21020] [django.server:124] [INFO]- "GET /static/admin/js/cancel.js HTTP/1.1" 200 204
+2017-10-30 14:53:51,607 [Thread-86:19668] [django.server:124] [INFO]- "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2017-10-30 14:53:51,671 [Thread-87:10528] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+2017-10-30 14:53:51,672 [Thread-88:14380] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+2017-10-30 14:53:51,672 [Thread-89:15912] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+2017-10-30 14:53:55,828 [Thread-90:21384] [django.server:124] [INFO]- "POST /admin/focus/myuser/ HTTP/1.1" 302 0
+2017-10-30 14:53:55,859 [Thread-91:14360] [django.template:925] [DEBUG]- Exception while resolving variable 'errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [errors] in 'None'
+2017-10-30 14:53:55,862 [Thread-91:14360] [django.template:925] [DEBUG]- Exception while resolving variable 'show' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'show'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [show] in "[{'True': True, 'False': False, 'None': None, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x00F5B2B8>>}]"
+2017-10-30 14:53:55,867 [Thread-91:14360] [django.template:925] [DEBUG]- Exception while resolving variable 'is_multipart' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'is_multipart'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'is_multipart'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [is_multipart] in 'None'
+2017-10-30 14:53:55,880 [Thread-91:14360] [django.template:925] [DEBUG]- Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'non_field_errors'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [non_field_errors] in 'None'
+2017-10-30 14:53:55,884 [Thread-91:14360] [django.server:124] [INFO]- "GET /admin/focus/myuser/ HTTP/1.1" 200 6676
+2017-10-30 14:53:55,926 [Thread-92:10132] [django.server:124] [INFO]- "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+2017-10-30 14:53:55,926 [Thread-93:21136] [django.server:124] [INFO]- "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+2017-10-30 14:53:55,932 [Thread-95:17640] [django.server:124] [INFO]- "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+2017-10-30 14:53:55,941 [Thread-97:8900] [django.server:124] [INFO]- "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+2017-10-30 14:53:55,943 [Thread-98:16504] [django.server:124] [INFO]- "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+2017-10-30 14:53:55,945 [Thread-94:4148] [django.server:124] [INFO]- "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-10-30 14:53:55,948 [Thread-99:19748] [django.server:124] [INFO]- "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+2017-10-30 14:53:55,949 [Thread-101:18076] [django.server:124] [INFO]- "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+2017-10-30 14:53:55,951 [Thread-100:17756] [django.server:124] [INFO]- "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+2017-10-30 14:53:55,952 [Thread-96:16936] [django.server:124] [INFO]- "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+2017-10-30 14:53:55,953 [Thread-102:9056] [django.server:124] [INFO]- "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+2017-10-30 14:53:55,962 [Thread-103:19388] [django.server:124] [INFO]- "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+2017-10-30 14:53:55,967 [Thread-104:21152] [django.server:124] [INFO]- "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2017-10-30 14:53:55,979 [Thread-105:20684] [django.server:124] [INFO]- "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2017-10-30 14:53:56,048 [Thread-106:436] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+2017-10-30 14:53:56,062 [Thread-109:11316] [django.server:124] [INFO]- "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+2017-10-30 14:53:56,063 [Thread-107:11804] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+2017-10-30 14:53:56,064 [Thread-108:15300] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+2017-10-30 14:53:56,072 [Thread-110:13396] [django.server:124] [INFO]- "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+2017-10-30 14:53:57,737 [Thread-111:14652] [django.template:925] [DEBUG]- Exception while resolving variable 'can_change_related' in template 'admin/widgets/related_widget_wrapper.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'can_change_related'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'Context' has no attribute 'can_change_related'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'can_change_related'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [can_change_related] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'rendered_widget\': \'<select name="groups" id="id_groups" multiple="multiple" class="selectfilter" data-field-name="groups" data-is-stacked="0">\\n</select>\', \'name\': \'groups\', \'url_params\': \'_to_field=id&_popup=1\', \'model\': \'group\', \'can_add_related\': True, \'add_related_url\': \'/admin/auth/group/add/\'}, {\'block\': <Block Node: links. Contents: [<TextNode: \'\\n        \'>, <django.template.defaulttags.SpacelessNode object at 0x00F70DD0>, <TextNode: \'\\n    \'>]>}]'
+2017-10-30 14:53:57,738 [Thread-111:14652] [django.template:925] [DEBUG]- Exception while resolving variable 'can_delete_related' in template 'admin/widgets/related_widget_wrapper.html'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "C:\Python36-32\lib\site-packages\django\template\context.py", line 87, in __getitem__
+    raise KeyError(key)
+KeyError: 'can_delete_related'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 888, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'Context' has no attribute 'can_delete_related'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'can_delete_related'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [can_delete_related] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'rendered_widget\': \'<select name="groups" id="id_groups" multiple="multiple" class="selectfilter" data-field-name="groups" data-is-stacked="0">\\n</select>\', \'name\': \'groups\', \'url_params\': \'_to_field=id&_popup=1\', \'model\': \'group\', \'can_add_related\': True, \'add_related_url\': \'/admin/auth/group/add/\'}, {\'block\': <Block Node: links. Contents: [<TextNode: \'\\n        \'>, <django.template.defaulttags.SpacelessNode object at 0x00F70DD0>, <TextNode: \'\\n    \'>]>}]'
+2017-10-30 14:53:57,790 [Thread-111:14652] [django.server:124] [INFO]- "GET /admin/focus/myuser/1/change/ HTTP/1.1" 200 12043
+2017-10-30 14:53:57,850 [Thread-112:5640] [django.server:124] [INFO]- "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+2017-10-30 14:53:57,864 [Thread-114:21252] [django.server:124] [INFO]- "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-10-30 14:53:57,865 [Thread-115:10260] [django.server:124] [INFO]- "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+2017-10-30 14:53:57,875 [Thread-113:15592] [django.server:124] [INFO]- "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+2017-10-30 14:53:57,879 [Thread-118:7748] [django.server:124] [INFO]- "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+2017-10-30 14:53:57,881 [Thread-117:18012] [django.server:124] [INFO]- "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+2017-10-30 14:53:57,881 [Thread-121:2792] [django.server:124] [INFO]- "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+2017-10-30 14:53:57,881 [Thread-119:3456] [django.server:124] [INFO]- "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+2017-10-30 14:53:57,881 [Thread-120:13412] [django.server:124] [INFO]- "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+2017-10-30 14:53:57,889 [Thread-122:12204] [django.server:124] [INFO]- "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+2017-10-30 14:53:57,890 [Thread-116:19772] [django.server:124] [INFO]- "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+2017-10-30 14:53:57,916 [Thread-127:11364] [django.server:124] [INFO]- "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2017-10-30 14:53:57,931 [Thread-123:4724] [django.server:124] [INFO]- "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 5755
+2017-10-30 14:53:57,948 [Thread-124:1128] [django.server:124] [INFO]- "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 12389
+2017-10-30 14:53:57,971 [Thread-125:10504] [django.server:124] [INFO]- "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+2017-10-30 14:53:57,972 [Thread-128:19876] [django.server:124] [INFO]- "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+2017-10-30 14:53:57,972 [Thread-126:16408] [django.server:124] [INFO]- "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+2017-10-30 14:53:58,014 [Thread-129:468] [django.server:124] [INFO]- "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+2017-10-30 14:53:58,031 [Thread-130:18144] [django.server:124] [INFO]- "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+2017-10-30 14:53:58,035 [Thread-131:20372] [django.server:124] [INFO]- "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2017-10-30 14:53:58,079 [Thread-132:19096] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+2017-10-30 14:53:58,079 [Thread-133:13884] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+2017-10-30 14:53:58,090 [Thread-134:3252] [django.server:124] [INFO]- "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+2017-10-30 14:53:58,239 [Thread-136:2796] [django.server:124] [INFO]- "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+2017-10-30 14:53:58,273 [Thread-135:14120] [django.server:124] [INFO]- "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+2017-10-30 14:53:58,301 [Thread-137:5080] [django.server:124] [INFO]- "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+2017-10-30 14:53:58,309 [Thread-138:17580] [django.server:124] [INFO]- "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+2017-10-30 14:53:58,312 [Thread-139:21172] [django.server:124] [INFO]- "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+2017-10-30 14:53:58,316 [Thread-140:19924] [django.server:124] [INFO]- "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+2017-10-30 14:54:11,463 [Thread-141:17160] [django.server:124] [INFO]- "GET / HTTP/1.1" 200 30984
+2017-10-30 14:54:11,495 [Thread-146:11292] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 14:54:11,496 [Thread-143:5492] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 14:54:11,496 [Thread-145:7032] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 14:54:11,497 [Thread-142:7572] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 14:54:11,497 [Thread-144:1748] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 14:54:11,506 [Thread-147:16652] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 14:54:11,526 [Thread-148:15104] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 14:54:11,537 [Thread-149:8668] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 14:54:11,546 [Thread-150:20040] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 14:54:11,550 [Thread-151:20080] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 14:54:11,557 [Thread-153:812] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 14:54:11,557 [Thread-152:9820] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:54:11,561 [Thread-154:1308] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 14:54:11,637 [Thread-155:18900] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 14:54:11,739 [Thread-156:14540] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 14:54:13,873 [Thread-157:11544] [django.server:124] [INFO]- "GET /user/focus/publish HTTP/1.1" 200 24958
+2017-10-30 14:54:13,914 [Thread-159:17976] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 14:54:13,915 [Thread-158:21032] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 14:54:13,927 [Thread-160:8392] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 14:54:13,931 [Thread-161:3000] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 14:54:13,934 [Thread-162:17164] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 14:54:13,936 [Thread-163:5744] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 14:54:13,963 [Thread-164:8100] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 14:54:13,963 [Thread-165:14448] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 14:54:13,970 [Thread-166:20636] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 14:54:13,977 [Thread-167:20320] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 14:54:13,981 [Thread-168:17944] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:54:13,986 [Thread-169:19108] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 14:54:13,989 [Thread-170:19984] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 14:54:13,997 [Thread-171:16516] [django.server:124] [INFO]- "GET /static/focus/images/test_img1.jpg HTTP/1.1" 200 1057393
+2017-10-30 14:54:14,060 [Thread-172:19048] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 14:54:14,180 [Thread-173:18436] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 14:54:19,030 [Thread-174:9344] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 14:54:19,179 [Thread-175:17136] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 14:54:21,130 [Thread-176:10444] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 14:58:50,535 [Thread-177:10072] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 15:00:11,147 [Thread-178:18932] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 15:08:31,834 [Thread-179:6576] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 15:10:09,782 [Thread-180:19536] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 15:10:20,082 [Thread-181:7840] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 15:11:45,235 [Thread-182:19468] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 15:11:45,294 [Thread-183:20272] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:13:32,381 [Thread-184:6576] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 15:13:34,305 [Thread-185:16300] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 15:13:34,449 [Thread-186:9648] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:14:19,911 [Thread-187:12136] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 15:14:32,734 [Thread-188:3500] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 15:14:32,879 [Thread-189:13568] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:16:11,238 [Thread-1:16356] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 15:16:11,320 [Thread-3:11280] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:18:13,412 [Thread-1:11732] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 1925
+2017-10-30 15:18:13,567 [Thread-3:10684] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:21:33,287 [Thread-1:12204] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 1861
+2017-10-30 15:21:33,429 [Thread-3:19088] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:24:34,617 [Thread-1:1716] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 15:24:34,779 [Thread-3:11456] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:55:43,815 [Thread-1:10348] [django.server:124] [INFO]- "GET / HTTP/1.1" 200 30984
+2017-10-30 15:55:43,972 [Thread-4:19992] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 15:55:43,975 [Thread-6:16156] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 15:55:44,029 [Thread-7:19900] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 15:55:44,077 [Thread-3:10004] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 15:55:44,106 [Thread-11:16404] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:55:44,126 [Thread-9:13964] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 15:55:44,126 [Thread-10:17924] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 15:55:44,197 [Thread-5:21208] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 15:55:44,202 [Thread-8:19072] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 15:55:44,255 [Thread-12:11320] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 15:55:44,322 [Thread-14:14092] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 15:55:44,357 [Thread-17:2516] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 15:55:44,383 [Thread-15:9796] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 15:55:44,493 [Thread-16:18720] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 15:55:44,520 [Thread-13:9812] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 15:55:50,834 [Thread-18:15128] [django.server:124] [INFO]- "GET / HTTP/1.1" 200 30984
+2017-10-30 15:55:50,860 [Thread-20:17700] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 15:55:50,862 [Thread-19:13356] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 15:55:50,868 [Thread-21:8376] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 15:55:50,872 [Thread-22:16624] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 15:55:50,873 [Thread-23:6304] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 15:55:50,875 [Thread-24:6484] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 15:55:50,927 [Thread-26:16052] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 15:55:50,928 [Thread-25:7356] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 15:55:50,933 [Thread-27:17652] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 15:55:50,939 [Thread-28:1576] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 15:55:50,939 [Thread-29:16040] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 15:55:50,941 [Thread-30:8900] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 15:55:50,943 [Thread-31:21244] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 15:55:50,985 [Thread-32:20496] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 15:55:51,029 [Thread-33:32] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 15:56:03,318 [Thread-34:6336] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 15:56:03,373 [Thread-35:7752] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:26:07,160 [Thread-1:21352] [django:194] [DEBUG]- xudong
+2017-10-30 16:26:07,189 [Thread-1:21352] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 16:26:07,250 [Thread-3:20128] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:26:25,090 [Thread-1:2652] [django:194] [DEBUG]- <class 'django.utils.functional.SimpleLazyObject'>
+2017-10-30 16:26:25,120 [Thread-1:2652] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 16:26:25,266 [Thread-3:5744] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:35:51,967 [Thread-1:14064] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2011
+2017-10-30 16:35:52,133 [Thread-3:3592] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:40:01,513 [Thread-1:12404] [django.server:124] [ERROR]- "POST /contents HTTP/1.1" 500 20578
+2017-10-30 16:40:55,162 [Thread-1:4608] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2032
+2017-10-30 16:40:55,286 [Thread-3:8304] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:44:14,783 [Thread-4:16800] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 1999
+2017-10-30 16:44:51,466 [Thread-1:18124] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2032
+2017-10-30 16:44:51,519 [Thread-3:21292] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:44:53,085 [Thread-4:8960] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:44:53,143 [Thread-5:21332] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:44:59,389 [Thread-6:14272] [django.server:124] [INFO]- "GET /user/focus/publish HTTP/1.1" 200 24958
+2017-10-30 16:44:59,425 [Thread-8:5800] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 16:44:59,426 [Thread-7:12796] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 16:44:59,430 [Thread-9:14756] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 16:44:59,438 [Thread-10:15132] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 16:44:59,448 [Thread-12:17756] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 16:44:59,448 [Thread-11:20960] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 16:44:59,496 [Thread-14:1112] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 16:44:59,496 [Thread-13:20712] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 16:44:59,502 [Thread-15:8304] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 16:44:59,507 [Thread-16:21180] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 16:44:59,512 [Thread-17:16044] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:44:59,512 [Thread-18:9576] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 16:44:59,518 [Thread-19:6056] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 16:44:59,570 [Thread-20:17200] [django.server:124] [INFO]- "GET /static/focus/images/test_img1.jpg HTTP/1.1" 200 1057393
+2017-10-30 16:44:59,587 [Thread-21:20748] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 16:44:59,694 [Thread-22:8752] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 16:49:42,373 [Thread-23:4608] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:49:42,407 [Thread-24:2264] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:49:49,710 [Thread-25:13360] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:49:49,758 [Thread-26:20752] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:49:50,849 [Thread-27:11608] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:49:50,898 [Thread-28:10124] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:49:52,132 [Thread-29:21292] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:49:52,181 [Thread-30:18148] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:50:08,763 [Thread-31:10112] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:50:08,794 [Thread-32:17328] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:50:11,537 [Thread-33:13920] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:50:11,592 [Thread-34:14788] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 16:58:30,544 [Thread-35:21112] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 16:58:30,582 [Thread-36:7696] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 17:51:43,385 [Thread-37:17576] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 17:55:49,749 [Thread-38:14496] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 17:57:23,075 [Thread-39:7200] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 17:57:23,230 [Thread-40:14840] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 17:57:34,733 [Thread-41:5904] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 17:57:34,784 [Thread-42:17328] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 17:57:58,036 [Thread-43:6040] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 17:57:58,076 [Thread-44:16352] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:02:11,372 [Thread-45:20308] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:02:11,441 [Thread-46:10624] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:02:13,705 [Thread-47:18556] [django.server:124] [INFO]- "GET /user/focus/publish HTTP/1.1" 200 24958
+2017-10-30 18:02:13,878 [Thread-49:19684] [django.server:124] [INFO]- "GET /static/bootstrap/css/font-awesome.min.css HTTP/1.1" 200 31004
+2017-10-30 18:02:13,884 [Thread-51:11316] [django.server:124] [INFO]- "GET /static/focus/css/common.css HTTP/1.1" 200 19175
+2017-10-30 18:02:13,892 [Thread-52:20064] [django.server:124] [INFO]- "GET /static/focus/css/reset.css HTTP/1.1" 200 922
+2017-10-30 18:02:13,892 [Thread-54:2744] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:02:13,987 [Thread-48:4884] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 124706
+2017-10-30 18:02:14,021 [Thread-53:16672] [django.server:124] [INFO]- "GET /static/focus/css/pagination.css HTTP/1.1" 200 2316
+2017-10-30 18:02:14,045 [Thread-55:12720] [django.server:124] [INFO]- "GET /static/bootstrap/js/jquery-1.11.3.min.js HTTP/1.1" 200 95962
+2017-10-30 18:02:14,102 [Thread-56:1204] [django.server:124] [INFO]- "GET /static/focus/images/zan.png HTTP/1.1" 200 2770
+2017-10-30 18:02:14,103 [Thread-50:8664] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css HTTP/1.1" 200 154230
+2017-10-30 18:02:14,104 [Thread-57:18572] [django.server:124] [INFO]- "GET /static/focus/images/cai.png HTTP/1.1" 200 2698
+2017-10-30 18:02:14,232 [Thread-58:6568] [django.server:124] [INFO]- "GET /static/bootstrap/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+2017-10-30 18:02:14,258 [Thread-61:9448] [django.server:124] [INFO]- "GET /static/focus/js/jquery.pagination.js HTTP/1.1" 200 8682
+2017-10-30 18:02:14,349 [Thread-62:16556] [django.server:124] [INFO]- "GET /static/focus/js/js-common.js HTTP/1.1" 200 2503
+2017-10-30 18:02:14,396 [Thread-60:6088] [django.server:124] [INFO]- "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 36822
+2017-10-30 18:02:14,409 [Thread-59:11632] [django.server:124] [INFO]- "GET /static/focus/images/test_img1.jpg HTTP/1.1" 200 1057393
+2017-10-30 18:02:14,416 [Thread-63:13396] [django.server:124] [INFO]- "GET /static/bootstrap/css/bootstrap.css.map HTTP/1.1" 200 389287
+2017-10-30 18:02:17,827 [Thread-64:17336] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:02:17,889 [Thread-65:15032] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:03:02,104 [Thread-66:16080] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:03:02,153 [Thread-67:11412] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:03:08,113 [Thread-68:18348] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:03:08,179 [Thread-69:3384] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:03:43,968 [Thread-70:8320] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:03:44,016 [Thread-71:15088] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:04:29,583 [Thread-72:12636] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:04:29,627 [Thread-73:20764] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:04:34,543 [Thread-74:21040] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:04:34,585 [Thread-75:18740] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:04:37,305 [Thread-76:12976] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:04:37,369 [Thread-77:11848] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:04:42,049 [Thread-78:12640] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:04:42,107 [Thread-79:20564] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:04:46,786 [Thread-80:14708] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:04:46,834 [Thread-81:17360] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:04:55,909 [Thread-82:3384] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:04:55,956 [Thread-83:17372] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:05:11,231 [Thread-84:20808] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:05:11,295 [Thread-85:11420] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:06:45,356 [Thread-86:18184] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:06:53,044 [Thread-87:14460] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:16:06,579 [Thread-88:18728] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:16:06,629 [Thread-89:13932] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:16:21,650 [Thread-90:8692] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:16:21,709 [Thread-91:10428] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:16:37,033 [Thread-92:1740] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:16:37,073 [Thread-93:17100] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:22:13,857 [Thread-94:16788] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:22:13,912 [Thread-95:20572] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:22:27,366 [Thread-96:8448] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:22:51,664 [Thread-97:1196] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:22:51,714 [Thread-98:20200] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:23:34,411 [Thread-99:14864] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:23:34,460 [Thread-100:6208] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:23:41,404 [Thread-101:18676] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:24:02,334 [Thread-102:1384] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:25:44,682 [Thread-103:17812] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:26:55,758 [Thread-104:19772] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:26:55,810 [Thread-105:18360] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:31:24,315 [Thread-106:6804] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:31:24,341 [Thread-107:8536] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:38:07,782 [Thread-108:15796] [django.server:124] [INFO]- "POST /contents HTTP/1.1" 200 2032
+2017-10-30 18:38:07,844 [Thread-109:9628] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:38:28,681 [Thread-110:12084] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:38:28,721 [Thread-111:13348] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:39:11,275 [Thread-112:11848] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:39:50,315 [Thread-113:20684] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:39:50,361 [Thread-114:5856] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:40:15,345 [Thread-115:14380] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:40:15,398 [Thread-116:14676] [django.server:124] [INFO]- "GET /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg HTTP/1.1" 200 16956
+2017-10-30 18:42:16,753 [Thread-117:11200] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:42:23,773 [Thread-118:11904] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
+2017-10-30 18:46:54,932 [Thread-119:20876] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 569
+2017-10-30 18:46:57,847 [Thread-120:11728] [django.server:124] [INFO]- "POST /ucenter HTTP/1.1" 200 2020
