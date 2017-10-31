@@ -45,12 +45,14 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     # note = serializers.ReadOnlyField(source='note.id')
-    user = serializers.ReadOnlyField(source='user.username')
+    # user = serializers.ReadOnlyField(source='user.username')
+    user = MyUserSerializer(read_only=True)
+    pub_date = serializers.DateTimeField(format="%Y-%m-%d %H:%M")
 
     class Meta:
         model = Comment
         fields = (
-            'text', 'id', 'user', 'note', 'pub_date'
+            'text', 'id', 'user', 'pub_date'
         )
 
 

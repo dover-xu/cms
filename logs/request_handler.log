@@ -1414,3 +1414,135 @@ Traceback (most recent call last):
   File "C:\Python36-32\lib\site-packages\django\utils\functional.py", line 239, in inner
     return func(self._wrapped, *args)
 TypeError: 'MyUser' object is not iterable
+2017-10-31 16:31:45,514 [Thread-1:11172] [django.request:152] [WARNING]- Not Found: /details
+2017-10-31 16:31:45,954 [Thread-3:14952] [django.request:152] [WARNING]- Not Found: /details
+2017-10-31 16:32:54,785 [Thread-1:19320] [django.request:135] [ERROR]- Internal Server Error: /details
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: details() missing 1 required positional argument: 'id'
+2017-10-31 16:34:21,340 [Thread-1:18660] [django.request:135] [ERROR]- Internal Server Error: /details
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 754, in details
+    return render(request, 'focus/comment.html', context)
+  File "C:\Python36-32\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Python36-32\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Python36-32\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "C:\Python36-32\lib\site-packages\django\template\defaulttags.py", line 172, in render
+    values = list(values)
+TypeError: 'ListSerializer' object is not iterable
+2017-10-31 16:35:27,585 [Thread-1:14448] [django.request:135] [ERROR]- Internal Server Error: /details
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 754, in details
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-10-31 16:37:59,236 [Thread-1:8300] [django.request:135] [ERROR]- Internal Server Error: /details
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 754, in details
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Note' is not JSON serializable
+2017-10-31 16:49:41,383 [Thread-1:11964] [django.request:135] [ERROR]- Internal Server Error: /details
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 753, in details
+    'note': json.dumps(json.loads(notes)[0]),
+  File "C:\Python36-32\lib\json\__init__.py", line 348, in loads
+    'not {!r}'.format(s.__class__.__name__))
+TypeError: the JSON object must be str, bytes or bytearray, not 'ListSerializer'
+2017-10-31 16:50:51,596 [Thread-1:13908] [django.request:135] [ERROR]- Internal Server Error: /details
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 756, in details
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'ListSerializer' is not JSON serializable

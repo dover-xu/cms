@@ -162,9 +162,17 @@ class ucenter(APIView):
             is_login = False
         user = MyUserSerializer(request.user, context={'request': request})
         post_data = json.loads(request.body)
+        type = post_data.get('type', 0)  # 统计类别
         page_size = post_data.get('display', 5)  # 每页显示帖子数
         current = post_data.get('current', 1)
-        query_set = Note.objects.query_by_user(request.user)
+        if type == 0:
+            query_set = Note.objects.query_by_user(request.user)
+        elif type == 1:
+            query_set = Share.objects.filter(user=request.user).order_by('-share_date')
+        elif type == 2:
+            query_set = Comment.objects.filter(user=request.user).order_by('-pub_date')
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
         total = query_set.count()  # 帖子总条数
         # page_size = 5  # 每页显示帖子数
 
@@ -220,9 +228,7 @@ class contents(APIView):
                 query_set = Note.objects.query_jape_by_hot()
         if query_set is None:
             return Response(status=status.HTTP_400_BAD_REQUEST)
-        # query_set = Note.objects.query_jape_by_hot()
         total = query_set.count()
-        # total = (query_set.count() - 1) // page_size + 1  # 总页数
 
         if total / page_size > 1:
             start = (current - 1) * page_size
@@ -301,8 +307,8 @@ def index_hot1(request):
     #            'page_id': page_id}
     # 'loginform': loginform}
 
-    se = MyUserSerializer(query, context={'request': request})
-    return JsonResponse(se.data)
+    user = MyUserSerializer(query, context={'request': request})
+    return JsonResponse(user.data)
     # return render(request, 'focus/index-hot.html', context)
 
 
@@ -707,6 +713,50 @@ def publish_jape(request):
             return render(request, 'focus/publish-jape.html', {})
     else:
         return render(request, 'focus/publish-jape.html', {})
+
+
+def details(request):
+    if request.user.is_authenticated:
+        is_login = True
+    else:
+        is_login = False
+    user = MyUserSerializer(request.user, context={'request': request})
+    post_data = json.loads(request.body)
+    note_id = post_data.get('id', 1)
+    current = post_data.get('current', 1)
+    page_size = post_data.get('display', 5)  # 每页显示帖子数
+    comment_set = Comment.objects.filter(note=note_id).order_by('-pub_date')
+    total = comment_set.count()
+
+    if total / page_size > 1:
+        start = (current - 1) * page_size
+        end = current * page_size
+        comment_set = comment_set[start:end]
+    comments = CommentSerializer(comment_set, many=True, context={'request': request})
+
+    note_set = Note.objects.filter(id=note_id)
+    note_set[0].click_num += 1
+    note_set[0].save()
+    notes = NoteSerializer(note_set, many=True, context={'request': request})
+    has_praise, has_tread = False, False
+    if request.user.is_authenticated:
+        if Praise.objects.filter(user=request.user, note__id=note_id):
+            has_praise = True
+        if Tread.objects.filter(user=request.user, note__id=note_id):
+            has_tread = True
+
+    context = {
+        'user': user.data,
+        'is_login': is_login,
+        'note': notes.data[0],
+        'comments': comments.data,
+        'total': total,
+        'current': current,
+        'display': page_size,
+        'has_praise': has_praise,
+        'has_tread': has_tread
+    }
+    return JsonResponse(context)
 
 
 def detail(request, note_id):
