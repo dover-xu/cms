@@ -701,6 +701,32 @@ def publish_pic(request):
         return render(request, 'focus/publish-pic.html', {})
 
 
+def publish(request):
+    if request.method == "POST":
+        if 'pic' in request.FILES:
+            photo = request.FILES.get('pic')
+            img = Image.open(photo)
+            img.thumbnail((600, 100000))
+            imgdir = 'images/%s/' % time.strftime("%Y/%m/%d", time.localtime())
+            mkdir('uploads/' + imgdir)
+            imgname = '%s_%s.%s' % (
+                time.strftime("%H_%M_%S", time.localtime()), str(request.user), str(photo).split('.')[-1])
+            img.save('uploads/' + imgdir + imgname)
+            note = Note(user=request.user,
+                        text=request.POST.get('text_area'),
+                        image=imgdir + imgname,
+                        category='Picture')
+            note.save()
+            context = {
+                'error': '',
+            }
+            return JsonResponse(context)
+            # return redirect('/user/focus/publish')
+        else:
+            return HttpResponse()
+            # return render(request, 'focus/publish-pic.html', {})
+
+
 def publish_jape(request):
     if request.method == "POST":
         if 'text_area' in request.POST:

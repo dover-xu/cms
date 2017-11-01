@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^contents$', views.contents.as_view(), name='contents'),
     url(r'^ucenter$', views.ucenter.as_view(), name='ucenter'),
     url(r'^details$', views.details, name='details'),
+    url(r'^publish$', views.publish, name='publish'),
     
     url(r'^$', views.index, name='index'),
     # url(r'^index-new$', views.index_new, name='index_new'),
