@@ -5,11 +5,11 @@ from focus.views import MyUser
 
 class MyUserSerializer(serializers.HyperlinkedModelSerializer):
     # notes = serializers.HyperlinkedRelatedField(many=True, view_name='note-detail', read_only=True)
-    avatar = serializers.ImageField()
+    # avatar = serializers.ImageField()
 
     class Meta:
         model = MyUser
-        fields = ('id', 'username', 'email', 'avatar')
+        fields = ('id', 'username', 'sex', 'email', 'avatar')
 
 
 class NoteSerializer(serializers.HyperlinkedModelSerializer):

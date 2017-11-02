@@ -230,9 +230,11 @@ class contents(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
         total = query_set.count()
 
-        if total / page_size > 1:
+        if current > 0 and total / page_size > 1:
             start = (current - 1) * page_size
             end = current * page_size
+            logger.debug(start)
+            logger.debug(end)
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
 
@@ -718,10 +720,21 @@ def publish(request):
                         category='Picture')
             note.save()
             context = {
-                'error': '',
+                'is_success': True,
+                'message': '',
             }
             return JsonResponse(context)
             # return redirect('/user/focus/publish')
+        elif 'text_area' in request.POST:
+            note = Note(user=request.user,
+                        text=request.POST.get('text_area'),
+                        category='Jape')
+            note.save()
+            context = {
+                'is_success': True,
+                'message': '',
+            }
+            return JsonResponse(context)
         else:
             return HttpResponse()
             # return render(request, 'focus/publish-pic.html', {})

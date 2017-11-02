@@ -1,3 +1,4 @@
 .idea/*
 logs/*
+uploads/*
 focus/views.py.orig

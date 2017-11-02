@@ -14,6 +14,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from cms import settings
 from cms.settings import EMAIL_HOST_USER
+from focus.views import index
+from focus.serializers import MyUserSerializer
 from manager.forms import LoginForm, RegisterForm, SettingForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -77,10 +79,11 @@ class log_in(APIView):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
+                user = MyUserSerializer(request.user, context={'request': request})
                 context = {
                     'is_login': True,
+                    'user': user.data,
                     'message': '',
-                    'redirect_url': '/',
                 }
                 return JsonResponse(context)
             else:
@@ -103,10 +106,8 @@ class log_in(APIView):
             return JsonResponse(context)
             # return render(request, 'manager/signin.html', {'form': form, 'message': "*登录失败"})
 
-    def get(self, request):
-        # form = LoginForm()
-        return HttpResponse()
-        # return render(request, 'manager/signin.html', {'form': form})
+    # def get(self, request):
+    #     return HttpResponse()
 
 
 def log_in2(request):
@@ -151,7 +152,21 @@ def log_out(request):
     # return redirect(url)
     context = {
         'is_login': False,
-        'redirect_url': '/',
+    }
+    return JsonResponse(context)
+
+
+@api_view(['GET'])
+def user_state(request):
+    if request.user.is_authenticated:
+        is_login = True
+    else:
+        is_login = False
+    user = MyUserSerializer(request.user, context={'request': request})
+
+    context = {
+        'is_login': is_login,
+        'user': user.data
     }
     return JsonResponse(context)
 
@@ -169,7 +184,6 @@ class signup(APIView):
 
     @support_form_para
     def post(self, request):
-    # if request.method == "POST":
         form = RegisterForm(request.form_para)
         if form.is_valid():
             username, password1, password2 = form.cleaned_data['username'], \
@@ -241,7 +255,6 @@ class signup(APIView):
             }
             return JsonResponse(context)
             # return render(request, 'manager/signup.html', {'form': form})
-    # else:
 
     def get(self, request):
         return HttpResponse()

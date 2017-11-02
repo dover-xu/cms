@@ -1732,3 +1732,793 @@ Traceback (most recent call last):
   File "C:\Python36-32\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
     raise errorclass(errno, errval)
 django.db.utils.IntegrityError: (1048, "Column 'text' cannot be null")
+2017-11-02 11:44:34,105 [Thread-3:11420] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 444, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 103, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'AnonymousUser' object has no attribute 'avatar'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 241, in post
+    'user': user.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 488, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 463, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `avatar` on serializer `MyUserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'avatar'.
+2017-11-02 11:44:35,038 [Thread-4:20820] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 444, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 103, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'AnonymousUser' object has no attribute 'avatar'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 241, in post
+    'user': user.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 488, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 463, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `avatar` on serializer `MyUserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'avatar'.
+2017-11-02 11:44:41,342 [Thread-6:19424] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 444, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 103, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'AnonymousUser' object has no attribute 'avatar'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 241, in post
+    'user': user.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 488, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 463, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `avatar` on serializer `MyUserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'avatar'.
+2017-11-02 11:45:17,980 [Thread-7:9720] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 444, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 103, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'AnonymousUser' object has no attribute 'avatar'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 241, in post
+    'user': user.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 488, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 463, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `avatar` on serializer `MyUserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'avatar'.
+2017-11-02 11:45:21,762 [Thread-8:22016] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 444, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 103, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'AnonymousUser' object has no attribute 'avatar'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 241, in post
+    'user': user.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 488, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 463, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `avatar` on serializer `MyUserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'avatar'.
+2017-11-02 11:45:26,425 [Thread-9:14500] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 444, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 103, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'AnonymousUser' object has no attribute 'avatar'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 241, in post
+    'user': user.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 488, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 463, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `avatar` on serializer `MyUserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'avatar'.
+2017-11-02 11:46:15,696 [Thread-10:15100] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 444, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 103, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'AnonymousUser' object has no attribute 'avatar'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 241, in post
+    'user': user.data,
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 534, in data
+    ret = super(Serializer, self).data
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 263, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\serializers.py", line 488, in to_representation
+    attribute = field.get_attribute(instance)
+  File "C:\Python36-32\lib\site-packages\rest_framework\fields.py", line 463, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `avatar` on serializer `MyUserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `AnonymousUser` instance.
+Original exception text was: 'AnonymousUser' object has no attribute 'avatar'.
+2017-11-02 14:03:21,515 [Thread-55:4384] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 236, in post
+    query_set = query_set[start:end]
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 269, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.
+2017-11-02 15:01:35,382 [Thread-3:14784] [django.request:135] [ERROR]- Internal Server Error: /manager/user_state/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\decorators.py", line 52, in handler
+    return func(*args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 171, in user_state
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 15:01:47,265 [Thread-5:736] [django.request:135] [ERROR]- Internal Server Error: /manager/user_state/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\decorators.py", line 52, in handler
+    return func(*args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 171, in user_state
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 15:01:57,029 [Thread-7:20564] [django.request:135] [ERROR]- Internal Server Error: /manager/user_state/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\decorators.py", line 52, in handler
+    return func(*args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 171, in user_state
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 15:02:56,393 [Thread-9:17772] [django.request:135] [ERROR]- Internal Server Error: /manager/user_state/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\decorators.py", line 52, in handler
+    return func(*args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 171, in user_state
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 15:03:44,821 [Thread-11:22228] [django.request:135] [ERROR]- Internal Server Error: /manager/user_state/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\decorators.py", line 52, in handler
+    return func(*args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 171, in user_state
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 15:03:56,092 [Thread-14:21580] [django.request:135] [ERROR]- Internal Server Error: /manager/user_state/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\decorators.py", line 52, in handler
+    return func(*args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 171, in user_state
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 15:04:12,019 [Thread-23:19256] [django.request:135] [ERROR]- Internal Server Error: /manager/user_state/
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\decorators.py", line 52, in handler
+    return func(*args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 171, in user_state
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 16:10:33,864 [Thread-41:19960] [django.request:135] [ERROR]- Internal Server Error: /manager/login
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 62, in wrapped
+    return fun(self, request)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 88, in post
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 16:10:36,163 [Thread-42:20096] [django.request:135] [ERROR]- Internal Server Error: /manager/login
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 62, in wrapped
+    return fun(self, request)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 88, in post
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 16:10:37,623 [Thread-43:22372] [django.request:135] [ERROR]- Internal Server Error: /manager/login
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 62, in wrapped
+    return fun(self, request)
+  File "D:\code\PycharmProjects\cms\manager\views.py", line 88, in post
+    return JsonResponse(context)
+  File "C:\Python36-32\lib\site-packages\django\http\response.py", line 530, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Python36-32\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python36-32\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python36-32\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python36-32\lib\site-packages\django\core\serializers\json.py", line 124, in default
+    return super(DjangoJSONEncoder, self).default(o)
+  File "C:\Python36-32\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MyUserSerializer' is not JSON serializable
+2017-11-02 17:33:01,982 [Thread-340:11244] [django.request:65] [WARNING]- Bad request (Unable to parse request body): /publish
+2017-11-02 17:42:42,511 [Thread-362:19476] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 236, in post
+    query_set = query_set[start:end]
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 269, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.
+2017-11-02 17:42:44,940 [Thread-363:21716] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 236, in post
+    query_set = query_set[start:end]
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 269, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.
+2017-11-02 17:42:45,698 [Thread-364:17204] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 236, in post
+    query_set = query_set[start:end]
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 269, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.
+2017-11-02 17:44:14,747 [Thread-1:8540] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 238, in post
+    query_set = query_set[start:end]
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 269, in __getitem__
+    "Negative indexing is not supported."
+AssertionError: Negative indexing is not supported.
