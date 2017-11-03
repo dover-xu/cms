@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^ucenter$', views.ucenter.as_view(), name='ucenter'),
     url(r'^details$', views.details, name='details'),
     url(r'^publish$', views.publish, name='publish'),
+    url(r'^api/a-c$', views.add_comment, name='add_comment'),
     
     url(r'^$', views.index, name='index'),
     # url(r'^index-new$', views.index_new, name='index_new'),
@@ -37,7 +38,6 @@ urlpatterns = [
     url(r'^user/publish/pic$', views.publish_pic, name='publish_pic'),
     url(r'^user/publish/jape$', views.publish_jape, name='publish_jape'),
     url(r'^api/a-p-t-s/$', views.add_praise_tread_share, name='add_praise_tread_share'),
-    url(r'^api/a-c/$', views.add_comment, name='add_comment'),
     url(r'^api/del$', views.del_note, name='del_note'),
 
     url(r'^docs/', views.schema_view),

@@ -7,8 +7,8 @@ router = routers.DefaultRouter()
 urlpatterns = [
     url(r'^signup$', views.signup.as_view(), name='signup'),
     url(r'^login$', views.log_in.as_view(), name='login'),
-    url(r'^logout/$', views.log_out, name='logout'),
-    url(r'^user_state/$', views.user_state, name='user_state'),
+    url(r'^logout$', views.log_out, name='logout'),
+    url(r'^user_state$', views.user_state, name='user_state'),
 
     url(r'^setting/$', views.setting, name='setting'),
     url(r'^api/auth/uname/$', views.auth_name, name='auth_name'),

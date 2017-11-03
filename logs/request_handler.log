@@ -2522,3 +2522,103 @@ Traceback (most recent call last):
   File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 269, in __getitem__
     "Negative indexing is not supported."
 AssertionError: Negative indexing is not supported.
+2017-11-03 11:47:47,089 [Thread-4:1360] [django.request:135] [ERROR]- Internal Server Error: /api/a-c
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "C:\Python36-32\lib\site-packages\django\middleware\common.py", line 63, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Python36-32\lib\site-packages\django\middleware\common.py", line 101, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8008/api/a-c/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2017-11-03 11:49:59,951 [Thread-4:15168] [django.request:152] [WARNING]- Not Found: /api/a-c
+2017-11-03 12:15:13,815 [Thread-4:11812] [django.request:152] [WARNING]- Not Found: /manager/user_state
+2017-11-03 12:15:33,259 [Thread-7:2952] [django.request:152] [WARNING]- Not Found: /manager/user_state
+2017-11-03 13:55:26,775 [Thread-1:5504] [django.request:135] [ERROR]- Internal Server Error: /api/a-c
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\mysql\base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 166, in execute
+    result = self._query(query)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1057, in _read_query_result
+    result.read()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Python36-32\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "Column 'text' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python36-32\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\code\PycharmProjects\cms\focus\views.py", line 876, in add_comment
+    Comment.objects.create(user=request.user, note=note, text=txt)
+  File "C:\Python36-32\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 394, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Python36-32\lib\site-packages\django\db\models\base.py", line 807, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Python36-32\lib\site-packages\django\db\models\base.py", line 837, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Python36-32\lib\site-packages\django\db\models\base.py", line 923, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Python36-32\lib\site-packages\django\db\models\base.py", line 962, in _do_insert
+    using=using, raw=raw)
+  File "C:\Python36-32\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Python36-32\lib\site-packages\django\db\models\query.py", line 1076, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Python36-32\lib\site-packages\django\db\models\sql\compiler.py", line 1107, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Python36-32\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python36-32\lib\site-packages\django\db\backends\mysql\base.py", line 101, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 166, in execute
+    result = self._query(query)
+  File "C:\Python36-32\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1057, in _read_query_result
+    result.read()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "C:\Python36-32\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Python36-32\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "Column 'text' cannot be null")

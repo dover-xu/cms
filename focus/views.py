@@ -861,18 +861,31 @@ def add_praise_tread_share(request):
 
 @login_required
 def add_comment(request):
-    txt = request.POST.get('txt', '873217asT&^HKhkdfg')
-    note_id = request.POST.get('note_id', '873217asT&^HKhkdfg')
-    if txt == '873217asT&^HKhkdfg':
-        return HttpResponse('内容不存在')
+    post_data = json.loads(request.body)
+    text = post_data.get('text', '_no_content_error_')
+    note_id = post_data.get('note_id', '_no_content_error_')
+    if text == '_no_content_error_':
+        context = {
+            'is_success': False,
+            'message': '内容不存在'
+        }
+        return JsonResponse(context)
     try:
         note = Note.objects.get(id=note_id)
     except Note.DoesNotExist:
-        return HttpResponse('帖子不存在')
+        context = {
+            'is_success': False,
+            'message': '帖子不存在'
+        }
+        return JsonResponse(context)
     note.comment_num += 1
     note.save()
-    Comment.objects.create(user=request.user, note=note, text=txt)
-    return HttpResponse(note.comment_str)
+    Comment.objects.create(user=request.user, note=note, text=text)
+    context = {
+        'is_success': True,
+        'message': ''
+    }
+    return JsonResponse(context)
 
 
 @login_required
