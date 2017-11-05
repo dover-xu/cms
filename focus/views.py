@@ -233,8 +233,6 @@ class contents(APIView):
         if current > 0 and total / page_size > 1:
             start = (current - 1) * page_size
             end = current * page_size
-            logger.debug(start)
-            logger.debug(end)
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
 
@@ -253,7 +251,6 @@ def index_hot2(request):
     if request.method == 'GET':
         query = Note.objects.all()
         se = NoteSerializer(query, many=True, context={'request': request})
-        logger.debug(se.data)
         return Response(se.data)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
