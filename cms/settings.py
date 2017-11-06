@@ -303,4 +303,4 @@ SWAGGER_SETTINGS = {
     }
 }
 
-APPEND_SLASH = False
+# APPEND_SLASH = False

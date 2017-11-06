@@ -13,11 +13,11 @@ router.register(r'Shares', views.ShareViewSet)
 
 urlpatterns = [
     # url(r'^(?P<article_id>[0-9]+)/praise/$', views.get_praise_article, name='praise'),
-    url(r'^contents$', views.contents.as_view(), name='contents'),
-    url(r'^ucenter$', views.ucenter.as_view(), name='ucenter'),
-    url(r'^details$', views.details, name='details'),
-    url(r'^publish$', views.publish, name='publish'),
-    url(r'^api/a-c$', views.add_comment, name='add_comment'),
+    url(r'^contents/$', views.contents.as_view(), name='contents'),
+    url(r'^ucenter/$', views.ucenter.as_view(), name='ucenter'),
+    url(r'^details/$', views.details, name='details'),
+    url(r'^publish/$', views.publish, name='publish'),
+    url(r'^api/a-c/$', views.add_comment, name='add_comment'),
     
     url(r'^$', views.index, name='index'),
     # url(r'^index-new$', views.index_new, name='index_new'),

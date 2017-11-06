@@ -2661,3 +2661,100 @@ Traceback (most recent call last):
 AttributeError: 'Comment' object has no attribute 'comments'
 2017-11-05 17:10:50,460 [Thread-74:1672] [django.request:152] [WARNING]- Not Found: /manager/setting
 2017-11-05 17:10:50,579 [Thread-75:11076] [django.request:152] [WARNING]- Not Found: /favicon.ico
+2017-11-06 21:29:46,316 [Thread-19:296] [django.request:152] [WARNING]- Not Found: /setting
+2017-11-06 21:30:06,921 [Thread-21:10048] [django.request:135] [ERROR]- Internal Server Error: /manager/setting
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\manager\views.py", line 55, in wrapped
+    d = dict(json.loads(request.body))
+  File "D:\ProgramData\Python36-32\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "D:\ProgramData\Python36-32\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\ProgramData\Python36-32\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2017-11-06 21:32:42,692 [Thread-22:13476] [django.request:135] [ERROR]- Internal Server Error: /manager/setting
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\manager\views.py", line 55, in wrapped
+    d = dict(json.loads(request.body))
+  File "D:\ProgramData\Python36-32\lib\json\__init__.py", line 349, in loads
+    s = s.decode(detect_encoding(s), 'surrogatepass')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 136: invalid start byte
+2017-11-06 21:36:04,602 [Thread-1:10224] [django.request:135] [ERROR]- Internal Server Error: /manager/setting
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\decorators\csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\views\generic\base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 489, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 449, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\ProgramData\Python36-32\lib\site-packages\rest_framework\views.py", line 486, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Code\PycharmProjects\cms\manager\views.py", line 56, in wrapped
+    d = dict(json.loads(request.body))
+  File "D:\ProgramData\Python36-32\lib\json\__init__.py", line 349, in loads
+    s = s.decode(detect_encoding(s), 'surrogatepass')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 136: invalid start byte
+2017-11-06 21:39:03,713 [Thread-8:1092] [django.request:152] [WARNING]- Not Found: /manager/logout/
+2017-11-06 21:42:28,229 [Thread-7:7108] [django.request:152] [WARNING]- Not Found: /manager/logout/
+2017-11-06 21:45:02,862 [Thread-1:13916] [django.request:152] [WARNING]- Not Found: /manager/logout/
+2017-11-06 21:45:21,643 [Thread-1:7916] [django.request:152] [WARNING]- Not Found: /manager/logout/
+2017-11-06 21:50:12,166 [Thread-20:10528] [django.request:152] [WARNING]- Not Found: /docs
+2017-11-06 21:50:12,465 [Thread-21:9064] [django.request:152] [WARNING]- Not Found: /favicon.ico
+2017-11-06 21:52:55,121 [Thread-8:13204] [django.request:135] [ERROR]- Internal Server Error: /contents
+Traceback (most recent call last):
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\core\handlers\base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\middleware\common.py", line 63, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "D:\ProgramData\Python36-32\lib\site-packages\django\middleware\common.py", line 101, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8008/contents/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
