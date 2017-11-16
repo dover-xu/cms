@@ -10,7 +10,6 @@ from django.utils.translation import ugettext_lazy as _
 # class NewUserAdmin(admin.ModelAdmin):
 #     list_display = ('username', 'date_joined', 'profile')
 
-
 class NoteAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'text_frag', 'hot', 'click_num', 'recommend', 'user', 'category', 'comment_num', 'praise_num',
