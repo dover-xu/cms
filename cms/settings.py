@@ -291,6 +291,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.IsAdminUser',
     ),
     # 'PAGINATE_BY': 10,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10,
     'GLOBAL_CSRF_CHECK': False
 }

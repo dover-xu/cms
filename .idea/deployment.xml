@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="tencent_ubuntu" showNewOnSourceInSync="false">
+  <component name="PublishConfigData" serverName="tencent_ubuntu16" showNewOnSourceInSync="false">
     <serverData>
-      <paths name="tencent_ubuntu">
+      <paths name="tencent_ubuntu16">
         <serverdata>
           <mappings>
             <mapping deploy="/projects/cms" local="$PROJECT_DIR$" web="/" />
