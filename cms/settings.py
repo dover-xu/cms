@@ -309,8 +309,5 @@ SWAGGER_SETTINGS = {
     }
 }
 
-<<<<<<< HEAD
 APPEND_SLASH = True
-=======
-# APPEND_SLASH = False
->>>>>>> tmp
+

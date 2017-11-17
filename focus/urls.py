@@ -18,14 +18,11 @@ urlpatterns = [
     url(r'^details/$', views.details, name='details'),
     url(r'^publish/$', views.publish, name='publish'),
     url(r'^api/a-c/$', views.add_comment, name='add_comment'),
-<<<<<<< HEAD
     url(r'^api/a-p-t-s/$', views.add_praise_tread_share, name='add_praise_tread_share'),
 
     # 以下是基于django模板的
-=======
-    
     url(r'^$', views.index, name='index'),
->>>>>>> tmp
+
     # url(r'^index-new$', views.index_new, name='index_new'),
     # url(r'^video$', views.video, name='video'),
     # url(r'^video-hot$', views.video_hot, name='video_hot'),
