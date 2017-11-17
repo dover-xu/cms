@@ -33,13 +33,13 @@ def schema_view(request):
     return Response(generator.get_schema(request=request))
 
 
-# @api_view(['GET'])
-# def api_root(request, format=None):
-#     from rest_framework.response import Response
-#     return Response({
-#         'users': reverse('myuser-list', request=request, format=format),
-#         'notes': reverse('note-list', request=request, format=format)
-#     })
+@api_view(['GET'])
+def api_root(request, format=None):
+    from rest_framework.response import Response
+    return Response({
+        'users': reverse('myuser-list', request=request, format=format),
+        'notes': reverse('note-list', request=request, format=format)
+    })
 
 
 class MyUserViewSet(viewsets.ModelViewSet):
@@ -233,8 +233,6 @@ class contents(APIView):
         if current > 0 and total / page_size > 1:
             start = (current - 1) * page_size
             end = current * page_size
-            logger.debug(start)
-            logger.debug(end)
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
 
@@ -820,12 +818,24 @@ def detail(request, note_id):
 
 
 def add_praise_tread_share(request):
-    action = request.GET.get('action', 'ashf383$#^HHV')
-    note_id = request.GET.get('note_id', 'ashf383$#^HHV')
+    post_data = json.loads(request.body)
+    action = post_data.get('action', 'no_action')
+    note_id = post_data.get('note_id', 0)
+    context = {
+        'is_success': False,
+        'message': '',
+        'praise_num': 0,
+        'tread_num': 0,
+        'share_num': 0
+    }
     try:
         note = Note.objects.get(id=note_id)
     except Note.DoesNotExist:
-        return HttpResponse(-1)
+        context['message'] = 'note do not exist.'
+        return JsonResponse(context)
+    context['praise_num'] = note.praise_num
+    context['tread_num'] = note.tread_num
+    context['share_num'] = note.share_num
     if action == 'praise':
         if request.user.is_authenticated:
             note.praise_num += 1
@@ -834,7 +844,9 @@ def add_praise_tread_share(request):
                 Praise.objects.get(user=request.user, note=note)
             except Praise.DoesNotExist:
                 Praise.objects.create(user=request.user, note=note)
-        return HttpResponse(note.praise_num)
+        context['praise_num'] = note.praise_num
+        context['is_success'] = True
+        return JsonResponse(context)
     elif action == 'tread':
         if request.user.is_authenticated:
             note.tread_num += 1
@@ -843,20 +855,23 @@ def add_praise_tread_share(request):
                 Tread.objects.get(user=request.user, note=note)
             except Tread.DoesNotExist:
                 Tread.objects.create(user=request.user, note=note)
-        return HttpResponse(note.tread_num)
+        context['tread_num'] = note.tread_num
+        context['is_success'] = True
+        return JsonResponse(context)
     elif action == 'share':
         if request.user.is_authenticated:
             note.share_num += 1
-            print('share:', note.share_num)
             note.save()
             try:
                 Share.objects.get(user=request.user, note=note)
             except Share.DoesNotExist:
                 Share.objects.create(user=request.user, note=note)
-                print('share add')
-        return HttpResponse(note.share_num)
+        context['share_num'] = note.share_num
+        context['is_success'] = True
+        return JsonResponse(context)
     else:
-        return HttpResponse(-1)
+        context['message'] = 'parameter:action do not correct.'
+        return JsonResponse(context)
 
 
 @login_required

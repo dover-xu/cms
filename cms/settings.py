@@ -50,7 +50,7 @@ EMAIL_USE_TLS = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', '123.206.66.230', 'localhost']
+ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', '119.27.181.193']
 
 
 # Application definition
@@ -203,6 +203,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False
         },
+        'django.template': {
+            'handlers': ['default'],
+            'level': 'INFO',
+            'propagate': False
+        },
         # 'focus.app': {
         #     'handlers': ['default', 'console'],
         #     'level': 'DEBUG',
@@ -304,4 +309,4 @@ SWAGGER_SETTINGS = {
     }
 }
 
-APPEND_SLASH = False
+APPEND_SLASH = True
