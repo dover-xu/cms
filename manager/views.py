@@ -52,6 +52,7 @@ token_confirm = Token(settings.SECRET_KEY)  # 定义为全局变量
 def support_form_para(fun):
     def wrapped(self, request):
         if hasattr(request, 'method') and request.method == 'POST' and hasattr(request, 'body'):
+            logger.debug(request.body)
             d = dict(json.loads(request.body))
             s = ''
             for k, v in d.items():
@@ -286,24 +287,26 @@ def mkdir(path):
         return False
 
 
-def setting(request):
-    if request.method == "POST":
-        form = SettingForm(request.POST)
+class setting(APIView):
+
+    @support_form_para
+    def post(self, request):
+        form = SettingForm(request.form_para)
         if form.is_valid():
-            username, sex, profile = form.cleaned_data['username'], form.cleaned_data['sex'], form.cleaned_data[
-                'profile']
+            username, sex, profile = form.cleaned_data['username'], form.cleaned_data['sex'], form.cleaned_data['profile']
             if 0 == len(username):
                 username = str(request.user)
             user = MyUser.objects.filter(username=username)
-            if user and user[0].username != str(request.user):
-                form.add_error('username', '用户名已存在')
+            if user and user[0].username != request.user.username:
+                # form.add_error('username', '用户名已存在')
                 u = MyUser.objects.get(username=request.user)
-                context = {'username': u.username,
-                           'profile': u.profile,
-                           'form': form}
-                return render(request, 'manager/setting.html', context)
+                context = {
+                    'username': u.username,
+                    'profile': u.profile}
+                return JsonResponse(context)
+                # return render(request, 'manager/setting.html', context)
             else:
-                old_user = MyUser.objects.filter(username=request.user)
+                old_user = MyUser.objects.filter(username=request.user.username)
                 if 0 == len(profile):
                     profile = old_user[0].profile
                 if 'pic_file' in request.FILES:
@@ -313,26 +316,23 @@ def setting(request):
                     imgdir = 'avatar/%s/' % time.strftime("%Y/%m/%d", time.localtime())
                     mkdir('uploads/' + imgdir)
                     imgname = '%s_%s.%s' % (
-                        time.strftime("%H_%M_%S", time.localtime()), str(request.user), str(photo).split('.')[-1])
+                        time.strftime("%H_%M_%S", time.localtime()), request.user.username, str(photo).split('.')[-1])
                     img.save('uploads/' + imgdir + imgname)
                     old_user.update(avatar=imgdir + imgname, username=username,
                                     sex=sex, profile=profile)
                 else:
                     old_user.update(username=username, sex=sex, profile=profile)
-                return redirect('/manager/setting/')
-        else:
-            u = MyUser.objects.get(username=request.user)
-            context = {'username': u.username,
-                       'profile': u.profile,
-                       'form': form}
-            return render(request, 'manager/setting.html', context)
-    else:
-        u = MyUser.objects.get(username=request.user)
-        form = SettingForm()
-        context = {'username': u.username,
-                   'profile': u.profile,
-                   'form': form}
-    return render(request, 'manager/setting.html', context)
+                context = {
+                    'username': old_user.username,
+                    'profile': old_user.profile}
+                return JsonResponse(context)
+                # return redirect('/manager/setting/')
+
+    # def get(self, request):
+    #     user = MyUserSerializer(request.user, context={'request': request})
+    #     context = {
+    #         'user': user.data}
+    #     return JsonResponse(context)
 
 
 def activate_user(request, token):

@@ -251,7 +251,6 @@ def index_hot2(request):
     if request.method == 'GET':
         query = Note.objects.all()
         se = NoteSerializer(query, many=True, context={'request': request})
-        logger.debug(se.data)
         return Response(se.data)
     else:
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
