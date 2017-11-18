@@ -10,6 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 # class NewUserAdmin(admin.ModelAdmin):
 #     list_display = ('username', 'date_joined', 'profile')
 
+
 class NoteAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'text_frag', 'hot', 'click_num', 'recommend', 'user', 'category', 'comment_num', 'praise_num',
@@ -33,8 +34,8 @@ class TreadAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'note_num', 'comment_num', 'tread_date')
 
 
-class User_exAdmin(admin.ModelAdmin):  # 验证码部分展示
-    list_display = ('valid_code', 'valid_time', 'email')
+# class User_exAdmin(admin.ModelAdmin):  # 验证码部分展示
+#     list_display = ('valid_code', 'valid_time', 'email')
 
 
 # custom user admin

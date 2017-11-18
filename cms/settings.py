@@ -50,7 +50,7 @@ EMAIL_USE_TLS = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', '119.27.181.193']
+ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', '192.168.1.29', '123.206.66.230', 'localhost']
 
 
 # Application definition
@@ -203,11 +203,6 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False
         },
-        'django.template': {
-            'handlers': ['default'],
-            'level': 'INFO',
-            'propagate': False
-        },
         # 'focus.app': {
         #     'handlers': ['default', 'console'],
         #     'level': 'DEBUG',
@@ -296,7 +291,6 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.IsAdminUser',
     ),
     # 'PAGINATE_BY': 10,
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10,
     'GLOBAL_CSRF_CHECK': False
 }
@@ -309,5 +303,4 @@ SWAGGER_SETTINGS = {
     }
 }
 
-APPEND_SLASH = True
-
+APPEND_SLASH = False

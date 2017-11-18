@@ -25,6 +25,13 @@ import logging
 
 logger = logging.getLogger('django')
 
+TYPE_ALL = 0
+TYPE_PIC = 1
+TYPE_JAPE = 2
+SORT_RECMD = 0
+SORT_NEW = 1
+SORT_HOT = 2
+
 
 @api_view()
 @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
@@ -33,13 +40,13 @@ def schema_view(request):
     return Response(generator.get_schema(request=request))
 
 
-@api_view(['GET'])
-def api_root(request, format=None):
-    from rest_framework.response import Response
-    return Response({
-        'users': reverse('myuser-list', request=request, format=format),
-        'notes': reverse('note-list', request=request, format=format)
-    })
+# @api_view(['GET'])
+# def api_root(request, format=None):
+#     from rest_framework.response import Response
+#     return Response({
+#         'users': reverse('myuser-list', request=request, format=format),
+#         'notes': reverse('note-list', request=request, format=format)
+#     })
 
 
 class MyUserViewSet(viewsets.ModelViewSet):
@@ -191,55 +198,72 @@ class ucenter(APIView):
         # return render(request, 'focus/u-publish.html', context)
 
 
+def append_praise_tread_info(request, data):
+    if request.user.is_authenticated:
+        for n in data:
+            if Praise.objects.filter(user=request.user, note__id=n['id']):
+                n['Praised'] = True
+            else:
+                n['Praised'] = False
+            if Tread.objects.filter(user=request.user, note__id=n['id']):
+                n['Treaded'] = True
+            else:
+                n['Treaded'] = False
+    return data
+
+
+def get_queryset_by_type_and_sort(tp, sort):
+    query_set = None
+    if tp == TYPE_ALL:
+        if sort == SORT_RECMD:
+            query_set = Note.objects.query_all_by_time()
+        elif sort == SORT_NEW:
+            query_set = Note.objects.query_all_by_time()
+        elif sort == SORT_NEW:
+            query_set = Note.objects.query_all_by_hot()
+    elif tp == TYPE_PIC:
+        if sort == SORT_RECMD:
+            query_set = Note.objects.query_pic_by_time()
+        elif sort == SORT_NEW:
+            query_set = Note.objects.query_pic_by_time()
+        elif sort == SORT_HOT:
+            query_set = Note.objects.query_pic_by_hot()
+    elif tp == TYPE_JAPE:
+        if sort == SORT_RECMD:
+            query_set = Note.objects.query_jape_by_time()
+        elif sort == SORT_NEW:
+            query_set = Note.objects.query_jape_by_time()
+        elif sort == SORT_HOT:
+            query_set = Note.objects.query_jape_by_hot()
+    return query_set
+
+
 class contents(APIView):
 
     def post(self, request):
-        if request.user.is_authenticated:
-            is_login = True
-        else:
-            is_login = False
+        is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
         post_data = json.loads(request.body)
         tp = post_data.get('type', 0)
         sort = post_data.get('sort', 0)
         current = post_data.get('current', 1)
         page_size = post_data.get('display', 5)  # 每页显示帖子数
-        query_set = None
-        if tp == 0:
-            if sort == 0:
-                query_set = Note.objects.query_all_by_time()
-            elif sort == 1:
-                query_set = Note.objects.query_all_by_time()
-            elif sort == 2:
-                query_set = Note.objects.query_all_by_hot()
-        elif tp == 1:
-            if sort == 0:
-                query_set = Note.objects.query_pic_by_time()
-            elif sort == 1:
-                query_set = Note.objects.query_pic_by_time()
-            elif sort == 2:
-                query_set = Note.objects.query_pic_by_hot()
-        elif tp == 2:
-            if sort == 0:
-                query_set = Note.objects.query_jape_by_time()
-            elif sort == 1:
-                query_set = Note.objects.query_jape_by_time()
-            elif sort == 2:
-                query_set = Note.objects.query_jape_by_hot()
+        query_set = get_queryset_by_type_and_sort(tp, sort)
         if query_set is None:
             return Response(status=status.HTTP_400_BAD_REQUEST)
-        total = query_set.count()
 
+        total = query_set.count()
         if current > 0 and total / page_size > 1:
             start = (current - 1) * page_size
             end = current * page_size
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
+        notes_data = append_praise_tread_info(request, notes.data)
 
         context = {
             'is_login': is_login,
             'user': user.data,
-            'note_list': notes.data,
+            'note_list': notes_data,
             'total': total,
             'display': page_size,
             'current': current}
@@ -818,23 +842,17 @@ def detail(request, note_id):
 
 def add_praise_tread_share(request):
     post_data = json.loads(request.body)
-    action = post_data.get('action', 'no_action')
-    note_id = post_data.get('note_id', 0)
+    action = post_data.get('action', 'ashf383$#^HHV')
+    note_id = post_data.get('note_id', 'ashf383$#^HHV')
     context = {
         'is_success': False,
-        'message': '',
-        'praise_num': 0,
-        'tread_num': 0,
-        'share_num': 0
+        'action': action,
     }
     try:
         note = Note.objects.get(id=note_id)
     except Note.DoesNotExist:
-        context['message'] = 'note do not exist.'
+        context['is_success'] = 'praise'
         return JsonResponse(context)
-    context['praise_num'] = note.praise_num
-    context['tread_num'] = note.tread_num
-    context['share_num'] = note.share_num
     if action == 'praise':
         if request.user.is_authenticated:
             note.praise_num += 1
@@ -843,8 +861,9 @@ def add_praise_tread_share(request):
                 Praise.objects.get(user=request.user, note=note)
             except Praise.DoesNotExist:
                 Praise.objects.create(user=request.user, note=note)
-        context['praise_num'] = note.praise_num
+        # return HttpResponse(note.praise_num)
         context['is_success'] = True
+        context['praise_num'] = note.praise_num
         return JsonResponse(context)
     elif action == 'tread':
         if request.user.is_authenticated:
@@ -854,22 +873,27 @@ def add_praise_tread_share(request):
                 Tread.objects.get(user=request.user, note=note)
             except Tread.DoesNotExist:
                 Tread.objects.create(user=request.user, note=note)
-        context['tread_num'] = note.tread_num
+        # return HttpResponse(note.tread_num)
         context['is_success'] = True
+        context['tread_num'] = note.tread_num
         return JsonResponse(context)
     elif action == 'share':
         if request.user.is_authenticated:
             note.share_num += 1
+            print('share:', note.share_num)
             note.save()
             try:
                 Share.objects.get(user=request.user, note=note)
             except Share.DoesNotExist:
                 Share.objects.create(user=request.user, note=note)
-        context['share_num'] = note.share_num
+                print('share add')
+        # return HttpResponse(note.share_num)
         context['is_success'] = True
+        context['share_num'] = note.share_num
         return JsonResponse(context)
     else:
-        context['message'] = 'parameter:action do not correct.'
+        # return HttpResponse(-1)
+        context['is_success'] = False
         return JsonResponse(context)
 
 
