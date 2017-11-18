@@ -52,7 +52,7 @@ token_confirm = Token(settings.SECRET_KEY)  # 定义为全局变量
 def support_form_para(fun):
     def wrapped(self, request):
         if hasattr(request, 'method') and request.method == 'POST' and hasattr(request, 'body'):
-            d = dict(json.loads(request.body))
+            d = dict(json.loads(request.body.decode('utf8')))
             s = ''
             for k, v in d.items():
                 if s:
@@ -66,7 +66,7 @@ def support_form_para(fun):
 def support_form_para_origin(fun):
     def wrapped(self, request):
         if hasattr(request, 'method') and request.method == 'POST' and hasattr(request, 'body'):
-            d = dict(json.loads(request.body))
+            d = dict(json.loads(request.body.decode('utf8')))
             s = ''
             for k, v in d.items():
                 if s:

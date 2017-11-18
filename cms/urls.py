@@ -24,4 +24,5 @@ urlpatterns = [
                   url(r'^admin/', admin.site.urls),
                   url(r'^manager/', include('manager.urls')),
                   url(r'', include('focus.urls')),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\
+                + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

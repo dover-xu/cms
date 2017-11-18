@@ -168,7 +168,7 @@ class ucenter(APIView):
         else:
             is_login = False
         user = MyUserSerializer(request.user, context={'request': request})
-        post_data = json.loads(request.body)
+        post_data = json.loads(request.body.decode('utf8'))
         type = post_data.get('type', 0)  # 统计类别
         page_size = post_data.get('display', 5)  # 每页显示帖子数
         current = post_data.get('current', 1)
@@ -243,7 +243,7 @@ class contents(APIView):
     def post(self, request):
         is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
-        post_data = json.loads(request.body)
+        post_data = json.loads(request.body.decode('utf8'))
         tp = post_data.get('type', 0)
         sort = post_data.get('sort', 0)
         current = post_data.get('current', 1)
@@ -781,7 +781,7 @@ def details(request):
     else:
         is_login = False
     user = MyUserSerializer(request.user, context={'request': request})
-    post_data = json.loads(request.body)
+    post_data = json.loads(request.body.decode('utf8'))
     note_id = post_data.get('id', 1)
     current = post_data.get('current', 1)
     page_size = post_data.get('display', 5)  # 每页显示帖子数
@@ -841,7 +841,7 @@ def detail(request, note_id):
 
 
 def add_praise_tread_share(request):
-    post_data = json.loads(request.body)
+    post_data = json.loads(request.body.decode('utf8'))
     action = post_data.get('action', 'ashf383$#^HHV')
     note_id = post_data.get('note_id', 'ashf383$#^HHV')
     context = {
@@ -899,7 +899,7 @@ def add_praise_tread_share(request):
 
 @login_required
 def add_comment(request):
-    post_data = json.loads(request.body)
+    post_data = json.loads(request.body.decode('utf8'))
     text = post_data.get('text', '_no_content_error_')
     note_id = post_data.get('note_id', '_no_content_error_')
     if text == '_no_content_error_':

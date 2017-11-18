@@ -50,9 +50,6 @@ EMAIL_USE_TLS = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', '192.168.1.29', '123.206.66.230', 'localhost']
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,10 +80,12 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', 'localhost', '119.27.181.193', '114.240.113.5']
+
 # 跨域增加忽略
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1:8080', 'localhost:8080'
+    '127.0.0.1:8080', 'localhost:8080', '119.27.181.193:8076'
 )
 CORS_ALLOW_CREDENTIALS = True
 
@@ -203,6 +202,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False
         },
+        'django.template': {
+            'handlers': ['default'],
+            'level': 'INFO',
+            'propagate': False
+        },
         # 'focus.app': {
         #     'handlers': ['default', 'console'],
         #     'level': 'DEBUG',
@@ -303,4 +307,4 @@ SWAGGER_SETTINGS = {
     }
 }
 
-APPEND_SLASH = False
+APPEND_SLASH = True
