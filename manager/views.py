@@ -14,7 +14,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from cms import settings
 from cms.settings import EMAIL_HOST_USER
-from focus.views import index
+from focus.views import repl_with_media_host
 from focus.serializers import MyUserSerializer
 from manager.forms import LoginForm, RegisterForm, SettingForm
 from django.contrib.auth import authenticate, login, logout
@@ -94,6 +94,7 @@ class log_in(APIView):
             if user is not None:
                 login(request, user)
                 user = MyUserSerializer(request.user, context={'request': request})
+                user = repl_with_media_host(user)
                 context = {
                     'is_login': True,
                     'user': user.data,
@@ -177,7 +178,7 @@ def user_state(request):
     else:
         is_login = False
     user = MyUserSerializer(request.user, context={'request': request})
-
+    user = repl_with_media_host(user)
     context = {
         'is_login': is_login,
         'user': user.data

@@ -3,12 +3,10 @@ import os
 import time
 import re
 from django.contrib.auth.decorators import login_required
-from django.core import serializers
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from rest_framework.response import Response
 from rest_framework import status, authentication
-from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 
 from focus.models import Comment, Praise, MyUser, Note, Tread, Share
@@ -23,6 +21,7 @@ from rest_framework.decorators import api_view, renderer_classes, list_route, de
 from rest_framework import schemas
 from rest_framework import permissions
 import logging
+from cms.settings import MEDIA_HOST_PORT
 
 logger = logging.getLogger('django')
 
@@ -32,8 +31,6 @@ TYPE_JAPE = 2
 SORT_RECMD = 0
 SORT_NEW = 1
 SORT_HOT = 2
-
-MEDIA_HOST_PORT = r'http://119.27.181.193:8076/'
 
 
 @api_view()
@@ -191,6 +188,7 @@ class ucenter(APIView):
             end = current * page_size
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
+        notes = repl_with_media_host(notes)
         context = {
             'is_login': is_login,
             'user': user.data,
@@ -245,6 +243,7 @@ class contents(APIView):
     def post(self, request):
         is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
+        user = repl_with_media_host(user)
         post_data = json.loads(request.body.decode('utf8'))
         tp = post_data.get('type', 0)
         sort = post_data.get('sort', 0)
@@ -273,11 +272,16 @@ class contents(APIView):
         return Response(context)
 
 
-def repl_with_media_host(notes):
-    for data in notes.data:
-        data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['image'])
-        data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['user']['avatar'])
-    return notes
+def repl_with_media_host(sers):
+    if isinstance(sers.data, dict) and 'avatar' in sers.data:
+        sers.data['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, sers.data['avatar'])
+    elif isinstance(sers.data, list):
+        for data in sers.data:
+            if 'image' in data:
+                data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['image'])
+            if 'user' in data and 'avatar' in data['user']:
+                data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['user']['avatar'])
+    return sers
 
 
 @api_view(['GET'])
@@ -808,6 +812,7 @@ def details(request):
     note_set[0].click_num += 1
     note_set[0].save()
     notes = NoteSerializer(note_set, many=True, context={'request': request})
+    notes = repl_with_media_host(notes)
     has_praise, has_tread = False, False
     if request.user.is_authenticated:
         if Praise.objects.filter(user=request.user, note__id=note_id):
