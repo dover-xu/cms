@@ -43,7 +43,7 @@ DOMAIN = 'http://www.hahajh.com'
 
 EMAIL_HOST = 'smtp.exmail.qq.com'
 EMAIL_HOST_USER = 'xudong@hahajh.com'
-EMAIL_HOST_PASSWORD = '7222992Dong'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 25
 EMAIL_USE_TLS = True
 
@@ -85,7 +85,7 @@ ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', 'localhost', '119.27.181.193', '
 # 跨域增加忽略
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1:8080', 'localhost:8080', '119.27.181.193:8076'
+    '127.0.0.1:8080', 'localhost:8080', '119.27.181.193'
 )
 CORS_ALLOW_CREDENTIALS = True
 
@@ -261,7 +261,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/statics/'
 
 # 当运行 python manage.py collectstatic 的时候
 # STATIC_ROOT 文件夹 是用来将所有STATICFILES_DIRS中所有文件夹中的文件，以及各app中static中的文件都复制过来
@@ -271,7 +271,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_collect')
 # 其它 存放静态文件的文件夹，可以用来存放项目中公用的静态文件，里面不能包含 STATIC_ROOT
 # 如果不想用 STATICFILES_DIRS 可以不用，都放在 app 里的 static 中也可以
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "statics"),
 )
 
 AUTH_USER_MODEL = 'focus.MyUser'

@@ -1,6 +1,7 @@
 import json
 import os
 import time
+import re
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.http import HttpResponse, JsonResponse
@@ -31,6 +32,8 @@ TYPE_JAPE = 2
 SORT_RECMD = 0
 SORT_NEW = 1
 SORT_HOT = 2
+
+MEDIA_HOST_PORT = r'http://119.27.181.193:8076/'
 
 
 @api_view()
@@ -195,7 +198,6 @@ class ucenter(APIView):
             'total': total,
             'current': current}
         return Response(context)
-        # return render(request, 'focus/u-publish.html', context)
 
 
 def append_praise_tread_info(request, data):
@@ -258,6 +260,7 @@ class contents(APIView):
             end = current * page_size
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
+        notes = repl_with_media_host(notes)
         notes_data = append_praise_tread_info(request, notes.data)
 
         context = {
@@ -268,6 +271,13 @@ class contents(APIView):
             'display': page_size,
             'current': current}
         return Response(context)
+
+
+def repl_with_media_host(notes):
+    for data in notes.data:
+        data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['image'])
+        data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['user']['avatar'])
+    return notes
 
 
 @api_view(['GET'])
