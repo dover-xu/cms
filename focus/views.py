@@ -3,7 +3,6 @@ import json
 import os
 import time
 import re
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from focus.models import Comment, Praise, MyUser, Note, Tread, Share
@@ -22,13 +21,9 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
 from rest_framework.schemas import SchemaGenerator
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
-from openapi_codec import OpenAPICodec
-from openapi_codec.encode import generate_swagger_object
-from coreapi.compat import force_bytes
-from collections import OrderedDict
 
 import logging
-from cms.settings import MEDIA_HOST_PORT, API_DOC_PATH
+from cms.settings import MEDIA_HOST_PORT
 
 logger = logging.getLogger('django')
 
@@ -41,30 +36,12 @@ SORT_HOT = 2
 
 
 class SwaggerSchemaView(APIView):
-    renderer_classes = [
-        OpenAPIRenderer,
-        SwaggerUIRenderer
-    ]
-
-    def load_swagger_json(self, doc):
-        """
-        加载自定义swagger.json文档
-        """
-        data = generate_swagger_object(doc)
-        # with open(API_DOC_PATH) as s:
-        #     doc_json = json.load(s, object_pairs_hook=OrderedDict)
-        #
-        # data['paths'].update(doc_json.pop('paths'))
-        # data.update(doc_json)
-        return OpenAPICodec().decode(force_bytes(json.dumps(data)))
+    renderer_classes = [OpenAPIRenderer, SwaggerUIRenderer]
 
     def get(self, request):
-        generator = SchemaGenerator(title='后端API文档',
-                                    urlconf='focus.urls')
+        generator = SchemaGenerator(title='后端API文档', urlconf='cms.urls')
         schema = generator.get_schema(request=request)
-        document = self.load_swagger_json(schema)
-
-        return Response(document)
+        return Response(schema)
 #
 # @api_view()
 # @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
@@ -197,6 +174,7 @@ class ucenter(APIView):
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
         notes_data = repl_with_media_host(notes.data)
+        notes_data = append_praise_tread_info(request, notes_data)
         context = {
             'is_login': is_login,
             'user': user_data,
@@ -328,12 +306,6 @@ def details(request):
         notes = NoteSerializer(note_set, many=True, context={'request': request})
         notes_data = repl_with_media_host(notes.data)
         notes_data = append_praise_tread_info(request, notes_data)
-        has_praise, has_tread = False, False
-        if request.user.is_authenticated:
-            if Praise.objects.filter(user=request.user, note__id=note_id):
-                has_praise = True
-            if Tread.objects.filter(user=request.user, note__id=note_id):
-                has_tread = True
 
         context = {
             'user': user_data,
@@ -415,10 +387,9 @@ def add_praise_tread_share(request):
                 Praise.objects.get(user=request.user, note=note)
             except Praise.DoesNotExist:
                 Praise.objects.create(user=request.user, note=note)
-        # return HttpResponse(note.praise_num)
-        context['is_success'] = True
-        context['praise_num'] = note.praise_num
-        return JsonResponse(context)
+            context['is_success'] = True
+            context['praise_num'] = note.praise_num
+            return JsonResponse(context)
     elif action == 'tread':
         if request.user.is_authenticated:
             note.tread_num += 1
@@ -427,10 +398,9 @@ def add_praise_tread_share(request):
                 Tread.objects.get(user=request.user, note=note)
             except Tread.DoesNotExist:
                 Tread.objects.create(user=request.user, note=note)
-        # return HttpResponse(note.tread_num)
-        context['is_success'] = True
-        context['tread_num'] = note.tread_num
-        return JsonResponse(context)
+            context['is_success'] = True
+            context['tread_num'] = note.tread_num
+            return JsonResponse(context)
     elif action == 'share':
         if request.user.is_authenticated:
             note.share_num += 1
@@ -440,18 +410,15 @@ def add_praise_tread_share(request):
                 Share.objects.get(user=request.user, note=note)
             except Share.DoesNotExist:
                 Share.objects.create(user=request.user, note=note)
-                print('share add')
-        # return HttpResponse(note.share_num)
-        context['is_success'] = True
-        context['share_num'] = note.share_num
-        return JsonResponse(context)
+            context['is_success'] = True
+            context['share_num'] = note.share_num
+            return JsonResponse(context)
     else:
-        # return HttpResponse(-1)
         context['is_success'] = False
         return JsonResponse(context)
+    return JsonResponse(context)
 
 
-@login_required
 @api_view(['POST'])
 def add_comment(request):
     """
@@ -484,7 +451,6 @@ def add_comment(request):
     return JsonResponse(context)
 
 
-@login_required
 @api_view(['POST'])
 def del_note(request):
     """

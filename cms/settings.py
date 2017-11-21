@@ -295,23 +295,15 @@ REST_FRAMEWORK = {
     'GLOBAL_CSRF_CHECK': False
 }
 
-# SWAGGER_SETTINGS = {
-#     'SECURITY_DEFINITIONS': {
-#         'basic': {
-#             'type': 'basic'
-#         }
-#     }
-# }
-# LOGIN_URL = 'rest_framework:login'
-# LOGOUT_URL = 'rest_framework:logout'
-
 SWAGGER_SETTINGS = {
-    'JSON_EDITOR': True,
-    'LOGIN_URL': 'rest_framework:login',
-    'LOGOUT_URL': 'rest_framework:logout',
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    }
 }
-
-API_DOC_PATH = os.path.join(BASE_DIR, "api-doc/swagger.json")
+LOGIN_URL = 'rest_framework:login'
+LOGOUT_URL = 'rest_framework:logout'
 
 APPEND_SLASH = True
 

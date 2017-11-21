@@ -18,7 +18,6 @@ from focus.views import repl_with_media_host
 from focus.serializers import MyUserSerializer
 from manager.forms import LoginForm, RegisterForm, SettingForm
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from focus.models import MyUser
@@ -50,20 +49,6 @@ token_confirm = Token(settings.SECRET_KEY)  # 定义为全局变量
 
 
 def support_form_para(fun):
-    def wrapped(self, request):
-        if hasattr(request, 'method') and request.method == 'POST' and hasattr(request, 'body'):
-            d = dict(json.loads(request.body.decode('utf8')))
-            s = ''
-            for k, v in d.items():
-                if s:
-                    s += str('&')
-                s += str(k) + '=' + str(v)
-            request.form_para = QueryDict(s)
-        return fun(self, request)
-    return wrapped
-
-
-def support_form_para_origin(fun):
     def wrapped(self, request):
         if hasattr(request, 'method') and request.method == 'POST' and hasattr(request, 'body'):
             d = dict(json.loads(request.body.decode('utf8')))
@@ -119,47 +104,8 @@ class log_in(APIView):
                 'message': '登录失败',
             }
             return JsonResponse(context)
-            # return render(request, 'manager/signin.html', {'form': form, 'message': "*登录失败"})
-
-    # def get(self, request):
-    #     return HttpResponse()
 
 
-def log_in2(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            if request.user.is_authenticated:
-                return render(request, 'manager/signin.html', {'form': form, 'message': "已登录"})
-            username, password = form.cleaned_data['username'], form.cleaned_data['password']
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                r_url = request.session.get('redirect_url', default='/')
-                try:
-                    del request.session['redirect_url']
-                except KeyError:
-                    pass
-                return redirect(r_url)
-            else:
-                try:
-                    user = MyUser.objects.get(username=username)
-                    if not user.is_active:
-                        return render(request, 'manager/signin.html', {'form': form, 'message': "请先完成邮箱验证"})
-                except ObjectDoesNotExist:
-                    return render(request, 'manager/signin.html', {'form': form, 'message': "用户名不存在"})
-                return render(request, 'manager/signin.html', {'form': form, 'message': "密码错误"})
-        else:
-            # return HttpResponse()
-            return render(request, 'manager/signin.html', {'form': form, 'message': "登录失败"})
-    else:
-        request.session['redirect_url'] = request.GET.get('url', '/')
-        form = LoginForm()
-        # return HttpResponse()
-        return render(request, 'manager/signin.html', {'form': form})
-
-
-@login_required
 @api_view(['GET'])
 def log_out(request):
     # url = request.GET.get('url', '/')
@@ -186,15 +132,6 @@ def user_state(request):
     return JsonResponse(context)
 
 
-def auth_name(request):
-    username = request.GET.get('username', 'asdgkg234hsd~jsgasdg')
-    try:
-        MyUser.objects.get(username=username)
-        return HttpResponse("用户名已存在")
-    except ObjectDoesNotExist:
-        return HttpResponse("")
-
-
 class signup(APIView):
 
     @support_form_para
@@ -210,7 +147,6 @@ class signup(APIView):
                     'message': '用户名已存在'
                 }
                 return JsonResponse(context)
-                # return render(request, 'manager/signup.html', {'form': form, 'message': "用户名已存在"})
             except ObjectDoesNotExist:
                 if len(password1) < 8:
                     context = {
@@ -218,24 +154,18 @@ class signup(APIView):
                         'message': '至少包含8位字符'
                     }
                     return JsonResponse(context)
-                    # form.add_error('password1', '至少包含8位字符')
-                    # return render(request, 'manager/signup.html', {'form': form})
                 if password1.isdigit():
                     context = {
                         'is_success': False,
                         'message': '不能全为数字'
                     }
                     return JsonResponse(context)
-                    # form.add_error('password1', '不能全为数字')
-                    # return render(request, 'manager/signup.html', {'form': form})
                 if password1 != password2:
                     context = {
                         'is_success': False,
                         'message': '两次密码不一致'
                     }
                     return JsonResponse(context)
-                    # form.add_error('password2', '两次密码不一致')
-                    # return render(request, 'manager/signup.html', {'form': form})
                 pic = '/avatar/default/%d.jpg' % random.randint(1, 4)  # 随机选择默认头像
                 user = MyUser.objects.create_user(username=username, password=password1, avatar=pic)
                 user.is_active = True
@@ -269,12 +199,9 @@ class signup(APIView):
                 'message': '无效表单',
             }
             return JsonResponse(context)
-            # return render(request, 'manager/signup.html', {'form': form})
 
     def get(self, request):
         return HttpResponse()
-        # form = RegisterForm()
-        # return render(request, 'manager/signup.html', {'form': form})
 
 
 def mkdir(path):
@@ -338,6 +265,15 @@ class setting(APIView):
             context = {
                 'is_success': True}
             return JsonResponse(context)
+
+
+def auth_name(request):
+    username = request.GET.get('username', 'asdgkg234hsd~jsgasdg')
+    try:
+        MyUser.objects.get(username=username)
+        return HttpResponse("用户名已存在")
+    except ObjectDoesNotExist:
+        return HttpResponse("")
 
 
 def activate_user(request, token):
