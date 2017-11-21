@@ -94,10 +94,10 @@ class log_in(APIView):
             if user is not None:
                 login(request, user)
                 user = MyUserSerializer(request.user, context={'request': request})
-                user = repl_with_media_host(user)
+                user_data = repl_with_media_host(dict(user.data))
                 context = {
                     'is_login': True,
-                    'user': user.data,
+                    'user': user_data,
                     'message': '',
                 }
                 return JsonResponse(context)
@@ -178,10 +178,10 @@ def user_state(request):
     else:
         is_login = False
     user = MyUserSerializer(request.user, context={'request': request})
-    user = repl_with_media_host(user)
+    user_data = repl_with_media_host(dict(user.data))
     context = {
         'is_login': is_login,
-        'user': user.data
+        'user': user_data
     }
     return JsonResponse(context)
 

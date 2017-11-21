@@ -1,3 +1,4 @@
+# coding=utf-8
 import json
 import os
 import time
@@ -5,23 +6,29 @@ import re
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from rest_framework.response import Response
-from rest_framework import status, authentication
-from rest_framework.views import APIView
-
 from focus.models import Comment, Praise, MyUser, Note, Tread, Share
 from focus.permissions import IsOwnerOrReadOnly
 from manager.forms import LoginForm
 from PIL import Image
 from focus.serializers import MyUserSerializer, NoteSerializer, CommentSerializer, PraiseSerializer, TreadSerializer, \
     ShareSerializer
-from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
-from rest_framework import viewsets
-from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
+
+from rest_framework import status, authentication
 from rest_framework import schemas
+from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
+from rest_framework.schemas import SchemaGenerator
+from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
+from openapi_codec import OpenAPICodec
+from openapi_codec.encode import generate_swagger_object
+from coreapi.compat import force_bytes
+from collections import OrderedDict
+
 import logging
-from cms.settings import MEDIA_HOST_PORT
+from cms.settings import MEDIA_HOST_PORT, API_DOC_PATH
 
 logger = logging.getLogger('django')
 
@@ -33,11 +40,37 @@ SORT_NEW = 1
 SORT_HOT = 2
 
 
-@api_view()
-@renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
-def schema_view(request):
-    generator = schemas.SchemaGenerator(title='Core API')
-    return Response(generator.get_schema(request=request))
+class SwaggerSchemaView(APIView):
+    renderer_classes = [
+        OpenAPIRenderer,
+        SwaggerUIRenderer
+    ]
+
+    def load_swagger_json(self, doc):
+        """
+        加载自定义swagger.json文档
+        """
+        data = generate_swagger_object(doc)
+        # with open(API_DOC_PATH) as s:
+        #     doc_json = json.load(s, object_pairs_hook=OrderedDict)
+        #
+        # data['paths'].update(doc_json.pop('paths'))
+        # data.update(doc_json)
+        return OpenAPICodec().decode(force_bytes(json.dumps(data)))
+
+    def get(self, request):
+        generator = SchemaGenerator(title='后端API文档',
+                                    urlconf='focus.urls')
+        schema = generator.get_schema(request=request)
+        document = self.load_swagger_json(schema)
+
+        return Response(document)
+#
+# @api_view()
+# @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
+# def schema_view(request):
+#     generator = schemas.SchemaGenerator(title='Core API')
+#     return Response(generator.get_schema(request=request))
 
 
 # @api_view(['GET'])
@@ -51,7 +84,7 @@ def schema_view(request):
 
 class MyUserViewSet(viewsets.ModelViewSet):
     """
-    允许查看和编辑user的API endpoint
+    用户Model
     """
     queryset = MyUser.objects.all()
     serializer_class = MyUserSerializer
@@ -60,7 +93,7 @@ class MyUserViewSet(viewsets.ModelViewSet):
 
 class NoteViewSet(viewsets.ModelViewSet):
     """
-    允许查看和编辑note的API endpoint
+    帖子Model
     """
     queryset = Note.objects.query_all_by_hot()
     serializer_class = NoteSerializer
@@ -86,7 +119,7 @@ class NoteViewSet(viewsets.ModelViewSet):
 
 class CommentViewSet(viewsets.ModelViewSet):
     """
-    允许查看和编辑Comment的API endpoint
+    评论Model
     """
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
@@ -98,7 +131,7 @@ class CommentViewSet(viewsets.ModelViewSet):
 
 class PraiseViewSet(viewsets.ModelViewSet):
     """
-    允许查看和编辑Comment的API endpoint
+    点赞Model
     """
     queryset = Praise.objects.all()
     serializer_class = PraiseSerializer
@@ -110,7 +143,7 @@ class PraiseViewSet(viewsets.ModelViewSet):
 
 class TreadViewSet(viewsets.ModelViewSet):
     """
-    允许查看和编辑Comment的API endpoint
+    踩Model
     """
     queryset = Tread.objects.all()
     serializer_class = TreadSerializer
@@ -122,7 +155,7 @@ class TreadViewSet(viewsets.ModelViewSet):
 
 class ShareViewSet(viewsets.ModelViewSet):
     """
-    允许查看和编辑Comment的API endpoint
+    分享Model
     """
     queryset = Share.objects.all()
     serializer_class = ShareSerializer
@@ -132,42 +165,17 @@ class ShareViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-def index(request):
-    note_jx = Note.objects.query_pic_by_hot()[:4]
-    note_list = Note.objects.query_all_by_time()
-    rows = note_list.count()  # 帖子总数
-    page_size = 5  # 每页显示帖子数
-    page_num = (rows - 1) // page_size + 1  # 总页数
-    loginform = LoginForm()
-
-    page_id = int(request.GET.get('page', '1'))
-    if page_num > 1:
-        note_list = note_list[(page_id - 1) * page_size:page_id * page_size]
-    if request.user.is_authenticated:
-        for n in note_list:
-            if Praise.objects.filter(user=request.user, note=n):
-                n.P = True
-            else:
-                n.P = False
-            if Tread.objects.filter(user=request.user, note=n):
-                n.T = True
-            else:
-                n.T = False
-    context = {'note_list': note_list,
-               'note_jx': note_jx,
-               'rows': rows,
-               'page_id': page_id,
-               'loginform': loginform}
-    return render(request, 'focus/index.html', context)
-
-
 class ucenter(APIView):
+    """
+    用户中心专用api
+    """
     def post(self, request):
         if request.user.is_authenticated:
             is_login = True
         else:
             is_login = False
         user = MyUserSerializer(request.user, context={'request': request})
+        user_data = repl_with_media_host(dict(user.data))
         post_data = json.loads(request.body.decode('utf8'))
         type = post_data.get('type', 0)  # 统计类别
         page_size = post_data.get('display', 5)  # 每页显示帖子数
@@ -188,11 +196,11 @@ class ucenter(APIView):
             end = current * page_size
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
-        notes = repl_with_media_host(notes)
+        notes_data = repl_with_media_host(notes.data)
         context = {
             'is_login': is_login,
-            'user': user.data,
-            'note_list': notes.data,
+            'user': user_data,
+            'note_list': notes_data,
             'total': total,
             'current': current}
         return Response(context)
@@ -239,11 +247,14 @@ def get_queryset_by_type_and_sort(tp, sort):
 
 
 class contents(APIView):
-
+    """
+    帖子
+    """
     def post(self, request):
         is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
-        user = repl_with_media_host(user)
+        user_data = repl_with_media_host(dict(user.data))
+
         post_data = json.loads(request.body.decode('utf8'))
         tp = post_data.get('type', 0)
         sort = post_data.get('sort', 0)
@@ -259,12 +270,12 @@ class contents(APIView):
             end = current * page_size
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
-        notes = repl_with_media_host(notes)
-        notes_data = append_praise_tread_info(request, notes.data)
+        notes_data = repl_with_media_host(notes.data)
+        notes_data = append_praise_tread_info(request, notes_data)
 
         context = {
             'is_login': is_login,
-            'user': user.data,
+            'user': user_data,
             'note_list': notes_data,
             'total': total,
             'display': page_size,
@@ -272,31 +283,236 @@ class contents(APIView):
         return Response(context)
 
 
-def repl_with_media_host(sers):
-    if isinstance(sers.data, dict) and 'avatar' in sers.data:
-        sers.data['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, sers.data['avatar'])
-    elif isinstance(sers.data, list):
-        for data in sers.data:
+def repl_with_media_host(datas):
+    if isinstance(datas, dict) and 'avatar' in datas:
+        datas['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, datas['avatar'])
+    elif isinstance(datas, list):
+        for data in datas:
             if 'image' in data:
                 data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['image'])
             if 'user' in data and 'avatar' in data['user']:
                 data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['user']['avatar'])
-    return sers
+    return datas
 
 
-@api_view(['GET'])
-def index_hot2(request):
-    if request.method == 'GET':
-        query = Note.objects.all()
-        se = NoteSerializer(query, many=True, context={'request': request})
-        return Response(se.data)
+@api_view(['POST'])
+def details(request):
+    """
+    详细页数据
+    :param request:
+    :return:
+    """
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            is_login = True
+        else:
+            is_login = False
+        user = MyUserSerializer(request.user, context={'request': request})
+        user_data = repl_with_media_host(dict(user.data))
+        post_data = json.loads(request.body.decode('utf8'))
+        note_id = post_data.get('id', 1)
+        current = post_data.get('current', 1)
+        page_size = post_data.get('display', 5)  # 每页显示帖子数
+        comment_set = Comment.objects.filter(note=note_id).order_by('-pub_date')
+        total = comment_set.count()
+
+        if total / page_size > 1:
+            start = (current - 1) * page_size
+            end = current * page_size
+            comment_set = comment_set[start:end]
+        comments = CommentSerializer(comment_set, many=True, context={'request': request})
+
+        note_set = Note.objects.filter(id=note_id)
+        note_set[0].click_num += 1
+        note_set[0].save()
+        notes = NoteSerializer(note_set, many=True, context={'request': request})
+        notes_data = repl_with_media_host(notes.data)
+        notes_data = append_praise_tread_info(request, notes_data)
+        has_praise, has_tread = False, False
+        if request.user.is_authenticated:
+            if Praise.objects.filter(user=request.user, note__id=note_id):
+                has_praise = True
+            if Tread.objects.filter(user=request.user, note__id=note_id):
+                has_tread = True
+
+        context = {
+            'user': user_data,
+            'is_login': is_login,
+            'note': notes_data[0],
+            'comments': comments.data,
+            'total': total,
+            'current': current,
+            'display': page_size,
+        }
+        return JsonResponse(context)
+
+
+@api_view(['POST'])
+def publish(request):
+    """
+    发帖页数据
+    :param request:
+    :return: 'is_success': bool; 'message': str,
+    """
+    if request.method == "POST":
+        if 'pic' in request.FILES:
+            photo = request.FILES.get('pic')
+            img = Image.open(photo)
+            img.thumbnail((600, 100000))
+            imgdir = 'images/%s/' % time.strftime("%Y/%m/%d", time.localtime())
+            mkdir('uploads/' + imgdir)
+            imgname = '%s_%s.%s' % (
+                time.strftime("%H_%M_%S", time.localtime()), str(request.user), str(photo).split('.')[-1])
+            img.save('uploads/' + imgdir + imgname)
+            note = Note(user=request.user,
+                        text=request.POST.get('text_area'),
+                        image=imgdir + imgname,
+                        category='Picture')
+            note.save()
+            context = {
+                'is_success': True,
+                'message': '',
+            }
+            return JsonResponse(context)
+        elif 'text_area' in request.POST:
+            note = Note(user=request.user,
+                        text=request.POST.get('text_area'),
+                        category='Jape')
+            note.save()
+            context = {
+                'is_success': True,
+                'message': '',
+            }
+            return JsonResponse(context)
+        else:
+            return HttpResponse()
+
+
+@api_view(['POST'])
+def add_praise_tread_share(request):
+    """
+    赞/踩/分享
+    :param request:
+    :return:
+    """
+    post_data = json.loads(request.body.decode('utf8'))
+    action = post_data.get('action', '_no_action_error_')
+    note_id = post_data.get('note_id', '_no_id_error_')
+    context = {
+        'is_success': False,
+        'action': action,
+    }
+    try:
+        note = Note.objects.get(id=note_id)
+    except Note.DoesNotExist:
+        context['is_success'] = False
+        return JsonResponse(context)
+    if action == 'praise':
+        if request.user.is_authenticated:
+            note.praise_num += 1
+            note.save()
+            try:
+                Praise.objects.get(user=request.user, note=note)
+            except Praise.DoesNotExist:
+                Praise.objects.create(user=request.user, note=note)
+        # return HttpResponse(note.praise_num)
+        context['is_success'] = True
+        context['praise_num'] = note.praise_num
+        return JsonResponse(context)
+    elif action == 'tread':
+        if request.user.is_authenticated:
+            note.tread_num += 1
+            note.save()
+            try:
+                Tread.objects.get(user=request.user, note=note)
+            except Tread.DoesNotExist:
+                Tread.objects.create(user=request.user, note=note)
+        # return HttpResponse(note.tread_num)
+        context['is_success'] = True
+        context['tread_num'] = note.tread_num
+        return JsonResponse(context)
+    elif action == 'share':
+        if request.user.is_authenticated:
+            note.share_num += 1
+            print('share:', note.share_num)
+            note.save()
+            try:
+                Share.objects.get(user=request.user, note=note)
+            except Share.DoesNotExist:
+                Share.objects.create(user=request.user, note=note)
+                print('share add')
+        # return HttpResponse(note.share_num)
+        context['is_success'] = True
+        context['share_num'] = note.share_num
+        return JsonResponse(context)
     else:
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        # return HttpResponse(-1)
+        context['is_success'] = False
+        return JsonResponse(context)
 
 
-def index_hot1(request):
-    note_list = Note.objects.query_all_by_hot()
-    rows = note_list.count()  # 帖子总条数
+@login_required
+@api_view(['POST'])
+def add_comment(request):
+    """
+    评论
+    """
+    post_data = json.loads(request.body.decode('utf8'))
+    text = post_data.get('text', '_no_text_error_')
+    note_id = post_data.get('note_id', '_no_id_error_')
+    if text == '_no_content_error_':
+        context = {
+            'is_success': False,
+            'message': '内容不存在'
+        }
+        return JsonResponse(context)
+    try:
+        note = Note.objects.get(id=note_id)
+    except Note.DoesNotExist:
+        context = {
+            'is_success': False,
+            'message': '帖子不存在'
+        }
+        return JsonResponse(context)
+    note.comment_num += 1
+    note.save()
+    Comment.objects.create(user=request.user, note=note, text=text)
+    context = {
+        'is_success': True,
+        'message': ''
+    }
+    return JsonResponse(context)
+
+
+@login_required
+@api_view(['POST'])
+def del_note(request):
+    """
+    删帖
+    :param request:
+    :return:
+    """
+    context = {
+        'is_success': False
+    }
+    if request.body:
+        logger.debug(request.body)
+        post_data = json.loads(request.body.decode('utf8'))
+        note_id = post_data.get('note_id', '_no_id_error_')
+        try:
+            note = Note.objects.get(id=note_id)
+            note.delete()
+        except Note.DoesNotExist:
+            return JsonResponse(context)
+        context['is_success'] = True
+        return JsonResponse(context)
+    return JsonResponse(context)
+
+
+def index(request):
+    note_jx = Note.objects.query_pic_by_hot()[:4]
+    note_list = Note.objects.query_all_by_time()
+    rows = note_list.count()  # 帖子总数
     page_size = 5  # 每页显示帖子数
     page_num = (rows - 1) // page_size + 1  # 总页数
     loginform = LoginForm()
@@ -314,39 +530,12 @@ def index_hot1(request):
                 n.T = True
             else:
                 n.T = False
-
-    user = MyUser.objects.get(id=note_list[0].user.id)
-    u = {'avatar': {'url': user.avatar.url}, 'username': user.username}
-
-    note = note_list[0]
-    note_dict = {
-        'id': note.id,
-        'test': note.text,
-        'user': u,
-        'image': note.image.url,
-        'pub_date': note.pub_date,
-        'P': False,
-        'T': False,
-        'praise_str': note.praise_str,
-        'tread_str': note.tread_str,
-        'comment_str': note.comment_str
-    }
-
-    query = MyUser.objects.all()
-    # se = serializers.serialize('json', query, use_natural_foreign_keys=True, fields=(
-    #     'text', 'user', 'image', 'pub_date', 'P', 'T', 'praise_str', 'tread_str', 'comment_str'))
-    # logger.info(se)
-    # note_dict = serializers.serialize("json", note_list)
-    # context = {'note_list': note_dict}
-
-    # context = {'note_list': note_dict,
-    #            'rows': rows,
-    #            'page_id': page_id}
-    # 'loginform': loginform}
-
-    user = MyUserSerializer(query, context={'request': request})
-    return JsonResponse(user.data)
-    # return render(request, 'focus/index-hot.html', context)
+    context = {'note_list': note_list,
+               'note_jx': note_jx,
+               'rows': rows,
+               'page_id': page_id,
+               'loginform': loginform}
+    return render(request, 'focus/index.html', context)
 
 
 def index_new(request):
@@ -674,23 +863,6 @@ def user_comment(request):
     return render(request, 'focus/u-comment.html', context)
 
 
-# 暂未用，保留
-def publish_video(request):
-    latest_note_list = Note.objects.query_all_by_time()
-    rows = latest_note_list.count()  # 帖子总条数
-    page_size = 5  # 每页显示帖子数
-    page_num = (latest_note_list.count() - 1) // page_size + 1  # 总页数
-
-    page_id = int(request.GET.get('page', '1'))
-    if page_num > 1:
-        latest_note_list = latest_note_list[(page_id - 1) * page_size:page_id * page_size]
-
-    context = {'latest_note_list': latest_note_list,
-               'rows': rows,
-               'page_id': page_id}
-    return render(request, 'focus/publish-video.html', context)
-
-
 def mkdir(path):
     # 去除首位空格
     path = path.strip()
@@ -738,42 +910,6 @@ def publish_pic(request):
         return render(request, 'focus/publish-pic.html', {})
 
 
-def publish(request):
-    if request.method == "POST":
-        if 'pic' in request.FILES:
-            photo = request.FILES.get('pic')
-            img = Image.open(photo)
-            img.thumbnail((600, 100000))
-            imgdir = 'images/%s/' % time.strftime("%Y/%m/%d", time.localtime())
-            mkdir('uploads/' + imgdir)
-            imgname = '%s_%s.%s' % (
-                time.strftime("%H_%M_%S", time.localtime()), str(request.user), str(photo).split('.')[-1])
-            img.save('uploads/' + imgdir + imgname)
-            note = Note(user=request.user,
-                        text=request.POST.get('text_area'),
-                        image=imgdir + imgname,
-                        category='Picture')
-            note.save()
-            context = {
-                'is_success': True,
-                'message': '',
-            }
-            return JsonResponse(context)
-            # return redirect('/user/focus/publish')
-        elif 'text_area' in request.POST:
-            note = Note(user=request.user,
-                        text=request.POST.get('text_area'),
-                        category='Jape')
-            note.save()
-            context = {
-                'is_success': True,
-                'message': '',
-            }
-            return JsonResponse(context)
-        else:
-            return HttpResponse()
-            # return render(request, 'focus/publish-pic.html', {})
-
 
 def publish_jape(request):
     if request.method == "POST":
@@ -787,51 +923,6 @@ def publish_jape(request):
             return render(request, 'focus/publish-jape.html', {})
     else:
         return render(request, 'focus/publish-jape.html', {})
-
-
-def details(request):
-    if request.user.is_authenticated:
-        is_login = True
-    else:
-        is_login = False
-    user = MyUserSerializer(request.user, context={'request': request})
-    post_data = json.loads(request.body.decode('utf8'))
-    note_id = post_data.get('id', 1)
-    current = post_data.get('current', 1)
-    page_size = post_data.get('display', 5)  # 每页显示帖子数
-    comment_set = Comment.objects.filter(note=note_id).order_by('-pub_date')
-    total = comment_set.count()
-
-    if total / page_size > 1:
-        start = (current - 1) * page_size
-        end = current * page_size
-        comment_set = comment_set[start:end]
-    comments = CommentSerializer(comment_set, many=True, context={'request': request})
-
-    note_set = Note.objects.filter(id=note_id)
-    note_set[0].click_num += 1
-    note_set[0].save()
-    notes = NoteSerializer(note_set, many=True, context={'request': request})
-    notes = repl_with_media_host(notes)
-    has_praise, has_tread = False, False
-    if request.user.is_authenticated:
-        if Praise.objects.filter(user=request.user, note__id=note_id):
-            has_praise = True
-        if Tread.objects.filter(user=request.user, note__id=note_id):
-            has_tread = True
-
-    context = {
-        'user': user.data,
-        'is_login': is_login,
-        'note': notes.data[0],
-        'comments': comments.data,
-        'total': total,
-        'current': current,
-        'display': page_size,
-        'has_praise': has_praise,
-        'has_tread': has_tread
-    }
-    return JsonResponse(context)
 
 
 def detail(request, note_id):
@@ -854,105 +945,6 @@ def detail(request, note_id):
                'loginform': loginform}
     return render(request, 'focus/comment.html', context)
 
-
-def add_praise_tread_share(request):
-    post_data = json.loads(request.body.decode('utf8'))
-    action = post_data.get('action', 'ashf383$#^HHV')
-    note_id = post_data.get('note_id', 'ashf383$#^HHV')
-    context = {
-        'is_success': False,
-        'action': action,
-    }
-    try:
-        note = Note.objects.get(id=note_id)
-    except Note.DoesNotExist:
-        context['is_success'] = 'praise'
-        return JsonResponse(context)
-    if action == 'praise':
-        if request.user.is_authenticated:
-            note.praise_num += 1
-            note.save()
-            try:
-                Praise.objects.get(user=request.user, note=note)
-            except Praise.DoesNotExist:
-                Praise.objects.create(user=request.user, note=note)
-        # return HttpResponse(note.praise_num)
-        context['is_success'] = True
-        context['praise_num'] = note.praise_num
-        return JsonResponse(context)
-    elif action == 'tread':
-        if request.user.is_authenticated:
-            note.tread_num += 1
-            note.save()
-            try:
-                Tread.objects.get(user=request.user, note=note)
-            except Tread.DoesNotExist:
-                Tread.objects.create(user=request.user, note=note)
-        # return HttpResponse(note.tread_num)
-        context['is_success'] = True
-        context['tread_num'] = note.tread_num
-        return JsonResponse(context)
-    elif action == 'share':
-        if request.user.is_authenticated:
-            note.share_num += 1
-            print('share:', note.share_num)
-            note.save()
-            try:
-                Share.objects.get(user=request.user, note=note)
-            except Share.DoesNotExist:
-                Share.objects.create(user=request.user, note=note)
-                print('share add')
-        # return HttpResponse(note.share_num)
-        context['is_success'] = True
-        context['share_num'] = note.share_num
-        return JsonResponse(context)
-    else:
-        # return HttpResponse(-1)
-        context['is_success'] = False
-        return JsonResponse(context)
-
-
-@login_required
-def add_comment(request):
-    post_data = json.loads(request.body.decode('utf8'))
-    text = post_data.get('text', '_no_content_error_')
-    note_id = post_data.get('note_id', '_no_content_error_')
-    if text == '_no_content_error_':
-        context = {
-            'is_success': False,
-            'message': '内容不存在'
-        }
-        return JsonResponse(context)
-    try:
-        note = Note.objects.get(id=note_id)
-    except Note.DoesNotExist:
-        context = {
-            'is_success': False,
-            'message': '帖子不存在'
-        }
-        return JsonResponse(context)
-    note.comment_num += 1
-    note.save()
-    Comment.objects.create(user=request.user, note=note, text=text)
-    context = {
-        'is_success': True,
-        'message': ''
-    }
-    return JsonResponse(context)
-
-
-@login_required
-def del_note(request):
-    note_id = request.GET.get('note_id', '^bkh*bbdsf88sdfg458')
-    redirect_url = request.GET.get('url', '^bkh*bbdsf88sdfg458')
-    if redirect_url == '^bkh*bbdsf88sdfg458':
-        redirect_url = '/user/focus/publish'
-    try:
-        note = Note.objects.get(id=note_id)
-        note.delete()
-    except Note.DoesNotExist:
-        return redirect(redirect_url)
-    return redirect(redirect_url)
 
 # def article(request, article_id):
 #     article = get_object_or_404(Article, id=article_id)

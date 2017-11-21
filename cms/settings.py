@@ -276,10 +276,6 @@ STATICFILES_DIRS = (
 
 AUTH_USER_MODEL = 'focus.MyUser'
 
-# LOGIN_URL = "/manager/login/"
-LOGIN_URL = 'rest_framework:login'
-LOGOUT_URL = 'rest_framework:logout'
-
 MEDIA_URL = '/uploads/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
@@ -299,13 +295,23 @@ REST_FRAMEWORK = {
     'GLOBAL_CSRF_CHECK': False
 }
 
+# SWAGGER_SETTINGS = {
+#     'SECURITY_DEFINITIONS': {
+#         'basic': {
+#             'type': 'basic'
+#         }
+#     }
+# }
+# LOGIN_URL = 'rest_framework:login'
+# LOGOUT_URL = 'rest_framework:logout'
+
 SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'basic': {
-            'type': 'basic'
-        }
-    }
+    'JSON_EDITOR': True,
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout',
 }
+
+API_DOC_PATH = os.path.join(BASE_DIR, "api-doc/swagger.json")
 
 APPEND_SLASH = True
 
