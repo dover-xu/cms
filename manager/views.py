@@ -231,40 +231,43 @@ def mkdir(path):
 class setting(APIView):
 
     def post(self, request):
-        # form = SettingForm(request.POST)
-        # if form.is_valid():
-        # username, sex, profile = form.cleaned_data['username'], form.cleaned_data['sex'], form.cleaned_data['profile']
+        context = {
+            'is_success': False}
         username, sex, profile = request.POST.get('username'), request.POST.get('sex'), request.POST.get('profile')
-        logger.debug(profile)
         if 0 == len(username):
-            username = str(request.user)
+            username = request.user.username
         user = MyUser.objects.filter(username=username)
         if user and user[0].username != request.user.username:
-            # form.add_error('username', '用户名已存在')
-            u = MyUser.objects.get(username=request.user)
-            context = {
-                'is_success': True}
             return JsonResponse(context)
         else:
             old_user = MyUser.objects.filter(username=request.user.username)
-            if 0 == len(profile):
-                profile = old_user[0].profile
-            if 'pic_file' in request.FILES:
-                photo = request.FILES.get('pic_file')
-                img = Image.open(photo)
-                img.thumbnail((120, 120))
-                imgdir = 'avatar/%s/' % time.strftime("%Y/%m/%d", time.localtime())
-                mkdir('uploads/' + imgdir)
-                imgname = '%s_%s.%s' % (
-                    time.strftime("%H_%M_%S", time.localtime()), request.user.username, str(photo).split('.')[-1])
-                img.save('uploads/' + imgdir + imgname)
-                old_user.update(avatar=imgdir + imgname, username=username,
-                                sex=sex, profile=profile)
-            else:
-                old_user.update(username=username, sex=sex, profile=profile)
-            context = {
-                'is_success': True}
-            return JsonResponse(context)
+            if len(old_user) > 0:
+                if 0 == len(profile):
+                    profile = ''
+                if 'pic_file' in request.FILES:
+                    photo = request.FILES.get('pic_file')
+                    img = Image.open(photo)
+                    img.thumbnail((120, 120))
+                    imgdir = 'avatar/%s/' % time.strftime("%Y/%m/%d", time.localtime())
+                    mkdir('uploads/' + imgdir)
+                    imgname = '%s_%s.%s' % (
+                        time.strftime("%H_%M_%S", time.localtime()), request.user.username, str(photo).split('.')[-1])
+                    img.save('uploads/' + imgdir + imgname)
+                    filename = ''
+                    try:
+                        if old_user.first().avatar:
+                            filename = old_user.first().avatar.path
+                            os.remove(filename)
+                    except Exception as reason:
+                        logger.warning(str(reason) + '\n[cms] Remove image failed while change avatar. filename:' + filename)
+                    old_user.update(avatar=imgdir + imgname, username=username,
+                                    sex=sex, profile=profile)
+                else:
+                    old_user.update(username=username, sex=sex, profile=profile)
+                context = {
+                    'is_success': True}
+                return JsonResponse(context)
+        return JsonResponse(context)
 
 
 def auth_name(request):

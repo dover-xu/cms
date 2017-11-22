@@ -23,7 +23,7 @@ from rest_framework.schemas import SchemaGenerator
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 
 import logging
-from cms.settings import MEDIA_HOST_PORT
+from cms.settings import MEDIA_HOST_PORT, MEDIA_ROOT
 
 logger = logging.getLogger('django')
 
@@ -42,6 +42,8 @@ class SwaggerSchemaView(APIView):
         generator = SchemaGenerator(title='后端API文档', urlconf='cms.urls')
         schema = generator.get_schema(request=request)
         return Response(schema)
+
+
 #
 # @api_view()
 # @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
@@ -146,6 +148,7 @@ class ucenter(APIView):
     """
     用户中心专用api
     """
+
     def post(self, request):
         if request.user.is_authenticated:
             is_login = True
@@ -228,6 +231,7 @@ class contents(APIView):
     """
     帖子
     """
+
     def post(self, request):
         is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
@@ -269,7 +273,8 @@ def repl_with_media_host(datas):
             if 'image' in data:
                 data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['image'])
             if 'user' in data and 'avatar' in data['user']:
-                data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['user']['avatar'])
+                data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT,
+                                                data['user']['avatar'])
     return datas
 
 
@@ -462,11 +467,17 @@ def del_note(request):
         'is_success': False
     }
     if request.body:
-        logger.debug(request.body)
         post_data = json.loads(request.body.decode('utf8'))
         note_id = post_data.get('note_id', '_no_id_error_')
         try:
             note = Note.objects.get(id=note_id)
+            filename = ''
+            try:
+                if note.image:
+                    filename = note.image.path
+                    os.remove(filename)
+            except Exception as reason:
+                logger.warning(str(reason) + '\n[cms] Remove image failed while delete note. filename:' + filename)
             note.delete()
         except Note.DoesNotExist:
             return JsonResponse(context)
@@ -876,7 +887,6 @@ def publish_pic(request):
         return render(request, 'focus/publish-pic.html', {})
 
 
-
 def publish_jape(request):
     if request.method == "POST":
         if 'text_area' in request.POST:
@@ -910,7 +920,6 @@ def detail(request, note_id):
                'comments': comments,
                'loginform': loginform}
     return render(request, 'focus/comment.html', context)
-
 
 # def article(request, article_id):
 #     article = get_object_or_404(Article, id=article_id)
