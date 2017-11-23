@@ -25,6 +25,8 @@ import logging
 
 logger = logging.getLogger('django')
 
+DEFAULT_AVATAR_NUM = 30
+
 
 class Token:
     def __init__(self, security_key):
@@ -166,7 +168,7 @@ class signup(APIView):
                         'message': '两次密码不一致'
                     }
                     return JsonResponse(context)
-                pic = '/avatar/default/%d.jpg' % random.randint(1, 4)  # 随机选择默认头像
+                pic = '/avatar/default/%d.jpg' % random.randint(1, DEFAULT_AVATAR_NUM)  # 随机选择默认头像
                 user = MyUser.objects.create_user(username=username, password=password1, avatar=pic)
                 user.is_active = True
                 user.save()
