@@ -33,3 +33,11 @@
 2017-11-20 16:38:25,712 [Thread-19:19672] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/11_36_46_xudong.jpg
 2017-11-20 16:38:25,719 [Thread-20:15272] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/11_38_20_xudong.jpg
 2017-11-20 16:38:25,727 [Thread-21:19428] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/18_21_06_xudong.jpg
+2017-11-24 14:28:14,382 [Thread-9:15412] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/11_36_46_xudong.jpg
+2017-11-24 14:28:14,384 [Thread-11:2580] [django.request:152] [WARNING]- Not Found: /uploads/avatar/2017/10/20/u3323249715914891285fm23gp0.jpg
+2017-11-24 14:28:14,384 [Thread-10:9648] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/11_34_56_xudong.jpg
+2017-11-24 14:28:14,396 [Thread-12:8656] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/18_21_06_xudong.jpg
+2017-11-24 14:28:14,413 [Thread-13:1328] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/11_38_20_xudong.jpg
+2017-11-24 14:28:14,418 [Thread-15:9528] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/01/18_27_14_xudong.jpg
+2017-11-24 14:28:14,422 [Thread-17:5204] [django.request:152] [WARNING]- Not Found: /uploads/images/2017/11/02/17_38_01_xudong.jpg
+2017-11-24 14:34:54,073 [Thread-10:12784] [django.request:152] [WARNING]- Not Found: /favicon.ico

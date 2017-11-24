@@ -22,6 +22,7 @@ class MyUser(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d', null=True)
     profile = models.CharField('profile', max_length=255, blank=True, default='')
     sex = models.CharField(max_length=10, choices=sex_choice, default='m')
+    email = models.EmailField(max_length=75, blank=True)
     # objects = MyUserManager()
 
     # 序列化时代替主键
@@ -89,15 +90,15 @@ cate_choice = (
 
 
 class Note(models.Model):
-    user = models.ForeignKey('MyUser', default='', related_name='notes', verbose_name='who public')
-    text = models.TextField(null=False, blank=True, default='')
+    user = models.ForeignKey('MyUser', related_name='notes', verbose_name='who public')
+    text = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/%Y/%m/%d', null=True, blank=True)
     category = models.CharField(max_length=20, choices=cate_choice, default='Picture', verbose_name="Belong to")
     pub_date = models.DateTimeField(auto_now_add=True, editable=True)
     comment_num = models.IntegerField(default=0)
     praise_num = models.IntegerField(default=0)
     tread_num = models.IntegerField(default=0)
-    share_num = models.IntegerField(default=0, null=True, blank=True)
+    share_num = models.IntegerField(default=0)
     comment_str = models.CharField(max_length=20, blank=True, default="0")
     praise_str = models.CharField(max_length=20, blank=True, default="0")
     tread_str = models.CharField(max_length=20, blank=True, default="0")
@@ -158,9 +159,9 @@ class Note(models.Model):
 
 @python_2_unicode_compatible
 class Comment(models.Model):
-    user = models.ForeignKey('MyUser', default='', related_name='comments', verbose_name='who comment')
-    note = models.ForeignKey('Note', related_name='comments', null=True)
-    text = models.TextField(null=False, blank=False, default='')
+    user = models.ForeignKey('MyUser', null=True, related_name='comments', verbose_name='who comment')
+    note = models.ForeignKey('Note', null=True, related_name='comments')
+    text = models.TextField(blank=False, default='')
     pub_date = models.DateTimeField(auto_now_add=True, editable=True)
     praise_num = models.IntegerField(default=0)
     tread_num = models.IntegerField(default=0)
@@ -178,9 +179,9 @@ class Comment(models.Model):
 
 
 class Praise(models.Model):
-    user = models.ForeignKey('MyUser', default='', related_name='praises', verbose_name='who praise')
-    note = models.ForeignKey('Note', blank=True, null=True)
-    comment = models.ForeignKey('Comment', blank=True, null=True)
+    user = models.ForeignKey('MyUser', null=True, related_name='praises', verbose_name='who praise')
+    note = models.ForeignKey('Note', null=True, blank=True)
+    comment = models.ForeignKey('Comment', null=True, blank=True)
     praise_date = models.DateTimeField(auto_now_add=True, editable=True)
 
     def note_num(self):
@@ -201,9 +202,9 @@ class Praise(models.Model):
 
 
 class Tread(models.Model):
-    user = models.ForeignKey('MyUser', default='', related_name='treads', verbose_name='who tread')
-    note = models.ForeignKey('Note', blank=True, null=True)
-    comment = models.ForeignKey('Comment', blank=True, null=True)
+    user = models.ForeignKey('MyUser', null=True, related_name='treads', verbose_name='who tread')
+    note = models.ForeignKey('Note', null=True, blank=True)
+    comment = models.ForeignKey('Comment', null=True, blank=True)
     tread_date = models.DateTimeField(auto_now_add=True, editable=True)
 
     def note_num(self):
@@ -224,9 +225,9 @@ class Tread(models.Model):
 
 
 class Share(models.Model):
-    user = models.ForeignKey('MyUser', default='', related_name='shares', verbose_name='who share')
-    note = models.ForeignKey('Note', blank=True, null=True)
-    text = models.CharField(max_length=200, default='', blank=True, null=True)
+    user = models.ForeignKey('MyUser', related_name='shares', verbose_name='who share')
+    note = models.ForeignKey('Note', null=True)
+    text = models.CharField(max_length=200, default='', blank=True)
     to = models.CharField(max_length=256)
     share_date = models.DateTimeField(auto_now_add=True, editable=True)
 

@@ -158,7 +158,7 @@ class ucenter(APIView):
         user_data = repl_with_media_host(dict(user.data))
         post_data = json.loads(request.body.decode('utf8'))
         type = post_data.get('type', 0)  # 统计类别
-        page_size = post_data.get('display', 5)  # 每页显示帖子数
+        page_size = post_data.get('display', 10)  # 每页显示帖子数
         current = post_data.get('current', 1)
         if type == 0:
             query_set = Note.objects.query_by_user(request.user)
@@ -241,7 +241,7 @@ class contents(APIView):
         tp = post_data.get('type', 0)
         sort = post_data.get('sort', 0)
         current = post_data.get('current', 1)
-        page_size = post_data.get('display', 5)  # 每页显示帖子数
+        page_size = post_data.get('display', 10)  # 每页显示帖子数
         query_set = get_queryset_by_type_and_sort(tp, sort)
         if query_set is None:
             return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -270,7 +270,7 @@ def repl_with_media_host(datas):
         datas['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, datas['avatar'])
     elif isinstance(datas, list):
         for data in datas:
-            if 'image' in data:
+            if 'image' in data and data['image']:
                 data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['image'])
             if 'user' in data and 'avatar' in data['user']:
                 data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT,
@@ -295,7 +295,7 @@ def details(request):
         post_data = json.loads(request.body.decode('utf8'))
         note_id = post_data.get('id', 1)
         current = post_data.get('current', 1)
-        page_size = post_data.get('display', 5)  # 每页显示帖子数
+        page_size = post_data.get('display', 10)  # 每页显示评论数
         comment_set = Comment.objects.filter(note=note_id).order_by('-pub_date')
         total = comment_set.count()
 

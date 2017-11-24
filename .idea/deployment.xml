@@ -10,12 +10,12 @@
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/manager/migrations" />
             <excludedPath local="true" path="$PROJECT_DIR$/focus/migrations" />
-            <excludedPath local="true" path="$PROJECT_DIR$/uploads" />
             <excludedPath local="true" path="$PROJECT_DIR$/static_collect" />
             <excludedPath path="/projects/cms/manager/migrations" />
             <excludedPath path="/projects/cms/focus/migrations" />
             <excludedPath path="/projects/cms/static_collect" />
-            <excludedPath path="/projects/cms/uploads" />
+            <excludedPath local="true" path="$PROJECT_DIR$/uploads" />
+            <excludedPath path="/backend/cms/uploads" />
           </excludedPaths>
         </serverdata>
       </paths>
