@@ -37,8 +37,8 @@ class NoteManager(models.Manager):
     # def get_by_natural_key(self, text):
     #     return self.get(text=text)
 
-    def query_by_recommend(self):
-        query = self.get_queryset().order_by('-pub_date')
+    def query_all_by_recommend(self):
+        query = self.get_queryset().order_by('-recmd')
         return query
 
     def query_all_by_time(self):
@@ -49,6 +49,10 @@ class NoteManager(models.Manager):
         query = self.get_queryset().order_by('-hot')
         return query
 
+    def query_pic_by_recommend(self):
+        query = self.get_queryset().filter(category__exact='Picture').order_by('-recmd')
+        return query
+
     def query_pic_by_time(self):
         query = self.get_queryset().filter(category__exact='Picture').order_by('-pub_date')
         return query
@@ -57,12 +61,20 @@ class NoteManager(models.Manager):
         query = self.get_queryset().filter(category__exact='Picture').order_by('-hot')
         return query
 
+    def query_jape_by_recommend(self):
+        query = self.get_queryset().filter(category__exact='Jape').order_by('-recmd')
+        return query
+
     def query_jape_by_time(self):
         query = self.get_queryset().filter(category__exact='Jape').order_by('-pub_date')
         return query
 
     def query_jape_by_hot(self):
         query = self.get_queryset().filter(category__exact='Jape').order_by('-hot')
+        return query
+
+    def query_by_haha(self):
+        query = self.get_queryset().filter(category__exact='Picture').order_by('-haha')
         return query
 
     def query_by_id(self, note_id):
@@ -104,8 +116,9 @@ class Note(models.Model):
     tread_str = models.CharField(max_length=20, blank=True, default="0")
     share_str = models.CharField(max_length=20, blank=True, default="0")
     click_num = models.IntegerField(default=0)
-    # 分享10分、评论10分、点赞3分、点踩1分、访问1分
-    hot = models.IntegerField(default=0)
+    hot = models.IntegerField(default=0)  # 热度值：分享10分、评论10分、点赞3分、点踩1分、访问1分
+    recmd = models.IntegerField(default=0)  # 推荐值
+    haha = models.IntegerField(default=0)  # 欢笑值
     recommend = models.IntegerField(default=0)
     objects = NoteManager()
 
@@ -136,6 +149,10 @@ class Note(models.Model):
         self.share_str = str(self.share_num) if i == 0 else str("%.1f万" % (self.share_num / 10000))
         # 计算热度值
         self.hot = (self.share_num + self.comment_num) * 10 + self.praise_num * 3 + self.tread_num + self.click_num
+        # 计算推荐值
+        self.recmd = (self.share_num + self.comment_num + self.praise_num + self.click_num) / (self.tread_num + 1)
+        # 计算欢笑值
+        self.haha = self.share_num + self.comment_num + self.praise_num + self.click_num
         super(Note, self).save(*args, **kwargs)
 
     def delete(self, using=None, keep_parents=False):

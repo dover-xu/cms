@@ -307,4 +307,4 @@ LOGOUT_URL = 'rest_framework:logout'
 
 APPEND_SLASH = True
 
-MEDIA_HOST_PORT = r'http://119.27.181.193:80/'
+FRONTEND_HOST_PORT = r'http://119.27.181.193:80/'

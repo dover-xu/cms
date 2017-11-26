@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^api/a-c/$', views.add_comment, name='add_comment'),
     url(r'^api/a-p-t-s/$', views.add_praise_tread_share, name='add_praise_tread_share'),
     url(r'^api/del/$', views.del_note, name='del_note'),
+    url(r'^api/note_jx/$', views.note_jx, name='note_jx'),
     
     url(r'^$', views.index, name='index'),
 

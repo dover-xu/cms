@@ -11,7 +11,6 @@ from manager.forms import LoginForm
 from PIL import Image
 from focus.serializers import MyUserSerializer, NoteSerializer, CommentSerializer, PraiseSerializer, TreadSerializer, \
     ShareSerializer
-
 from rest_framework import status, authentication
 from rest_framework import schemas
 from rest_framework import viewsets
@@ -21,9 +20,9 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
 from rest_framework.schemas import SchemaGenerator
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
-
 import logging
-from cms.settings import MEDIA_HOST_PORT, MEDIA_ROOT
+from cms.settings import FRONTEND_HOST_PORT
+from PIL import Image
 
 logger = logging.getLogger('django')
 
@@ -187,6 +186,19 @@ class ucenter(APIView):
         return Response(context)
 
 
+def repl_with_media_host(datas):
+    if isinstance(datas, dict) and 'avatar' in datas:
+        datas['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT, datas['avatar'])
+    elif isinstance(datas, list):
+        for data in datas:
+            if 'image' in data and data['image']:
+                data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT, data['image'])
+            if 'user' in data and 'avatar' in data['user']:
+                data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT,
+                                                data['user']['avatar'])
+    return datas
+
+
 def append_praise_tread_info(request, data):
     if request.user.is_authenticated:
         for n in data:
@@ -201,25 +213,48 @@ def append_praise_tread_info(request, data):
     return data
 
 
+def append_detail_url(data):
+    for n in data:
+        n['detail_url'] = FRONTEND_HOST_PORT + 'detail/' + str(n['id'])
+    return data
+
+
+def crop_image_for_hxjx(data):
+    for n in data:
+        path = '/'.join(n['image'].split('/')[3:])
+        host = '/'.join(n['image'].split('/')[:3]) + '/'
+        dirpath = os.path.dirname(path) + '/'
+        filename = 'crop_' + os.path.basename(path)
+        logger.debug(path)
+        img = Image.open(path)
+        width = img.size[0]
+        height = img.size[1]
+        if height >= width*1.5:
+            img2 = img.crop((0, 0, width, width * 1.5))
+            img2.save(dirpath + filename)
+            n['image_crop'] = host + dirpath + filename
+    return data
+
+
 def get_queryset_by_type_and_sort(tp, sort):
     query_set = None
     if tp == TYPE_ALL:
         if sort == SORT_RECMD:
-            query_set = Note.objects.query_all_by_time()
+            query_set = Note.objects.query_all_by_recommend()
         elif sort == SORT_NEW:
             query_set = Note.objects.query_all_by_time()
         elif sort == SORT_NEW:
             query_set = Note.objects.query_all_by_hot()
     elif tp == TYPE_PIC:
         if sort == SORT_RECMD:
-            query_set = Note.objects.query_pic_by_time()
+            query_set = Note.objects.query_pic_by_recommend()
         elif sort == SORT_NEW:
             query_set = Note.objects.query_pic_by_time()
         elif sort == SORT_HOT:
             query_set = Note.objects.query_pic_by_hot()
     elif tp == TYPE_JAPE:
         if sort == SORT_RECMD:
-            query_set = Note.objects.query_jape_by_time()
+            query_set = Note.objects.query_jape_by_recommend()
         elif sort == SORT_NEW:
             query_set = Note.objects.query_jape_by_time()
         elif sort == SORT_HOT:
@@ -265,17 +300,18 @@ class contents(APIView):
         return Response(context)
 
 
-def repl_with_media_host(datas):
-    if isinstance(datas, dict) and 'avatar' in datas:
-        datas['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, datas['avatar'])
-    elif isinstance(datas, list):
-        for data in datas:
-            if 'image' in data and data['image']:
-                data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT, data['image'])
-            if 'user' in data and 'avatar' in data['user']:
-                data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', MEDIA_HOST_PORT,
-                                                data['user']['avatar'])
-    return datas
+@api_view(['GET'])
+def note_jx(request):
+    # 欢笑精选
+    query_set_haha = Note.objects.query_by_haha()
+    notes_haha = NoteSerializer(query_set_haha[:4], many=True, context={'request': request})
+    notes_haha_data = repl_with_media_host(notes_haha.data)
+    notes_haha_data = append_detail_url(notes_haha_data)
+    notes_haha_data = crop_image_for_hxjx(notes_haha_data)  # 欢笑精选截图
+    context = {
+        'note_haha_list': notes_haha_data,
+    }
+    return JsonResponse(context)
 
 
 @api_view(['POST'])
