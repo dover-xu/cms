@@ -85,7 +85,7 @@ ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', 'localhost', '119.27.181.193', '
 # 跨域增加忽略
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1:8080', 'localhost:8080', '119.27.181.193'
+    '127.0.0.1:8080', 'localhost:8080', '119.27.181.193', '119.27.181.193:8800'
 )
 CORS_ALLOW_CREDENTIALS = True
 
@@ -271,7 +271,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_collect')
 # 其它 存放静态文件的文件夹，可以用来存放项目中公用的静态文件，里面不能包含 STATIC_ROOT
 # 如果不想用 STATICFILES_DIRS 可以不用，都放在 app 里的 static 中也可以
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "statics"),
+    os.path.join(BASE_DIR, "static"),
 )
 
 AUTH_USER_MODEL = 'focus.MyUser'
@@ -307,4 +307,9 @@ LOGOUT_URL = 'rest_framework:logout'
 
 APPEND_SLASH = True
 
-FRONTEND_HOST_PORT = r'http://119.27.181.193:80/'
+PROD_ENV = False
+
+if PROD_ENV:
+    FRONTEND_HOST_PORT = r'http://119.27.181.193:80/'
+else:
+    FRONTEND_HOST_PORT = r'http://119.27.181.193:8800/'
