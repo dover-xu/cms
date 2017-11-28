@@ -6,5 +6,4 @@ focus/__pycache__/
 cms/__pycache__/
 logs/
 uploads/
-*.pyc
 focus/views.py.orig

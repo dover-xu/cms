@@ -231,7 +231,7 @@ def crop_image_for_hxjx(data):
         height = img.size[1]
         want_height = width*0.618
         if height > want_height:
-            img2 = img.crop((20, 20, width+20, want_height+20))
+            img2 = img.crop((0, 20, width, want_height+20))
             img2.save(dirpath + filename)
             n['image_crop'] = host + dirpath + filename
     return data

@@ -29,6 +29,7 @@ import logging.handlers
 # # CELERY_RESULT_SERIALIZER = 'json'
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 
+# PROD_ENV = True
 PROD_ENV = False
 
 if PROD_ENV:
