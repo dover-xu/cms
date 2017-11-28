@@ -38,59 +38,64 @@ class NoteManager(models.Manager):
     #     return self.get(text=text)
 
     def query_all_by_recommend(self):
-        query = self.get_queryset().order_by('-recmd')
+        query = self.get_queryset().order_by('-recmd')[:200]
         return query
 
     def query_all_by_time(self):
-        query = self.get_queryset().order_by('-pub_date')
+        query = self.get_queryset().order_by('-pub_date')[:200]
         return query
 
     def query_all_by_hot(self):
-        query = self.get_queryset().order_by('-hot')
+        query = self.get_queryset().order_by('-hot')[:200]
         return query
 
     def query_pic_by_recommend(self):
-        query = self.get_queryset().filter(category__exact='Picture').order_by('-recmd')
+        query = self.get_queryset().filter(category__exact='Picture').order_by('-recmd')[:200]
         return query
 
     def query_pic_by_time(self):
-        query = self.get_queryset().filter(category__exact='Picture').order_by('-pub_date')
+        query = self.get_queryset().filter(category__exact='Picture').order_by('-pub_date')[:200]
         return query
 
     def query_pic_by_hot(self):
-        query = self.get_queryset().filter(category__exact='Picture').order_by('-hot')
+        query = self.get_queryset().filter(category__exact='Picture').order_by('-hot')[:200]
         return query
 
     def query_jape_by_recommend(self):
-        query = self.get_queryset().filter(category__exact='Jape').order_by('-recmd')
+        query = self.get_queryset().filter(category__exact='Jape').order_by('-recmd')[:200]
         return query
 
     def query_jape_by_time(self):
-        query = self.get_queryset().filter(category__exact='Jape').order_by('-pub_date')
+        query = self.get_queryset().filter(category__exact='Jape').order_by('-pub_date')[:200]
         return query
 
     def query_jape_by_hot(self):
-        query = self.get_queryset().filter(category__exact='Jape').order_by('-hot')
+        query = self.get_queryset().filter(category__exact='Jape').order_by('-hot')[:200]
         return query
 
     def query_by_haha(self):
-        query = self.get_queryset().filter(category__exact='Picture').order_by('-haha')
+        query = self.get_queryset().filter(category__exact='Picture').order_by('-haha')[:200]
         return query
 
     def query_by_id(self, note_id):
-        return Note.objects.get(id=note_id)
-
-    def query_by_column(self, column_id):
-        query = self.get_query().filter(column_id=column_id)
+        try:
+            return self.get_queryset().get(id=note_id)
+        except:
+            return None
 
     def query_by_user(self, user):
         # user = MyUser.objects.get(id=user_id)
-        note_list = user.notes.all().order_by('-pub_date')
-        return note_list
+        # query = user.note_set.all().order_by('-pub_date')
+        query = self.get_queryset().filter(user=user).order_by('-pub_date')
+        return query
 
     def query_by_keyword(self, keyword):
         query = self.get_queryset().filter(text__contains=keyword)
         return query
+
+
+class Tag(models.Model):
+    tag_name = models.CharField(max_length=20, blank=True)
 
 
 cate_choice = (
@@ -102,10 +107,11 @@ cate_choice = (
 
 
 class Note(models.Model):
-    user = models.ForeignKey('MyUser', related_name='notes', verbose_name='who public')
+    user = models.ForeignKey('MyUser', related_name='note_set', verbose_name='who public')
     text = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/%Y/%m/%d', null=True, blank=True)
     category = models.CharField(max_length=20, choices=cate_choice, default='Picture', verbose_name="Belong to")
+    tags = models.ManyToManyField(Tag, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True, editable=True)
     comment_num = models.IntegerField(default=0)
     praise_num = models.IntegerField(default=0)
@@ -119,7 +125,6 @@ class Note(models.Model):
     hot = models.IntegerField(default=0)  # 热度值：分享10分、评论10分、点赞3分、点踩1分、访问1分
     recmd = models.IntegerField(default=0)  # 推荐值
     haha = models.IntegerField(default=0)  # 欢笑值
-    recommend = models.IntegerField(default=0)
     objects = NoteManager()
 
     def natural_key(self):
@@ -183,13 +188,13 @@ class Comment(models.Model):
     praise_num = models.IntegerField(default=0)
     tread_num = models.IntegerField(default=0)
 
-    def note_num(self):
+    def note_id(self):
         if self.note:
             return self.note.id
         else:
             return self.note
 
-    note_num.short_description = 'note id'
+    note_id.short_description = 'note id'
 
     def __str__(self):
         return 'Content: ' + self.text
@@ -201,13 +206,13 @@ class Praise(models.Model):
     comment = models.ForeignKey('Comment', null=True, blank=True)
     praise_date = models.DateTimeField(auto_now_add=True, editable=True)
 
-    def note_num(self):
+    def note_id(self):
         if self.note:
             return self.note.id
         else:
             return self.note
 
-    note_num.short_description = 'note id'
+    note_id.short_description = 'note id'
 
     def comment_num(self):
         if self.comment:
@@ -224,13 +229,13 @@ class Tread(models.Model):
     comment = models.ForeignKey('Comment', null=True, blank=True)
     tread_date = models.DateTimeField(auto_now_add=True, editable=True)
 
-    def note_num(self):
+    def note_id(self):
         if self.note:
             return self.note.id
         else:
             return self.note
 
-    note_num.short_description = 'note id'
+    note_id.short_description = 'note id'
 
     def comment_num(self):
         if self.comment:
@@ -248,13 +253,13 @@ class Share(models.Model):
     to = models.CharField(max_length=256)
     share_date = models.DateTimeField(auto_now_add=True, editable=True)
 
-    def note_num(self):
+    def note_id(self):
         if self.note:
             return self.note.id
         else:
             return self.note
 
-    note_num.short_description = 'note id'
+    note_id.short_description = 'note id'
 
     def __str__(self):
         if self.text:

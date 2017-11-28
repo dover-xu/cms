@@ -1,5 +1,10 @@
-.idea/*
-logs/*
-uploads/*
+.idea/
+focus/migrations/
+manager/migrations/
+manager/__pycache__/
+focus/__pycache__/
+cms/__pycache__/
+logs/
+uploads/
 *.pyc
 focus/views.py.orig

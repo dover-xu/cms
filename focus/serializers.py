@@ -21,7 +21,7 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Note
         fields = (
-            'id', 'text', 'image', 'hot', 'click_num', 'recommend', 'user', 'category', 'comments',
+            'id', 'text', 'image', 'hot', 'click_num', 'recmd', 'user', 'category', 'comments',
             'comment_str', 'praise_str', 'tread_str', 'share_str', 'pub_date')
 
     def create(self, validated_data):
