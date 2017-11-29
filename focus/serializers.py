@@ -15,13 +15,13 @@ class MyUserSerializer(serializers.HyperlinkedModelSerializer):
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
     # user = serializers.ReadOnlyField(source='user.username')
     user = MyUserSerializer(read_only=True)
-    comments = serializers.HyperlinkedRelatedField(many=True, view_name='comment-detail', read_only=True)
+    # comments = serializers.HyperlinkedRelatedField(many=True, view_name='comment-detail', read_only=True)
     pub_date = serializers.DateTimeField(format="%Y-%m-%d %H:%M")
 
     class Meta:
         model = Note
         fields = (
-            'id', 'text', 'image', 'hot', 'click_num', 'recmd', 'user', 'category', 'comments',
+            'id', 'text', 'image', 'hot', 'click_num', 'recmd', 'user', 'category',
             'comment_str', 'praise_str', 'tread_str', 'share_str', 'pub_date')
 
     def create(self, validated_data):

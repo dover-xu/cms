@@ -24,7 +24,7 @@ import logging
 from cms.settings import FRONTEND_HOST_PORT
 from PIL import Image
 
-logger = logging.getLogger('django')
+logger = logging.getLogger('django.db')
 
 TYPE_ALL = 0
 TYPE_PIC = 1
@@ -225,7 +225,6 @@ def crop_image_for_hxjx(data):
         host = '/'.join(n['image'].split('/')[:3]) + '/'
         dirpath = os.path.dirname(path) + '/'
         filename = 'crop_' + os.path.basename(path)
-        logger.debug(path)
         img = Image.open(path)
         width = img.size[0]
         height = img.size[1]
@@ -244,7 +243,7 @@ def get_queryset_by_type_and_sort(tp, sort):
             query_set = Note.objects.query_all_by_recommend()
         elif sort == SORT_NEW:
             query_set = Note.objects.query_all_by_time()
-        elif sort == SORT_NEW:
+        elif sort == SORT_HOT:
             query_set = Note.objects.query_all_by_hot()
     elif tp == TYPE_PIC:
         if sort == SORT_RECMD:
@@ -341,6 +340,7 @@ def details(request):
             end = current * page_size
             comment_set = comment_set[start:end]
         comments = CommentSerializer(comment_set, many=True, context={'request': request})
+        comments_data = repl_with_media_host(comments.data)
 
         note_set = Note.objects.filter(id=note_id)
         note_set[0].click_num += 1
@@ -353,7 +353,7 @@ def details(request):
             'user': user_data,
             'is_login': is_login,
             'note': notes_data[0],
-            'comments': comments.data,
+            'comments': comments_data,
             'total': total,
             'current': current,
             'display': page_size,
@@ -524,6 +524,7 @@ def del_note(request):
 
 
 def index(request):
+    logger.debug('index')
     note_jx = Note.objects.query_pic_by_hot()[:4]
     note_list = Note.objects.query_all_by_time()
     rows = note_list.count()  # 帖子总数

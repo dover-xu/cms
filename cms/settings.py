@@ -29,6 +29,7 @@ import logging.handlers
 # # CELERY_RESULT_SERIALIZER = 'json'
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 
+# PROD_ENV = True
 PROD_ENV = False
 
 if PROD_ENV:
@@ -148,7 +149,7 @@ WSGI_APPLICATION = 'cms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cms_int_db',
+        'NAME': 'cms_db' if PROD_ENV else 'cms_int_db',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '',
