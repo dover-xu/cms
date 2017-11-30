@@ -34,6 +34,18 @@ SORT_NEW = 1
 SORT_HOT = 2
 
 
+def log(tp, message):
+    msg = '[focus][view.py]' + message
+    if tp == 'debug':
+        logger.debug(msg)
+    elif tp == 'info':
+        logger.info(msg)
+    elif tp == 'warn':
+        logger.warning(msg)
+    elif tp == 'error':
+        logger.error(msg)
+
+
 class SwaggerSchemaView(APIView):
     renderer_classes = [OpenAPIRenderer, SwaggerUIRenderer]
 
@@ -414,50 +426,55 @@ def add_praise_tread_share(request):
     note_id = post_data.get('note_id', '_no_id_error_')
     context = {
         'is_success': False,
+        'message': '',
         'action': action,
     }
-    try:
-        note = Note.objects.get(id=note_id)
-    except Note.DoesNotExist:
-        context['is_success'] = False
-        return JsonResponse(context)
-    if action == 'praise':
-        if request.user.is_authenticated:
-            note.praise_num += 1
-            note.save()
-            try:
-                Praise.objects.get(user=request.user, note=note)
-            except Praise.DoesNotExist:
-                Praise.objects.create(user=request.user, note=note)
-            context['is_success'] = True
-            context['praise_num'] = note.praise_num
-            return JsonResponse(context)
-    elif action == 'tread':
-        if request.user.is_authenticated:
-            note.tread_num += 1
-            note.save()
-            try:
-                Tread.objects.get(user=request.user, note=note)
-            except Tread.DoesNotExist:
-                Tread.objects.create(user=request.user, note=note)
-            context['is_success'] = True
-            context['tread_num'] = note.tread_num
-            return JsonResponse(context)
-    elif action == 'share':
-        if request.user.is_authenticated:
-            note.share_num += 1
-            print('share:', note.share_num)
-            note.save()
-            try:
-                Share.objects.get(user=request.user, note=note)
-            except Share.DoesNotExist:
-                Share.objects.create(user=request.user, note=note)
-            context['is_success'] = True
-            context['share_num'] = note.share_num
+    note = Note.objects.filter(id=note_id).first()
+    if note:
+        if action == 'praise':
+            if request.user.is_authenticated:
+                # note.praise_num += 1
+                # note.save()
+                praise = Praise.objects.filter(user=request.user, note=note).first()
+                if not praise:
+                    Praise.objects.create(user=request.user, note=note)
+                    context['is_success'] = True
+                else:
+                    context['is_success'] = False
+                    context['message'] = '不能重复点赞'
+                context['praise_num'] = note.get_praise_count()
+                return JsonResponse(context)
+        elif action == 'tread':
+            if request.user.is_authenticated:
+                # note.tread_num += 1
+                # note.save()
+                tread = Tread.objects.filter(user=request.user, note=note).first()
+                if not tread:
+                    Tread.objects.create(user=request.user, note=note)
+                    context['is_success'] = True
+                else:
+                    context['is_success'] = False
+                    context['message'] = '不能重复点踩'
+                context['tread_num'] = note.get_tread_count()
+                return JsonResponse(context)
+        elif action == 'share':
+            if request.user.is_authenticated:
+                share = Share.objects.filter(user=request.user, note=note).first()
+                if not share:
+                    Share.objects.create(user=request.user, note=note)
+                    context['is_success'] = True
+                else:
+                    context['is_success'] = False
+                    context['message'] = '不能重复点踩'
+                context['share_num'] = note.get_share_count()
+                return JsonResponse(context)
+        else:
+            context['is_success'] = False
+            context['message'] = '帖子不存在'
             return JsonResponse(context)
     else:
-        context['is_success'] = False
-        return JsonResponse(context)
+        log(tp='warn', message='[add_praise_tread_share]: 帖子不存在')
+        context['message'] = '帖子不存在'
     return JsonResponse(context)
 
 
@@ -469,27 +486,21 @@ def add_comment(request):
     post_data = json.loads(request.body.decode('utf8'))
     text = post_data.get('text', '_no_text_error_')
     note_id = post_data.get('note_id', '_no_id_error_')
-    if text == '_no_content_error_':
-        context = {
-            'is_success': False,
-            'message': '内容不存在'
-        }
-        return JsonResponse(context)
-    try:
-        note = Note.objects.get(id=note_id)
-    except Note.DoesNotExist:
-        context = {
-            'is_success': False,
-            'message': '帖子不存在'
-        }
-        return JsonResponse(context)
-    # note.comment_num += 1
-    # note.save()
-    Comment.objects.create(user=request.user, note=note, text=text)
     context = {
-        'is_success': True,
+        'is_success': False,
         'message': ''
     }
+    if text == '_no_content_error_':
+        context['message'] = '内容不存在'
+        return JsonResponse(context)
+    note = Note.objects.filter(id=note_id).first()
+    if note:
+        Comment.objects.create(user=request.user, note__id=note_id, text=text)
+        context['is_success'] = True
+    else:
+        log('warn', '[add_comment]: 帖子不存在')
+        context['message'] = '帖子不存在'
+
     return JsonResponse(context)
 
 
@@ -507,16 +518,16 @@ def del_note(request):
         post_data = json.loads(request.body.decode('utf8'))
         note_id = post_data.get('note_id', '_no_id_error_')
         try:
-            note = Note.objects.get(id=note_id)
-            filename = ''
+            note = Note.objects.filter(id=note_id).first()
             try:
                 if note.image:
                     filename = note.image.path
                     os.remove(filename)
             except Exception as reason:
-                logger.warning(str(reason) + '\n[cms] Remove image failed while delete note. filename:' + filename)
+                log('warn', '[del_note]: 删除图片失败: ' + str(reason))
             note.delete()
-        except Note.DoesNotExist:
+        except Exception as reason:
+            log('warn', '[del_note]: 删除帖子失败: ' + str(reason))
             return JsonResponse(context)
         context['is_success'] = True
         return JsonResponse(context)
@@ -541,18 +552,17 @@ def del_note_comment(request):
         comment_id = post_data.get('comment_id', '_no_comment_id_error_')
         try:
             note = Note.objects.get(id=note_id)
-            filename = ''
             try:
                 if note.image:
                     filename = note.image.path
                     os.remove(filename)
             except Exception as reason:
-                logger.warning(str(reason) + '\n[cms] Remove image failed while delete note. filename:' + filename)
+                log('warn', '[del_note]: 删除图片失败: ' + str(reason))
             note.delete()
             context['is_success'] = True
             context['delete_note'] = True
         except Exception as reason:
-            logger.warning(str(reason) + '\n[cms] Delete note failed.')
+            log('warn', '[del_note]: 删除帖子失败: ' + str(reason))
 
         try:
             comment = Comment.objects.get(id=comment_id)
@@ -560,7 +570,7 @@ def del_note_comment(request):
             context['is_success'] = True
             context['delete_comment'] = True
         except Exception as reason:
-            logger.warning(str(reason) + '\n[cms] Delete comment failed.')
+            log('warn', '[del_note]: 删除评论失败: ' + str(reason))
 
         return JsonResponse(context)
     return JsonResponse(context)

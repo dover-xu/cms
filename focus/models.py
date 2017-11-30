@@ -163,15 +163,14 @@ class Note(models.Model):
         self.haha = self.share_num + self.comment_num + self.praise_num + self.click_num
         super(Note, self).save(*args, **kwargs)
 
-    def delete(self, using=None, keep_parents=False):
-        # 删除图片
-        logger.debug('delete note')
-        if self.image:
-            file_full_path = self.image.path
-            if os.path.exists(file_full_path):
-                if os.path.isfile(file_full_path):
-                    os.remove(file_full_path)
-        super(Note, self).delete(using=None, keep_parents=False)
+    def get_praise_count(self):
+        return self.praise_set.all().count()
+
+    def get_tread_count(self):
+        return self.tread_set.all().count()
+
+    def get_share_count(self):
+        return self.share_set.all().count()
 
     def __str__(self):
         return 'Content: ' + self.text
@@ -199,22 +198,6 @@ class Comment(models.Model):
             return self.note
 
     note_id.short_description = 'note id'
-
-    def save(self, *args, **kwargs):
-        if self.note:
-            self.note.comment_num += 1
-            self.note.save()
-        logger.debug('save comment num:'+str(self.note.comment_num))
-        logger.debug('save comment str:' + str(self.note.comment_str))
-        super(Comment, self).save(*args, **kwargs)
-
-    def delete(self, using=None, keep_parents=False):
-        if self.note:
-            self.note.comment_num -= 1
-            self.note.save()
-        logger.debug('del comment num:' + str(self.note.comment_num))
-        logger.debug('del comment str:' + str(self.note.comment_str))
-        super(Comment, self).delete(using=None, keep_parents=False)
 
     def __str__(self):
         return 'Content: ' + self.text
