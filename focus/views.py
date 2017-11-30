@@ -24,7 +24,7 @@ import logging
 from cms.settings import FRONTEND_HOST_PORT
 from PIL import Image
 
-logger = logging.getLogger('django.db')
+logger = logging.getLogger('django')
 
 TYPE_ALL = 0
 TYPE_PIC = 1
@@ -483,8 +483,8 @@ def add_comment(request):
             'message': '帖子不存在'
         }
         return JsonResponse(context)
-    note.comment_num += 1
-    note.save()
+    # note.comment_num += 1
+    # note.save()
     Comment.objects.create(user=request.user, note=note, text=text)
     context = {
         'is_success': True,
@@ -519,6 +519,49 @@ def del_note(request):
         except Note.DoesNotExist:
             return JsonResponse(context)
         context['is_success'] = True
+        return JsonResponse(context)
+    return JsonResponse(context)
+
+
+@api_view(['POST'])
+def del_note_comment(request):
+    """
+    删帖或者删评论
+    :param request:
+    :return:
+    """
+    context = {
+        'is_success': False,
+        'delete_note': False,
+        'delete_comment': False
+    }
+    if request.body:
+        post_data = json.loads(request.body.decode('utf8'))
+        note_id = post_data.get('note_id', '_no_note_id_error_')
+        comment_id = post_data.get('comment_id', '_no_comment_id_error_')
+        try:
+            note = Note.objects.get(id=note_id)
+            filename = ''
+            try:
+                if note.image:
+                    filename = note.image.path
+                    os.remove(filename)
+            except Exception as reason:
+                logger.warning(str(reason) + '\n[cms] Remove image failed while delete note. filename:' + filename)
+            note.delete()
+            context['is_success'] = True
+            context['delete_note'] = True
+        except Exception as reason:
+            logger.warning(str(reason) + '\n[cms] Delete note failed.')
+
+        try:
+            comment = Comment.objects.get(id=comment_id)
+            comment.delete()
+            context['is_success'] = True
+            context['delete_comment'] = True
+        except Exception as reason:
+            logger.warning(str(reason) + '\n[cms] Delete comment failed.')
+
         return JsonResponse(context)
     return JsonResponse(context)
 

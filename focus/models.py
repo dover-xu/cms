@@ -3,6 +3,9 @@ import os
 from django.contrib.auth.models import AbstractUser, BaseUserManager, User
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+import logging
+
+logger = logging.getLogger('django')
 
 
 class MyUserManager(models.Manager):
@@ -162,6 +165,7 @@ class Note(models.Model):
 
     def delete(self, using=None, keep_parents=False):
         # 删除图片
+        logger.debug('delete note')
         if self.image:
             file_full_path = self.image.path
             if os.path.exists(file_full_path):
@@ -195,6 +199,22 @@ class Comment(models.Model):
             return self.note
 
     note_id.short_description = 'note id'
+
+    def save(self, *args, **kwargs):
+        if self.note:
+            self.note.comment_num += 1
+            self.note.save()
+        logger.debug('save comment num:'+str(self.note.comment_num))
+        logger.debug('save comment str:' + str(self.note.comment_str))
+        super(Comment, self).save(*args, **kwargs)
+
+    def delete(self, using=None, keep_parents=False):
+        if self.note:
+            self.note.comment_num -= 1
+            self.note.save()
+        logger.debug('del comment num:' + str(self.note.comment_num))
+        logger.debug('del comment str:' + str(self.note.comment_str))
+        super(Comment, self).delete(using=None, keep_parents=False)
 
     def __str__(self):
         return 'Content: ' + self.text
