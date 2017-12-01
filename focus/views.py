@@ -433,8 +433,8 @@ def add_praise_tread_share(request):
     if note:
         if action == 'praise':
             if request.user.is_authenticated:
-                # note.praise_num += 1
-                # note.save()
+                note.praise_num += 1
+                note.save()
                 praise = Praise.objects.filter(user=request.user, note=note).first()
                 if not praise:
                     Praise.objects.create(user=request.user, note=note)
@@ -442,12 +442,12 @@ def add_praise_tread_share(request):
                 else:
                     context['is_success'] = False
                     context['message'] = '不能重复点赞'
-                context['praise_num'] = note.get_praise_count()
+                context['praise_num'] = note.praise_num
                 return JsonResponse(context)
         elif action == 'tread':
             if request.user.is_authenticated:
-                # note.tread_num += 1
-                # note.save()
+                note.tread_num += 1
+                note.save()
                 tread = Tread.objects.filter(user=request.user, note=note).first()
                 if not tread:
                     Tread.objects.create(user=request.user, note=note)
@@ -455,10 +455,12 @@ def add_praise_tread_share(request):
                 else:
                     context['is_success'] = False
                     context['message'] = '不能重复点踩'
-                context['tread_num'] = note.get_tread_count()
+                context['tread_num'] = note.tread_num
                 return JsonResponse(context)
         elif action == 'share':
             if request.user.is_authenticated:
+                note.share_num += 1
+                note.save()
                 share = Share.objects.filter(user=request.user, note=note).first()
                 if not share:
                     Share.objects.create(user=request.user, note=note)
@@ -466,7 +468,7 @@ def add_praise_tread_share(request):
                 else:
                     context['is_success'] = False
                     context['message'] = '不能重复点踩'
-                context['share_num'] = note.get_share_count()
+                context['share_num'] = note.share_num
                 return JsonResponse(context)
         else:
             context['is_success'] = False
@@ -495,7 +497,9 @@ def add_comment(request):
         return JsonResponse(context)
     note = Note.objects.filter(id=note_id).first()
     if note:
-        Comment.objects.create(user=request.user, note__id=note_id, text=text)
+        # note.comment_num += 1
+        # note.save()
+        Comment.objects.create(user=request.user, note=note, text=text)
         context['is_success'] = True
     else:
         log('warn', '[add_comment]: 帖子不存在')

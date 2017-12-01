@@ -4,7 +4,8 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager, User
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 import logging
-
+from django.db.models.signals import post_save, post_delete
+from django.dispatch import receiver
 logger = logging.getLogger('django')
 
 
@@ -145,33 +146,6 @@ class Note(models.Model):
 
     text_frag.short_description = 'CONTENT'
 
-    def save(self, *args, **kwargs):
-        # 初始化评论、赞踩的个数的字符串显示
-        i = self.comment_num // 10000
-        self.comment_str = str(self.comment_num) if i == 0 else str("%.1f万" % (self.comment_num / 10000))
-        i = self.praise_num // 10000
-        self.praise_str = str(self.praise_num) if i == 0 else str("%.1f万" % (self.praise_num / 10000))
-        i = self.tread_num // 10000
-        self.tread_str = str(self.tread_num) if i == 0 else str("%.1f万" % (self.tread_num / 10000))
-        i = self.share_num // 10000
-        self.share_str = str(self.share_num) if i == 0 else str("%.1f万" % (self.share_num / 10000))
-        # 计算热度值
-        self.hot = (self.share_num + self.comment_num) * 10 + self.praise_num * 3 + self.tread_num + self.click_num
-        # 计算推荐值
-        self.recmd = (self.share_num + self.comment_num + self.praise_num + self.click_num) / (self.tread_num + 1)
-        # 计算欢笑值
-        self.haha = self.share_num + self.comment_num + self.praise_num + self.click_num
-        super(Note, self).save(*args, **kwargs)
-
-    def get_praise_count(self):
-        return self.praise_set.all().count()
-
-    def get_tread_count(self):
-        return self.tread_set.all().count()
-
-    def get_share_count(self):
-        return self.share_set.all().count()
-
     def __str__(self):
         return 'Content: ' + self.text
 
@@ -269,3 +243,27 @@ class Share(models.Model):
             return 'Content: ' + self.text
         else:
             return 'Shared to: ' + self.to
+
+
+# @receiver(post_save, sender=Note)
+@receiver(post_delete, sender=Comment)
+def comment_delete(sender, instance, **kwargs):
+    # 初始化评论、赞踩的个数的字符串显示
+    note = instance.note
+    note.comment_num = Comment.objects.filter(note=note).count()
+    logger.debug(str(note.comment_num))
+    i = note.comment_num // 10000
+    note.comment_str = str(note.comment_num) if i == 0 else str("%.1f万" % (note.comment_num / 10000))
+    i = note.praise_num // 10000
+    note.praise_str = str(note.praise_num) if i == 0 else str("%.1f万" % (note.praise_num / 10000))
+    i = note.tread_num // 10000
+    note.tread_str = str(note.tread_num) if i == 0 else str("%.1f万" % (note.tread_num / 10000))
+    i = note.share_num // 10000
+    note.share_str = str(note.share_num) if i == 0 else str("%.1f万" % (note.share_num / 10000))
+    # 计算热度值
+    note.hot = (note.share_num + note.comment_num) * 10 + note.praise_num * 3 + note.tread_num + note.click_num
+    # 计算推荐值
+    note.recmd = (note.share_num + note.comment_num + note.praise_num + note.click_num) / (note.tread_num + 1)
+    # 计算欢笑值
+    note.haha = note.share_num + note.comment_num + note.praise_num + note.click_num
+    note.save()
