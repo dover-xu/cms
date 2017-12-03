@@ -4,6 +4,7 @@ manager/migrations/
 manager/__pycache__/
 focus/__pycache__/
 cms/__pycache__/
+middleware/__pycache__/
 logs/
 uploads/
 focus/views.py.orig

@@ -82,7 +82,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'middleware.DisableCSRFCheck.DisableCSRFCheck',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -299,7 +300,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.IsAdminUser',
     ),
     # 'PAGINATE_BY': 10,
-    'PAGE_SIZE': 10,
+    # 'PAGE_SIZE': 10,
     'GLOBAL_CSRF_CHECK': False
 }
 

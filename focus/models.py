@@ -78,7 +78,7 @@ class NoteManager(models.Manager):
         return query
 
     def query_by_haha(self):
-        query = self.get_queryset().filter(category__exact='Picture').order_by('-haha')[:200]
+        query = self.get_queryset().filter(category__exact='Picture').order_by('-haha')[:4]
         return query
 
     def query_by_id(self, note_id):
@@ -145,6 +145,26 @@ class Note(models.Model):
             return self.text
 
     text_frag.short_description = 'CONTENT'
+
+    def increase_comment(self):
+        num = self.comment_num = self.comment_num + 1
+        num_i = num // 10000
+        self.comment_str = str(num) if num_i == 0 else str("%.1f万" % (num / 10000))
+
+    def increase_praise(self):
+        num = self.praise_num = self.praise_num + 1
+        num_i = num // 10000
+        self.praise_str = str(num) if num_i == 0 else str("%.1f万" % (num / 10000))
+
+    def increase_tread(self):
+        num = self.tread_num = self.tread_num + 1
+        num_i = num // 10000
+        self.tread_str = str(num) if num_i == 0 else str("%.1f万" % (num / 10000))
+
+    def increase_share(self):
+        num = self.share_num = self.share_num + 1
+        num_i = num // 10000
+        self.share_str = str(num) if num_i == 0 else str("%.1f万" % (num / 10000))
 
     def __str__(self):
         return 'Content: ' + self.text
@@ -245,21 +265,41 @@ class Share(models.Model):
             return 'Shared to: ' + self.to
 
 
-# @receiver(post_save, sender=Note)
+@receiver(post_delete, sender=Share)
+@receiver(post_delete, sender=Tread)
+@receiver(post_delete, sender=Praise)
 @receiver(post_delete, sender=Comment)
-def comment_delete(sender, instance, **kwargs):
+def comment_praise_tread_share_delete(sender, instance, **kwargs):
     # 初始化评论、赞踩的个数的字符串显示
-    note = instance.note
-    note.comment_num = Comment.objects.filter(note=note).count()
-    logger.debug(str(note.comment_num))
-    i = note.comment_num // 10000
-    note.comment_str = str(note.comment_num) if i == 0 else str("%.1f万" % (note.comment_num / 10000))
-    i = note.praise_num // 10000
-    note.praise_str = str(note.praise_num) if i == 0 else str("%.1f万" % (note.praise_num / 10000))
-    i = note.tread_num // 10000
-    note.tread_str = str(note.tread_num) if i == 0 else str("%.1f万" % (note.tread_num / 10000))
-    i = note.share_num // 10000
-    note.share_str = str(note.share_num) if i == 0 else str("%.1f万" % (note.share_num / 10000))
+    note, comment = None, None
+    if isinstance(instance, Comment):
+        note = instance.note
+        note.comment_num = Comment.objects.filter(note=note).count()
+        i = note.comment_num // 10000
+        note.comment_str = str(note.comment_num) if i == 0 else str("%.1f万" % (note.comment_num / 10000))
+    elif isinstance(instance, Praise):
+        note = instance.note
+        comment = instance.comment
+        if note:
+            note.praise_num = Praise.objects.filter(note=note).count()
+            i = note.praise_num // 10000
+            note.praise_str = str(note.praise_num) if i == 0 else str("%.1f万" % (note.praise_num / 10000))
+        if comment:
+            comment.praise_num = Praise.objects.filter(comment=comment).count()
+    elif isinstance(instance, Tread):
+        note = instance.note
+        comment = instance.comment
+        if note:
+            note.tread_num = Tread.objects.filter(note=note).count()
+            i = note.tread_num // 10000
+            note.tread_str = str(note.tread_num) if i == 0 else str("%.1f万" % (note.tread_num / 10000))
+        if comment:
+            comment.tread_num = Tread.objects.filter(comment=comment).count()
+    elif isinstance(instance, Share):
+        note.share_num = Share.objects.filter(note=note).count()
+        i = note.share_num // 10000
+        note.share_str = str(note.share_num) if i == 0 else str("%.1f万" % (note.share_num / 10000))
+
     # 计算热度值
     note.hot = (note.share_num + note.comment_num) * 10 + note.praise_num * 3 + note.tread_num + note.click_num
     # 计算推荐值
