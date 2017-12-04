@@ -1,14 +1,14 @@
 import base64
 import os
 import time
+import random
+import json
+import logging
 from PIL import Image
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.http import HttpResponse, JsonResponse
 from django.http.request import QueryDict
 from itsdangerous import URLSafeTimedSerializer as utsr
-import random
-import json
-
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -19,9 +19,9 @@ from focus.serializers import MyUserSerializer
 from manager.forms import LoginForm, RegisterForm, SettingForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from focus.models import MyUser
-import logging
+from schema.WebSchema import loginSchema, signupSchema
 
 logger = logging.getLogger('django')
 
@@ -65,6 +65,7 @@ def support_form_para(fun):
 
 
 class log_in(APIView):
+    schema = loginSchema
 
     @support_form_para
     def post(self, request):
@@ -110,6 +111,7 @@ class log_in(APIView):
 
 @api_view(['GET'])
 def log_out(request):
+    """退出登录请求"""
     # url = request.GET.get('url', '/')
     logout(request)
     # return redirect(url)
@@ -121,6 +123,7 @@ def log_out(request):
 
 @api_view(['GET'])
 def user_state(request):
+    """获取用户当前状态"""
     if request.user.is_authenticated:
         is_login = True
     else:
@@ -135,6 +138,7 @@ def user_state(request):
 
 
 class signup(APIView):
+    schema = signupSchema
 
     @support_form_para
     def post(self, request):
@@ -202,9 +206,6 @@ class signup(APIView):
             }
             return JsonResponse(context)
 
-    def get(self, request):
-        return HttpResponse()
-
 
 def mkdir(path):
     # 去除首位空格
@@ -231,6 +232,7 @@ def mkdir(path):
 
 
 class setting(APIView):
+    """用户设置"""
 
     def post(self, request):
         context = {

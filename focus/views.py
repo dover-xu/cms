@@ -25,7 +25,7 @@ from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 from cms.settings import FRONTEND_HOST_PORT
 from PIL import Image
 from schema.WebSchema import contentsSchema, ucenterSchema, delNoteOrCommentSchema, publishSchema, addCommentSchema, \
-    addPraiseTreadShareSchema
+    addPraiseTreadShareSchema, detailsSchema
 
 logger = logging.getLogger('django')
 
@@ -57,7 +57,7 @@ class SwaggerSchemaView(APIView):
     renderer_classes = [OpenAPIRenderer, SwaggerUIRenderer]
 
     def get(self, request):
-        generator = SchemaGenerator(title='后端API文档', urlconf='cms.urls')
+        generator = SchemaGenerator(title='Backend API Document@www.hahajh.com', urlconf='cms.urls')
         schema = generator.get_schema(request=request)
         return Response(schema)
 
@@ -330,17 +330,7 @@ class note_jx(APIView):
 
 
 class details(APIView):
-    schema = ManualSchema(
-        description=
-        """获取用户中心内容\n
-        type: integer(0：用户发表的帖子, 1：用户分享的帖子, 2：用户评论的帖子)\n
-        current: integer()
-        """,
-        fields=[
-            coreapi.Field("type", required=True, location="form", schema=coreschema.Integer()),
-            coreapi.Field("current", required=True, location="form", schema=coreschema.Integer()),
-            coreapi.Field("display", required=True, location="form", schema=coreschema.Integer())
-        ])
+    schema = detailsSchema
 
     def post(self, request):
         """
