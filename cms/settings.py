@@ -29,8 +29,8 @@ import logging.handlers
 # # CELERY_RESULT_SERIALIZER = 'json'
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 
-# PROD_ENV = True
-PROD_ENV = False
+PROD_ENV = True
+# PROD_ENV = False
 
 if PROD_ENV:
     FRONTEND_HOST_PORT = r'http://119.27.181.193:80/'
@@ -67,8 +67,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'focus',
-    'focus.apps.FocusConfig',
+    'focus',
+    # 'focus.apps.FocusConfig',
     'manager',
     'debugtools',
     'rest_framework',
@@ -155,7 +155,6 @@ DATABASES = {
         'PASSWORD': 'root',
         'HOST': '',
         'PORT': '',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

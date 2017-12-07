@@ -6,6 +6,7 @@ from django.utils.encoding import python_2_unicode_compatible
 import logging
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
+
 logger = logging.getLogger('django')
 
 
@@ -27,11 +28,12 @@ class MyUser(AbstractUser):
     profile = models.CharField('profile', max_length=255, blank=True, default='')
     sex = models.CharField(max_length=10, choices=sex_choice, default='m')
     email = models.EmailField(max_length=75, blank=True)
+
     # objects = MyUserManager()
 
     # 序列化时代替主键
-    def natural_key(self):
-        return self.username, "http://127.0.0.1:8008" + self.avatar.url
+    # def natural_key(self):
+    #     return self.username, self.avatar.url
 
     def __str__(self):
         return self.username
@@ -131,12 +133,12 @@ class Note(models.Model):
     haha = models.IntegerField(default=0)  # 欢笑值
     objects = NoteManager()
 
-    def natural_key(self):
-        return {
-            'text': self.text,
-        }
-
-    natural_key.dependencies = ['MyUser']
+    # def natural_key(self):
+    #     return {
+    #         'text': self.text,
+    #     }
+    #
+    # natural_key.dependencies = ['MyUser']
 
     def text_frag(self):
         if len(self.text) > 20:

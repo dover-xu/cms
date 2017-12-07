@@ -203,7 +203,7 @@ def crop_image_for_hxjx(data):
     return data
 
 
-def get_queryset_by_type_and_sort(tp, sort):
+def get_noteset_by_type_and_sort(tp, sort):
     query_set = None
     if tp == TYPE_ALL:
         if sort == SORT_RECMD:
@@ -245,7 +245,7 @@ class ucenter(APIView):
         page_size = post_data.get('display')  # 每页显示帖子数
         if (not tp and tp != 0) or not current or not page_size:
             context = {'message': '参数type, current, display不能为空'}
-            return JsonResponse(context)
+            return JsonResponse(data=context, status=status.HTTP_200_OK)
 
         if tp == USER_NOTE:
             query_set = Note.objects.query_by_user(request.user)
@@ -254,7 +254,8 @@ class ucenter(APIView):
         elif tp == USER_COMMENT:
             query_set = Comment.objects.filter(user=request.user).order_by('-pub_date')
         else:
-            return JsonResponse(status=status.HTTP_400_BAD_REQUEST)
+            context = {'message': '参数type的值不正确'}
+            return JsonResponse(data=context, status=status.HTTP_200_OK)
         total = query_set.count()  # 帖子总条数
         # page_size = 5  # 每页显示帖子数
 
@@ -271,15 +272,13 @@ class ucenter(APIView):
             'note_list': notes_data,
             'total': total,
             'current': current}
-        return JsonResponse(context)
+        return JsonResponse(data=context, status=status.HTTP_200_OK)
 
 
 class contents(APIView):
     schema = contentsSchema
 
     def post(self, request):
-        print(str(request.body))
-        log('debug', str(request.GET))
         is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
         user_data = repl_with_media_host(dict(user.data))
@@ -292,9 +291,9 @@ class contents(APIView):
         if (not tp and tp != 0) or (not sort and sort != 0) or not current or not page_size:
             context = {'message': '参数type, sort, current, display不能为空'}
             return JsonResponse(context)
-        query_set = get_queryset_by_type_and_sort(tp, sort)
+        query_set = get_noteset_by_type_and_sort(tp, sort)
         if query_set is None:
-            return JsonResponse(status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(status=status.HTTP_200_OK)
 
         total = query_set.count()
         if current > 0 and total / page_size > 1:
@@ -312,7 +311,7 @@ class contents(APIView):
             'total': total,
             'display': page_size,
             'current': current}
-        return JsonResponse(context, status=status.HTTP_200_OK)
+        return JsonResponse(data=context, status=status.HTTP_200_OK)
 
 
 class note_jx(APIView):
@@ -333,11 +332,6 @@ class details(APIView):
     schema = detailsSchema
 
     def post(self, request):
-        """
-        详细页数据
-        :param request:
-        :return:
-        """
         if request.user.is_authenticated:
             is_login = True
         else:

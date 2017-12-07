@@ -35,11 +35,11 @@ schema_view = get_schema_view(title='Core API')
 urlpatterns = [
                 url(r'^docs/', views.SwaggerSchemaView.as_view(), name='docs'),
                 url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-                url(r'^api$', schema_view, name='api-root'),
+                url(r'^api/$', schema_view, name='api-root'),
                 url(r'^api/\.(?P<format>[a-z0-9]+)/?$', schema_view, name='api-root'),
 
                 url(r'^admin/', admin.site.urls),
                 url(r'^manager/', include('manager.urls')),
-                url(r'api/', include('focus.urls')),
+                url(r'^api/', include('focus.urls')),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += router.urls
