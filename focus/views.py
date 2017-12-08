@@ -342,7 +342,7 @@ class details(APIView):
         note_id = post_data.get('id')
         current = post_data.get('current')
         page_size = post_data.get('display')  # 每页显示评论数
-        if (not note_id and note_id != 0) or not current or not page_size:
+        if note_id is None or current is None or page_size is None:
             context = {'message': '参数id，current，page_size不能为空'}
             return JsonResponse(context)
         comment_set = Comment.objects.filter(note=note_id).order_by('-pub_date')
@@ -356,8 +356,12 @@ class details(APIView):
         comments_data = repl_with_media_host(comments.data)
 
         note_set = Note.objects.filter(id=note_id)
-        note_set[0].click_num += 1
-        note_set[0].save()
+        if len(note_set) > 0:
+            note_set[0].click_num += 1
+            note_set[0].save()
+        else:
+            context = {'message': '帖子不存在'}
+            return JsonResponse(context)
         notes = NoteSerializer(note_set, many=True, context={'request': request})
         notes_data = repl_with_media_host(notes.data)
         notes_data = append_praise_tread_info(request, notes_data)
@@ -421,7 +425,7 @@ class add_praise_tread_share(APIView):
             'message': '',
             'action': action,
         }
-        if not note_id and note_id != 0:
+        if note_id is None:
             context['message'] = '帖子ID不能为空'
             return JsonResponse(context)
         if not action:
@@ -492,7 +496,7 @@ class add_comment(APIView):
         if not text:
             context['message'] = '内容不存在'
             return JsonResponse(context)
-        if not note_id and note_id != 0:
+        if note_id is None:
             context['message'] = '帖子ID不能为空'
             return JsonResponse(context)
         note = Note.objects.filter(id=note_id).first()

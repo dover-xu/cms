@@ -29,8 +29,8 @@ import logging.handlers
 # # CELERY_RESULT_SERIALIZER = 'json'
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 
-PROD_ENV = True
-# PROD_ENV = False
+# PROD_ENV = True
+PROD_ENV = False
 
 if PROD_ENV:
     FRONTEND_HOST_PORT = r'http://119.27.181.193:80/'
