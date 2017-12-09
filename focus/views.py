@@ -22,7 +22,7 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
 from rest_framework.schemas import SchemaGenerator, ManualSchema
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
-from cms.settings import FRONTEND_HOST_PORT
+# from cms.settings import FRONTEND_HOST_PORT
 from PIL import Image
 from schema.WebSchema import contentsSchema, ucenterSchema, delNoteOrCommentSchema, publishSchema, addCommentSchema, \
     addPraiseTreadShareSchema, detailsSchema
@@ -152,18 +152,18 @@ class ShareViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-def repl_with_media_host(datas):
-    if isinstance(datas, dict) and 'avatar' in datas and datas['avatar']:
-        datas['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT, datas['avatar'])
-    elif isinstance(datas, list):
-        for data in datas:
-            if 'image' in data and data['image']:
-                data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT,
-                                       data['image'])
-            if 'user' in data and 'avatar' in data['user'] and data['user']['avatar']:
-                data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT,
-                                                data['user']['avatar'])
-    return datas
+# def repl_with_media_host(datas):
+#     if isinstance(datas, dict) and 'avatar' in datas and datas['avatar']:
+#         datas['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT, datas['avatar'])
+#     elif isinstance(datas, list):
+#         for data in datas:
+#             if 'image' in data and data['image']:
+#                 data['image'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT,
+#                                        data['image'])
+#             if 'user' in data and 'avatar' in data['user'] and data['user']['avatar']:
+#                 data['user']['avatar'] = re.sub(r'http://\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{4}/', FRONTEND_HOST_PORT,
+#                                                 data['user']['avatar'])
+#     return datas
 
 
 def append_praise_tread_info(request, data):
@@ -180,10 +180,10 @@ def append_praise_tread_info(request, data):
     return data
 
 
-def append_detail_url(data):
-    for n in data:
-        n['detail_url'] = FRONTEND_HOST_PORT + 'detail/' + str(n['id'])
-    return data
+# def append_detail_url(data):
+#     for n in data:
+#         n['detail_url'] = FRONTEND_HOST_PORT + 'detail/' + str(n['id'])
+#     return data
 
 
 def crop_image_for_hxjx(data):
@@ -238,7 +238,7 @@ class ucenter(APIView):
         else:
             is_login = False
         user = MyUserSerializer(request.user, context={'request': request})
-        user_data = repl_with_media_host(dict(user.data))
+        user_data = user.data  # repl_with_media_host(dict(user.data))
         post_data = json.loads(request.body.decode('utf8'))
         tp = post_data.get('type')  # 统计类别
         current = post_data.get('current')
@@ -264,7 +264,7 @@ class ucenter(APIView):
             end = current * page_size
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
-        notes_data = repl_with_media_host(notes.data)
+        notes_data = notes.data  # repl_with_media_host(notes.data)
         notes_data = append_praise_tread_info(request, notes_data)
         context = {
             'is_login': is_login,
@@ -281,7 +281,7 @@ class contents(APIView):
     def post(self, request):
         is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
-        user_data = repl_with_media_host(dict(user.data))
+        user_data = user.data  # repl_with_media_host(dict(user.data))
 
         post_data = json.loads(request.body.decode('utf8'))
         tp = post_data.get('type')
@@ -301,7 +301,7 @@ class contents(APIView):
             end = current * page_size
             query_set = query_set[start:end]
         notes = NoteSerializer(query_set, many=True, context={'request': request})
-        notes_data = repl_with_media_host(notes.data)
+        notes_data = notes.data  # repl_with_media_host(notes.data)
         notes_data = append_praise_tread_info(request, notes_data)
 
         context = {
@@ -319,8 +319,8 @@ class note_jx(APIView):
     def get(self, request):
         query_set_haha = Note.objects.query_by_haha()
         notes_haha = NoteSerializer(query_set_haha[:4], many=True, context={'request': request})
-        notes_haha_data = repl_with_media_host(notes_haha.data)
-        notes_haha_data = append_detail_url(notes_haha_data)
+        notes_haha_data = notes_haha.data  # repl_with_media_host(notes_haha.data)
+        # notes_haha_data = append_detail_url(notes_haha_data)
         notes_haha_data = crop_image_for_hxjx(notes_haha_data)  # 欢笑精选截图
         context = {
             'note_haha_list': notes_haha_data,
@@ -337,7 +337,7 @@ class details(APIView):
         else:
             is_login = False
         user = MyUserSerializer(request.user, context={'request': request})
-        user_data = repl_with_media_host(dict(user.data))
+        user_data = user.data  # repl_with_media_host(dict(user.data))
         post_data = json.loads(request.body.decode('utf8'))
         note_id = post_data.get('id')
         current = post_data.get('current')
@@ -353,7 +353,7 @@ class details(APIView):
             end = current * page_size
             comment_set = comment_set[start:end]
         comments = CommentSerializer(comment_set, many=True, context={'request': request})
-        comments_data = repl_with_media_host(comments.data)
+        comments_data = comments.data  # repl_with_media_host(comments.data)
 
         note_set = Note.objects.filter(id=note_id)
         if len(note_set) > 0:
@@ -363,7 +363,7 @@ class details(APIView):
             context = {'message': '帖子不存在'}
             return JsonResponse(context)
         notes = NoteSerializer(note_set, many=True, context={'request': request})
-        notes_data = repl_with_media_host(notes.data)
+        notes_data = notes.data  # repl_with_media_host(notes.data)
         notes_data = append_praise_tread_info(request, notes_data)
 
         context = {

@@ -32,10 +32,10 @@ import logging.handlers
 # PROD_ENV = True
 PROD_ENV = False
 
-if PROD_ENV:
-    FRONTEND_HOST_PORT = r'http://119.27.181.193:80/'
-else:
-    FRONTEND_HOST_PORT = r'http://119.27.181.193:8800/'
+# if PROD_ENV:
+#     FRONTEND_HOST_PORT = r'http://www.hahajh.com/'
+# else:
+#     FRONTEND_HOST_PORT = r'http://www.hahajh.com:8809/'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -89,12 +89,12 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', 'localhost', '119.27.181.193', '114.240.113.5']
+ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', 'localhost', '119.27.181.193', 'www.hahajh.com']
 
 # 跨域增加忽略
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1:8080', 'localhost:8080', '119.27.181.193', '119.27.181.193:8800'
+    'www.hahajh.com'
 )
 CORS_ALLOW_CREDENTIALS = True
 
