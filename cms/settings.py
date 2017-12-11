@@ -29,8 +29,8 @@ import logging.handlers
 # # CELERY_RESULT_SERIALIZER = 'json'
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 
-# PROD_ENV = True
-PROD_ENV = False
+PROD_ENV = True
+# PROD_ENV = False
 
 # if PROD_ENV:
 #     FRONTEND_HOST_PORT = r'http://www.hahajh.com/'
@@ -89,13 +89,11 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = ['www.hahajh.com', '127.0.0.1', 'localhost', '119.27.181.193', 'www.hahajh.com']
+ALLOWED_HOSTS = ['www.hahajh.com', 'localhost', '119.27.181.193']
 
 # 跨域增加忽略
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'www.hahajh.com'
-)
+CORS_ORIGIN_WHITELIST = ('',)
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_METHODS = (
