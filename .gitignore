@@ -8,4 +8,6 @@ middleware/__pycache__/
 schema/__pycache__/
 logs/
 uploads/
+bdpush.py
+urls.txt
 focus/views.py.orig

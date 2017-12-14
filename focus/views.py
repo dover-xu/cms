@@ -180,10 +180,10 @@ def append_praise_tread_info(request, data):
     return data
 
 
-# def append_detail_url(data):
-#     for n in data:
-#         n['detail_url'] = FRONTEND_HOST_PORT + 'detail/' + str(n['id'])
-#     return data
+def append_detail_url(data):
+    for n in data:
+        n['detail_url'] = '/detail/' + str(n['id'])
+    return data
 
 
 def crop_image_for_hxjx(data):
@@ -320,7 +320,7 @@ class note_jx(APIView):
         query_set_haha = Note.objects.query_by_haha()
         notes_haha = NoteSerializer(query_set_haha[:4], many=True, context={'request': request})
         notes_haha_data = notes_haha.data  # repl_with_media_host(notes_haha.data)
-        # notes_haha_data = append_detail_url(notes_haha_data)
+        notes_haha_data = append_detail_url(notes_haha_data)
         notes_haha_data = crop_image_for_hxjx(notes_haha_data)  # 欢笑精选截图
         context = {
             'note_haha_list': notes_haha_data,
