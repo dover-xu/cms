@@ -19,18 +19,16 @@ import logging.handlers
 # import djcelery
 #
 # djcelery.setup_loader()
-# BROKER_URL = 'amqp://guest@localhost//'
-# CELERY_RESULT_BACKEND = 'amqp://guest@localhost//'
-# CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'  # 定时任务
-# # CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
-# # # CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-# # CELERY_ACCEPT_CONTENT = ['application/json']
-# # CELERY_TASK_SERIALIZER = 'json'
-# # CELERY_RESULT_SERIALIZER = 'json'
-# CELERY_TIMEZONE = 'Asia/Shanghai'
 
-PROD_ENV = True
-# PROD_ENV = False
+# BROKER_URL = 'redis://localhost:6379'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Shanghai'
+
+# PROD_ENV = True
+PROD_ENV = False
 
 # if PROD_ENV:
 #     FRONTEND_HOST_PORT = r'http://www.hahajh.com/'
@@ -74,7 +72,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'corsheaders',
-    # 'djcelery',
+    'djcelery',
 ]
 
 MIDDLEWARE_CLASSES = [
