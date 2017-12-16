@@ -16,9 +16,17 @@ import logging
 import django.utils.log
 import logging.handlers
 
-# import djcelery
-#
-# djcelery.setup_loader()
+import djcelery
+
+djcelery.setup_loader()
+# BROKER_HOST = "localhost"
+# BROKER_PORT = 5672
+# BROKER_USER = "guest"
+# BROKER_PASSWORD = "guest"
+# BROKER_VHOST = "/"
+BROKER_URL = 'pyamqp://guest@localhost//' #配置broker
+BROKER_POOL_LIMIT = 0
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend' #配置backend
 # BROKER_URL = 'amqp://guest@localhost//'
 # CELERY_RESULT_BACKEND = 'amqp://guest@localhost//'
 # CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'  # 定时任务
@@ -74,7 +82,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'corsheaders',
-    # 'djcelery',
+    'djcelery',
+    'kombu.transport.django',
 ]
 
 MIDDLEWARE_CLASSES = [

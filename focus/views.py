@@ -26,6 +26,7 @@ from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 from PIL import Image
 from schema.WebSchema import contentsSchema, ucenterSchema, delNoteOrCommentSchema, publishSchema, addCommentSchema, \
     addPraiseTreadShareSchema, detailsSchema
+from focus.tasks import build_job
 
 logger = logging.getLogger('django')
 
@@ -59,6 +60,7 @@ class SwaggerSchemaView(APIView):
     def get(self, request):
         generator = SchemaGenerator(title='Backend API Document@www.hahajh.com', urlconf='cms.urls')
         schema = generator.get_schema(request=request)
+        build_job.delay('helo')
         return Response(schema)
 
 
