@@ -16,29 +16,19 @@ import logging
 import django.utils.log
 import logging.handlers
 
-import djcelery
+# import djcelery
+#
+# djcelery.setup_loader()
 
-djcelery.setup_loader()
-# BROKER_HOST = "localhost"
-# BROKER_PORT = 5672
-# BROKER_USER = "guest"
-# BROKER_PASSWORD = "guest"
-# BROKER_VHOST = "/"
-BROKER_URL = 'pyamqp://guest@localhost//' #配置broker
-BROKER_POOL_LIMIT = 0
-CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend' #配置backend
-# BROKER_URL = 'amqp://guest@localhost//'
-# CELERY_RESULT_BACKEND = 'amqp://guest@localhost//'
-# CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'  # 定时任务
-# # CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
-# # # CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-# # CELERY_ACCEPT_CONTENT = ['application/json']
-# # CELERY_TASK_SERIALIZER = 'json'
-# # CELERY_RESULT_SERIALIZER = 'json'
-# CELERY_TIMEZONE = 'Asia/Shanghai'
+# BROKER_URL = 'redis://localhost:6379'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Shanghai'
 
-PROD_ENV = True
-# PROD_ENV = False
+# PROD_ENV = True
+PROD_ENV = False
 
 # if PROD_ENV:
 #     FRONTEND_HOST_PORT = r'http://www.hahajh.com/'
@@ -83,7 +73,6 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'corsheaders',
     'djcelery',
-    'kombu.transport.django',
 ]
 
 MIDDLEWARE_CLASSES = [

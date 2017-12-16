@@ -8,6 +8,6 @@ middleware/__pycache__/
 schema/__pycache__/
 logs/
 uploads/
-bdpush.py
-urls.txt
+__pycache__/
+celerybeat-schedule.*
 focus/views.py.orig

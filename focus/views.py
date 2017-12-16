@@ -5,7 +5,6 @@ import time
 import re
 import coreapi
 import coreschema
-import logging
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from focus.models import Comment, Praise, MyUser, Note, Tread, Share
@@ -26,9 +25,8 @@ from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 from PIL import Image
 from schema.WebSchema import contentsSchema, ucenterSchema, delNoteOrCommentSchema, publishSchema, addCommentSchema, \
     addPraiseTreadShareSchema, detailsSchema
-from focus.tasks import build_job
+from focus.tasks import async_log
 
-logger = logging.getLogger('django')
 
 TYPE_ALL = 0
 TYPE_PIC = 1
@@ -42,16 +40,23 @@ USER_SHARE = 1
 USER_COMMENT = 2
 
 
-def log(tp, message):
-    msg = '[focus][view.py]' + message
-    if tp == 'debug':
-        logger.debug(msg)
-    elif tp == 'info':
-        logger.info(msg)
-    elif tp == 'warn':
-        logger.warning(msg)
-    elif tp == 'error':
-        logger.error(msg)
+class log(object):
+
+    @staticmethod
+    def debug(message):
+        async_log.delay('debug', message)
+
+    @staticmethod
+    def info(message):
+        async_log.delay('info', message)
+
+    @staticmethod
+    def warn(message):
+        async_log.delay('warn', message)
+
+    @staticmethod
+    def error(message):
+        async_log.delay('error', message)
 
 
 class SwaggerSchemaView(APIView):
@@ -60,7 +65,6 @@ class SwaggerSchemaView(APIView):
     def get(self, request):
         generator = SchemaGenerator(title='Backend API Document@www.hahajh.com', urlconf='cms.urls')
         schema = generator.get_schema(request=request)
-        build_job.delay('helo')
         return Response(schema)
 
 
@@ -479,7 +483,7 @@ class add_praise_tread_share(APIView):
                 context['message'] = '帖子不存在'
                 return JsonResponse(context)
         else:
-            log(tp='warn', message='[add_praise_tread_share]: 帖子不存在')
+            log.warn('[add_praise_tread_share]: 帖子不存在')
             context['message'] = '帖子不存在'
         return JsonResponse(context)
 
@@ -508,7 +512,7 @@ class add_comment(APIView):
             Comment.objects.create(user=request.user, note=note, text=text)
             context['is_success'] = True
         else:
-            log('warn', '[add_comment]: 帖子不存在')
+            log.warn('[add_comment]: 帖子不存在')
             context['message'] = '帖子不存在'
 
         return JsonResponse(context)
@@ -534,10 +538,10 @@ def del_note(request):
                     filename = note.image.path
                     os.remove(filename)
             except Exception as reason:
-                log('warn', '[del_note]: 删除图片失败: ' + str(reason))
+                log.warn('[del_note]: 删除图片失败: ' + str(reason))
             note.delete()
         except Exception as reason:
-            log('warn', '[del_note]: 删除帖子失败: ' + str(reason))
+            log.warn('[del_note]: 删除帖子失败: ' + str(reason))
             return JsonResponse(context)
         context['is_success'] = True
         return JsonResponse(context)
@@ -565,12 +569,12 @@ class del_note_comment(APIView):
                             filename = note.image.path
                             os.remove(filename)
                     except Exception as reason:
-                        log('warn', '[del_note]: 删除图片失败: ' + str(reason))
+                        log.warn('[del_note]: 删除图片失败: ' + str(reason))
                     note.delete()
                     context['is_success'] = True
                     context['delete_note'] = True
                 else:
-                    log('warn', '[del_note]: 删除帖子失败')
+                    log.warn('[del_note]: 删除帖子失败')
 
             if comment_id:
                 comment = Comment.objects.filter(id=comment_id).first()
@@ -579,14 +583,13 @@ class del_note_comment(APIView):
                     context['is_success'] = True
                     context['delete_comment'] = True
                 else:
-                    log('warn', '[del_note]: 删除评论失败:')
+                    log.warn('[del_note]: 删除评论失败:')
 
             return JsonResponse(context)
         return JsonResponse(context)
 
 
 def index(request):
-    logger.debug('index')
     note_jx = Note.objects.query_pic_by_hot()[:4]
     note_list = Note.objects.query_all_by_time()
     rows = note_list.count()  # 帖子总数
