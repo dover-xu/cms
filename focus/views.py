@@ -25,8 +25,7 @@ from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 from PIL import Image
 from schema.WebSchema import contentsSchema, ucenterSchema, delNoteOrCommentSchema, publishSchema, addCommentSchema, \
     addPraiseTreadShareSchema, detailsSchema
-from focus.tasks import async_log
-
+from middleware.AsyncLog import log
 
 TYPE_ALL = 0
 TYPE_PIC = 1
@@ -38,25 +37,6 @@ SORT_HOT = 2
 USER_NOTE = 0
 USER_SHARE = 1
 USER_COMMENT = 2
-
-
-class log(object):
-
-    @staticmethod
-    def debug(message):
-        async_log.delay('debug', message)
-
-    @staticmethod
-    def info(message):
-        async_log.delay('info', message)
-
-    @staticmethod
-    def warn(message):
-        async_log.delay('warn', message)
-
-    @staticmethod
-    def error(message):
-        async_log.delay('error', message)
 
 
 class SwaggerSchemaView(APIView):

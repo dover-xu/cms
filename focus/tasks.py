@@ -6,8 +6,7 @@ logger = logging.getLogger('django')
 
 
 @app.task
-def async_log(tp, message):
-    msg = '[focus][view.py]' + message
+def async_log(tp, msg):
     if tp == 'debug':
         logger.debug(msg)
     elif tp == 'info':

@@ -17,18 +17,12 @@ import django.utils.log
 import logging.handlers
 
 # import djcelery
-#
+
 # djcelery.setup_loader()
 
-# BROKER_URL = 'redis://localhost:6379'
-# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Shanghai'
 
-# PROD_ENV = True
-PROD_ENV = False
+PROD_ENV = True
+# PROD_ENV = False
 
 # if PROD_ENV:
 #     FRONTEND_HOST_PORT = r'http://www.hahajh.com/'
@@ -37,7 +31,6 @@ PROD_ENV = False
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -55,6 +48,13 @@ EMAIL_USE_TLS = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
+BROKER_URL = 'redis://localhost:6379/2' if PROD_ENV else 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/3' if PROD_ENV else 'redis://localhost:6379/1'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Shanghai'
 
 # Application definition
 
@@ -85,9 +85,10 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.AsyncLog.AsyncLog',
 ]
 
-ALLOWED_HOSTS = ['www.hahajh.com', 'localhost', '119.27.181.193']
+ALLOWED_HOSTS = ['int.hahajh.com', 'www.hahajh.com', 'localhost', '119.27.181.193']
 
 # 跨域增加忽略
 CORS_ORIGIN_ALLOW_ALL = False
