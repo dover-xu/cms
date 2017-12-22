@@ -11,3 +11,4 @@ uploads/
 __pycache__/
 celerybeat-schedule.*
 focus/views.py.orig
+.coverage

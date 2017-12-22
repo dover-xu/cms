@@ -279,7 +279,7 @@ class contents(APIView):
             return JsonResponse(context)
         query_set = get_noteset_by_type_and_sort(tp, sort)
         if query_set is None:
-            return JsonResponse(status=status.HTTP_200_OK)
+            return JsonResponse(data={}, status=status.HTTP_200_OK)
 
         total = query_set.count()
         if current > 0 and total / page_size > 1:
