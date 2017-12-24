@@ -1,6 +1,6 @@
 # from celery import task
-from cms.celery import app
 import logging
+from cms.celery import app
 
 logger = logging.getLogger('django')
 

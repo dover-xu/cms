@@ -2,27 +2,27 @@
 import json
 import os
 import time
-import re
-import coreapi
-import coreschema
-from django.http import HttpResponse, JsonResponse
+# import re
+# import coreapi
+# import coreschema
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from focus.models import Comment, Praise, MyUser, Note, Tread, Share
-from focus.permissions import IsOwnerOrReadOnly
-from manager.forms import LoginForm
-from focus.serializers import MyUserSerializer, NoteSerializer, CommentSerializer, PraiseSerializer, TreadSerializer, \
-    ShareSerializer
-from rest_framework import status, authentication
+from rest_framework import status
 from rest_framework import schemas
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, renderer_classes, list_route, detail_route
-from rest_framework.schemas import SchemaGenerator, ManualSchema
+from rest_framework.schemas import SchemaGenerator
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
-# from cms.settings import FRONTEND_HOST_PORT
 from PIL import Image
+from focus.permissions import IsOwnerOrReadOnly
+from focus.serializers import MyUserSerializer, NoteSerializer, CommentSerializer, PraiseSerializer, TreadSerializer, \
+    ShareSerializer
+from focus.models import Comment, Praise, MyUser, Note, Tread, Share
+from manager.forms import LoginForm
+# from cms.settings import FRONTEND_HOST_PORT
 from schema.WebSchema import contentsSchema, ucenterSchema, delNoteOrCommentSchema, publishSchema, addCommentSchema, \
     addPraiseTreadShareSchema, detailsSchema
 from middleware.AsyncLog import log
@@ -342,7 +342,7 @@ class details(APIView):
         comments_data = comments.data  # repl_with_media_host(comments.data)
 
         note_set = Note.objects.filter(id=note_id)
-        if len(note_set) > 0:
+        if note_set:
             note_set[0].click_num += 1
             note_set[0].save()
         else:

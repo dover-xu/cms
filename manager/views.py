@@ -5,23 +5,23 @@ import random
 import json
 import logging
 from PIL import Image
-from django.core.mail import send_mail, EmailMultiAlternatives
+# from django.core.mail import send_mail, EmailMultiAlternatives
+# from rest_framework.permissions import IsAuthenticated
+# from cms.settings import EMAIL_HOST_USER
+# from focus.views import repl_with_media_host
 from django.http import HttpResponse, JsonResponse
 from django.http.request import QueryDict
-from itsdangerous import URLSafeTimedSerializer as utsr
-from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.views import APIView
-from cms import settings
-from cms.settings import EMAIL_HOST_USER
-# from focus.views import repl_with_media_host
-from focus.serializers import MyUserSerializer
-from manager.forms import LoginForm, RegisterForm, SettingForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
-from focus.models import MyUser
+from itsdangerous import URLSafeTimedSerializer as utsr
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from schema.WebSchema import loginSchema, signupSchema
+from cms import settings
+from focus.models import MyUser
+from focus.serializers import MyUserSerializer
+from manager.forms import LoginForm, RegisterForm
 
 logger = logging.getLogger('django')
 
@@ -238,15 +238,15 @@ class setting(APIView):
         context = {
             'is_success': False}
         username, sex, profile = request.POST.get('username'), request.POST.get('sex'), request.POST.get('profile')
-        if 0 == len(username):
+        if not username:
             username = request.user.username
         user = MyUser.objects.filter(username=username)
         if user and user[0].username != request.user.username:
             return JsonResponse(context)
         else:
             old_user = MyUser.objects.filter(username=request.user.username)
-            if len(old_user) > 0:
-                if 0 == len(profile):
+            if old_user:
+                if not profile:
                     profile = ''
                 if 'pic_file' in request.FILES:
                     photo = request.FILES.get('pic_file')
@@ -286,7 +286,7 @@ def auth_name(request):
 def activate_user(request, token):
     try:
         username = token_confirm.confirm_validate_token(token)
-    except:
+    except Exception:
         username = token_confirm.remove_validate_token(token)
         users = MyUser.objects.filter(username=username)
         for user in users:

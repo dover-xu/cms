@@ -1,10 +1,9 @@
-import os
-
-from django.contrib.auth.models import AbstractUser, BaseUserManager, User
+# import os
+import logging
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
-import logging
-from django.db.models.signals import post_save, post_delete
+from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 logger = logging.getLogger('django')
@@ -86,7 +85,7 @@ class NoteManager(models.Manager):
     def query_by_id(self, note_id):
         try:
             return self.get_queryset().get(id=note_id)
-        except:
+        except Exception:
             return None
 
     def query_by_user(self, user):
@@ -141,10 +140,10 @@ class Note(models.Model):
     # natural_key.dependencies = ['MyUser']
 
     def text_frag(self):
-        if len(self.text) > 20:
-            return self.text[:20] + '...'
+        if len(self.text) > 10:
+            return str(self.text)[:10] + '...'
         else:
-            return self.text
+            return str(self.text)
 
     text_frag.short_description = 'CONTENT'
 

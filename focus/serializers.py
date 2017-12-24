@@ -1,6 +1,5 @@
-from focus.models import MyUser, Note, Comment, Praise, Share, Tread
 from rest_framework import serializers
-from focus.views import MyUser
+from focus.models import MyUser, Note, Comment, Praise, Share, Tread
 
 
 class MyUserSerializer(serializers.HyperlinkedModelSerializer):

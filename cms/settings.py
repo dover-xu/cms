@@ -12,10 +12,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-import logging
-import django.utils.log
-import logging.handlers
-
+# import logging
+# import logging.handlers
+# import django.utils.log
 # import djcelery
 
 # djcelery.setup_loader()
@@ -124,8 +123,7 @@ ROOT_URLCONF = 'cms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
