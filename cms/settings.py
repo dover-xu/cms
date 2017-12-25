@@ -12,10 +12,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+# import djcelery
+# from celery.schedules import crontab
+# from datetime import timedelta
 # import logging
 # import logging.handlers
 # import django.utils.log
-# import djcelery
 
 # djcelery.setup_loader()
 
@@ -54,6 +56,15 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Shanghai'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+# CELERYBEAT_SCHEDULE = {
+#     "runs-every-30-seconds": {
+#         "task": "cms.celery.debug_task",
+#         "schedule": timedelta(seconds=30),
+#         "args": ['hello'],
+#     },
+# }
 
 # Application definition
 
