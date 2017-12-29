@@ -14,6 +14,6 @@ app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 
-@app.task(bind=True)
-def debug_task(self, p):
-    print('debug task: {0!r}'.format(p))
+@app.task()
+def debug_task(p):
+    print('debug task2: {0!r}'.format(p))

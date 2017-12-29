@@ -22,8 +22,8 @@ import os
 # djcelery.setup_loader()
 
 
-PROD_ENV = True
-# PROD_ENV = False
+# PROD_ENV = True
+PROD_ENV = False
 
 # if PROD_ENV:
 #     FRONTEND_HOST_PORT = r'http://www.hahajh.com/'
