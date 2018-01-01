@@ -12,3 +12,4 @@ __pycache__/
 celerybeat-schedule.*
 focus/views.py.orig
 .coverage
+newrelic.ini
