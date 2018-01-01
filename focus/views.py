@@ -178,6 +178,9 @@ def crop_image_for_hxjx(data):
         host = '/'.join(n['image'].split('/')[:3]) + '/'
         dirpath = os.path.dirname(path) + '/'
         filename = 'crop_' + os.path.basename(path)
+        if os.path.exists(dirpath + filename):
+            n['image_crop'] = host + dirpath + filename
+            continue
         img = Image.open(path)
         width = img.size[0]
         height = img.size[1]
