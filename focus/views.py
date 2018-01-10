@@ -232,7 +232,7 @@ class ucenter(APIView):
         tp = post_data.get('type')  # 统计类别
         current = post_data.get('current')
         page_size = post_data.get('display')  # 每页显示帖子数
-        if (not tp and tp != 0) or not current or not page_size:
+        if tp is None or current is None or page_size is None:
             context = {'message': '参数type, current, display不能为空'}
             return JsonResponse(data=context, status=status.HTTP_200_OK)
 
@@ -265,19 +265,20 @@ class ucenter(APIView):
 
 
 class contents(APIView):
+
     schema = contentsSchema
 
     def post(self, request):
         is_login = True if request.user.is_authenticated else False
         user = MyUserSerializer(request.user, context={'request': request})
         user_data = user.data  # repl_with_media_host(dict(user.data))
-
         post_data = json.loads(request.body.decode('utf8'))
+
         tp = post_data.get('type')
         sort = post_data.get('sort')
         current = post_data.get('current')
         page_size = post_data.get('display')  # 每页显示帖子数
-        if (not tp and tp != 0) or (not sort and sort != 0) or not current or not page_size:
+        if tp is None or sort is None or current is None or page_size is None:
             context = {'message': '参数type, sort, current, display不能为空'}
             return JsonResponse(context)
         query_set = get_noteset_by_type_and_sort(tp, sort)
@@ -292,7 +293,6 @@ class contents(APIView):
         notes = NoteSerializer(query_set, many=True, context={'request': request})
         notes_data = notes.data  # repl_with_media_host(notes.data)
         notes_data = append_praise_tread_info(request, notes_data)
-
         context = {
             'is_login': is_login,
             'user': user_data,
@@ -482,7 +482,7 @@ class add_comment(APIView):
             'is_success': False,
             'message': ''
         }
-        if not text:
+        if text is None:
             context['message'] = '内容不存在'
             return JsonResponse(context)
         if note_id is None:

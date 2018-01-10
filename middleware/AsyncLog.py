@@ -1,12 +1,15 @@
 from focus.tasks import async_log
 import json
 
+debug = True
+
 
 class log(object):
 
     @staticmethod
     def debug(message):
-        async_log.delay('debug', message)
+        if debug:
+            async_log.delay('debug', message)
 
     @staticmethod
     def info(message):
